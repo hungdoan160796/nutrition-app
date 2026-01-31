@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import { getDB, initDB } from "@/lib/db";
 import FoodRow from "@/components/FoodRow";
+import WeekChart from "@/components/WeekChart";
 
 const MACROS = ["protein", "fat", "carbohydrate"];
 const WEEK_START = 1; // 0 = Sunday, 1 = Monday
@@ -99,69 +100,6 @@ function buildWeeks(db: any): WeekLog[] {
 
   console.log("[buildWeeks] final weeks", weeks);
   return weeks;
-}
-
-function WeekChart({ days }: { days: (DayLog | null)[] }) {
-  const w = 220;
-  const h = 56;
-  const p = 8;
-
-  let sum = 0;
-  let count = 0;
-
-  const values = days.map((d, i) => {
-    if (!d) {
-      console.log("[WeekChart] missing day", i);
-      return null;
-    }
-    sum += d.microAvg;
-    count++;
-    const v = Math.min(100, sum / count);
-    console.log("[WeekChart] value", i, v);
-    return v;
-  });
-
-  const segments: string[] = [];
-  let curr: string[] = [];
-
-  values.forEach((v, i) => {
-    if (v === null) {
-      if (curr.length > 1) segments.push(curr.join(" "));
-      curr = [];
-      return;
-    }
-
-    const x = p + (i / 6) * (w - p * 2);
-    const y = h - p - (v / 100) * (h - p * 2);
-    curr.push(`${x},${y}`);
-  });
-
-  if (curr.length > 1) segments.push(curr.join(" "));
-
-  console.log("[WeekChart] segments", segments);
-
-  return (
-    <svg width={w} height={h} className="text-muted-foreground">
-      <line
-        x1={p}
-        x2={w - p}
-        y1={p}
-        y2={p}
-        stroke="currentColor"
-        strokeDasharray="4 4"
-        opacity="0.35"
-      />
-      {segments.map((pts, i) => (
-        <polyline
-          key={i}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          points={pts}
-        />
-      ))}
-    </svg>
-  );
 }
 
 function formatWeekRange(start: string) {

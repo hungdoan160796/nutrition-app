@@ -1,8 +1,20 @@
 // components/FoodRow.tsx
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { loadLocalDB, saveLocalDB } from "@/lib/localStore.web";
+import foodsSelectedRaw from "@/data/foods_selected.json";
+
+type FoodCatalogItem = {
+  term: string;
+  name: string;
+};
+
+type FoodFromDB = {
+  id: string;
+  name: string;
+  grams?: number;
+};
 
 type SelectedFood = {
   name: string;
@@ -15,50 +27,57 @@ type LocalDB = {
 };
 
 type FoodRowProps = {
-  food: SelectedFood;
+  food: FoodFromDB;
 };
 
+const foodsSelected = foodsSelectedRaw as FoodCatalogItem[];
+
+const normalize = (s: string) =>
+  s.trim().toLowerCase();
+
 export default function FoodRow({ food }: FoodRowProps) {
-  console.log("[FoodRow] render", food);
+  const normalizedName = normalize(food.name);
+
+  const catalogFood = useMemo(() => {
+    return foodsSelected.find(
+      (f) => normalize(f.name) === normalizedName
+    );
+  }, [normalizedName]);
+
+  const term = catalogFood?.term ?? normalizedName;
+  const name = catalogFood?.name ?? food.name;
+  const quantity = food.grams;
 
   useEffect(() => {
-    console.log("[FoodRow] useEffect fired", food);
-
-    if (!food.term) {
-      console.warn("[FoodRow] missing term", food);
-      return;
-    }
-
     (async () => {
       const db =
         (await loadLocalDB<LocalDB>()) ?? { foods_selected: [] };
 
-      console.log("[FoodRow] loaded local DB", db);
+      const entry: SelectedFood = {
+        term,
+        name,
+        quantity,
+      };
 
       const idx = db.foods_selected.findIndex(
-        (f: SelectedFood) => f.term === food.term
+        (f: SelectedFood) => f.term === term
       );
 
-      console.log("[FoodRow] existing index", idx);
-
       if (idx === -1) {
-        console.log("[FoodRow] pushing new food", food);
-        db.foods_selected.push(food);
+        db.foods_selected.push(entry);
       } else {
-        console.log("[FoodRow] updating food", food);
-        db.foods_selected[idx] = food;
+        db.foods_selected[idx] = entry;
       }
 
       await saveLocalDB<LocalDB>(db);
-      console.log("[FoodRow] saved local DB", db);
     })();
-  }, [food.term, food.quantity, food.name]);
+  }, [term, name, quantity]);
 
   return (
     <div className="flex justify-between text-sm">
-      <span>{food.term}</span>
+      <span>{term}</span>
       <span className="text-muted-foreground">
-        {food.quantity ?? ""}
+        {quantity ?? ""}
       </span>
     </div>
   );
