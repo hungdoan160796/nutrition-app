@@ -34,13 +34,13 @@ export default function HomePage() {
   const microAvg =
     micros.length === 0
       ? 0
-      : micros.reduce((sum: number, n: any) => sum + n.progress, 0) / micros.length;
+      : Math.round(micros.reduce((sum: number, n: any) => sum + n.progress, 0) / micros.length * 100) / 100;
   return (
     <div className="p-4 space-y-6">
       <h1 className="text-xl font-semibold">This Week</h1>
 
       {/*calories*/}
-      {macros.length > 0 && (
+      {(
         <section className="space-y-2">
           <h2 className="text-sm uppercase text-neutral-400">Calorie</h2>
           <div className="grid  gap-3">
@@ -49,7 +49,7 @@ export default function HomePage() {
         </section>
       )}
       {/* Macros */}
-      {macros.length > 0 && (
+      {(
         <section className="space-y-2">
           <h2 className="text-sm uppercase text-neutral-400">Macros</h2>
           <div className="grid grid-cols-3 gap-3">
@@ -64,7 +64,7 @@ export default function HomePage() {
       <div className="flex justify-center">
         <ProgressRing value={microAvg} />
       </div>
-      {micros.length > 0 && (
+      {(
         <section className="space-y-2">
           <div className="grid grid-cols-3 gap-2">
             {micros.map((n: any) => (
