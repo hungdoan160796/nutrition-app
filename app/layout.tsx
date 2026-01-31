@@ -1,0 +1,19 @@
+import "./globals.css";
+import BottomNav from "@/components/BottomNav";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className="bg-neutral-950 text-neutral-100">
+        <main className="pb-16 max-w-md mx-auto">
+          {children}
+        </main>
+        <BottomNav />
+      </body>
+    </html>
+  );
+}

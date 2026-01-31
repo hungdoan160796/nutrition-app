@@ -1,0 +1,130 @@
+{
+  "nutrients": [
+    {
+      "id": "protein",
+      "label": "Protein",
+      "unit": "g",
+      "category": "macronutrient",
+      "usda_names": ["Protein"]
+    },
+    {
+      "id": "carbohydrate",
+      "label": "Carbo",
+      "unit": "g",
+      "category": "macronutrient",
+      "usda_names": ["Carbohydrate, by difference"]
+    },
+    {
+      "id": "fat",
+      "label": "Fat",
+      "unit": "g",
+      "category": "macronutrient",
+      "usda_names": ["Total lipid (fat)"]
+    },
+    {
+      "id": "fiber",
+      "label": "Fiber",
+      "unit": "g",
+      "category": "macronutrient",
+      "usda_names": ["Fiber, total dietary"]
+    },
+    {
+      "id": "calories",
+      "label": "Calories",
+      "unit": "kcal",
+      "category": "macronutrient",
+      "usda_names": ["Energy"]
+    },
+    {
+      "id": "iron",
+      "label": "Iron",
+      "unit": "mg",
+      "category": "mineral",
+      "usda_names": ["Iron, Fe"]
+    },
+    {
+      "id": "calcium",
+      "label": "Calcium",
+      "unit": "mg",
+      "category": "mineral",
+      "usda_names": ["Calcium, Ca"]
+    },
+    {
+      "id": "magnesium",
+      "label": "Magnesium",
+      "unit": "mg",
+      "category": "mineral",
+      "usda_names": ["Magnesium, Mg"]
+    },
+    {
+      "id": "potassium",
+      "label": "Potassium",
+      "unit": "mg",
+      "category": "mineral",
+      "usda_names": ["Potassium, K"]
+    },
+    {
+      "id": "sodium",
+      "label": "Sodium",
+      "unit": "mg",
+      "category": "mineral",
+      "usda_names": ["Sodium, Na"]
+    },
+    {
+      "id": "zinc",
+      "label": "Zinc",
+      "unit": "mg",
+      "category": "mineral",
+      "usda_names": ["Zinc, Zn"]
+    },
+    {
+      "id": "vitamin_a",
+      "label": "Vitamin A",
+      "unit": "µg",
+      "category": "vitamin",
+      "usda_names": ["Vitamin A, RAE"]
+    },
+    {
+      "id": "vitamin_c",
+      "label": "Vitamin C",
+      "unit": "mg",
+      "category": "vitamin",
+      "usda_names": ["Vitamin C, total ascorbic acid"]
+    },
+    {
+      "id": "vitamin_d",
+      "label": "Vitamin D",
+      "unit": "IU",
+      "category": "vitamin",
+      "usda_names": ["Vitamin D (D2 + D3)"]
+    },
+    {
+      "id": "vitamin_e",
+      "label": "Vitamin E",
+      "unit": "mg",
+      "category": "vitamin",
+      "usda_names": ["Vitamin E (alpha-tocopherol)"]
+    },
+    {
+      "id": "vitamin_k",
+      "label": "Vitamin K",
+      "unit": "µg",
+      "category": "vitamin",
+      "usda_names": ["Vitamin K (phylloquinone)"]
+    },
+    {
+      "id": "vitamin_b12",
+      "label": "Vitamin B12",
+      "unit": "µg",
+      "category": "vitamin",
+      "usda_names": ["Vitamin B-12"]
+    },
+    {
+      "id": "folate",
+      "label": "Folate",
+      "unit": "µg",
+      "category": "vitamin",
+      "usda_names": ["Folate, total"]
+    }
+  ]
+}

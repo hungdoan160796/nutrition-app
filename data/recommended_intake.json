@@ -1,0 +1,148 @@
+{
+  "recommendations": [
+    {
+      "nutrient_id": "protein",
+      "sex": "female",
+      "age_min": 19,
+      "age_max": 50,
+      "basis": "RDA",
+      "unit": "g",
+      "daily_value": 46
+    },
+    {
+      "nutrient_id": "protein",
+      "sex": "male",
+      "age_min": 19,
+      "age_max": 50,
+      "basis": "RDA",
+      "unit": "g",
+      "daily_value": 56
+    },
+    {
+      "nutrient_id": "iron",
+      "sex": "female",
+      "age_min": 19,
+      "age_max": 50,
+      "basis": "RDA",
+      "unit": "mg",
+      "daily_value": 18
+    },
+    {
+      "nutrient_id": "iron",
+      "sex": "male",
+      "age_min": 19,
+      "age_max": 50,
+      "basis": "RDA",
+      "unit": "mg",
+      "daily_value": 8
+    },
+    {
+      "nutrient_id": "calcium",
+      "sex": "any",
+      "age_min": 19,
+      "age_max": 50,
+      "basis": "RDA",
+      "unit": "mg",
+      "daily_value": 1000
+    },
+    {
+      "nutrient_id": "magnesium",
+      "sex": "female",
+      "age_min": 19,
+      "age_max": 50,
+      "basis": "RDA",
+      "unit": "mg",
+      "daily_value": 320
+    },
+    {
+      "nutrient_id": "magnesium",
+      "sex": "male",
+      "age_min": 19,
+      "age_max": 50,
+      "basis": "RDA",
+      "unit": "mg",
+      "daily_value": 420
+    },
+    {
+      "nutrient_id": "potassium",
+      "sex": "any",
+      "age_min": 19,
+      "age_max": 50,
+      "basis": "AI",
+      "unit": "mg",
+      "daily_value": 4700
+    },
+    {
+      "nutrient_id": "sodium",
+      "sex": "any",
+      "age_min": 19,
+      "age_max": 50,
+      "basis": "UL",
+      "unit": "mg",
+      "daily_value": 2300
+    },
+    {
+      "nutrient_id": "zinc",
+      "sex": "female",
+      "age_min": 19,
+      "age_max": 50,
+      "basis": "RDA",
+      "unit": "mg",
+      "daily_value": 8
+    },
+    {
+      "nutrient_id": "zinc",
+      "sex": "male",
+      "age_min": 19,
+      "age_max": 50,
+      "basis": "RDA",
+      "unit": "mg",
+      "daily_value": 11
+    },
+    {
+      "nutrient_id": "vitamin_c",
+      "sex": "female",
+      "age_min": 19,
+      "age_max": 50,
+      "basis": "RDA",
+      "unit": "mg",
+      "daily_value": 75
+    },
+    {
+      "nutrient_id": "vitamin_c",
+      "sex": "male",
+      "age_min": 19,
+      "age_max": 50,
+      "basis": "RDA",
+      "unit": "mg",
+      "daily_value": 90
+    },
+    {
+      "nutrient_id": "vitamin_d",
+      "sex": "any",
+      "age_min": 19,
+      "age_max": 50,
+      "basis": "RDA",
+      "unit": "IU",
+      "daily_value": 600
+    },
+    {
+      "nutrient_id": "vitamin_b12",
+      "sex": "any",
+      "age_min": 19,
+      "age_max": 50,
+      "basis": "RDA",
+      "unit": "µg",
+      "daily_value": 2.4
+    },
+    {
+      "nutrient_id": "folate",
+      "sex": "any",
+      "age_min": 19,
+      "age_max": 50,
+      "basis": "RDA",
+      "unit": "µg",
+      "daily_value": 400
+    }
+  ]
+}
