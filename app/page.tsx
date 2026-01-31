@@ -19,18 +19,19 @@ export default function HomePage() {
   if (!progress) {
     return <div className="p-4">Loading…</div>;
   }
-  const calories = progress.focus.find((n: any) => n.id === "calories");
-  const macros = progress.focus.filter((n: any) =>
+  const calories = progress.all.find((n: any) => n.id === "calories");
+  const macros = progress.all.filter((n: any) =>
     MACROS.includes(n.id)
   );
-  const micros = progress.focus.filter(
-    (n: any) => !MACROS.includes(n.id)
-  );
-
+  macros.forEach((n: any) => {console.log(n.id, n.progress);});
   if (!progress) {
     return <div className="p-4">Loading…</div>;
   }
 
+  const micros = progress.all.filter(
+    (n: any) => !MACROS.includes(n.id) && n.id !== "calories"
+  );
+  micros.forEach((n: any) => {console.log(n.id, n.progress);});
   const microAvg =
     micros.length === 0
       ? 0

@@ -4,7 +4,7 @@ const DB_VERSION = 1;
 const STORE_INTAKE = "intake_log";
 // db.ts (replace in-memory-only logic)
 
-import { loadLocalDB, saveLocalDB } from "./localStore";
+import { loadLocalDB, saveLocalDB } from "./localStore.web";
 
 export type DBState = {
   foodLog: Record<string, any[]>;

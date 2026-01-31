@@ -1,11 +1,17 @@
 // /lib/nutritionEngine.ts
 
-import { getFoodById } from "@/lib/foodData";
-import { addIntake, getAllIntake } from "@/lib/db";
 import { getNutrientById } from "@/lib/nutrientRegistry";
 import { getUserProfile } from "@/lib/userProfile";
 import { getDailyTargets } from "@/lib/recommendationEngine";
+import { getDB, initDB, updateDB } from "@/lib/db";
+import foods from "@/data/foods_clean.json";
 
+/**
+ * CONFIG
+ * 0 = Sunday, 1 = Monday
+ * MUST match History page
+ */
+export const WEEK_START = 1;
 
 // ---------- Types ----------
 export type NutrientContribution = {
@@ -22,12 +28,6 @@ export type NutrientDetail = {
   contributions: NutrientContribution[];
 };
 
-export type IntakeEntry = {
-  foodId: string;
-  grams: number;
-  date: string; // ISO
-};
-
 export type NutrientProgress = {
   id: string;
   name: string;
@@ -36,42 +36,43 @@ export type NutrientProgress = {
 
 export type WeeklyProgress = {
   overall: number;
+  all: NutrientProgress[];     // ← NEW
   focus: NutrientProgress[];
 };
 
-// ---------- TEMP: Weekly Targets ----------
-// These will later come from recommendation tables
-const weeklyTargets: Record<string, number> = {
-  protein: 350,
-  iron: 126,
-  vitamin_c: 525,
-};
 
+// ---------- Week Helpers ----------
 
-
-// ---------- Helpers ----------
-
-function getWeekStart(date = new Date()) {
-  const d = new Date(date);
-  const day = d.getDay(); // 0 = Sun
-  const diff = d.getDate() - day;
-  d.setDate(diff);
+function getWeekRange(
+  baseDate: Date = new Date()
+): { start: string; end: string } {
+  const d = new Date(baseDate);
+  const diff = (d.getDay() - WEEK_START + 7) % 7;
+  d.setDate(d.getDate() - diff);
   d.setHours(0, 0, 0, 0);
-  return d.toISOString();
+
+  const start = new Date(d);
+  const end = new Date(d);
+  end.setDate(end.getDate() + 7);
+
+  return {
+    start: start.toISOString().slice(0, 10),
+    end: end.toISOString().slice(0, 10),
+  };
 }
 
-function isSameWeek(dateIso: string, weekStartIso: string) {
-  return dateIso >= weekStartIso;
+function isWithinWeek(
+  dateIso: string,
+  startIso: string,
+  endIso: string
+) {
+  return dateIso >= startIso && dateIso < endIso;
 }
-
 
 // ---------- Core Logic ----------
-// lib/nutritionEngine.ts
-import { updateDB } from "./db";
-import foods from "@/data/foods_clean.json";
 
 export async function logFood(foodId: string, grams: number) {
-  const food = foods.find(f => f.id === foodId);
+  const food = foods.find((f) => f.id === foodId);
   if (!food) return;
 
   const date = new Date().toISOString().slice(0, 10);
@@ -86,17 +87,17 @@ export async function logFood(foodId: string, grams: number) {
       loggedAt: Date.now(),
     });
   });
-
-  // nutrient aggregation logic stays here
 }
 
-import { getDB, initDB } from "@/lib/db";
+// ---------- Weekly Progress (Main Dashboard) ----------
 
-export async function getWeeklyProgress(): Promise<WeeklyProgress> {
+export async function getWeeklyProgress(
+  baseDate: Date = new Date()
+): Promise<WeeklyProgress> {
   await initDB();
   const db = getDB();
 
-  const weekStart = getWeekStart();
+  const { start, end } = getWeekRange(baseDate);
   const profile = getUserProfile();
   const dailyTargets = getDailyTargets(profile);
 
@@ -105,12 +106,12 @@ export async function getWeeklyProgress(): Promise<WeeklyProgress> {
     weeklyTargets[nutrientId] = daily * 7;
   }
 
-  let totals: Record<string, number> = {};
+  const totals: Record<string, number> = {};
 
   for (const [date, foods] of Object.entries(db.foodLog)) {
-    if (!isSameWeek(date, weekStart)) continue;
+    if (!isWithinWeek(date, start, end)) continue;
 
-    for (const entry of foods) {
+    for (const entry of foods as any[]) {
       const factor = entry.grams / 100;
 
       for (const [nutrientId, amountPer100g] of Object.entries(
@@ -122,20 +123,23 @@ export async function getWeeklyProgress(): Promise<WeeklyProgress> {
     }
   }
 
-
   const nutrientProgress: NutrientProgress[] = [];
 
   for (const [nutrientId, target] of Object.entries(weeklyTargets)) {
-  if (!target || target <= 0) continue;
-  if (!(nutrientId in totals)) continue;
-    const intake = totals[nutrientId] ?? 0;
+    if (!target || !(nutrientId in totals)) continue;
+
     const def = getNutrientById(nutrientId);
     if (!def) continue;
+
+    const intake = totals[nutrientId];
 
     nutrientProgress.push({
       id: nutrientId,
       name: def.label,
-      progress: Math.min(100, Math.round((intake / target) * 100)),
+      progress: Math.min(
+        100,
+        Math.round((intake / target) * 100)
+      ),
     });
   }
 
@@ -145,25 +149,25 @@ export async function getWeeklyProgress(): Promise<WeeklyProgress> {
       : nutrientProgress.reduce((s, n) => s + n.progress, 0) /
         nutrientProgress.length;
 
-  console.log("totals", totals);
-  console.log("daily targets", dailyTargets);
-
-
   return {
     overall: Math.round(overall),
+    all: nutrientProgress,
     focus: nutrientProgress
       .filter(n => n.progress < 100)
       .sort((a, b) => a.progress - b.progress),
   };
-  
 }
+
+// ---------- Nutrient Detail (Weekly) ----------
+
 export async function getNutrientDetail(
-  nutrientId: string
+  nutrientId: string,
+  baseDate: Date = new Date()
 ): Promise<NutrientDetail | null> {
   await initDB();
   const db = getDB();
 
-  const weekStart = getWeekStart();
+  const { start, end } = getWeekRange(baseDate);
   const profile = getUserProfile();
   const dailyTargets = getDailyTargets(profile);
 
@@ -179,7 +183,7 @@ export async function getNutrientDetail(
   const grouped: Record<string, number> = {};
 
   for (const [date, foods] of Object.entries(db.foodLog)) {
-    if (!isSameWeek(date, weekStart)) continue;
+    if (!isWithinWeek(date, start, end)) continue;
 
     for (const entry of foods as any[]) {
       const factor = entry.grams / 100;
@@ -207,7 +211,10 @@ export async function getNutrientDetail(
     unit: def.unit,
     intake: Number(total.toFixed(2)),
     target,
-    progress: Math.min(100, Math.round((total / target) * 100)),
+    progress: Math.min(
+      100,
+      Math.round((total / target) * 100)
+    ),
     contributions,
   };
 }

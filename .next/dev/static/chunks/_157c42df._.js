@@ -215,27 +215,19 @@ if (!isWeb) {
         AsyncStorage = null;
     }
 }
+// lib/localStore.ts
+// Web-only local persistence (Next.js safe)
 const KEY = "nutrition_app_db";
 async function loadLocalDB() {
-    if (isWeb) {
-        const raw = window.localStorage.getItem(KEY);
-        return raw ? JSON.parse(raw) : null;
-    }
-    if (AsyncStorage) {
-        const raw = await AsyncStorage.getItem(KEY);
-        return raw ? JSON.parse(raw) : null;
-    }
-    return null;
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    ;
+    const raw = window.localStorage.getItem(KEY);
+    return raw ? JSON.parse(raw) : null;
 }
 async function saveLocalDB(data) {
-    const serialized = JSON.stringify(data);
-    if (isWeb) {
-        window.localStorage.setItem(KEY, serialized);
-        return;
-    }
-    if (AsyncStorage) {
-        await AsyncStorage.setItem(KEY, serialized);
-    }
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    ;
+    window.localStorage.setItem(KEY, JSON.stringify(data));
 }
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
@@ -350,8 +342,9 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/lib/nutritionEngine.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// /lib/nutritionEngine.ts
 __turbopack_context__.s([
+    "WEEK_START",
+    ()=>WEEK_START,
     "getNutrientDetail",
     ()=>getNutrientDetail,
     "getWeeklyProgress",
@@ -359,37 +352,35 @@ __turbopack_context__.s([
     "logFood",
     ()=>logFood
 ]);
+// /lib/nutritionEngine.ts
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$nutrientRegistry$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/nutrientRegistry.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$userProfile$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/userProfile.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$recommendationEngine$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/recommendationEngine.ts [app-client] (ecmascript)");
-// ---------- Core Logic ----------
-// lib/nutritionEngine.ts
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/db.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$foods_clean$2e$json__$28$json$29$__ = __turbopack_context__.i("[project]/data/foods_clean.json (json)");
 ;
 ;
 ;
-// ---------- TEMP: Weekly Targets ----------
-// These will later come from recommendation tables
-const weeklyTargets = {
-    protein: 350,
-    iron: 126,
-    vitamin_c: 525
-};
-// ---------- Helpers ----------
-function getWeekStart(date = new Date()) {
-    const d = new Date(date);
-    const day = d.getDay(); // 0 = Sun
-    const diff = d.getDate() - day;
-    d.setDate(diff);
+;
+;
+const WEEK_START = 1;
+// ---------- Week Helpers ----------
+function getWeekRange(baseDate = new Date()) {
+    const d = new Date(baseDate);
+    const diff = (d.getDay() - WEEK_START + 7) % 7;
+    d.setDate(d.getDate() - diff);
     d.setHours(0, 0, 0, 0);
-    return d.toISOString();
+    const start = new Date(d);
+    const end = new Date(d);
+    end.setDate(end.getDate() + 7);
+    return {
+        start: start.toISOString().slice(0, 10),
+        end: end.toISOString().slice(0, 10)
+    };
 }
-function isSameWeek(dateIso, weekStartIso) {
-    return dateIso >= weekStartIso;
+function isWithinWeek(dateIso, startIso, endIso) {
+    return dateIso >= startIso && dateIso < endIso;
 }
-;
-;
 async function logFood(foodId, grams) {
     const food = __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$foods_clean$2e$json__$28$json$29$__["default"].find((f)=>f.id === foodId);
     if (!food) return;
@@ -404,22 +395,20 @@ async function logFood(foodId, grams) {
             loggedAt: Date.now()
         });
     });
-// nutrient aggregation logic stays here
 }
-;
-async function getWeeklyProgress() {
+async function getWeeklyProgress(baseDate = new Date()) {
     await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["initDB"])();
     const db = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDB"])();
-    const weekStart = getWeekStart();
+    const { start, end } = getWeekRange(baseDate);
     const profile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$userProfile$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getUserProfile"])();
     const dailyTargets = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$recommendationEngine$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDailyTargets"])(profile);
     const weeklyTargets = {};
     for (const [nutrientId, daily] of Object.entries(dailyTargets)){
         weeklyTargets[nutrientId] = daily * 7;
     }
-    let totals = {};
+    const totals = {};
     for (const [date, foods] of Object.entries(db.foodLog)){
-        if (!isSameWeek(date, weekStart)) continue;
+        if (!isWithinWeek(date, start, end)) continue;
         for (const entry of foods){
             const factor = entry.grams / 100;
             for (const [nutrientId, amountPer100g] of Object.entries(entry.nutrients)){
@@ -429,11 +418,10 @@ async function getWeeklyProgress() {
     }
     const nutrientProgress = [];
     for (const [nutrientId, target] of Object.entries(weeklyTargets)){
-        if (!target || target <= 0) continue;
-        if (!(nutrientId in totals)) continue;
-        const intake = totals[nutrientId] ?? 0;
+        if (!target || !(nutrientId in totals)) continue;
         const def = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$nutrientRegistry$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getNutrientById"])(nutrientId);
         if (!def) continue;
+        const intake = totals[nutrientId];
         nutrientProgress.push({
             id: nutrientId,
             name: def.label,
@@ -441,17 +429,16 @@ async function getWeeklyProgress() {
         });
     }
     const overall = nutrientProgress.length === 0 ? 0 : nutrientProgress.reduce((s, n)=>s + n.progress, 0) / nutrientProgress.length;
-    console.log("totals", totals);
-    console.log("daily targets", dailyTargets);
     return {
         overall: Math.round(overall),
+        all: nutrientProgress,
         focus: nutrientProgress.filter((n)=>n.progress < 100).sort((a, b)=>a.progress - b.progress)
     };
 }
-async function getNutrientDetail(nutrientId) {
+async function getNutrientDetail(nutrientId, baseDate = new Date()) {
     await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["initDB"])();
     const db = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDB"])();
-    const weekStart = getWeekStart();
+    const { start, end } = getWeekRange(baseDate);
     const profile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$userProfile$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getUserProfile"])();
     const dailyTargets = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$recommendationEngine$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDailyTargets"])(profile);
     const target = dailyTargets[nutrientId] ? dailyTargets[nutrientId] * 7 : null;
@@ -461,7 +448,7 @@ async function getNutrientDetail(nutrientId) {
     let total = 0;
     const grouped = {};
     for (const [date, foods] of Object.entries(db.foodLog)){
-        if (!isSameWeek(date, weekStart)) continue;
+        if (!isWithinWeek(date, start, end)) continue;
         for (const entry of foods){
             const factor = entry.grams / 100;
             const amountPer100g = entry.nutrients?.[nutrientId];
@@ -531,19 +518,25 @@ function HomePage() {
             columnNumber: 12
         }, this);
     }
-    const calories = progress.focus.find((n)=>n.id === "calories");
-    const macros = progress.focus.filter((n)=>MACROS.includes(n.id));
-    const micros = progress.focus.filter((n)=>!MACROS.includes(n.id));
+    const calories = progress.all.find((n)=>n.id === "calories");
+    const macros = progress.all.filter((n)=>MACROS.includes(n.id));
+    macros.forEach((n)=>{
+        console.log(n.id, n.progress);
+    });
     if (!progress) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "p-4",
             children: "Loading…"
         }, void 0, false, {
             fileName: "[project]/app/page.tsx",
-            lineNumber: 31,
+            lineNumber: 28,
             columnNumber: 12
         }, this);
     }
+    const micros = progress.all.filter((n)=>!MACROS.includes(n.id) && n.id !== "calories");
+    micros.forEach((n)=>{
+        console.log(n.id, n.progress);
+    });
     const microAvg = micros.length === 0 ? 0 : Math.round(micros.reduce((sum, n)=>sum + n.progress, 0) / micros.length * 100) / 100;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "p-4 space-y-6",
@@ -553,7 +546,7 @@ function HomePage() {
                 children: "This Week"
             }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 40,
+                lineNumber: 41,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -564,7 +557,7 @@ function HomePage() {
                         children: "Calorie"
                     }, void 0, false, {
                         fileName: "[project]/app/page.tsx",
-                        lineNumber: 45,
+                        lineNumber: 46,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -573,18 +566,18 @@ function HomePage() {
                             ...calories
                         }, calories.id, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 47,
+                            lineNumber: 48,
                             columnNumber: 26
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/page.tsx",
-                        lineNumber: 46,
+                        lineNumber: 47,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 44,
+                lineNumber: 45,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -595,7 +588,7 @@ function HomePage() {
                         children: "Macros"
                     }, void 0, false, {
                         fileName: "[project]/app/page.tsx",
-                        lineNumber: 54,
+                        lineNumber: 55,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -604,18 +597,18 @@ function HomePage() {
                                 ...n
                             }, n.id, false, {
                                 fileName: "[project]/app/page.tsx",
-                                lineNumber: 57,
+                                lineNumber: 58,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/app/page.tsx",
-                        lineNumber: 55,
+                        lineNumber: 56,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 53,
+                lineNumber: 54,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -623,7 +616,7 @@ function HomePage() {
                 children: "Micros"
             }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 63,
+                lineNumber: 64,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -632,12 +625,12 @@ function HomePage() {
                     value: microAvg
                 }, void 0, false, {
                     fileName: "[project]/app/page.tsx",
-                    lineNumber: 65,
+                    lineNumber: 66,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 64,
+                lineNumber: 65,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -649,23 +642,23 @@ function HomePage() {
                             compact: true
                         }, n.id, false, {
                             fileName: "[project]/app/page.tsx",
-                            lineNumber: 71,
+                            lineNumber: 72,
                             columnNumber: 15
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/app/page.tsx",
-                    lineNumber: 69,
+                    lineNumber: 70,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 68,
+                lineNumber: 69,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/page.tsx",
-        lineNumber: 39,
+        lineNumber: 40,
         columnNumber: 5
     }, this);
 }

@@ -5,63 +5,242 @@ import { useEffect, useState } from "react";
 import { getDB, initDB } from "@/lib/db";
 import FoodRow from "@/components/FoodRow";
 
+const MACROS = ["protein", "fat", "carbohydrate"];
+const WEEK_START = 1; // 0 = Sunday, 1 = Monday
+
 type DayLog = {
   date: string;
   foods: any[];
+  microAvg: number;
 };
 
-function getLast7Days(): string[] {
-  const days: string[] = [];
-  const today = new Date();
+type WeekLog = {
+  start: string;
+  days: (DayLog | null)[];
+};
 
-  for (let i = 0; i < 7; i++) {
-    const d = new Date(today);
-    d.setDate(today.getDate() - i);
-    days.push(d.toISOString().slice(0, 10));
+function startOfWeek(date: Date) {
+  const d = new Date(date);
+  const diff = (d.getDay() - WEEK_START + 7) % 7;
+  d.setDate(d.getDate() - diff);
+  d.setHours(0, 0, 0, 0);
+  console.log("[startOfWeek]", { input: date, output: d });
+  return d;
+}
+
+const iso = (d: Date) => d.toISOString().slice(0, 10);
+
+const addDays = (d: Date, n: number) => {
+  const x = new Date(d);
+  x.setDate(x.getDate() + n);
+  return x;
+};
+
+function buildWeeks(db: any): WeekLog[] {
+  console.log("[buildWeeks] raw db", db);
+
+  const dates = Object.keys(db.foodLog || {}).sort();
+  console.log("[buildWeeks] dates", dates);
+
+  if (!dates.length) return [];
+
+  const map = new Map<string, Map<string, DayLog>>();
+
+  for (const dateStr of dates) {
+    const foods = db.foodLog[dateStr] ?? [];
+    console.log("[buildWeeks] day foods", dateStr, foods);
+
+    const date = new Date(dateStr);
+    const weekStart = iso(startOfWeek(date));
+
+    const micros = foods.flatMap((f: any) =>
+      (f.progress?.focus ?? []).filter(
+        (n: any) => !MACROS.includes(n.id)
+      )
+    );
+
+    console.log("[buildWeeks] micros", dateStr, micros);
+
+    const microAvg =
+      micros.length === 0
+        ? 0
+        : Math.round(
+            (micros.reduce((s: number, n: any) => s + n.progress, 0) /
+              micros.length) *
+              100
+          ) / 100;
+
+    console.log("[buildWeeks] microAvg", dateStr, microAvg);
+
+    if (!map.has(weekStart)) {
+      console.log("[buildWeeks] new week", weekStart);
+      map.set(weekStart, new Map());
+    }
+
+    map.get(weekStart)!.set(dateStr, {
+      date: dateStr,
+      foods,
+      microAvg,
+    });
   }
 
-  return days;
+  const weeks = Array.from(map.entries())
+    .map(([start, dayMap]) => {
+      const base = new Date(start);
+      const days = Array.from({ length: 7 }, (_, i) => {
+        const key = iso(addDays(base, i));
+        const day = dayMap.get(key) ?? null;
+        console.log("[buildWeeks] week day", start, key, day);
+        return day;
+      });
+      return { start, days };
+    })
+    .sort((a, b) => b.start.localeCompare(a.start));
+
+  console.log("[buildWeeks] final weeks", weeks);
+  return weeks;
+}
+
+function WeekChart({ days }: { days: (DayLog | null)[] }) {
+  const w = 220;
+  const h = 56;
+  const p = 8;
+
+  let sum = 0;
+  let count = 0;
+
+  const values = days.map((d, i) => {
+    if (!d) {
+      console.log("[WeekChart] missing day", i);
+      return null;
+    }
+    sum += d.microAvg;
+    count++;
+    const v = Math.min(100, sum / count);
+    console.log("[WeekChart] value", i, v);
+    return v;
+  });
+
+  const segments: string[] = [];
+  let curr: string[] = [];
+
+  values.forEach((v, i) => {
+    if (v === null) {
+      if (curr.length > 1) segments.push(curr.join(" "));
+      curr = [];
+      return;
+    }
+
+    const x = p + (i / 6) * (w - p * 2);
+    const y = h - p - (v / 100) * (h - p * 2);
+    curr.push(`${x},${y}`);
+  });
+
+  if (curr.length > 1) segments.push(curr.join(" "));
+
+  console.log("[WeekChart] segments", segments);
+
+  return (
+    <svg width={w} height={h} className="text-muted-foreground">
+      <line
+        x1={p}
+        x2={w - p}
+        y1={p}
+        y2={p}
+        stroke="currentColor"
+        strokeDasharray="4 4"
+        opacity="0.35"
+      />
+      {segments.map((pts, i) => (
+        <polyline
+          key={i}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          points={pts}
+        />
+      ))}
+    </svg>
+  );
+}
+
+function formatWeekRange(start: string) {
+  const s = new Date(start);
+  const e = addDays(s, 6);
+  return `${s.toLocaleDateString(undefined, {
+    month: "short",
+    day: "numeric",
+  })} – ${e.toLocaleDateString(undefined, {
+    month: "short",
+    day: "numeric",
+  })}`;
 }
 
 export default function HistoryPage() {
-  const [week, setWeek] = useState<DayLog[]>([]);
+  const [weeks, setWeeks] = useState<WeekLog[]>([]);
 
   useEffect(() => {
     (async () => {
+      console.log("[HistoryPage] init");
       await initDB();
       const db = getDB();
-      const days = getLast7Days();
-
-      const data = days.map((date) => ({
-        date,
-        foods: db.foodLog[date] ?? [],
-      }));
-
-      setWeek(data);
+      console.log("[HistoryPage] db loaded", db);
+      setWeeks(buildWeeks(db));
     })();
   }, []);
 
+  console.log("[HistoryPage] render weeks", weeks);
+
   return (
-    <div className="p-4 space-y-6">
-      <h1 className="text-xl font-semibold">This Week</h1>
+    <div className="p-4 space-y-10">
+      <h1 className="text-xl font-semibold">History</h1>
 
-      {week.map((day) => (
-        <div key={day.date} className="space-y-2">
-          <h2 className="text-sm font-medium text-muted-foreground">
-            {day.date}
-          </h2>
+      {weeks.map((week) => {
+        const visibleDays = week.days.filter((d) => d !== null) as DayLog[];
+        const missingCount = week.days.length - visibleDays.length;
 
-          {day.foods.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No foods logged</p>
-          ) : (
-            <div className="space-y-1">
-              {day.foods.map((food, i) => (
-                <FoodRow key={i} food={food} />
+        console.log("[HistoryPage] week", week.start, {
+          visibleDays,
+          missingCount,
+        });
+
+        return (
+          <section
+            key={week.start}
+            className="rounded-xl border border-muted/40 p-4 space-y-4"
+          >
+            <header className="flex items-center justify-between">
+              <div className="space-y-1">
+                <h2 className="text-sm font-medium">
+                  {formatWeekRange(week.start)}
+                </h2>
+                {missingCount > 0 && (
+                  <p className="text-xs text-muted-foreground">
+                    {missingCount} day{missingCount > 1 ? "s" : ""} with no data
+                  </p>
+                )}
+              </div>
+              <WeekChart days={week.days} />
+            </header>
+
+            <div className="space-y-4">
+              {visibleDays.map((day) => (
+                <div key={day.date} className="space-y-2">
+                  <h3 className="text-xs font-medium text-muted-foreground">
+                    {day.date}
+                  </h3>
+                  <div className="space-y-1">
+                    {day.foods.map((food, i) => {
+                      console.log("[HistoryPage] food row", day.date, food);
+                      return <FoodRow key={i} food={food} />;
+                    })}
+                  </div>
+                </div>
               ))}
             </div>
-          )}
-        </div>
-      ))}
+          </section>
+        );
+      })}
     </div>
   );
 }
