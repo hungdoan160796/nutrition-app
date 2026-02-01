@@ -361,7 +361,7 @@ function LogFoodPage() {
                 className: "grid grid-cols-3 gap-3",
                 children: FOOD_GROUPS.map((g)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         onClick: ()=>setActiveGroup(g),
-                        className: "aspect-square rounded-xl bg-neutral-900 flex items-center justify-center font-semibold capitalize",
+                        className: "aspect-square rounded-xl bg-[var(--muted)] flex items-center justify-center font-semibold capitalize",
                         children: g
                     }, g, false, {
                         fileName: "[project]/app/log/page.tsx",
@@ -383,7 +383,7 @@ function LogFoodPage() {
                                     setActiveGroup(null);
                                     setFoodId("");
                                 },
-                                className: "text-sm text-neutral-400",
+                                className: "text-sm text-[var(--accent)]",
                                 children: "← Back"
                             }, void 0, false, {
                                 fileName: "[project]/app/log/page.tsx",
@@ -408,7 +408,7 @@ function LogFoodPage() {
                         className: "grid grid-cols-2 gap-3 max-h-64 overflow-y-auto",
                         children: groupFoods.map((f)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>setFoodId(f.id),
-                                className: `p-3 rounded-lg text-left ${foodId === f.id ? "bg-emerald-600 text-black" : "bg-neutral-900"}`,
+                                className: `p-3 rounded-lg text-left ${foodId === f.id ? "bg-emerald-600 text-black" : "bg-[var(--muted)]"}`,
                                 children: f.term
                             }, f.id, false, {
                                 fileName: "[project]/app/log/page.tsx",
@@ -425,7 +425,7 @@ function LogFoodPage() {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                 type: "number",
                 placeholder: "Grams eaten",
-                className: "w-full p-3 rounded bg-neutral-900",
+                className: "w-full p-3 rounded bg-[var(--muted)] text-[var(--foreground)]",
                 value: grams,
                 onChange: (e)=>setGrams(e.target.value)
             }, void 0, false, {

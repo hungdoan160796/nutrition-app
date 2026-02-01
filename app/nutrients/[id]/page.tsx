@@ -58,15 +58,15 @@ export default function NutrientDetailPage() {
     <div className="p-4 space-y-6">
       <h1 className="text-xl font-semibold">{data.name}</h1>
 
-      <div className="bg-neutral-900 rounded-xl p-4 space-y-2">
+      <div className="bg-[var(--muted)] text-[var(--foreground)] rounded-xl p-4 space-y-2">
         <div className="flex justify-between">
           <span>Progress</span>
           <span>{data.progress}%</span>
         </div>
 
-        <div className="h-2 bg-neutral-800 rounded">
+        <div className="h-2 bg-[var(--muted)] rounded">
           <div
-            className="h-2 bg-emerald-500 rounded"
+            className="h-2 bg-emerald-600 rounded"
             style={{ width: `${data.progress}%` }}
           />
         </div>
@@ -90,7 +90,7 @@ export default function NutrientDetailPage() {
         {data.contributions.map((c: any) => (
           <div
             key={c.foodId}
-            className="flex justify-between bg-neutral-900 p-3 rounded"
+            className="flex justify-between bg-[var(--muted)] text-[var(--foreground)] p-3 rounded"
           >
             <span className="truncate">{c.foodName}</span>
             <span className="text-neutral-400">

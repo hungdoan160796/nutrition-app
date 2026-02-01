@@ -5,16 +5,205 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --muted: #f4f4f5;
+  --border: #e5e7eb;
+  --accent: #2563eb;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --muted: #18181b;
+    --border: #27272a;
+    --accent: #60a5fa;
+  }
+}
+@layer base {
+  :root {
+    --radius: 0.75rem;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+[data-theme="dark-pro"] {
+  --background: #0b0f19;
+  --foreground: #e5e7eb;
+  --muted: #111827;
+  --border: #1f2933;
+  --accent: #38bdf8;
+}
+
+[data-theme="soft-light"] {
+  --background: #fafafa;
+  --foreground: #1f2937;
+  --muted: #f1f5f9;
+  --border: #e2e8f0;
+  --accent: #6366f1;
+}
+
+[data-theme="forest"] {
+  --background: #0f1f17;
+  --foreground: #e6f4ea;
+  --muted: #162c22;
+  --border: #1f3d2b;
+  --accent: #22c55e;
+}
+[data-theme="ocean"] {
+  --background: #0b1d26;
+  --foreground: #e0f2fe;
+  --muted: #102a36;
+  --border: #164e63;
+  --accent: #06b6d4;
+}
+[data-theme="sunset"] {
+  --background: #2b0f14;
+  --foreground: #fde8e8;
+  --muted: #3b141a;
+  --border: #7f1d1d;
+  --accent: #f97316;
+}
+[data-theme="sakura"] {
+  --background: #fff1f2;
+  --foreground: #4a1d2e;
+  --muted: #ffe4e6;
+  --border: #fecdd3;
+  --accent: #ec4899;
+}
+[data-theme="solarized-light"] {
+  --background: #fdf6e3;
+  --foreground: #657b83;
+  --muted: #eee8d5;
+  --border: #e0d7b5;
+  --accent: #b58900;
+}
+[data-theme="solarized-dark"] {
+  --background: #002b36;
+  --foreground: #93a1a1;
+  --muted: #073642;
+  --border: #0f4c5c;
+  --accent: #cb4b16;
+}
+[data-theme="neon"] {
+  --background: #050505;
+  --foreground: #e5e5e5;
+  --muted: #111111;
+  --border: #27272a;
+  --accent: #22d3ee;
+}
+[data-theme="gray-matter"] {
+  --background: #111827;
+  --foreground: #d1d5db;
+  --muted: #1f2937;
+  --border: #374151;
+  --accent: #9ca3af;
+}
+[data-theme="midnight-blue"] {
+  --background: #0a1e3f;
+  --foreground: #dbeafe;
+  --muted: #112a4a;
+  --border: #1e40af;
+  --accent: #3b82f6;
+}
+[data-theme="candlelight"] {
+  --background: #1c0f0a;
+  --foreground: #fbeedb;
+  --muted: #2a1610;
+  --border: #7c4a31;
+  --accent: #f59e0b;
+}
+[data-theme="lavender"] {
+  --background: #f5f3ff;
+  --foreground: #4c1d95;
+  --muted: #ede9fe;
+  --border: #ddd6fe;
+  --accent: #a78bfa;
+}
+[data-theme="mint"] {
+  --background: #f0fdf4;
+  --foreground: #064e3b;
+  --muted: #dcfce7;
+  --border: #bbf7d0;
+  --accent: #34d399;
+}
+[data-theme="charcoal"] {
+  --background: #121212;
+  --foreground: #e0e0e0;
+  --muted: #1e1e1e;
+  --border: #333333;
+  --accent: #bbbbbb;
+}
+[data-theme="peach"] {
+  --background: #fff5f0;
+  --foreground: #7c2d12;
+  --muted: #ffebe6;
+  --border: #ffccba;
+  --accent: #fb923c;
+}
+[data-theme="teal"] {
+  --background: #e6fffa;
+  --foreground: #134e4a;
+  --muted: #b2f5ea;
+  --border: #81e6d9;
+  --accent: #14b8a6;
+}
+[data-theme="coffee"] {
+  --background: #2c1a0e;
+  --foreground: #f3e8dd;
+  --muted: #3d2720;
+  --border: #7b5e57;
+  --accent: #d97706;
+}
+[data-theme="ice"] {
+  --background: #e0f7ff;
+  --foreground: #0c4a6e;
+  --muted: #b9e6ff;
+  --border: #7dd3fc;
+  --accent: #0ea5e9;
+}
+[data-theme="desert"] {
+  --background: #fff7ed;
+  --foreground: #78350f;
+  --muted: #ffedd5;
+  --border: #fed7aa;
+  --accent: #f59e0b;
+}
+[data-theme="plum"] {
+  --background: #fdf4ff;
+  --foreground: #5b21b6;
+  --muted: #fae8ff;
+  --border: #e9d5ff;
+  --accent: #a855f7;
+}
+[data-theme="graphite"] {
+  --background: #1f2937;
+  --foreground: #d1d5db;
+  --muted: #374151;
+  --border: #4b5563;
+  --accent: #9ca3af;
+}
+[data-theme="cobalt"] {
+  --background: #112244;
+  --foreground: #d0e1ff;
+  --muted: #223366;
+  --border: #334477;
+  --accent: #6699ff;
+}
+[data-theme="apricot"] {
+  --background: #fff1e0;
+  --foreground: #7f3700;
+  --muted: #ffe6cc;
+  --border: #ffcc99;
+  --accent: #ff7f50;
+}
+[data-theme="sage"] {
+  --background: #f3f9f1;
+  --foreground: #254524;
+  --muted: #dceddc;
+  --border: #b4deb4;
+  --accent: #4ade80;
 }

@@ -161,20 +161,20 @@ export default function HistoryPage() {
               <WeekChart days={week.days} />
             </header>
 
-            <div className="space-y-4">
-              {visibleDays.map((day) => (
+            <div className="space-y-4 ">
+                {[...visibleDays].reverse().map((day) => (
                 <div key={day.date} className="space-y-2">
                   <h3 className="text-xs font-medium text-muted-foreground">
-                    {day.date}
+                  {day.date}
                   </h3>
                   <div className="space-y-1">
-                    {day.foods.map((food, i) => {
-                      console.log("[HistoryPage] food row", day.date, food);
-                      return <FoodRow key={i} food={food} />;
-                    })}
+                  {day.foods.map((food, i) => {
+                    console.log("[HistoryPage] food row", day.date, food);
+                    return <FoodRow key={i} food={food} />;
+                  })}
                   </div>
                 </div>
-              ))}
+                ))}
             </div>
           </section>
         );

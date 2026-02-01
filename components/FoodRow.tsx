@@ -74,9 +74,9 @@ export default function FoodRow({ food }: FoodRowProps) {
   }, [term, name, quantity]);
 
   return (
-    <div className="flex justify-between text-sm">
+    <div className="flex justify-between text-sm text-[var(--foreground)]">
       <span>{term}</span>
-      <span className="text-muted-foreground">
+      <span className="text-[var(--muted)]">
         {quantity ?? ""}
       </span>
     </div>

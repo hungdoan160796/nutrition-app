@@ -62,7 +62,7 @@ export default function LogFoodPage() {
             <button
               key={g}
               onClick={() => setActiveGroup(g)}
-              className="aspect-square rounded-xl bg-neutral-900 flex items-center justify-center font-semibold capitalize"
+              className="aspect-square rounded-xl bg-[var(--muted)] flex items-center justify-center font-semibold capitalize"
             >
               {g}
             </button>
@@ -78,7 +78,7 @@ export default function LogFoodPage() {
                 setActiveGroup(null);
                 setFoodId("");
               }}
-              className="text-sm text-neutral-400"
+              className="text-sm text-[var(--accent)]"
             >
               ← Back
             </button>
@@ -93,7 +93,7 @@ export default function LogFoodPage() {
                 className={`p-3 rounded-lg text-left ${
                   foodId === f.id
                     ? "bg-emerald-600 text-black"
-                    : "bg-neutral-900"
+                    : "bg-[var(--muted)]"
                 }`}
               >
                 {f.term}
@@ -106,7 +106,7 @@ export default function LogFoodPage() {
       <input
         type="number"
         placeholder="Grams eaten"
-        className="w-full p-3 rounded bg-neutral-900"
+        className="w-full p-3 rounded bg-[var(--muted)] text-[var(--foreground)]"
         value={grams}
         onChange={e => setGrams(e.target.value)}
       />

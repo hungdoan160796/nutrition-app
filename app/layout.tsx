@@ -1,3 +1,4 @@
+// app/layout.tsx
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 
@@ -8,7 +9,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-neutral-950 text-neutral-100">
+      <body className="bg-[var(--background)] text-[var(--foreground)]">
         <main className="pb-16 max-w-md mx-auto">
           {children}
         </main>

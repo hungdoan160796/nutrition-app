@@ -14,36 +14,39 @@ export default function NutrientCard({
   progress,
   compact = false,
 }: Props) {
+  // components/NutrientCard.tsx
   return (
     <Link
       href={`/nutrients/${id}`}
-      className={`rounded-xl bg-neutral-900 ${
+      className={`rounded-xl bg-[var(--background)] border border-[var(--border)] ${
         compact ? "p-2" : "p-4"
       }`}
     >
       <div className="flex justify-between items-center">
         <span
-          className={`font-medium ${
+          className={`font-medium text-[var(--foreground)] ${
             compact ? "text-xs" : "text-sm"
           }`}
         >
           {name}
         </span>
-        <span className="text-xs text-neutral-400">
+
+        <span className="text-xs text-[var(--foreground)]">
           {progress}%
         </span>
       </div>
 
       <div
-        className={`mt-2 bg-neutral-800 rounded ${
+        className={`mt-2 bg-[var(--border)] rounded ${
           compact ? "h-1.5" : "h-2"
         }`}
       >
         <div
-          className="bg-emerald-500 rounded h-full"
+          className="bg-[var(--accent)] rounded h-full"
           style={{ width: `${progress}%` }}
         />
       </div>
     </Link>
   );
+
 }

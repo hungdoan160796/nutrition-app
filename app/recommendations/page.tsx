@@ -88,7 +88,7 @@ export default function RecommendationsPage() {
         <select
           value={standard}
           onChange={e => changeStandard(e.target.value as StandardId)}
-          className="p-2 rounded bg-neutral-900"
+          className="p-2 rounded bg-[var(--muted)] text-[var(--foreground)]"
         >
           <option value="fda_dv_2024">FDA Daily Values</option>
           <option value="usda_dri">USDA DRI (Age / Sex)</option>
@@ -96,7 +96,7 @@ export default function RecommendationsPage() {
         <select
           value={sex}
           onChange={e => changeSex(e.target.value as Sex)}
-          className="p-2 rounded bg-neutral-900"
+          className="p-2 rounded bg-[var(--muted)] text-[var(--foreground)]"
         >
           <option value="female">Female</option>
           <option value="male">Male</option>
@@ -108,7 +108,7 @@ export default function RecommendationsPage() {
           max={120}
           value={age}
           onChange={e => changeAge(Number(e.target.value))}
-          className="p-2 w-20 rounded bg-neutral-900 text-right"
+          className="p-2 w-20 rounded bg-[var(--muted)] text-[var(--foreground)] text-right"
         />
       </div>
 
@@ -117,7 +117,7 @@ export default function RecommendationsPage() {
         {rows.map(r => (
           <div
             key={r.id}
-            className="flex items-center justify-between gap-3 bg-neutral-900 p-3 rounded"
+            className="flex items-center justify-between gap-3 bg-[var(--muted)] text-[var(--foreground)] p-3 rounded"
           >
             <div>
               <div className="font-medium capitalize">
@@ -132,7 +132,7 @@ export default function RecommendationsPage() {
               type="number"
               value={r.value}
               onChange={e => updateValue(r.id, Number(e.target.value))}
-              className="w-24 p-2 rounded bg-neutral-800 text-right"
+              className="w-24 p-2 rounded bg-[var(--muted)] text-[var(--foreground)] text-right"
             />
           </div>
         ))}
@@ -140,7 +140,7 @@ export default function RecommendationsPage() {
 
       <button
         onClick={resetAll}
-        className="w-full p-3 rounded bg-neutral-700 text-sm"
+        className="w-full p-3 rounded bg-[var(--muted)] text-sm"
       >
         Restore Defaults
       </button>
