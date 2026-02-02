@@ -2,7 +2,6 @@
 "use client";
 
 import { useEffect, useMemo } from "react";
-import { loadLocalDB, saveLocalDB } from "@/lib/localStore.web";
 import foodsSelectedRaw from "@/data/foods_selected.json";
 
 type FoodCatalogItem = {
@@ -11,7 +10,7 @@ type FoodCatalogItem = {
 };
 
 type FoodFromDB = {
-  id: string;
+  term: string;
   name: string;
   grams?: number;
 };
@@ -22,20 +21,21 @@ type SelectedFood = {
   quantity?: number;
 };
 
-type LocalDB = {
-  foods_selected: SelectedFood[];
-};
-
 type FoodRowProps = {
   food: FoodFromDB;
+  selected?: SelectedFood;
+  onChange?: (entry: SelectedFood) => void;
 };
 
 const foodsSelected = foodsSelectedRaw as FoodCatalogItem[];
 
-const normalize = (s: string) =>
-  s.trim().toLowerCase();
+const normalize = (s: string) => s.trim().toLowerCase();
 
-export default function FoodRow({ food }: FoodRowProps) {
+export default function FoodRow({
+  food,
+  selected,
+  onChange,
+}: FoodRowProps) {
   const normalizedName = normalize(food.name);
 
   const catalogFood = useMemo(() => {
@@ -49,36 +49,23 @@ export default function FoodRow({ food }: FoodRowProps) {
   const quantity = food.grams;
 
   useEffect(() => {
-    (async () => {
-      const db =
-        (await loadLocalDB<LocalDB>()) ?? { foods_selected: [] };
+    if (!onChange) return;
 
-      const entry: SelectedFood = {
-        term,
-        name,
-        quantity,
-      };
-
-      const idx = db.foods_selected.findIndex(
-        (f: SelectedFood) => f.term === term
-      );
-
-      if (idx === -1) {
-        db.foods_selected.push(entry);
-      } else {
-        db.foods_selected[idx] = entry;
-      }
-
-      await saveLocalDB<LocalDB>(db);
-    })();
-  }, [term, name, quantity]);
+    if (
+      selected?.term !== term ||
+      selected?.name !== name ||
+      selected?.quantity !== quantity
+    ) {
+      onChange({ term, name, quantity });
+    }
+  }, [term, name, quantity, selected, onChange]);
 
   return (
-    <div className="flex justify-between text-sm text-[var(--foreground)]">
-      <span>{term}</span>
-      <span className="text-[var(--muted)]">
+    <div className="w-[70%] flex justify-between text-sm text-[var(--accent)]">
+      <div>{term}</div>
+      <div className="text-[var(--accent)]">
         {quantity ?? ""}
-      </span>
+      </div>
     </div>
   );
 }

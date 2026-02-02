@@ -54,24 +54,20 @@ function updateUserProfile(update) {
     };
 }
 }),
-"[project]/lib/localStore.web.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
-"use strict";
+"[project]/lib/localStore.web.ts [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
-__turbopack_context__.s([
-    "loadLocalDB",
-    ()=>loadLocalDB,
-    "saveLocalDB",
-    ()=>saveLocalDB
-]);
+/*
 const KEY = "nutrition_app_db";
-async function loadLocalDB() {
-    const raw = localStorage.getItem(KEY);
-    return raw ? JSON.parse(raw) : null;
+
+export async function loadLocalDB<T>() {
+  const raw = localStorage.getItem(KEY);
+  return raw ? JSON.parse(raw) : null;
 }
-async function saveLocalDB(data) {
-    localStorage.setItem(KEY, JSON.stringify(data));
+
+export async function saveLocalDB<T>(data: T) {
+  localStorage.setItem(KEY, JSON.stringify(data));
 }
-}),
+*/ }),
 "[project]/lib/db.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -214,17 +210,19 @@ function getWeekRange(baseDate = new Date()) {
 function isWithinWeek(dateIso, startIso, endIso) {
     return dateIso >= startIso && dateIso < endIso;
 }
-async function logFood(foodId, grams) {
-    const food = __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$foods_clean$2e$json__$28$json$29$__["default"].find((f)=>f.id === foodId);
+async function logFood(term, grams) {
+    const food = __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$foods_clean$2e$json__$28$json$29$__["default"].find((f)=>f.term === term);
     if (!food) return;
     const date = new Date().toISOString().slice(0, 10);
+    const progress = computeFoodProgress(food.nutrients, grams);
     await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["updateDB"])((db)=>{
         if (!db.foodLog[date]) db.foodLog[date] = [];
         db.foodLog[date].push({
-            id: food.id,
+            term: food.term,
             name: food.name,
             grams,
             nutrients: food.nutrients,
+            progress,
             loggedAt: Date.now()
         });
     });
@@ -304,6 +302,26 @@ async function getNutrientDetail(nutrientId, baseDate = new Date()) {
         contributions
     };
 }
+function computeFoodProgress(nutrients, grams) {
+    const profile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$userProfile$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getUserProfile"])();
+    const dailyTargets = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$recommendationEngine$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getDailyTargets"])(profile);
+    const focus = [];
+    for (const [nutrientId, amountPer100g] of Object.entries(nutrients)){
+        const target = dailyTargets[nutrientId];
+        if (!target) continue;
+        const def = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$nutrientRegistry$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getNutrientById"])(nutrientId);
+        if (!def) continue;
+        const intake = amountPer100g * grams / 100;
+        focus.push({
+            id: nutrientId,
+            name: def.label,
+            progress: Math.min(100, Math.round(intake / target * 100))
+        });
+    }
+    return {
+        focus
+    };
+}
 }),
 "[project]/app/log/page.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -337,12 +355,13 @@ const FOOD_GROUPS = [
 function LogFoodPage() {
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const [activeGroup, setActiveGroup] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [foodId, setFoodId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    const [foodTerm, setFoodTerm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [grams, setGrams] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const allFoods = __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$foods_selected$2e$json__$28$json$29$__["default"];
     const groupFoods = activeGroup ? allFoods.filter((f)=>f.group === activeGroup) : [];
     async function handleAdd() {
-        await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$nutritionEngine$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["logFood"])(foodId, Number(grams));
+        if (!foodTerm || !grams) return;
+        await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$nutritionEngine$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["logFood"])(foodTerm, Number(grams));
         router.push("/");
         router.refresh();
     }
@@ -354,7 +373,7 @@ function LogFoodPage() {
                 children: "Log Food"
             }, void 0, false, {
                 fileName: "[project]/app/log/page.tsx",
-                lineNumber: 57,
+                lineNumber: 60,
                 columnNumber: 7
             }, this),
             !activeGroup && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -365,12 +384,12 @@ function LogFoodPage() {
                         children: g
                     }, g, false, {
                         fileName: "[project]/app/log/page.tsx",
-                        lineNumber: 62,
+                        lineNumber: 65,
                         columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/app/log/page.tsx",
-                lineNumber: 60,
+                lineNumber: 63,
                 columnNumber: 9
             }, this),
             activeGroup && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -381,13 +400,13 @@ function LogFoodPage() {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>{
                                     setActiveGroup(null);
-                                    setFoodId("");
+                                    setFoodTerm("");
                                 },
                                 className: "text-sm text-[var(--accent)]",
                                 children: "← Back"
                             }, void 0, false, {
                                 fileName: "[project]/app/log/page.tsx",
-                                lineNumber: 76,
+                                lineNumber: 79,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -395,29 +414,29 @@ function LogFoodPage() {
                                 children: activeGroup
                             }, void 0, false, {
                                 fileName: "[project]/app/log/page.tsx",
-                                lineNumber: 85,
+                                lineNumber: 88,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/log/page.tsx",
-                        lineNumber: 75,
+                        lineNumber: 78,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "grid grid-cols-2 gap-3 max-h-64 overflow-y-auto",
                         children: groupFoods.map((f)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                onClick: ()=>setFoodId(f.id),
-                                className: `p-3 rounded-lg text-left ${foodId === f.id ? "bg-emerald-600 text-black" : "bg-[var(--muted)]"}`,
+                                onClick: ()=>setFoodTerm(f.term),
+                                className: `p-3 rounded-lg text-left ${foodTerm === f.term ? "bg-emerald-600 text-black" : "bg-[var(--muted)]"}`,
                                 children: f.term
                             }, f.id, false, {
                                 fileName: "[project]/app/log/page.tsx",
-                                lineNumber: 90,
+                                lineNumber: 93,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/app/log/page.tsx",
-                        lineNumber: 88,
+                        lineNumber: 91,
                         columnNumber: 11
                     }, this)
                 ]
@@ -430,23 +449,23 @@ function LogFoodPage() {
                 onChange: (e)=>setGrams(e.target.value)
             }, void 0, false, {
                 fileName: "[project]/app/log/page.tsx",
-                lineNumber: 106,
+                lineNumber: 109,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                 className: "w-full p-3 rounded bg-emerald-600 text-black font-semibold disabled:opacity-50",
-                disabled: !foodId || !grams,
+                disabled: !foodTerm || !grams,
                 onClick: handleAdd,
                 children: "Add"
             }, void 0, false, {
                 fileName: "[project]/app/log/page.tsx",
-                lineNumber: 114,
+                lineNumber: 117,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/log/page.tsx",
-        lineNumber: 56,
+        lineNumber: 59,
         columnNumber: 5
     }, this);
 }

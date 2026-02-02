@@ -1,18 +1,34 @@
-// lib/recommendationResolver.ts
 import { getDB } from "@/lib/db";
-import { RECOMMENDATION_SETS, type RecommendationSetId } from "@/data/recommendations";
+import {
+  RECOMMENDATION_SETS,
+  type RecommendationSetId,
+} from "@/data/recommendations";
+
+type Profile = {
+  standard: RecommendationSetId;
+  sex: "male" | "female";
+  age: number;
+};
+
+const DEFAULT_PROFILE: Profile = {
+  standard: "fda_dv_2024",
+  sex: "female",
+  age: 30,
+};
 
 export function getResolvedRecommendations() {
   const db = getDB();
 
-  const profile = db.userProfile as {
-    standard: RecommendationSetId;
-    sex: "male" | "female";
-    age: number;
+  const profile: Profile = {
+    ...DEFAULT_PROFILE,
+    ...(db.userProfile ?? {}),
   };
 
-  const overrides = db.nutrientOverrides ?? {};
-  const set = RECOMMENDATION_SETS[profile.standard]; // ✅ now safe
+  const overrides: Record<string, number> =
+    db.nutrientOverrides ?? {};
+
+  const set = RECOMMENDATION_SETS[profile.standard];
+  if (!set) return [];
 
   const rows: Record<string, any> = {};
 

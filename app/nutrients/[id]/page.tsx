@@ -66,7 +66,7 @@ export default function NutrientDetailPage() {
 
         <div className="h-2 bg-[var(--muted)] rounded">
           <div
-            className="h-2 bg-emerald-600 rounded"
+            className="h-2 bg-[var(--accent)] rounded"
             style={{ width: `${data.progress}%` }}
           />
         </div>

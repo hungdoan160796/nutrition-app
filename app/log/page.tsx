@@ -38,7 +38,7 @@ export default function LogFoodPage() {
   const router = useRouter();
 
   const [activeGroup, setActiveGroup] = useState<FoodGroup | null>(null);
-  const [foodId, setFoodId] = useState("");
+  const [foodTerm, setFoodTerm] = useState("");
   const [grams, setGrams] = useState("");
 
   const allFoods = foods as unknown as Food[];
@@ -47,10 +47,13 @@ export default function LogFoodPage() {
     : [];
 
   async function handleAdd() {
-    await logFood(foodId, Number(grams));
+    if (!foodTerm || !grams) return;
+
+    await logFood(foodTerm, Number(grams));
     router.push("/");
     router.refresh();
   }
+
 
   return (
     <div className="p-4 space-y-4">
@@ -76,7 +79,7 @@ export default function LogFoodPage() {
             <button
               onClick={() => {
                 setActiveGroup(null);
-                setFoodId("");
+                setFoodTerm("");
               }}
               className="text-sm text-[var(--accent)]"
             >
@@ -89,10 +92,10 @@ export default function LogFoodPage() {
             {groupFoods.map(f => (
               <button
                 key={f.id}
-                onClick={() => setFoodId(f.id)}
+                onClick={() => setFoodTerm(f.term)}
                 className={`p-3 rounded-lg text-left ${
-                  foodId === f.id
-                    ? "bg-emerald-600 text-black"
+                  foodTerm === f.term
+                    ? "bg-[var(--accent)] text-black"
                     : "bg-[var(--muted)]"
                 }`}
               >
@@ -112,8 +115,8 @@ export default function LogFoodPage() {
       />
 
       <button
-        className="w-full p-3 rounded bg-emerald-600 text-black font-semibold disabled:opacity-50"
-        disabled={!foodId || !grams}
+        className="w-full p-3 rounded bg-[var(--accent)] text-black font-semibold disabled:opacity-50"
+        disabled={!foodTerm || !grams}
         onClick={handleAdd}
       >
         Add

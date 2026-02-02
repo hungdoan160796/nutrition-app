@@ -1,14 +1,17 @@
-// app/recommendations/page.tsx
 "use client";
 
 import { useEffect, useState } from "react";
 import { initDB, updateDB, getDB } from "@/lib/db";
 import { getResolvedRecommendations } from "@/lib/recommendationResolver";
-import { getUserProfile } from "@/lib/userProfile";
 
 type StandardId = "fda_dv_2024" | "usda_dri";
 type Sex = "male" | "female";
 
+type UserProfile = {
+  recommendationSet?: "fda_dv_2024" | "usda_dri";
+  sex?: "male" | "female";
+  age?: number;
+};
 
 type Row = {
   id: string;
@@ -19,57 +22,84 @@ type Row = {
 };
 
 export default function RecommendationsPage() {
-  const [rows, setRows] = useState<Row[]>([]);
-  const [standard, setStandard] = useState<StandardId>("fda_dv_2024");
-  const [sex, setSex] = useState<Sex>("female");
-  const [age, setAge] = useState<number>(30);
+
+  function getUserProfile(): UserProfile | undefined {
+    const db = getDB();
+    return db.userProfile;
+  }
 
   useEffect(() => {
     (async () => {
       await initDB();
-      const db = getDB();
       const profile = getUserProfile();
-
-      setStandard(db.userProfile?.standard ?? "fda_dv_2024");
-      setSex(profile.sex ?? "female");
-      setAge(profile.age ?? 30);
-
-      setRows(getResolvedRecommendations());
+      if (
+        profile?.recommendationSet &&
+        profile?.sex &&
+        typeof profile.age === "number"
+      ) {
+        setStandard(profile.recommendationSet);
+        setSex(profile.sex);
+        setAge(profile.age);
+        setRows(getResolvedRecommendations());
+        setProfileReady(true);
+      }
     })();
   }, []);
+  const [rows, setRows] = useState<Row[]>([]);
+  const [standard, setStandard] = useState<StandardId | null>(null);
+  const [sex, setSex] = useState<Sex | null>(null);
+  const [age, setAge] = useState<number | null>(null);
+  const [profileReady, setProfileReady] = useState(false);
+  const [toast, setToast] = useState(false);
 
-  async function changeStandard(next: StandardId) {
-    await updateDB(db => {
-      db.userProfile ??= {};
-      db.userProfile.standard = next;
-    });
-    setStandard(next);
-    setRows(getResolvedRecommendations());
+  function saved() {
+    setToast(true);
+    setTimeout(() => setToast(false), 1200);
   }
 
-  async function changeSex(next: Sex) {
+  useEffect(() => {
+    (async () => {
+      await initDB();
+      const profile = getUserProfile();
+
+      if (
+        profile?.recommendationSet &&
+        profile?.sex &&
+        typeof profile.age === "number"
+      ) {
+        setStandard(profile.recommendationSet);
+        setSex(profile.sex);
+        setAge(profile.age);
+        setRows(getResolvedRecommendations());
+        setProfileReady(true);
+      }
+    })();
+  }, []);
+  async function saveProfile(next: {
+    recommendationSet: StandardId;
+    sex: Sex;
+    age: number;
+  }) {
     await updateDB(db => {
-      db.userProfile ??= {};
-      db.userProfile.sex = next;
+      db.userProfile = next;
     });
-    setSex(next);
+
+    setStandard(next.recommendationSet);
+    setSex(next.sex);
+    setAge(next.age);
     setRows(getResolvedRecommendations());
-  }
-  async function changeAge(next: number) {
-    await updateDB(db => {
-      db.userProfile ??= {};
-      db.userProfile.age = next;
-    });
-    setAge(next);
-    setRows(getResolvedRecommendations());
+    setProfileReady(true);
+    saved();
   }
 
 
   async function updateValue(id: string, value: number) {
     await updateDB(db => {
+      db.nutrientOverrides ??= {};
       db.nutrientOverrides[id] = value;
     });
     setRows(getResolvedRecommendations());
+    saved();
   }
 
   async function resetAll() {
@@ -77,27 +107,44 @@ export default function RecommendationsPage() {
       db.nutrientOverrides = {};
     });
     setRows(getResolvedRecommendations());
+    saved();
   }
-
   return (
     <div className="p-4 space-y-6">
       <h1 className="text-xl font-semibold">Recommended Intake</h1>
 
-      {/* Controls */}
-      <div className="flex gap-3">
+      {/* PROFILE CONTROLS */}
+      <div className="space-y-3 rounded-lg border border-muted p-3">
         <select
-          value={standard}
-          onChange={e => changeStandard(e.target.value as StandardId)}
-          className="p-2 rounded bg-[var(--muted)] text-[var(--foreground)]"
+          value={standard ?? ""}
+          onChange={e => {
+            const next = e.target.value as StandardId;
+            setStandard(next);
+            if (sex && age)
+              saveProfile({ recommendationSet: next, sex, age });
+          }}
+          className="p-2 rounded bg-[var(--muted)] w-full"
         >
+          <option value="" disabled>
+            Select standard
+          </option>
           <option value="fda_dv_2024">FDA Daily Values</option>
-          <option value="usda_dri">USDA DRI (Age / Sex)</option>
+          <option value="usda_dri">USDA DRI</option>
         </select>
+
         <select
-          value={sex}
-          onChange={e => changeSex(e.target.value as Sex)}
-          className="p-2 rounded bg-[var(--muted)] text-[var(--foreground)]"
+          value={sex ?? ""}
+          onChange={e => {
+            const next = e.target.value as Sex;
+            setSex(next);
+            if (standard && age)
+              saveProfile({ recommendationSet: standard, sex: next, age });
+          }}
+          className="p-2 rounded bg-[var(--muted)] w-full"
         >
+          <option value="" disabled>
+            Select sex
+          </option>
           <option value="female">Female</option>
           <option value="male">Male</option>
         </select>
@@ -106,44 +153,69 @@ export default function RecommendationsPage() {
           type="number"
           min={1}
           max={120}
-          value={age}
-          onChange={e => changeAge(Number(e.target.value))}
-          className="p-2 w-20 rounded bg-[var(--muted)] text-[var(--foreground)] text-right"
+          placeholder="Age"
+          value={age ?? ""}
+          onChange={e => {
+            const next = Number(e.target.value);
+            setAge(next);
+            if (standard && sex)
+              saveProfile({ recommendationSet: standard, sex, age: next });
+          }}
+          className="p-2 rounded bg-[var(--muted)] w-full"
         />
+
+        {!profileReady && (
+          <p className="text-sm text-muted-foreground">
+            Complete your profile to see recommendations
+          </p>
+        )}
       </div>
 
-      {/* Nutrients */}
-      <div className="space-y-3">
-        {rows.map(r => (
-          <div
-            key={r.id}
-            className="flex items-center justify-between gap-3 bg-[var(--muted)] text-[var(--foreground)] p-3 rounded"
-          >
-            <div>
-              <div className="font-medium capitalize">
-                {r.id.replace("_", " ")}
-              </div>
-              <div className="text-xs text-neutral-400">
-                Default: {r.recommended} {r.unit}
-              </div>
-            </div>
+      {/* RECOMMENDATIONS */}
+      {profileReady && (
+        <>
+          <div className="space-y-3">
+            {rows.map(r => (
+              <div
+                key={r.id}
+                className="flex items-center justify-between gap-3 bg-[var(--muted)] p-3 rounded"
+              >
+                <div>
+                  <div className="font-medium capitalize">
+                    {r.id.replace("_", " ")}
+                  </div>
+                  <div className="text-xs text-neutral-400">
+                    Default: {r.recommended} {r.unit}
+                  </div>
+                </div>
 
-            <input
-              type="number"
-              value={r.value}
-              onChange={e => updateValue(r.id, Number(e.target.value))}
-              className="w-24 p-2 rounded bg-[var(--muted)] text-[var(--foreground)] text-right"
-            />
+                <input
+                  type="number"
+                  value={r.value}
+                  onChange={e =>
+                    updateValue(r.id, Number(e.target.value))
+                  }
+                  className="w-24 p-2 rounded bg-[var(--muted)] text-right"
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <button
-        onClick={resetAll}
-        className="w-full p-3 rounded bg-[var(--muted)] text-sm"
-      >
-        Restore Defaults
-      </button>
+          <button
+            onClick={resetAll}
+            className="w-full p-3 rounded bg-[var(--muted)] text-sm"
+          >
+            Restore Defaults
+          </button>
+        </>
+      )}
+
+      {toast && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 rounded-full bg-black/80 px-4 py-2 text-sm text-white z-50">
+          Saved!
+        </div>
+      )}
     </div>
   );
+
 }

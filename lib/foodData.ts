@@ -1,4 +1,4 @@
-import rawData from "@/data/foods_clean.json";
+import rawData from "@/data/foods_selected.json";
 import { getNutrientByUsdaName } from "@/lib/nutrientRegistry";
 
 export type FoodSummary = {

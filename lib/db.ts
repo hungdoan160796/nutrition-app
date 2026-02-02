@@ -4,7 +4,7 @@ const DB_VERSION = 1;
 const STORE_INTAKE = "intake_log";
 // db.ts (replace in-memory-only logic)
 
-import { loadLocalDB, saveLocalDB } from "./localStore.web";
+import { loadLocalDB, saveLocalDB } from "./localStore.native";
 
 export type DBState = {
   foodLog: Record<string, any[]>;
@@ -12,27 +12,33 @@ export type DBState = {
   nutrientOverrides: Record<string, number>;
 };
 
-
 let db: DBState = {
   foodLog: {},
-  userProfile: null,
-  nutrientOverrides: {},   // 👈 add this
+  userProfile: {},
+  nutrientOverrides: {},
 };
-
-
 export async function initDB() {
-  const stored = await loadLocalDB<DBState>();
-  if (stored) db = stored;
+  const stored = await loadLocalDB<Partial<DBState>>();
+
+  if (stored) {
+    db = {
+      foodLog: stored.foodLog ?? {},
+      userProfile: stored.userProfile ?? null,
+      nutrientOverrides: stored.nutrientOverrides ?? {},
+    };
+  }
 }
+
 
 export function getDB() {
   return db;
 }
-
 export async function updateDB(mutator: (db: DBState) => void) {
+  await initDB();          // 🔑 ensure DB is hydrated
   mutator(db);
   await saveLocalDB(db);
 }
+
 
 let dbPromise: Promise<IDBDatabase> | null = null;
 

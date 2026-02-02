@@ -359,17 +359,19 @@ function getWeekRange(baseDate = new Date()) {
 function isWithinWeek(dateIso, startIso, endIso) {
     return dateIso >= startIso && dateIso < endIso;
 }
-async function logFood(foodId, grams) {
-    const food = __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$foods_clean$2e$json__$28$json$29$__["default"].find((f)=>f.id === foodId);
+async function logFood(term, grams) {
+    const food = __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$foods_clean$2e$json__$28$json$29$__["default"].find((f)=>f.term === term);
     if (!food) return;
     const date = new Date().toISOString().slice(0, 10);
+    const progress = computeFoodProgress(food.nutrients, grams);
     await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["updateDB"])((db)=>{
         if (!db.foodLog[date]) db.foodLog[date] = [];
         db.foodLog[date].push({
-            id: food.id,
+            term: food.term,
             name: food.name,
             grams,
             nutrients: food.nutrients,
+            progress,
             loggedAt: Date.now()
         });
     });
@@ -447,6 +449,26 @@ async function getNutrientDetail(nutrientId, baseDate = new Date()) {
         target,
         progress: Math.min(100, Math.round(total / target * 100)),
         contributions
+    };
+}
+function computeFoodProgress(nutrients, grams) {
+    const profile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$userProfile$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getUserProfile"])();
+    const dailyTargets = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$recommendationEngine$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDailyTargets"])(profile);
+    const focus = [];
+    for (const [nutrientId, amountPer100g] of Object.entries(nutrients)){
+        const target = dailyTargets[nutrientId];
+        if (!target) continue;
+        const def = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$nutrientRegistry$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getNutrientById"])(nutrientId);
+        if (!def) continue;
+        const intake = amountPer100g * grams / 100;
+        focus.push({
+            id: nutrientId,
+            name: def.label,
+            progress: Math.min(100, Math.round(intake / target * 100))
+        });
+    }
+    return {
+        focus
     };
 }
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {

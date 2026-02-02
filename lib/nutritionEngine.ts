@@ -4,14 +4,14 @@ import { getNutrientById } from "@/lib/nutrientRegistry";
 import { getUserProfile } from "@/lib/userProfile";
 import { getDailyTargets } from "@/lib/recommendationEngine";
 import { getDB, initDB, updateDB } from "@/lib/db";
-import foods from "@/data/foods_clean.json";
+import foods from "@/data/foods_selected.json";
 
 /**
  * CONFIG
- * 0 = Sunday, 1 = Monday
+ * 1 = Sunday, 2 = Monday
  * MUST match History page
  */
-export const WEEK_START = 1;
+export const WEEK_START = 2;
 
 // ---------- Types ----------
 export type NutrientContribution = {
@@ -71,8 +71,8 @@ function isWithinWeek(
 
 // ---------- Core Logic ----------
 
-export async function logFood(foodId: string, grams: number) {
-  const food = foods.find((f) => f.id === foodId);
+export async function logFood(foodTerm: string, grams: number) {
+  const food = foods.find((f) => f.term === foodTerm);
   if (!food) return;
 
   const date = new Date().toISOString().slice(0, 10);
@@ -80,12 +80,13 @@ export async function logFood(foodId: string, grams: number) {
   await updateDB((db) => {
     if (!db.foodLog[date]) db.foodLog[date] = [];
     db.foodLog[date].push({
-      id: food.id,
+      term: food.term,
       name: food.name,
       grams,
       nutrients: food.nutrients,
       loggedAt: Date.now(),
     });
+    
   });
 }
 

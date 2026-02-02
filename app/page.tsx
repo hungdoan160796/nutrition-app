@@ -9,6 +9,21 @@ type Theme = string;
 
 const THEME_REGEX = /data[-–]theme\s*=\s*"([^"]+)"/g;
 const MACROS = ["protein", "fat", "carbohydrate"];
+const MICROS = [
+      "vitamin_a",
+      "vitamin_k",
+      "vitamin_e",
+      "calcium",
+      "potassium",
+      "zinc",
+      "vitamin_c",
+      "folate",
+      "vitamin_b12",
+      "fiber",
+      "iron",
+      "magnesium",
+      "sodium",
+      "vitamin_d"]
 
 export default function HomePage() {
   const [progress, setProgress] = useState<any>(null);
@@ -60,7 +75,7 @@ export default function HomePage() {
     MACROS.includes(n.id)
   );
   const micros = progress.all.filter(
-    (n: any) => !MACROS.includes(n.id) && n.id !== "calories"
+    (n: any) => MICROS.includes(n.id)
   );
 
   const microAvg =

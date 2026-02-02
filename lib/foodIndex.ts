@@ -1,4 +1,4 @@
-import foods from "@/data/foods_clean.json";
+import foods from "@/data/foods_selected.json";
 
 export type FoodLite = {
   id: string;
