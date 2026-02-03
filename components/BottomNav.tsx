@@ -8,6 +8,7 @@ export default function BottomNav() {
         <Link href="/log">Log</Link>
         <Link href="/history">History</Link>
         <Link href="/recommendations">Recommendations</Link>
+        <Link href="/add">Add</Link>
       </div>
     </nav>
   );

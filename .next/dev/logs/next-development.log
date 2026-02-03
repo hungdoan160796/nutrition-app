@@ -144,3 +144,1505 @@
 [00:03:31.179] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 168930
 [00:03:31.179] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 168930
 [00:03:31.313] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 168930
+[00:08:39.608] Server  LOG     ✓ Compiled in 437ms
+[00:09:04.245] Browser LOG     Daily targets: {"calcium":1000,"calorie":1800,"carbohydrate":130,"choline":425,"copper":0.9,"fiber":25.2,"folate":400,"iron":18,"linoleic_acid":12,"linolenic_acid":1.1,"magnesium":320,"manganese":1.8,"niacin":14,"phosphorus":700,"potassium":4700,"protein":46,"riboflavin":1.1,"selenium":55,"sodium":2300,"thiamin":1.1,"vitamin_a":700,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":75,"vitamin_d":600,"vitamin_e":15,"vitamin_k":90,"zinc":8}
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=700, progress=0.14%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=90, progress=2.67%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=8, progress=79.38%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=75, progress=5.33%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=25.2, progress=8.73%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=18, progress=18.67%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=320, progress=28.75%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-01-31] day avg (14 nutrients): 20.49%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=700, progress=30.57%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=90, progress=100.00%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=8, progress=100.00%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=75, progress=38.53%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=25.2, progress=23.02%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=18, progress=72.39%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=320, progress=69.38%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.69%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=700, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=90, progress=0.89%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=8, progress=23.63%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=75, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=25.2, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=18, progress=5.67%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=320, progress=10.63%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.85%
+[00:09:04.245] Browser LOG     Daily targets: {"calcium":1000,"calorie":1800,"carbohydrate":130,"choline":425,"copper":0.9,"fiber":25.2,"folate":400,"iron":18,"linoleic_acid":12,"linolenic_acid":1.1,"magnesium":320,"manganese":1.8,"niacin":14,"phosphorus":700,"potassium":4700,"protein":46,"riboflavin":1.1,"selenium":55,"sodium":2300,"thiamin":1.1,"vitamin_a":700,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":75,"vitamin_d":600,"vitamin_e":15,"vitamin_k":90,"zinc":8}
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=700, progress=0.14%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=90, progress=2.67%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=8, progress=79.38%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=75, progress=5.33%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=25.2, progress=8.73%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=18, progress=18.67%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=320, progress=28.75%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-01-31] day avg (14 nutrients): 20.49%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=700, progress=30.57%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=90, progress=100.00%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=8, progress=100.00%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=75, progress=38.53%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=25.2, progress=23.02%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=18, progress=72.39%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=320, progress=69.38%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.69%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=700, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=90, progress=0.89%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=8, progress=23.63%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=75, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=25.2, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=18, progress=5.67%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=320, progress=10.63%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.85%
+[00:09:04.245] Browser LOG     Daily targets: {"calcium":1000,"calorie":1800,"carbohydrate":130,"choline":425,"copper":0.9,"fiber":25.2,"folate":400,"iron":18,"linoleic_acid":12,"linolenic_acid":1.1,"magnesium":320,"manganese":1.8,"niacin":14,"phosphorus":700,"potassium":4700,"protein":46,"riboflavin":1.1,"selenium":55,"sodium":2300,"thiamin":1.1,"vitamin_a":700,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":75,"vitamin_d":600,"vitamin_e":15,"vitamin_k":90,"zinc":8}
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=700, progress=0.14%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=90, progress=2.67%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=8, progress=79.38%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=75, progress=5.33%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=25.2, progress=8.73%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=18, progress=18.67%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=320, progress=28.75%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-01-31] day avg (14 nutrients): 20.49%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=700, progress=30.57%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=90, progress=100.00%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=8, progress=100.00%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=75, progress=38.53%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=25.2, progress=23.02%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=18, progress=72.39%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=320, progress=69.38%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[00:09:04.245] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.69%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=700, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=90, progress=0.89%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=8, progress=23.63%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=75, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=25.2, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=18, progress=5.67%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=320, progress=10.63%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[00:09:04.245] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:04.245] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.85%
+[00:09:04.245] Browser LOG     Daily targets: {"calcium":1000,"calorie":1800,"carbohydrate":130,"choline":425,"copper":0.9,"fiber":25.2,"folate":400,"iron":18,"linoleic_acid":12,"linolenic_acid":1.1,"magnesium":320,"manganese":1.8,"niacin":14,"phosphorus":700,"potassium":4700,"protein":46,"riboflavin":1.1,"selenium":55,"sodium":2300,"thiamin":1.1,"vitamin_a":700,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":75,"vitamin_d":600,"vitamin_e":15,"vitamin_k":90,"zinc":8}
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=700, progress=0.14%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=90, progress=2.67%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[00:09:04.245] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[00:09:04.246] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[00:09:04.246] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=8, progress=79.38%
+[00:09:04.246] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=75, progress=5.33%
+[00:09:04.246] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[00:09:04.246] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[00:09:04.246] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=25.2, progress=8.73%
+[00:09:04.246] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=18, progress=18.67%
+[00:09:04.246] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=320, progress=28.75%
+[00:09:04.246] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[00:09:04.246] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:04.246] Browser LOG     [2026-01-31] day avg (14 nutrients): 20.49%
+[00:09:04.246] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=700, progress=30.57%
+[00:09:04.246] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=90, progress=100.00%
+[00:09:04.246] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[00:09:04.246] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[00:09:04.246] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[00:09:04.246] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=8, progress=100.00%
+[00:09:04.246] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=75, progress=38.53%
+[00:09:04.246] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[00:09:04.246] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[00:09:04.246] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=25.2, progress=23.02%
+[00:09:04.246] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=18, progress=72.39%
+[00:09:04.246] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=320, progress=69.38%
+[00:09:04.246] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[00:09:04.246] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:04.246] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.69%
+[00:09:04.246] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=700, progress=0.00%
+[00:09:04.246] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=90, progress=0.89%
+[00:09:04.246] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[00:09:04.246] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[00:09:04.246] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[00:09:04.246] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=8, progress=23.63%
+[00:09:04.246] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=75, progress=0.00%
+[00:09:04.246] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[00:09:04.246] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[00:09:04.246] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=25.2, progress=0.00%
+[00:09:04.246] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=18, progress=5.67%
+[00:09:04.246] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=320, progress=10.63%
+[00:09:04.246] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[00:09:04.246] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:04.246] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.85%
+[00:09:04.246] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:09:04.246] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:09:04.246] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:09:04.246] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:09:06.822] Browser LOG     Daily targets: {"calcium":1000,"calorie":1800,"carbohydrate":130,"choline":425,"copper":0.9,"fiber":25.2,"folate":400,"iron":18,"linoleic_acid":12,"linolenic_acid":1.1,"magnesium":320,"manganese":1.8,"niacin":14,"phosphorus":700,"potassium":4700,"protein":46,"riboflavin":1.1,"selenium":55,"sodium":2300,"thiamin":1.1,"vitamin_a":700,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":75,"vitamin_d":600,"vitamin_e":15,"vitamin_k":90,"zinc":8}
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=700, progress=0.14%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=90, progress=2.67%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=8, progress=79.38%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=75, progress=5.33%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=25.2, progress=8.73%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=18, progress=18.67%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=320, progress=28.75%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:06.822] Browser LOG     [2026-01-31] day avg (14 nutrients): 20.49%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=700, progress=30.57%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=90, progress=100.00%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=8, progress=100.00%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=75, progress=38.53%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=25.2, progress=23.02%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=18, progress=72.39%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=320, progress=69.38%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:06.822] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.69%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=700, progress=0.00%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=90, progress=0.89%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=8, progress=23.63%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=75, progress=0.00%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=25.2, progress=0.00%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=18, progress=5.67%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=320, progress=10.63%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:06.822] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.85%
+[00:09:06.822] Browser LOG     Daily targets: {"calcium":1000,"calorie":1800,"carbohydrate":130,"choline":425,"copper":0.9,"fiber":25.2,"folate":400,"iron":18,"linoleic_acid":12,"linolenic_acid":1.1,"magnesium":320,"manganese":1.8,"niacin":14,"phosphorus":700,"potassium":4700,"protein":46,"riboflavin":1.1,"selenium":55,"sodium":2300,"thiamin":1.1,"vitamin_a":700,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":75,"vitamin_d":600,"vitamin_e":15,"vitamin_k":90,"zinc":8}
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=700, progress=0.14%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=90, progress=2.67%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=8, progress=79.38%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=75, progress=5.33%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=25.2, progress=8.73%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=18, progress=18.67%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=320, progress=28.75%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:06.822] Browser LOG     [2026-01-31] day avg (14 nutrients): 20.49%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=700, progress=30.57%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=90, progress=100.00%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=8, progress=100.00%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=75, progress=38.53%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=25.2, progress=23.02%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=18, progress=72.39%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=320, progress=69.38%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:06.822] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.69%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=700, progress=0.00%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=90, progress=0.89%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=8, progress=23.63%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=75, progress=0.00%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=25.2, progress=0.00%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=18, progress=5.67%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=320, progress=10.63%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[00:09:06.822] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:06.822] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.85%
+[00:09:06.822] Browser LOG     Daily targets: {"calcium":1000,"calorie":1800,"carbohydrate":130,"choline":425,"copper":0.9,"fiber":25.2,"folate":400,"iron":18,"linoleic_acid":12,"linolenic_acid":1.1,"magnesium":320,"manganese":1.8,"niacin":14,"phosphorus":700,"potassium":4700,"protein":46,"riboflavin":1.1,"selenium":55,"sodium":2300,"thiamin":1.1,"vitamin_a":700,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":75,"vitamin_d":600,"vitamin_e":15,"vitamin_k":90,"zinc":8}
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=700, progress=0.14%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=90, progress=2.67%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=8, progress=79.38%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=75, progress=5.33%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=25.2, progress=8.73%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=18, progress=18.67%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=320, progress=28.75%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[00:09:06.822] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:06.822] Browser LOG     [2026-01-31] day avg (14 nutrients): 20.49%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=700, progress=30.57%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=90, progress=100.00%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[00:09:06.822] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=8, progress=100.00%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=75, progress=38.53%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=25.2, progress=23.02%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=18, progress=72.39%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=320, progress=69.38%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:06.823] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.69%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=700, progress=0.00%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=90, progress=0.89%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=8, progress=23.63%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=75, progress=0.00%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=25.2, progress=0.00%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=18, progress=5.67%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=320, progress=10.63%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:06.823] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.85%
+[00:09:06.823] Browser LOG     Daily targets: {"calcium":1000,"calorie":1800,"carbohydrate":130,"choline":425,"copper":0.9,"fiber":25.2,"folate":400,"iron":18,"linoleic_acid":12,"linolenic_acid":1.1,"magnesium":320,"manganese":1.8,"niacin":14,"phosphorus":700,"potassium":4700,"protein":46,"riboflavin":1.1,"selenium":55,"sodium":2300,"thiamin":1.1,"vitamin_a":700,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":75,"vitamin_d":600,"vitamin_e":15,"vitamin_k":90,"zinc":8}
+[00:09:06.823] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=700, progress=0.14%
+[00:09:06.823] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=90, progress=2.67%
+[00:09:06.823] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[00:09:06.823] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[00:09:06.823] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[00:09:06.823] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=8, progress=79.38%
+[00:09:06.823] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=75, progress=5.33%
+[00:09:06.823] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[00:09:06.823] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[00:09:06.823] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=25.2, progress=8.73%
+[00:09:06.823] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=18, progress=18.67%
+[00:09:06.823] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=320, progress=28.75%
+[00:09:06.823] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[00:09:06.823] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:06.823] Browser LOG     [2026-01-31] day avg (14 nutrients): 20.49%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=700, progress=30.57%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=90, progress=100.00%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=8, progress=100.00%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=75, progress=38.53%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=25.2, progress=23.02%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=18, progress=72.39%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=320, progress=69.38%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[00:09:06.823] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:06.823] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.69%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=700, progress=0.00%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=90, progress=0.89%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=8, progress=23.63%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=75, progress=0.00%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=25.2, progress=0.00%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=18, progress=5.67%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=320, progress=10.63%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[00:09:06.823] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:09:06.823] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.85%
+[00:09:06.823] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:09:06.823] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:09:06.823] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:09:06.823] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:10:58.227] Server  ERROR   ⨯ Error: The default export is not a React Component in "/add/page"
+[00:10:58.344] Server  ERROR   ⨯ Error: The default export is not a React Component in "/add/page"
+[00:10:58.653] Server  ERROR   ⨯ Error: The default export is not a React Component in "/add/page"
+[00:10:58.772] Server  ERROR   ⨯ Error: The default export is not a React Component in "/add/page"
+[00:10:58.912] Server  ERROR   ⨯ Error: The default export is not a React Component in "/add/page"
+[00:10:59.031] Server  ERROR   ⨯ Error: The default export is not a React Component in "/add/page"
+[00:10:59.128] Browser ERROR   uncaughtError: Error: The default export is not a React Component in "/add/page"
+[00:13:00.854] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:17:17.834] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:17:28.858] Browser LOG     Daily targets: {"calcium":1000,"calorie":1800,"carbohydrate":130,"choline":425,"copper":0.9,"fiber":25.2,"folate":400,"iron":18,"linoleic_acid":12,"linolenic_acid":1.1,"magnesium":320,"manganese":1.8,"niacin":14,"phosphorus":700,"potassium":4700,"protein":46,"riboflavin":1.1,"selenium":55,"sodium":2300,"thiamin":1.1,"vitamin_a":700,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":75,"vitamin_d":600,"vitamin_e":15,"vitamin_k":90,"zinc":8}
+[00:17:28.858] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=700, progress=0.14%
+[00:17:28.858] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=90, progress=2.67%
+[00:17:28.858] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[00:17:28.858] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[00:17:28.858] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[00:17:28.858] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=8, progress=79.38%
+[00:17:28.858] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=75, progress=5.33%
+[00:17:28.858] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[00:17:28.858] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[00:17:28.858] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=25.2, progress=8.73%
+[00:17:28.858] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=18, progress=18.67%
+[00:17:28.858] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=320, progress=28.75%
+[00:17:28.858] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[00:17:28.858] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:17:28.858] Browser LOG     [2026-01-31] day avg (14 nutrients): 20.49%
+[00:17:28.858] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=700, progress=30.57%
+[00:17:28.858] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=90, progress=100.00%
+[00:17:28.858] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[00:17:28.858] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[00:17:28.858] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[00:17:28.858] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=8, progress=100.00%
+[00:17:28.858] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=75, progress=38.53%
+[00:17:28.858] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[00:17:28.858] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[00:17:28.858] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=25.2, progress=23.02%
+[00:17:28.858] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=18, progress=72.39%
+[00:17:28.858] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=320, progress=69.38%
+[00:17:28.858] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[00:17:28.858] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:17:28.858] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.69%
+[00:17:28.858] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=700, progress=0.00%
+[00:17:28.858] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=90, progress=0.89%
+[00:17:28.858] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=8, progress=23.63%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=75, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=25.2, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=18, progress=5.67%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=320, progress=10.63%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.85%
+[00:17:28.859] Browser LOG     Daily targets: {"calcium":1000,"calorie":1800,"carbohydrate":130,"choline":425,"copper":0.9,"fiber":25.2,"folate":400,"iron":18,"linoleic_acid":12,"linolenic_acid":1.1,"magnesium":320,"manganese":1.8,"niacin":14,"phosphorus":700,"potassium":4700,"protein":46,"riboflavin":1.1,"selenium":55,"sodium":2300,"thiamin":1.1,"vitamin_a":700,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":75,"vitamin_d":600,"vitamin_e":15,"vitamin_k":90,"zinc":8}
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=700, progress=0.14%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=90, progress=2.67%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=8, progress=79.38%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=75, progress=5.33%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=25.2, progress=8.73%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=18, progress=18.67%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=320, progress=28.75%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-01-31] day avg (14 nutrients): 20.49%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=700, progress=30.57%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=90, progress=100.00%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=8, progress=100.00%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=75, progress=38.53%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=25.2, progress=23.02%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=18, progress=72.39%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=320, progress=69.38%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.69%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=700, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=90, progress=0.89%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=8, progress=23.63%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=75, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=25.2, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=18, progress=5.67%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=320, progress=10.63%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.85%
+[00:17:28.859] Browser LOG     Daily targets: {"calcium":1000,"calorie":1800,"carbohydrate":130,"choline":425,"copper":0.9,"fiber":25.2,"folate":400,"iron":18,"linoleic_acid":12,"linolenic_acid":1.1,"magnesium":320,"manganese":1.8,"niacin":14,"phosphorus":700,"potassium":4700,"protein":46,"riboflavin":1.1,"selenium":55,"sodium":2300,"thiamin":1.1,"vitamin_a":700,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":75,"vitamin_d":600,"vitamin_e":15,"vitamin_k":90,"zinc":8}
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=700, progress=0.14%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=90, progress=2.67%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=8, progress=79.38%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=75, progress=5.33%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=25.2, progress=8.73%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=18, progress=18.67%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=320, progress=28.75%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-01-31] day avg (14 nutrients): 20.49%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=700, progress=30.57%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=90, progress=100.00%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=8, progress=100.00%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=75, progress=38.53%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=25.2, progress=23.02%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=18, progress=72.39%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=320, progress=69.38%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.69%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=700, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=90, progress=0.89%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=8, progress=23.63%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=75, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=25.2, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=18, progress=5.67%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=320, progress=10.63%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.85%
+[00:17:28.859] Browser LOG     Daily targets: {"calcium":1000,"calorie":1800,"carbohydrate":130,"choline":425,"copper":0.9,"fiber":25.2,"folate":400,"iron":18,"linoleic_acid":12,"linolenic_acid":1.1,"magnesium":320,"manganese":1.8,"niacin":14,"phosphorus":700,"potassium":4700,"protein":46,"riboflavin":1.1,"selenium":55,"sodium":2300,"thiamin":1.1,"vitamin_a":700,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":75,"vitamin_d":600,"vitamin_e":15,"vitamin_k":90,"zinc":8}
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=700, progress=0.14%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=90, progress=2.67%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=8, progress=79.38%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=75, progress=5.33%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=25.2, progress=8.73%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=18, progress=18.67%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=320, progress=28.75%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[00:17:28.859] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-01-31] day avg (14 nutrients): 20.49%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=700, progress=30.57%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=90, progress=100.00%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=8, progress=100.00%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=75, progress=38.53%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=25.2, progress=23.02%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=18, progress=72.39%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=320, progress=69.38%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[00:17:28.859] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.69%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=700, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=90, progress=0.89%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=8, progress=23.63%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=75, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=25.2, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=18, progress=5.67%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=320, progress=10.63%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[00:17:28.859] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[00:17:28.859] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.85%
+[00:17:28.859] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:17:28.859] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:17:28.859] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:17:28.859] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:24:28.517] Server  LOG     ✓ Compiled in 31ms
+[00:24:41.462] Server  ERROR   ⨯ ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:24:41.463] Server  ERROR   ⨯ ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:24:41.464] Server  ERROR   ⨯ ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:24:41.465] Server  ERROR   ⨯ ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:24:41.467] Server  ERROR   ⨯ ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:24:41.469] Server  ERROR   ⨯ ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:24:41.471] Server  ERROR   ⨯ ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:24:41.472] Server  ERROR   ⨯ ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:24:41.475] Server  ERROR   ⨯ ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:24:41.477] Server  ERROR   ⨯ ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:24:41.479] Server  ERROR   ⨯ ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:24:41.480] Server  ERROR   ⨯ ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:24:41.494] Server  LOG     ✓ Compiled in 32ms
+[00:24:42.107] Browser ERROR   ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:24:45.781] Server  ERROR   ⨯ ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:24:45.920] Browser ERROR   uncaughtError: Error: ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:24:46.067] Browser ERROR   ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:24:46.067] Browser ERROR   ./app/add/page.tsx:5:1
+Module not found: Can't resolve '@/lib/usdasearch'
+  3 |
+  4 | import { useEffect, useState } from 'react';
+> 5 | import { searchUsdaFoods } from '@/lib/usdasearch';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | type Nutrients = {
+  8 |   calories: number;
+
+Import map: aliased to relative './lib/usdasearch' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:24:50.525] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:04.016] Browser ERROR   unhandledRejection: TypeError: Failed to fetch
+[00:27:00.486] Server  LOG     ✓ Compiled in 12ms
+[00:27:03.925] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:08.542] Browser ERROR   unhandledRejection: Error: USDA proxy failed
+[00:28:13.814] Server  LOG       Reload env: .env.local
+[00:28:16.578] Server  LOG       Reload env: .env.local
+[00:30:10.687] Server  LOG       Reload env: .env.local
+[00:30:21.426] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:31:54.992] Browser LOG     Selected USDA food {"additionalDescriptions":"","allHighlightFields":"","commonNames":"","dataType":"Foundation","description":"Chicken, breast, boneless, skinless, raw","fdcId":2646170,"finalFoodInputFoods":[],"foodAttributeTypes":[],"foodAttributes":[],"foodCategory":"Poultry Products","foodMeasures":[],"foodNutrients":[{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295209,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":0.413,"median":0.352,"min":0.304,"nutrientId":1089,"nutrientName":"Iron, Fe","nutrientNumber":"303","rank":5400,"unitName":"MG","value":0.354},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295210,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":29.7,"median":26.6,"min":23,"nutrientId":1090,"nutrientName":"Magnesium, Mg","nutrientNumber":"304","rank":5500,"unitName":"MG","value":26.2},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295211,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":226,"median":213,"min":200,"nutrientId":1091,"nutrientName":"Phosphorus, P","nutrientNumber":"305","rank":5600,"unitName":"MG","value":215},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295212,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":359,"median":332,"min":290,"nutrientId":1092,"nutrientName":"Potassium, K","nutrientNumber":"306","rank":5700,"unitName":"MG","value":330},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295213,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":83.4,"median":72.8,"min":64,"nutrientId":1253,"nutrientName":"Cholesterol","nutrientNumber":"601","rank":15700,"unitName":"MG","value":72.7},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295214,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":84.8,"median":66.7,"min":48.9,"nutrientId":1093,"nutrientName":"Sodium, Na","nutrientNumber":"307","rank":5800,"unitName":"MG","value":65.8},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295215,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":0.796,"median":0.624,"min":0.555,"nutrientId":1095,"nutrientName":"Zinc, Zn","nutrientNumber":"309","rank":5900,"unitName":"MG","value":0.654},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295216,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":0.01,"median":0.01,"min":0,"nutrientId":1257,"nutrientName":"Fatty acids, total trans","nutrientNumber":"605","rank":15400,"unitName":"G","value":0.00875},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295217,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":0.0291,"median":0,"min":0,"nutrientId":1098,"nutrientName":"Copper, Cu","nutrientNumber":"312","rank":6000,"unitName":"MG","value":0.00364},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295218,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":3.74,"median":3.6,"min":3.45,"nutrientId":1002,"nutrientName":"Nitrogen","nutrientNumber":"202","rank":500,"unitName":"G","value":3.6},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295219,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":0.6,"median":0.34,"min":0.19,"nutrientId":1258,"nutrientName":"Fatty acids, total saturated","nutrientNumber":"606","rank":9700,"unitName":"G","value":0.349},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295220,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":3.1,"median":1.71,"min":1.31,"nutrientId":1004,"nutrientName":"Total lipid (fat)","nutrientNumber":"204","rank":800,"unitName":"G","value":1.93},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295221,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":0.71,"median":0.335,"min":0.19,"nutrientId":1292,"nutrientName":"Fatty acids, total monounsaturated","nutrientNumber":"645","rank":11400,"unitName":"G","value":0.369},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295222,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":0,"median":0,"min":0,"nutrientId":1101,"nutrientName":"Manganese, Mn","nutrientNumber":"315","rank":6100,"unitName":"MG","value":0},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295223,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":0.55,"median":0.275,"min":0.19,"nutrientId":1293,"nutrientName":"Fatty acids, total polyunsaturated","nutrientNumber":"646","rank":12900,"unitName":"G","value":0.296},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295224,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":1.23,"median":1.13,"min":1.05,"nutrientId":1007,"nutrientName":"Ash","nutrientNumber":"207","rank":1000,"unitName":"G","value":1.13},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295225,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":75.3,"median":74.8,"min":74.1,"nutrientId":1051,"nutrientName":"Water","nutrientNumber":"255","rank":100,"unitName":"G","value":74.8},{"dataPoints":8,"derivationCode":"A","derivationDescription":"Analytical","derivationId":1,"foodNutrientId":33295226,"foodNutrientSourceCode":"1","foodNutrientSourceDescription":"Analytical or derived from analytical","foodNutrientSourceId":1,"indentLevel":1,"max":4.56,"median":3.72,"min":3.45,"nutrientId":1087,"nutrientName":"Calcium, Ca","nutrientNumber":"301","rank":5300,"unitName":"MG","value":3.94},{"derivationCode":"NC","derivationDescription":"Calculated","derivationId":49,"foodNutrientId":33295325,"foodNutrientSourceCode":"4","foodNutrientSourceDescription":"Calculated or imputed","foodNutrientSourceId":2,"indentLevel":1,"max":23.4,"median":22.5,"min":21.6,"nutrientId":1003,"nutrientName":"Protein","nutrientNumber":"203","rank":600,"unitName":"G","value":22.5},{"derivationCode":"NC","derivationDescription":"Calculated","derivationId":49,"foodNutrientId":33295326,"foodNutrientSourceCode":"4","foodNutrientSourceDescription":"Calculated or imputed","foodNutrientSourceId":2,"indentLevel":2,"nutrientId":1005,"nutrientName":"Carbohydrate, by difference","nutrientNumber":"205","rank":1110,"unitName":"G","value":0},{"derivationCode":"NC","derivationDescription":"Calculated","derivationId":49,"foodNutrientId":33295327,"foodNutrientSourceCode":"4","foodNutrientSourceDescription":"Calculated or imputed","foodNutrientSourceId":2,"indentLevel":1,"nutrientId":2047,"nutrientName":"Energy (Atwater General Factors)","nutrientNumber":"957","rank":280,"unitName":"KCAL","value":106},{"derivationCode":"NC","derivationDescription":"Calculated","derivationId":49,"foodNutrientId":33295328,"foodNutrientSourceCode":"4","foodNutrientSourceDescription":"Calculated or imputed","foodNutrientSourceId":2,"indentLevel":1,"nutrientId":2048,"nutrientName":"Energy (Atwater Specific Factors)","nutrientNumber":"958","rank":290,"unitName":"KCAL","value":112}],"foodVersionIds":[],"microbes":[],"mostRecentAcquisitionDate":"2023-04-03","ndbNumber":100304,"publishedDate":"2023-10-26","score":701.7026}
+[00:46:29.559] Server  LOG     ✓ Compiled in 32ms
+[00:46:36.086] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:47:16.521] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 168930
+[00:47:21.701] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:48:25.430] Server  LOG     ✓ Compiled in 8ms
+[00:51:14.317] Server  LOG     ✓ Compiled in 8ms
+[00:51:53.762] Server  LOG     ✓ Compiled in 88ms
+[00:53:45.220] Server  LOG     ✓ Compiled in 32ms
+[00:54:10.800] Server  LOG     ✓ Compiled in 32ms
+[00:54:50.207] Server  LOG     ✓ Compiled in 25ms
+[00:55:07.145] Server  LOG     ✓ Compiled in 33ms
+[00:55:22.506] Server  LOG     ✓ Compiled in 25ms
+[00:56:00.445] Server  LOG     ✓ Compiled in 32ms
+[00:56:03.150] Server  LOG     ✓ Compiled in 24ms
+[00:56:12.250] Server  LOG     ✓ Compiled in 22ms
+[00:56:31.521] Server  LOG     ✓ Compiled in 13ms
+[00:56:38.801] Server  LOG     ✓ Compiled in 14ms
+[00:57:05.054] Server  LOG     ✓ Compiled in 23ms
+[00:57:15.840] Server  LOG     ✓ Compiled in 20ms
+[00:57:28.991] Server  LOG     ✓ Compiled in 16ms
+[00:58:10.336] Server  LOG     ✓ Compiled in 25ms
+[01:00:01.068] Server  LOG     ✓ Compiled in 27ms
+[01:00:12.265] Server  LOG     ✓ Compiled in 19ms
+[01:00:23.829] Server  LOG     ✓ Compiled in 28ms
+[01:00:35.911] Server  LOG     ✓ Compiled in 25ms
+[01:00:53.703] Server  LOG     ✓ Compiled in 19ms
+[01:01:53.661] Server  LOG     ✓ Compiled in 25ms
+[01:02:07.650] Server  LOG     ✓ Compiled in 23ms
+[01:02:37.240] Server  LOG     ✓ Compiled in 17ms
+[01:04:42.337] Server  LOG     ✓ Compiled in 8ms
+[01:04:45.982] Browser LOG     Daily targets: {"calcium":1000,"calorie":1800,"carbohydrate":130,"choline":425,"copper":0.9,"fiber":25.2,"folate":400,"iron":18,"linoleic_acid":12,"linolenic_acid":1.1,"magnesium":320,"manganese":1.8,"niacin":14,"phosphorus":700,"potassium":4700,"protein":46,"riboflavin":1.1,"selenium":55,"sodium":2300,"thiamin":1.1,"vitamin_a":700,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":75,"vitamin_d":600,"vitamin_e":15,"vitamin_k":90,"zinc":8}
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=700, progress=0.14%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=90, progress=2.67%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=8, progress=79.38%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=75, progress=5.33%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=25.2, progress=8.73%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=18, progress=18.67%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=320, progress=28.75%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-01-31] day avg (14 nutrients): 20.49%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=700, progress=30.57%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=90, progress=100.00%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=8, progress=100.00%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=75, progress=38.53%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=25.2, progress=23.02%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=18, progress=72.39%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=320, progress=69.38%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.69%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=700, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=90, progress=0.89%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=8, progress=23.63%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=75, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=25.2, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=18, progress=5.67%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=320, progress=10.63%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.85%
+[01:04:45.982] Browser LOG     Daily targets: {"calcium":1000,"calorie":1800,"carbohydrate":130,"choline":425,"copper":0.9,"fiber":25.2,"folate":400,"iron":18,"linoleic_acid":12,"linolenic_acid":1.1,"magnesium":320,"manganese":1.8,"niacin":14,"phosphorus":700,"potassium":4700,"protein":46,"riboflavin":1.1,"selenium":55,"sodium":2300,"thiamin":1.1,"vitamin_a":700,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":75,"vitamin_d":600,"vitamin_e":15,"vitamin_k":90,"zinc":8}
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=700, progress=0.14%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=90, progress=2.67%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=8, progress=79.38%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=75, progress=5.33%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=25.2, progress=8.73%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=18, progress=18.67%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=320, progress=28.75%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-01-31] day avg (14 nutrients): 20.49%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=700, progress=30.57%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=90, progress=100.00%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=8, progress=100.00%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=75, progress=38.53%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=25.2, progress=23.02%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=18, progress=72.39%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=320, progress=69.38%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.69%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=700, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=90, progress=0.89%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=8, progress=23.63%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=75, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=25.2, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=18, progress=5.67%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=320, progress=10.63%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.85%
+[01:04:45.982] Browser LOG     Daily targets: {"calcium":1000,"calorie":1800,"carbohydrate":130,"choline":425,"copper":0.9,"fiber":25.2,"folate":400,"iron":18,"linoleic_acid":12,"linolenic_acid":1.1,"magnesium":320,"manganese":1.8,"niacin":14,"phosphorus":700,"potassium":4700,"protein":46,"riboflavin":1.1,"selenium":55,"sodium":2300,"thiamin":1.1,"vitamin_a":700,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":75,"vitamin_d":600,"vitamin_e":15,"vitamin_k":90,"zinc":8}
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=700, progress=0.14%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=90, progress=2.67%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=8, progress=79.38%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=75, progress=5.33%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=25.2, progress=8.73%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=18, progress=18.67%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=320, progress=28.75%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-01-31] day avg (14 nutrients): 20.49%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=700, progress=30.57%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=90, progress=100.00%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=8, progress=100.00%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=75, progress=38.53%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=25.2, progress=23.02%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=18, progress=72.39%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=320, progress=69.38%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.69%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=700, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=90, progress=0.89%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=8, progress=23.63%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=75, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=25.2, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=18, progress=5.67%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=320, progress=10.63%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.85%
+[01:04:45.982] Browser LOG     Daily targets: {"calcium":1000,"calorie":1800,"carbohydrate":130,"choline":425,"copper":0.9,"fiber":25.2,"folate":400,"iron":18,"linoleic_acid":12,"linolenic_acid":1.1,"magnesium":320,"manganese":1.8,"niacin":14,"phosphorus":700,"potassium":4700,"protein":46,"riboflavin":1.1,"selenium":55,"sodium":2300,"thiamin":1.1,"vitamin_a":700,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":75,"vitamin_d":600,"vitamin_e":15,"vitamin_k":90,"zinc":8}
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=700, progress=0.14%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=90, progress=2.67%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=8, progress=79.38%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=75, progress=5.33%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=25.2, progress=8.73%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=18, progress=18.67%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=320, progress=28.75%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[01:04:45.982] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-01-31] day avg (14 nutrients): 20.49%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=700, progress=30.57%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=90, progress=100.00%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=8, progress=100.00%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=75, progress=38.53%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=25.2, progress=23.02%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=18, progress=72.39%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=320, progress=69.38%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[01:04:45.982] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.69%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=700, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=90, progress=0.89%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=8, progress=23.63%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=75, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=25.2, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=18, progress=5.67%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=320, progress=10.63%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[01:04:45.982] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:04:45.982] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.85%
+[01:04:45.982] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[01:04:45.982] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[01:04:45.982] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[01:04:45.982] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[01:09:16.698] Server  LOG       Reload env: .env.local
+[01:09:32.386] Server  LOG     ✓ Compiled in 6ms
+[01:09:53.044] Server  LOG     ✓ Compiled in 515ms
+[01:11:43.589] Server  LOG       Reload env: .env.local
+[01:12:18.804] Server  LOG     ✓ Compiled in 12ms
+[01:13:42.009] Server  LOG     ✓ Compiled in 20ms
+[01:14:10.904] Server  LOG     ✓ Compiled in 41ms
+[01:14:11.107] Browser ERROR   ./data/foods_selected.json
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/data/foods_selected.json (json)
+
+Caused by:
+- Unable to make a module from invalid JSON: trailing comma at line 168 column 1
+
+Debug info:
+- An error occurred while generating the chunk item [project]/data/foods_selected.json (json)
+- Execution of <JsonChunkItem as EcmascriptChunkItem>::content failed
+- Unable to make a module from invalid JSON: trailing comma at line 168 column 1
+    at .
+     164 |       "pufa_20_2_c": 0,
+     165 |       "total_fat_nlea": 0.07
+     166 |     }
+     167 |   },
+         | v
+     168 + ]
+         | ^
+
+Import trace:
+  Client Component SSR:
+    ./data/foods_selected.json
+    ./app/log/page.tsx [Client Component SSR]
+    ./app/log/page.tsx [Server Component]
+[01:14:11.960] Server  LOG     ✓ Compiled in 7ms
+[01:14:44.464] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:18:20.714] Browser LOG     Daily targets: {"calcium":1000,"calorie":2200,"carbohydrate":130,"choline":550,"copper":0.9,"fiber":30.8,"folate":400,"iron":8,"linoleic_acid":17,"linolenic_acid":1.6,"magnesium":420,"manganese":2.3,"niacin":16,"phosphorus":700,"potassium":4700,"protein":56,"riboflavin":1.3,"selenium":55,"sodium":2300,"thiamin":1.2,"vitamin_a":900,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":90,"vitamin_d":600,"vitamin_e":15,"vitamin_k":120,"zinc":11}
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=900, progress=0.11%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=120, progress=2.00%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=11, progress=57.73%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=90, progress=4.44%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=30.8, progress=7.14%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=8, progress=42.00%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=420, progress=21.90%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-01-31] day avg (14 nutrients): 19.89%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=900, progress=23.78%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=120, progress=100.00%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=11, progress=100.00%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=90, progress=32.11%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=30.8, progress=18.83%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=8, progress=100.00%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=420, progress=52.86%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.24%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=900, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=120, progress=0.67%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=11, progress=17.18%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=90, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=30.8, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=8, progress=12.75%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=420, progress=8.10%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.7%
+[01:18:20.714] Browser LOG     Daily targets: {"calcium":1000,"calorie":2200,"carbohydrate":130,"choline":550,"copper":0.9,"fiber":30.8,"folate":400,"iron":8,"linoleic_acid":17,"linolenic_acid":1.6,"magnesium":420,"manganese":2.3,"niacin":16,"phosphorus":700,"potassium":4700,"protein":56,"riboflavin":1.3,"selenium":55,"sodium":2300,"thiamin":1.2,"vitamin_a":900,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":90,"vitamin_d":600,"vitamin_e":15,"vitamin_k":120,"zinc":11}
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=900, progress=0.11%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=120, progress=2.00%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=11, progress=57.73%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=90, progress=4.44%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=30.8, progress=7.14%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=8, progress=42.00%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=420, progress=21.90%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-01-31] day avg (14 nutrients): 19.89%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=900, progress=23.78%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=120, progress=100.00%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=11, progress=100.00%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=90, progress=32.11%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=30.8, progress=18.83%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=8, progress=100.00%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=420, progress=52.86%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.24%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=900, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=120, progress=0.67%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=11, progress=17.18%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=90, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=30.8, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=8, progress=12.75%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=420, progress=8.10%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.7%
+[01:18:20.714] Browser LOG     Daily targets: {"calcium":1000,"calorie":2200,"carbohydrate":130,"choline":550,"copper":0.9,"fiber":30.8,"folate":400,"iron":8,"linoleic_acid":17,"linolenic_acid":1.6,"magnesium":420,"manganese":2.3,"niacin":16,"phosphorus":700,"potassium":4700,"protein":56,"riboflavin":1.3,"selenium":55,"sodium":2300,"thiamin":1.2,"vitamin_a":900,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":90,"vitamin_d":600,"vitamin_e":15,"vitamin_k":120,"zinc":11}
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=900, progress=0.11%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=120, progress=2.00%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=11, progress=57.73%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=90, progress=4.44%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=30.8, progress=7.14%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=8, progress=42.00%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=420, progress=21.90%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-01-31] day avg (14 nutrients): 19.89%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=900, progress=23.78%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=120, progress=100.00%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=11, progress=100.00%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=90, progress=32.11%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=30.8, progress=18.83%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=8, progress=100.00%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=420, progress=52.86%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.24%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=900, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=120, progress=0.67%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=11, progress=17.18%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=90, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=30.8, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=8, progress=12.75%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=420, progress=8.10%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.7%
+[01:18:20.714] Browser LOG     Daily targets: {"calcium":1000,"calorie":2200,"carbohydrate":130,"choline":550,"copper":0.9,"fiber":30.8,"folate":400,"iron":8,"linoleic_acid":17,"linolenic_acid":1.6,"magnesium":420,"manganese":2.3,"niacin":16,"phosphorus":700,"potassium":4700,"protein":56,"riboflavin":1.3,"selenium":55,"sodium":2300,"thiamin":1.2,"vitamin_a":900,"vitamin_b12":2.4,"vitamin_b6":1.3,"vitamin_c":90,"vitamin_d":600,"vitamin_e":15,"vitamin_k":120,"zinc":11}
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_a: intake=1, target=900, progress=0.11%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_k: intake=2.4000000000000004, target=120, progress=2.00%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_e: intake=1.81, target=15, progress=12.07%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient calcium: intake=37, target=1000, progress=3.70%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient potassium: intake=2157, target=4700, progress=45.89%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient zinc: intake=6.3500000000000005, target=11, progress=57.73%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_c: intake=4, target=90, progress=4.44%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient folate: intake=14, target=400, progress=3.50%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_b12: intake=1.6800000000000002, target=2.4, progress=70.00%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient fiber: intake=2.2, target=30.8, progress=7.14%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient iron: intake=3.36, target=8, progress=42.00%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient magnesium: intake=92, target=420, progress=21.90%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient sodium: intake=184, target=2300, progress=8.00%
+[01:18:20.714] Browser LOG     [2026-01-31] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-01-31] day avg (14 nutrients): 19.89%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_a: intake=214, target=900, progress=23.78%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_k: intake=212, target=120, progress=100.00%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_e: intake=3.89, target=15, progress=25.93%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient calcium: intake=181, target=1000, progress=18.10%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient potassium: intake=4271, target=4700, progress=90.87%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient zinc: intake=14.490000000000002, target=11, progress=100.00%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_c: intake=28.9, target=90, progress=32.11%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient folate: intake=95, target=400, progress=23.75%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_b12: intake=15.090000000000002, target=2.4, progress=100.00%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient fiber: intake=5.800000000000001, target=30.8, progress=18.83%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient iron: intake=13.030000000000001, target=8, progress=100.00%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient magnesium: intake=222, target=420, progress=52.86%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient sodium: intake=1039, target=2300, progress=45.17%
+[01:18:20.714] Browser LOG     [2026-02-01] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-01] day avg (14 nutrients): 52.24%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_a: intake=0, target=900, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_k: intake=0.8, target=120, progress=0.67%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_e: intake=0.27, target=15, progress=1.80%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient calcium: intake=9, target=1000, progress=0.90%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient potassium: intake=551, target=4700, progress=11.72%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient zinc: intake=1.89, target=11, progress=17.18%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_c: intake=0, target=90, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient folate: intake=3, target=400, progress=0.75%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_b12: intake=0.56, target=2.4, progress=23.33%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient fiber: intake=0, target=30.8, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient iron: intake=1.02, target=8, progress=12.75%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient magnesium: intake=34, target=420, progress=8.10%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient sodium: intake=60, target=2300, progress=2.61%
+[01:18:20.714] Browser LOG     [2026-02-03] nutrient vitamin_d: intake=0, target=600, progress=0.00%
+[01:18:20.714] Browser LOG     [2026-02-03] day avg (14 nutrients): 5.7%
+[01:18:20.714] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[01:18:20.714] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[01:18:20.715] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[01:18:20.715] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
