@@ -1,4 +1,3 @@
-// app/api/foods/add/route.ts
 import { NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import OpenAI from 'openai';
@@ -18,22 +17,19 @@ const FOOD_GROUPS = [
   'seasonings',
 ] as const;
 
-type FoodGroup = (typeof FOOD_GROUPS)[number];
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
 export async function POST(req: Request) {
-  const { food, measurement, term } = await req.json();
-
-  if (!food?.fdcId || !food?.description || !food?.foodNutrients) {
-    return NextResponse.json({ error: 'Invalid payload' }, { status: 400 });
+  const openaiKey = req.headers.get('x-openai-key');
+  if (!openaiKey) {
+    return NextResponse.json({ error: 'Missing OpenAI key' }, { status: 401 });
   }
 
+  const openai = new OpenAI({ apiKey: openaiKey });
+
+  const { food, measurement, term } = await req.json();
+
   const [group, nutrients] = await Promise.all([
-    classifyFoodGroup(food.description),
-    normalizeNutrients(food.foodNutrients),
+    classifyFoodGroup(openai, food.description),
+    normalizeNutrients(openai, food.foodNutrients),
   ]);
 
   const entry = {
@@ -45,8 +41,7 @@ export async function POST(req: Request) {
     nutrients,
   };
 
-  const file = await fs.readFile(DATA_PATH, 'utf-8');
-  const data = JSON.parse(file);
+  const data = JSON.parse(await fs.readFile(DATA_PATH, 'utf-8'));
   data.push(entry);
 
   await fs.writeFile(DATA_PATH, JSON.stringify(data, null, 2));
@@ -54,16 +49,12 @@ export async function POST(req: Request) {
   return NextResponse.json({ success: true });
 }
 
-async function classifyFoodGroup(name: string): Promise<FoodGroup> {
+async function classifyFoodGroup(openai: OpenAI, name: string) {
   const res = await openai.chat.completions.create({
     model: 'gpt-4o-mini',
     temperature: 0,
     messages: [
-      {
-        role: 'system',
-        content:
-          'Classify the food into exactly one category. Respond with ONLY one word.',
-      },
+      { role: 'system', content: 'Return ONE category only.' },
       {
         role: 'user',
         content: `Food: "${name}"
@@ -73,12 +64,10 @@ Categories: ${FOOD_GROUPS.join(', ')}`,
   });
 
   const value = res.choices[0].message.content?.trim().toLowerCase();
-  return FOOD_GROUPS.includes(value as FoodGroup)
-    ? (value as FoodGroup)
-    : 'seasonings';
+  return FOOD_GROUPS.includes(value as any) ? value : 'seasonings';
 }
 
-async function normalizeNutrients(foodNutrients: any[]) {
+async function normalizeNutrients(openai: OpenAI, nutrients: any[]) {
   const res = await openai.chat.completions.create({
     model: 'gpt-4o-mini',
     temperature: 0,
@@ -86,9 +75,7 @@ async function normalizeNutrients(foodNutrients: any[]) {
       {
         role: 'system',
         content: `
-You map raw USDA nutrients into a fixed schema.
-Return ONLY valid JSON matching this shape:
-
+Return ONLY JSON in this shape:
 {
   "vitamin_a": number,
   "fat": number,
@@ -106,18 +93,9 @@ Return ONLY valid JSON matching this shape:
   "vitamin_b12": number,
   "vitamin_d": number
 }
-
-Rules:
-- Use best matching USDA nutrients
-- Convert units if needed
-- Missing nutrients = 0
-- No extra keys
-        `.trim(),
+Missing = 0`.trim(),
       },
-      {
-        role: 'user',
-        content: JSON.stringify(foodNutrients),
-      },
+      { role: 'user', content: JSON.stringify(nutrients) },
     ],
   });
 

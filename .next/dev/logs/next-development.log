@@ -1646,3 +1646,11 @@ Import trace:
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
+[01:30:49.725] Server  LOG     ✓ Compiled in 23ms
+[01:37:38.580] Server  LOG     ✓ Compiled in 28ms
+[01:38:22.852] Server  LOG     ✓ Compiled in 9ms
+[01:38:42.741] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:39:12.789] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:39:59.373] Server  LOG       Reload env: .env.local
+[01:40:03.837] Server  LOG       Reload env: .env.local
+[01:40:13.329] Server  LOG       Reload env: .env.local
