@@ -1,6 +1,7 @@
 {
   "/add/page": "app/add/page.js",
   "/api/foods/add/route": "app/api/foods/add/route.js",
+  "/api/foods/list/route": "app/api/foods/list/route.js",
   "/api/usda/search/route": "app/api/usda/search/route.js",
   "/history/page": "app/history/page.js",
   "/log/page": "app/log/page.js",

@@ -1,9 +1,8 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
+import { put, list } from '@vercel/blob';
 import OpenAI from 'openai';
 
-const DATA_PATH =
-  '/Users/hung.doan/Documents/GitHubPersonal/nutrition-app/data/foods_selected.json';
+const BLOB_KEY = 'vercel_blob_rw_AQFAYAIonddIflVL_hv96ARPqrFYBKSsOAqz3mejpUyxd3W/foods/foods_selected.json';
 
 const FOOD_GROUPS = [
   'starch',
@@ -17,39 +16,81 @@ const FOOD_GROUPS = [
   'seasonings',
 ] as const;
 
+type FoodGroup = (typeof FOOD_GROUPS)[number];
+
 export async function POST(req: Request) {
-  const openaiKey = req.headers.get('x-openai-key');
-  if (!openaiKey) {
-    return NextResponse.json({ error: 'Missing OpenAI key' }, { status: 401 });
+  try {
+    const openaiKey = req.headers.get('x-openai-key');
+    if (!openaiKey) {
+      return NextResponse.json(
+        { error: 'Missing OpenAI key' },
+        { status: 401 }
+      );
+    }
+
+    const openai = new OpenAI({ apiKey: openaiKey });
+
+    const { food, measurement, term } = await req.json();
+
+    if (!food?.fdcId || !food?.description || !food?.foodNutrients) {
+      return NextResponse.json(
+        { error: 'Invalid payload' },
+        { status: 400 }
+      );
+    }
+
+    const [group, nutrients] = await Promise.all([
+      classifyFoodGroup(openai, food.description),
+      normalizeNutrients(openai, food.foodNutrients),
+    ]);
+
+    const entry = {
+      id: String(food.fdcId),
+      group,
+      term,
+      measurement,
+      name: food.description,
+      nutrients,
+    };
+
+    // ---- read existing blob ----
+    let foods: any[] = [];
+
+    const blobs = await list({ prefix: BLOB_KEY });
+    if (blobs.blobs.length > 0) {
+      const res = await fetch(blobs.blobs[0].url);
+      foods = await res.json();
+    }
+
+    foods.push(entry);
+
+    // ---- write blob ----
+    await put(
+      BLOB_KEY,
+      JSON.stringify(foods, null, 2),
+      {
+        access: 'public',
+        contentType: 'application/json',
+        allowOverwrite: true
+      }
+    );
+
+    return NextResponse.json({ success: true });
+  } catch (err) {
+    console.error('ADD FOOD ERROR:', err);
+    return NextResponse.json(
+      { error: 'Failed to add food' },
+      { status: 500 }
+    );
   }
-
-  const openai = new OpenAI({ apiKey: openaiKey });
-
-  const { food, measurement, term } = await req.json();
-
-  const [group, nutrients] = await Promise.all([
-    classifyFoodGroup(openai, food.description),
-    normalizeNutrients(openai, food.foodNutrients),
-  ]);
-
-  const entry = {
-    id: String(food.fdcId),
-    group,
-    term,
-    measurement,
-    name: food.description,
-    nutrients,
-  };
-
-  const data = JSON.parse(await fs.readFile(DATA_PATH, 'utf-8'));
-  data.push(entry);
-
-  await fs.writeFile(DATA_PATH, JSON.stringify(data, null, 2));
-
-  return NextResponse.json({ success: true });
 }
 
-async function classifyFoodGroup(openai: OpenAI, name: string) {
+/* ---------------- helpers ---------------- */
+
+async function classifyFoodGroup(
+  openai: OpenAI,
+  name: string
+): Promise<FoodGroup> {
   const res = await openai.chat.completions.create({
     model: 'gpt-4o-mini',
     temperature: 0,
@@ -64,10 +105,12 @@ Categories: ${FOOD_GROUPS.join(', ')}`,
   });
 
   const value = res.choices[0].message.content?.trim().toLowerCase();
-  return FOOD_GROUPS.includes(value as any) ? value : 'seasonings';
+  return FOOD_GROUPS.includes(value as FoodGroup)
+    ? (value as FoodGroup)
+    : 'seasonings';
 }
 
-async function normalizeNutrients(openai: OpenAI, nutrients: any[]) {
+async function normalizeNutrients(openai: OpenAI, foodNutrients: any[]) {
   const res = await openai.chat.completions.create({
     model: 'gpt-4o-mini',
     temperature: 0,
@@ -75,7 +118,7 @@ async function normalizeNutrients(openai: OpenAI, nutrients: any[]) {
       {
         role: 'system',
         content: `
-Return ONLY JSON in this shape:
+Return ONLY JSON:
 {
   "vitamin_a": number,
   "fat": number,
@@ -95,7 +138,7 @@ Return ONLY JSON in this shape:
 }
 Missing = 0`.trim(),
       },
-      { role: 'user', content: JSON.stringify(nutrients) },
+      { role: 'user', content: JSON.stringify(foodNutrients) },
     ],
   });
 
