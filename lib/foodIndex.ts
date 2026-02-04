@@ -1,4 +1,8 @@
-import foods from "@/data/foods_selected.json";
+import { getFoods } from "@/lib/food";
+import { Food } from "@/lib/types/food";
+const foods: Food[] = await getFoods();
+
+
 
 export type FoodLite = {
   id: string;

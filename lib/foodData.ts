@@ -1,5 +1,6 @@
-import rawData from "@/data/foods_selected.json";
 import { getNutrientByUsdaName } from "@/lib/nutrientRegistry";
+import { getFoods } from "@/lib/food";
+const foods = await getFoods();
 
 export type FoodSummary = {
   id: string;
@@ -21,7 +22,7 @@ export type FoodDetail = {
 };
 
 function normalizeFoods(): FoodDetail[] {
-  return rawData.map((food: any) => {
+  return foods.map((food: any) => {
     const nutrients: FoodNutrientMap = {};
 
     for (const fn of food.foodNutrients ?? []) {

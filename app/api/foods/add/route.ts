@@ -3,6 +3,7 @@ export const runtime = 'nodejs';
 import { NextResponse } from 'next/server';
 import { put } from '@vercel/blob';
 import OpenAI from 'openai';
+import { Food } from '@/lib/types/food';
 
 /**
  * IMPORTANT:
@@ -73,22 +74,25 @@ export async function POST(req: Request) {
 
     /* ---------------- READ EXISTING BLOB ---------------- */
 
-    let foods: any[] = [];
+let foods: Food[] = [];
 
-    try {
-      const res = await fetch(
-        `https://blob.vercel-storage.com/${BLOB_KEY}`,
-        { cache: 'no-store' }
-      );
+try {
+  const res = await fetch(
+    `https://blob.vercel-storage.com/${BLOB_KEY}`,
+    { cache: 'no-store' }
+  );
 
-      if (res.ok) {
-        const text = await res.text();
-        const parsed = JSON.parse(text || '[]');
-        if (Array.isArray(parsed)) foods = parsed;
-      }
-    } catch {
-      foods = [];
+  if (res.ok) {
+    const text = await res.text();
+    const parsed: unknown = JSON.parse(text || '[]');
+    if (Array.isArray(parsed)) {
+      foods = parsed as Food[];
     }
+  }
+} catch {
+  foods = [];
+}
+
 
     /* ---------------- APPEND ---------------- */
 

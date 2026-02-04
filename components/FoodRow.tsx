@@ -2,7 +2,10 @@
 "use client";
 
 import { useEffect, useMemo } from "react";
-import foodsSelectedRaw from "@/data/foods_selected.json";
+import { getFoods } from "@/lib/food";
+import { Food } from "@/lib/types/food";
+const foods: Food[] = await getFoods();
+
 
 type FoodCatalogItem = {
   term: string;
@@ -27,7 +30,7 @@ type FoodRowProps = {
   onChange?: (entry: SelectedFood) => void;
 };
 
-const foodsSelected = foodsSelectedRaw as FoodCatalogItem[];
+const foodsSelected = foods as FoodCatalogItem[];
 
 const normalize = (s: string) => s.trim().toLowerCase();
 
