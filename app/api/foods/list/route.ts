@@ -3,6 +3,7 @@ import { list } from '@vercel/blob';
 import { NextResponse } from 'next/server';
 
 const BLOB_KEY = 'foods/foods_selected.json';
+
 export async function GET() {
   const blobs = await list({ prefix: BLOB_KEY });
 

@@ -4,7 +4,9 @@ import { getNutrientById } from "@/lib/nutrientRegistry";
 import { getUserProfile } from "@/lib/userProfile";
 import { getDailyTargets } from "@/lib/recommendationEngine";
 import { getDB, initDB, updateDB } from "@/lib/db";
-import foods from "@/data/foods_selected.json";
+
+import { GET } from "@/app/api/foods/list/route";
+const foods: any[] = await GET().then((res) => res.json());
 
 /**
  * CONFIG

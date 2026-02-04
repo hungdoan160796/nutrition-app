@@ -1,5 +1,7 @@
-import rawData from "@/data/foods_selected.json";
+// lib/foodData.ts
 import { getNutrientByUsdaName } from "@/lib/nutrientRegistry";
+import { GET } from "@/app/api/foods/list/route";
+const rawData: any[] = await GET().then((res) => res.json());
 
 export type FoodSummary = {
   id: string;

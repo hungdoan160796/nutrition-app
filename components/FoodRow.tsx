@@ -2,7 +2,9 @@
 "use client";
 
 import { useEffect, useMemo } from "react";
-import foodsSelectedRaw from "@/data/foods_selected.json";
+import { GET } from "@/app/api/foods/list/route";
+
+const foodsSelectedRaw: FoodCatalogItem[] = await GET().then((res) => res.json());
 
 type FoodCatalogItem = {
   term: string;

@@ -203,7 +203,9 @@ export default function HistoryPage() {
   }, []);
 
   const deleteFood = async (date: string, index: number) => {
-    const ok = window.confirm("Delete this food entry?");
+    if (typeof window === 'undefined') return;
+
+    const ok = window.confirm('Delete this food entry?');
     if (!ok) return;
 
     await updateDB((db) => {
@@ -212,10 +214,13 @@ export default function HistoryPage() {
         delete db.foodLog[date];
       }
     });
+
     refresh();
   };
 
   const deleteDay = async (date: string) => {
+    if (typeof window === 'undefined') return;
+    
     const ok = window.confirm(
       "Delete this entire day and all its foods?"
     );

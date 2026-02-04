@@ -1,5 +1,5 @@
-import foods from "@/data/foods_selected.json";
-
+import { GET } from "@/app/api/foods/list/route";
+const foods: any[] = await GET().then((res) => res.json());
 export type FoodLite = {
   id: string;
   name: string;
