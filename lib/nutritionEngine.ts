@@ -5,7 +5,7 @@ import { getUserProfile } from "@/lib/userProfile";
 import { getDailyTargets } from "@/lib/recommendationEngine";
 import { getDB, initDB, updateDB } from "@/lib/db";
 
-import { GET } from "@/app/api/foods/list/route";
+import { GET } from "@/app/api/foods/list/route"
 const foods: any[] = await GET().then((res) => res.json());
 
 /**
