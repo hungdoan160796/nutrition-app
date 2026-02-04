@@ -159,10 +159,35 @@ async function normalizeNutrients(
         {
           role: 'system',
           content: `
-Return ONLY valid JSON with this schema.
-Missing values must be 0.
+You are a nutrition data normalizer.
 
-${JSON.stringify(EMPTY_NUTRIENTS, null, 2)}
+Map USDA nutrient entries into the EXACT JSON schema below.
+Return ONLY valid JSON. No markdown. No explanations.
+
+Schema:
+{
+  "vitamin_a": number,
+  "fat": number,
+  "carbohydrate": number,
+  "calories": number,
+  "calcium": number,
+  "potassium": number,
+  "zinc": number,
+  "protein": number,
+  "iron": number,
+  "magnesium": number,
+  "sodium": number,
+  "vitamin_c": number,
+  "folate": number,
+  "vitamin_b12": number,
+  "vitamin_d": number
+}
+
+Rules:
+- Use the closest matching USDA nutrient names
+- Convert units if needed
+- If a nutrient is missing or null, set it to 0
+- Do not include extra keys
           `.trim(),
         },
         { role: 'user', content: JSON.stringify(foodNutrients) },
@@ -174,8 +199,25 @@ ${JSON.stringify(EMPTY_NUTRIENTS, null, 2)}
 
     const parsed = JSON.parse(raw);
 
-    return { ...EMPTY_NUTRIENTS, ...parsed };
-  } catch {
-    return EMPTY_NUTRIENTS;
+    return {
+      vitamin_a: Number(parsed.vitamin_a) || 0,
+      fat: Number(parsed.fat) || 0,
+      carbohydrate: Number(parsed.carbohydrate) || 0,
+      calories: Number(parsed.calories) || 0,
+      calcium: Number(parsed.calcium) || 0,
+      potassium: Number(parsed.potassium) || 0,
+      zinc: Number(parsed.zinc) || 0,
+      protein: Number(parsed.protein) || 0,
+      iron: Number(parsed.iron) || 0,
+      magnesium: Number(parsed.magnesium) || 0,
+      sodium: Number(parsed.sodium) || 0,
+      vitamin_c: Number(parsed.vitamin_c) || 0,
+      folate: Number(parsed.folate) || 0,
+      vitamin_b12: Number(parsed.vitamin_b12) || 0,
+      vitamin_d: Number(parsed.vitamin_d) || 0,
+    };
+  } catch (err) {
+    console.error('NORMALIZE NUTRIENTS FAILED:', err);  
+    throw err;
   }
 }
