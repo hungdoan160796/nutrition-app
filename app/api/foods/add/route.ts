@@ -76,10 +76,14 @@ export async function POST(req: Request) {
     );
 
     return NextResponse.json({ success: true });
-  } catch (err) {
+  } catch (err: any) {
     console.error('ADD FOOD ERROR:', err);
+
     return NextResponse.json(
-      { error: 'Failed to add food' },
+      {
+        error: 'Failed to add food',
+        detail: err?.message ?? String(err),
+      },
       { status: 500 }
     );
   }
