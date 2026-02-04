@@ -19,102 +19,6 @@ type UsdaFood = {
   foodNutrients?: any[];
 };
 
-export default function AddIngredientPage() {
-  const [mode, setMode] = useState<'usda' | 'manual'>('usda');
-
-  return (
-    <div className="max-w-3xl mx-auto p-6 space-y-6">
-      <h1 className="text-2xl font-semibold">Add Ingredient</h1>
-
-      <div className="flex gap-2">
-        <button
-          onClick={() => setMode('usda')}
-          className={`px-4 py-2 rounded ${
-            mode === 'usda' ? 'bg-[var(--foreground)] text-[var(--background)]' : 'bg-[var(--background)] text-[var(--foreground)]'
-          }`}
-        >
-          Search USDA
-        </button>
-        <button
-          onClick={() => setMode('manual')}
-          className={`px-4 py-2 rounded ${
-            mode === 'manual' ? 'bg-[var(--foreground)] text-[var(--background)]' : 'bg-[var(--background)] text-[var(--foreground)]'
-          }`}
-        >
-          Manual Entry
-        </button>
-      </div>
-
-      {mode === 'usda' ? <UsdaSearch /> : <ManualForm />}
-    </div>
-  );
-}
-
-function UsdaSearch() {
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState<UsdaFood[]>([]);
-  const [loading, setLoading] = useState(false);
-
-  const runSearch = async () => {
-    if (!query.trim()) return;
-    setLoading(true);
-    const foods = await searchUsdaFoods(query);
-    setResults(foods);
-    setLoading(false);
-  };
-
-  return (
-    <div className="space-y-4">
-      <div className="flex gap-2">
-        <input
-          className="border rounded px-3 py-2 flex-1 text-[var(--foreground)] bg-[var(--background)]"
-          placeholder="Search food (e.g. grilled chicken breast)"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && runSearch()}
-        />
-        <button
-          onClick={runSearch}
-          className="bg-black text-white px-4 py-2 rounded"
-        >
-          Search
-        </button>
-      </div>
-
-      {loading && <p className="text-sm text-gray-500">Searching…</p>}
-
-      <ul className="space-y-2">
-        {results.map((food) => (
-          <li
-            key={food.fdcId}
-            className="border rounded p-3 flex justify-between items-center"
-          >
-            <div>
-              <p className="font-medium">{food.description}</p>
-              <p className="text-sm text-gray-500">
-                {food.brandName ?? 'USDA'}
-              </p>
-            </div>
-            <button
-              onClick={() =>
-                addUsdaFood({
-                  food,
-                  measurement: 'grams',
-                  term: query,
-                })
-              }
-              className="text-sm underline"
-            >
-              Add
-            </button>
-
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 function ManualForm() {
   const [name, setName] = useState('');
   const [measurement, setMeasurement] = useState('');
@@ -201,5 +105,126 @@ function NumberInput({
         onChange={(e) => onChange(Number(e.target.value))}
       />
     </label>
+  );
+}
+
+export default function AddIngredientPage() {
+  const [mode, setMode] = useState<'usda' | 'manual'>('usda');
+
+  return (
+    <div className="max-w-3xl mx-auto p-6 space-y-6">
+      <h1 className="text-2xl font-semibold">Add Ingredient</h1>
+
+      <div className="flex gap-2">
+        <button
+          onClick={() => setMode('usda')}
+          className={`px-4 py-2 rounded ${
+            mode === 'usda' ? 'bg-[var(--foreground)] text-[var(--background)]' : 'bg-[var(--background)] text-[var(--foreground)]'
+          }`}
+        >
+          Search USDA
+        </button>
+        <button
+          onClick={() => setMode('manual')}
+          className={`px-4 py-2 rounded ${
+            mode === 'manual' ? 'bg-[var(--foreground)] text-[var(--background)]' : 'bg-[var(--background)] text-[var(--foreground)]'
+          }`}
+        >
+          Manual Entry
+        </button>
+      </div>
+
+      {mode === 'usda' ? <UsdaSearch /> : <ManualForm />}
+    </div>
+  );
+}
+
+function UsdaSearch() {
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState<any[]>([]);
+  const [searching, setSearching] = useState(false);
+  const [addingId, setAddingId] = useState<string | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
+
+  const runSearch = async () => {
+    if (!query.trim()) return;
+    setSearching(true);
+    setResults([]);
+    const foods = await searchUsdaFoods(query);
+    setResults(foods);
+    setSearching(false);
+  };
+
+  const addFood = async (food: any) => {
+    setAddingId(String(food.fdcId));
+    setMessage('Food is being added…');
+
+    try {
+      await addUsdaFood({
+        food,
+        measurement: 'grams',
+        term: query,
+      });
+
+      setMessage('Food added successfully');
+    } catch {
+      setMessage('Failed to add food');
+    } finally {
+      setAddingId(null);
+      setTimeout(() => setMessage(null), 2000);
+    }
+  };
+
+  return (
+    <div className="space-y-4">
+      <div className="flex gap-2">
+        <input
+          className="border rounded px-3 py-2 flex-1 text-[var(--foreground)] bg-[var(--background)]"
+          placeholder="Search food"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && runSearch()}
+        />
+        <button
+          onClick={runSearch}
+          disabled={searching}
+          className="bg-[var(--foreground)] text-[var(--background)] px-4 py-2 rounded disabled:opacity-50"
+        >
+          {searching ? 'Searching…' : 'Search'}
+        </button>
+      </div>
+
+      {message && (
+        <p className="text-sm text-[var(--foreground)]">{message}</p>
+      )}
+
+      <ul className="space-y-2">
+        {results.map((food) => {
+          const isAdding = addingId === String(food.fdcId);
+
+          return (
+            <li
+              key={food.fdcId}
+              className="border rounded p-3 flex justify-between items-center"
+            >
+              <div>
+                <p className="font-medium">{food.description}</p>
+                <p className="text-sm text-[var(--foreground)]">
+                  {food.brandName ?? 'USDA'}
+                </p>
+              </div>
+
+              <button
+                onClick={() => addFood(food)}
+                disabled={isAdding}
+                className="text-sm underline disabled:opacity-50"
+              >
+                {isAdding ? 'Adding…' : 'Add'}
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 }
