@@ -73,12 +73,18 @@ function isWithinWeek(
 
 export async function logFood(foodTerm: string, grams: number) {
   const food = foods.find((f) => f.term === foodTerm);
-  if (!food) return;
+  if (!food) {
+    console.log(foodTerm, foods.map(f => f.term))
+    console.log("Food not found:", foodTerm);
+    return
+  };
 
   const date = new Date().toISOString().slice(0, 10);
 
   await updateDB((db) => {
+    if (!db.foodLog) db.foodLog = {};
     if (!db.foodLog[date]) db.foodLog[date] = [];
+
     db.foodLog[date].push({
       term: food.term,
       name: food.name,
