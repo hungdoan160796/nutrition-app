@@ -4,8 +4,10 @@ import { getNutrientById } from "@/lib/nutrientRegistry";
 import { getUserProfile } from "@/lib/userProfile";
 import { getDailyTargets } from "@/lib/recommendationEngine";
 import { getDB, initDB, updateDB } from "@/lib/db";
-import { getFoods } from "@/lib/food";
-const foods = await getFoods();
+import { Food } from "@/lib/types/food";
+const res = await fetch("/api/foods/list");
+const foods = (await res.json()) as Food[];
+
 
 /**
  * CONFIG

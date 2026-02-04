@@ -1,6 +1,7 @@
 import { getNutrientByUsdaName } from "@/lib/nutrientRegistry";
-import { getFoods } from "@/lib/food";
-const foods = await getFoods();
+const res = await fetch("/api/foods/list");
+const foods = await res.json();
+
 
 export type FoodSummary = {
   id: string;

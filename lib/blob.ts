@@ -1,4 +1,4 @@
-import { list } from "@vercel/blob";
+
 
 export async function getJSON<T>(key: string): Promise<T> {
   const blobs = await list({ prefix: key });
