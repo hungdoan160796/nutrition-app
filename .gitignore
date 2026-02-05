@@ -1,7 +1,6 @@
 node_modules
 tools
 .env
-.env.local
 .env.development
 .env.test
 .env.production
@@ -18,4 +17,3 @@ pnpm-debug.log*
 coverage
 .cache
 .vercel
-.env*.local
