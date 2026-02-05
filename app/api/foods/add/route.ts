@@ -1,14 +1,12 @@
 export const runtime = 'nodejs';
 
 import { NextResponse } from 'next/server';
-import { put } from '@vercel/blob';
 import OpenAI from 'openai';
 
 /**
  * IMPORTANT:
  * This must be a BLOB PATH, NOT a signed URL.
  */
-const BLOB_KEY = 'foods/foods_selected.json';
 
 const FOOD_GROUPS = [
   'starch',
@@ -42,6 +40,10 @@ const EMPTY_NUTRIENTS = {
   vitamin_d: 0,
 };
 
+import { put } from '@vercel/blob';
+const BLOB_KEY = 'foods/foods_selected.json';
+
+
 export async function POST(req: Request) {
   try {
     const openaiKey = req.headers.get('x-openai-key');
@@ -71,7 +73,7 @@ export async function POST(req: Request) {
       nutrients,
     };
 
-    /* ---------------- READ EXISTING BLOB ---------------- */
+    /* ---------- READ EXISTING BLOB ---------- */
 
     let foods: any[] = [];
 
@@ -82,32 +84,28 @@ export async function POST(req: Request) {
       );
 
       if (res.ok) {
-        const text = await res.text();
-        const parsed = JSON.parse(text || '[]');
+        const parsed = JSON.parse((await res.text()) || '[]');
         if (Array.isArray(parsed)) foods = parsed;
       }
     } catch {
       foods = [];
     }
 
-    /* ---------------- APPEND ---------------- */
+    /* ---------- APPEND ---------- */
 
     foods.push(entry);
 
-    /* ---------------- WRITE ---------------- */
+    /* ---------- WRITE (SERVER ONLY) ---------- */
 
-    const result = await put(
+    await put(
       BLOB_KEY,
       JSON.stringify(foods, null, 2),
       {
         access: 'public',
         contentType: 'application/json',
-        token: process.env.BLOB_READ_WRITE_TOKEN,
-        allowOverwrite: true
+        allowOverwrite: true,
       }
     );
-
-    console.log('BLOB WRITE OK:', result.url);
 
     return NextResponse.json({ success: true });
   } catch (err: any) {
