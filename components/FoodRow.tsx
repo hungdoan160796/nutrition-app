@@ -1,10 +1,6 @@
-// components/FoodRow.tsx
 "use client";
 
-import { useEffect, useMemo } from "react";
-import { GET } from "@/app/api/foods/list/route";
-
-const foodsSelectedRaw: FoodCatalogItem[] = await GET().then((res) => res.json());
+import { useEffect, useMemo, useState } from "react";
 
 type FoodCatalogItem = {
   term: string;
@@ -29,8 +25,6 @@ type FoodRowProps = {
   onChange?: (entry: SelectedFood) => void;
 };
 
-const foodsSelected = foodsSelectedRaw as FoodCatalogItem[];
-
 const normalize = (s: string) => s.trim().toLowerCase();
 
 export default function FoodRow({
@@ -38,13 +32,25 @@ export default function FoodRow({
   selected,
   onChange,
 }: FoodRowProps) {
+  const [foodsSelected, setFoodsSelected] = useState<FoodCatalogItem[]>([]);
+
+  useEffect(() => {
+    fetch("/api/foods/list")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to load foods");
+        return res.json();
+      })
+      .then(setFoodsSelected)
+      .catch(() => setFoodsSelected([]));
+  }, []);
+
   const normalizedName = normalize(food.name);
 
   const catalogFood = useMemo(() => {
     return foodsSelected.find(
       (f) => normalize(f.name) === normalizedName
     );
-  }, [normalizedName]);
+  }, [foodsSelected, normalizedName]);
 
   const term = catalogFood?.term ?? normalizedName;
   const name = catalogFood?.name ?? food.name;
@@ -65,9 +71,7 @@ export default function FoodRow({
   return (
     <div className="w-[70%] flex justify-between text-sm text-[var(--accent)]">
       <div>{term}</div>
-      <div className="text-[var(--accent)]">
-        {quantity ?? ""}
-      </div>
+      <div>{quantity ?? ""}</div>
     </div>
   );
 }
