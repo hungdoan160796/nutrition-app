@@ -12,10 +12,10 @@ export type Profile = {
   age: number;
 };
 
-export function getDailyTargets(
+export async function getDailyTargets(
   profile: Profile
-): Record<string, number> {
-  const db = getDB();
+): Promise<Record<string, number>> {
+  const db = await getDB();
   const overrides = db.nutrientOverrides ?? {};
 
   const set = RECOMMENDATION_SETS[profile.recommendationSet];

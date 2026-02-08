@@ -16,8 +16,8 @@ const DEFAULT_PROFILE: Profile = {
   age: 30,
 };
 
-export function getResolvedRecommendations() {
-  const db = getDB();
+export async function getResolvedRecommendations() {
+  const db = await getDB();
 
   const profile: Profile = {
     ...DEFAULT_PROFILE,

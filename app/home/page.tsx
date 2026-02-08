@@ -3,38 +3,49 @@
 import { useEffect, useState } from "react";
 import NutrientCard from "@/components/NutrientCard";
 import ProgressRing from "@/components/ProgressRing";
-import { getWeeklyProgress } from "@/lib/nutritionEngine";
-import { auth, db } from "@/lib/firebase";
+import { getWeeklyProgress, type WeeklyProgress } from "@/lib/nutritionEngine";
 import BottomNav from "@/components/BottomNav";
-
-console.log("Firebase auth:", auth);
-console.log("Firestore:", db);
-
+import { useAuth } from "@/app/providers/AuthProviders";
+import { useRouter } from "next/navigation";
+// app/home/page.tsx
 
 type Theme = string;
 
 const THEME_REGEX = /data[-–]theme\s*=\s*"([^"]+)"/g;
+
 const MACROS = ["protein", "fat", "carbohydrate"];
 const MICROS = [
-      "vitamin_a",
-      "vitamin_k",
-      "vitamin_e",
-      "calcium",
-      "potassium",
-      "zinc",
-      "vitamin_c",
-      "folate",
-      "vitamin_b12",
-      "fiber",
-      "iron",
-      "magnesium",
-      "sodium",
-      "vitamin_d"]
+  "vitamin_a",
+  "vitamin_k",
+  "vitamin_e",
+  "calcium",
+  "potassium",
+  "zinc",
+  "vitamin_c",
+  "folate",
+  "vitamin_b12",
+  "fiber",
+  "iron",
+  "magnesium",
+  "sodium",
+  "vitamin_d",
+];
 
 export default function HomePage() {
-  const [progress, setProgress] = useState<any>(null);
+  const [progress, setProgress] = useState<WeeklyProgress | null>(null);
   const [theme, setTheme] = useState<Theme>("");
   const [themes, setThemes] = useState<Theme[]>([]);
+
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.replace("/");
+    }
+  }, [user, loading, router]);
+
+  if (loading) return null;
 
   // load saved theme
   useEffect(() => {
@@ -71,33 +82,29 @@ export default function HomePage() {
 
   // nutrition data
   useEffect(() => {
-    getWeeklyProgress().then(setProgress);
+    (async () => {
+      const data = await getWeeklyProgress();
+      setProgress(data);
+    })();
   }, []);
 
   if (!progress) return <div className="p-4">Loading…</div>;
 
-  const calories = progress.all.find((n: any) => n.id === "calories");
-  const macros = progress.all.filter((n: any) =>
-    MACROS.includes(n.id)
-  );
-  const micros = progress.all.filter(
-    (n: any) => MICROS.includes(n.id)
-  );
+  const calories = progress.all.find((n) => n.id === "calories");
+  const macros = progress.all.filter((n) => MACROS.includes(n.id));
+  const micros = progress.all.filter((n) => MICROS.includes(n.id));
 
   const microAvg =
     micros.length === 0
       ? 0
       : Math.round(
-          (micros.reduce(
-            (sum: number, n: any) => sum + n.progress,
-            0
-          ) /
+          (micros.reduce((sum, n) => sum + n.progress, 0) /
             micros.length) *
             100
         ) / 100;
 
   return (
-    <div className="p-4 space-y-6">
+    <div className="p-4 pb-24 space-y-6">
       {/* Theme selector */}
       <div className="flex items-center gap-2">
         <select
@@ -117,34 +124,32 @@ export default function HomePage() {
       <h1 className="text-xl font-semibold">This Week</h1>
 
       <section className="space-y-2">
-        <h2 className="text-sm uppercase text-neutral-400 ">Calorie</h2>
-        <div className="grid gap-3">
-          {calories && <NutrientCard {...calories} />}
-        </div>
+        <h2 className="text-sm uppercase text-neutral-400">Calories</h2>
+        {calories && <NutrientCard {...calories} />}
       </section>
 
       <section className="space-y-2">
         <h2 className="text-sm uppercase text-neutral-400">Macros</h2>
         <div className="grid grid-cols-3 gap-3">
-          {macros.map((n: any) => (
+          {macros.map((n) => (
             <NutrientCard key={n.id} {...n} />
           ))}
         </div>
       </section>
 
-      <h2 className="text-sm uppercase text-neutral-400">Micros</h2>
-      <div className="flex justify-center">
-        <ProgressRing value={microAvg} />
-      </div>
-
       <section className="space-y-2">
+        <h2 className="text-sm uppercase text-neutral-400">Micros</h2>
+        <div className="flex justify-center">
+          <ProgressRing value={microAvg} />
+        </div>
         <div className="grid grid-cols-3 gap-2">
-          {micros.map((n: any) => (
+          {micros.map((n) => (
             <NutrientCard key={n.id} {...n} compact />
           ))}
         </div>
       </section>
-    <BottomNav />
+
+      <BottomNav />
     </div>
   );
 }

@@ -1,9 +1,7 @@
 // app/layout.tsx
 import "./globals.css";
-import BottomNav from "@/components/BottomNav";
-import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { AuthProvider } from "@/lib/auth-context";
+import { AuthProvider } from "@/app/providers/AuthProviders";
 
 export default function RootLayout({
   children,
@@ -24,3 +22,4 @@ export default function RootLayout({
     </html>
   );
 }
+

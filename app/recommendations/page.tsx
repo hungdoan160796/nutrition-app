@@ -24,15 +24,15 @@ type Row = {
 
 export default function RecommendationsPage() {
 
-  function getUserProfile(): UserProfile | undefined {
-    const db = getDB();
+  async function getUserProfile(): Promise<UserProfile | undefined> {
+    const db = await getDB();
     return db.userProfile;
   }
 
   useEffect(() => {
     (async () => {
       await initDB();
-      const profile = getUserProfile();
+      const profile = await getUserProfile();
       if (
         profile?.recommendationSet &&
         profile?.sex &&
@@ -41,7 +41,7 @@ export default function RecommendationsPage() {
         setStandard(profile.recommendationSet);
         setSex(profile.sex);
         setAge(profile.age);
-        setRows(getResolvedRecommendations());
+        setRows(await getResolvedRecommendations());
         setProfileReady(true);
       }
     })();
@@ -61,7 +61,7 @@ export default function RecommendationsPage() {
   useEffect(() => {
     (async () => {
       await initDB();
-      const profile = getUserProfile();
+      const profile = await getUserProfile();
 
       if (
         profile?.recommendationSet &&
@@ -71,7 +71,7 @@ export default function RecommendationsPage() {
         setStandard(profile.recommendationSet);
         setSex(profile.sex);
         setAge(profile.age);
-        setRows(getResolvedRecommendations());
+        setRows(await getResolvedRecommendations());
         setProfileReady(true);
       }
     })();
@@ -88,7 +88,7 @@ export default function RecommendationsPage() {
     setStandard(next.recommendationSet);
     setSex(next.sex);
     setAge(next.age);
-    setRows(getResolvedRecommendations());
+    setRows(await getResolvedRecommendations());
     setProfileReady(true);
     saved();
   }
@@ -99,7 +99,7 @@ export default function RecommendationsPage() {
       db.nutrientOverrides ??= {};
       db.nutrientOverrides[id] = value;
     });
-    setRows(getResolvedRecommendations());
+    setRows(await getResolvedRecommendations());
     saved();
   }
 
@@ -107,7 +107,7 @@ export default function RecommendationsPage() {
     await updateDB(db => {
       db.nutrientOverrides = {};
     });
-    setRows(getResolvedRecommendations());
+    setRows(await getResolvedRecommendations());
     saved();
   }
   return (

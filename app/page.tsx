@@ -7,9 +7,9 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithRedirect,
 } from "firebase/auth";
 import { auth } from "@/lib/firebase";
-import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -17,19 +17,14 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [checkingAuth, setCheckingAuth] = useState(true);
-  const router = useRouter();
 
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        router.replace("/home");
-      } else {
-        setCheckingAuth(false);
-      }
+    const unsub = onAuthStateChanged(auth, () => {
+      setCheckingAuth(false);
     });
 
     return () => unsub();
-  }, [router]);
+  }, []);
 
   async function login() {
     setLoading(true);
@@ -56,13 +51,9 @@ export default function LoginPage() {
   async function loginWithGoogle() {
     setLoading(true);
     setError(null);
-    try {
-      const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
-    } catch (err: any) {
-      setError(err.message);
-      setLoading(false);
-    }
+
+    const provider = new GoogleAuthProvider();
+    await signInWithRedirect(auth, provider);
   }
 
   if (checkingAuth) return null;
@@ -125,24 +116,6 @@ export default function LoginPage() {
           disabled={loading}
           className="w-full flex items-center justify-center gap-2 rounded-lg border py-2 text-sm font-medium disabled:opacity-60"
         >
-          <svg width="18" height="18" viewBox="0 0 48 48">
-            <path
-              fill="#EA4335"
-              d="M24 9.5c3.54 0 6.07 1.53 7.47 2.8l5.45-5.45C33.64 3.95 29.3 2 24 2 14.73 2 6.78 7.3 2.96 14.96l6.64 5.16C11.2 13.36 17.1 9.5 24 9.5z"
-            />
-            <path
-              fill="#34A853"
-              d="M46.5 24c0-1.57-.14-3.08-.4-4.5H24v9h12.7c-.55 2.96-2.18 5.47-4.64 7.18l7.18 5.58C43.73 37.36 46.5 31.2 46.5 24z"
-            />
-            <path
-              fill="#4A90E2"
-              d="M9.6 28.12a14.5 14.5 0 010-8.24l-6.64-5.16A23.94 23.94 0 000 24c0 3.9.94 7.6 2.96 10.88l6.64-5.16z"
-            />
-            <path
-              fill="#FBBC05"
-              d="M24 46c5.3 0 9.75-1.75 13-4.74l-7.18-5.58c-1.99 1.34-4.53 2.13-5.82 2.13-6.9 0-12.8-3.86-14.4-9.38l-6.64 5.16C6.78 40.7 14.73 46 24 46z"
-            />
-          </svg>
           Continue with Google
         </button>
       </div>

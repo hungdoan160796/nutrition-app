@@ -9,7 +9,7 @@ import FoodRow from "@/components/FoodRow";
 import WeekChart from "@/components/WeekChart";
 import BottomNav from "@/components/BottomNav";
 await initDB();
-const db = getDB();
+const db = await getDB();
 const profile = db.userProfile;
 
 const MICROS = [
@@ -56,12 +56,12 @@ const addDays = (d: Date, n: number) => {
   return x;
 };
 
-function buildWeeks(db: any): WeekLog[] {
+async function buildWeeks(db: any): Promise<WeekLog[]> {
   const dates = Object.keys(db.foodLog || {}).sort();
   if (!dates.length) return [];
 
   const map = new Map<string, Map<string, DayLog>>();
-  const targets = getDailyTargets(profile);
+  const targets = await getDailyTargets(profile);
 
   console.log("Daily targets:", targets);
 
@@ -196,7 +196,7 @@ export default function HistoryPage() {
 
   const refresh = async () => {
     await initDB();
-    setWeeks(buildWeeks(getDB()));
+    setWeeks(await buildWeeks(await getDB()));
   };
 
   useEffect(() => {
@@ -230,8 +230,8 @@ export default function HistoryPage() {
   useEffect(() => {
     (async () => {
       await initDB();
-      const db = getDB();
-      setWeeks(buildWeeks(db));
+      const db = await getDB();
+      setWeeks(await buildWeeks(db));
     })();
   }, []);
 

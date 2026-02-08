@@ -19,7 +19,9 @@ type FoodGroup =
 type Food = {
   id: string;
   term: string;
+  name: string;
   group: FoodGroup;
+  nutrients: Record<string, number>; // per 100g
 };
 
 const FOOD_GROUPS: FoodGroup[] = [
@@ -37,10 +39,10 @@ const FOOD_GROUPS: FoodGroup[] = [
 export default function LogFoodPage() {
   const router = useRouter();
 
+  const [foods, setFoods] = useState<Food[]>([]);
   const [activeGroup, setActiveGroup] = useState<FoodGroup | null>(null);
-  const [foodTerm, setFoodTerm] = useState("");
+  const [selectedFood, setSelectedFood] = useState<Food | null>(null);
   const [grams, setGrams] = useState("");
-  const [foods, setFoods] = useState<any[]>([]);
 
   useEffect(() => {
     fetch("/api/foods")
@@ -48,86 +50,91 @@ export default function LogFoodPage() {
       .then(setFoods);
   }, []);
 
-  const allFoods = foods as unknown as Food[];
   const groupFoods = activeGroup
-    ? allFoods.filter(f => f.group === activeGroup)
+    ? foods.filter((f) => f.group === activeGroup)
     : [];
 
   async function handleAdd() {
-    if (!foodTerm || !grams) return;
+    if (!selectedFood || !grams) return;
 
-    await logFood(foodTerm, Number(grams));
-    router.push("/");
+    await logFood(
+      {
+        term: selectedFood.term,
+        name: selectedFood.name,
+        nutrients: selectedFood.nutrients, // per 100g
+      },
+      Number(grams)
+    );
+
+    router.push("/home");
     router.refresh();
   }
 
 
-  return (
-    <div className="p-4 space-y-4">
-      <h1 className="text-xl font-semibold">Log Food</h1>
 
-      {!activeGroup && (
-        <div className="grid grid-cols-3 gap-3">
-          {FOOD_GROUPS.map(g => (
+  return (
+    <div className="pb-24">
+      <div className="p-4 space-y-4">
+        {/* Food Groups */}
+        <div className="flex gap-2 flex-wrap">
+          {FOOD_GROUPS.map((group) => (
             <button
-              key={g}
-              onClick={() => setActiveGroup(g)}
-              className="aspect-square rounded-xl bg-[var(--muted)] flex items-center justify-center font-semibold capitalize"
+              key={group}
+              onClick={() => {
+                setActiveGroup(group);
+                setSelectedFood(null);
+              }}
+              className={`px-3 py-1 rounded-full text-sm border ${
+                activeGroup === group ? "bg-primary text-white" : ""
+              }`}
             >
-              {g}
+              {group}
             </button>
           ))}
         </div>
-      )}
 
-      {activeGroup && (
-        <>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => {
-                setActiveGroup(null);
-                setFoodTerm("");
-              }}
-              className="text-sm text-[var(--accent)]"
-            >
-              ← Back
-            </button>
-            <h2 className="text-lg font-semibold capitalize">{activeGroup}</h2>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3 max-h-64 overflow-y-auto">
-            {groupFoods.map(f => (
+        {/* Food List */}
+        {groupFoods.length > 0 && (
+          <div className="space-y-2">
+            {groupFoods.map((food) => (
               <button
-                key={f.id}
-                onClick={() => setFoodTerm(f.term)}
-                className={`p-3 rounded-lg text-left ${
-                  foodTerm === f.term
-                    ? "bg-[var(--accent)] text-black"
-                    : "bg-[var(--muted)]"
+                key={food.id}
+                onClick={() => setSelectedFood(food)}
+                className={`w-full text-left px-3 py-2 rounded-lg border ${
+                  selectedFood?.id === food.id
+                    ? "border-primary"
+                    : ""
                 }`}
               >
-                {f.term}
+                {food.name}
               </button>
             ))}
           </div>
-        </>
-      )}
+        )}
 
-      <input
-        type="number"
-        placeholder="Grams eaten"
-        className="w-full p-3 rounded bg-[var(--muted)] text-[var(--foreground)]"
-        value={grams}
-        onChange={e => setGrams(e.target.value)}
-      />
+        {/* Grams Input */}
+        {selectedFood && (
+          <div className="space-y-3">
+            <div className="font-medium">{selectedFood.name}</div>
 
-      <button
-        className="w-full p-3 rounded bg-[var(--accent)] text-black font-semibold disabled:opacity-50"
-        disabled={!foodTerm || !grams}
-        onClick={handleAdd}
-      >
-        Add
-      </button>
+            <input
+              type="number"
+              placeholder="Grams eaten"
+              value={grams}
+              onChange={(e) => setGrams(e.target.value)}
+              className="w-full rounded-lg border px-3 py-2"
+            />
+
+            <button
+              onClick={handleAdd}
+              className="w-full rounded-lg bg-primary py-2 text-white font-medium"
+            >
+              Log food
+            </button>
+          </div>
+        )}
+      </div>
+
       <BottomNav />
     </div>
   );
