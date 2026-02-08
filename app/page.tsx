@@ -1,143 +1,151 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import NutrientCard from "@/components/NutrientCard";
-import ProgressRing from "@/components/ProgressRing";
-import { getWeeklyProgress } from "@/lib/nutritionEngine";
+import { useState, useEffect } from "react";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+} from "firebase/auth";
+import { auth } from "@/lib/firebase";
+import { useRouter } from "next/navigation";
 
-type Theme = string;
+export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [checkingAuth, setCheckingAuth] = useState(true);
+  const router = useRouter();
 
-const THEME_REGEX = /data[-–]theme\s*=\s*"([^"]+)"/g;
-const MACROS = ["protein", "fat", "carbohydrate"];
-const MICROS = [
-      "vitamin_a",
-      "vitamin_k",
-      "vitamin_e",
-      "calcium",
-      "potassium",
-      "zinc",
-      "vitamin_c",
-      "folate",
-      "vitamin_b12",
-      "fiber",
-      "iron",
-      "magnesium",
-      "sodium",
-      "vitamin_d"]
-
-export default function HomePage() {
-  const [progress, setProgress] = useState<any>(null);
-  const [theme, setTheme] = useState<Theme>("");
-  const [themes, setThemes] = useState<Theme[]>([]);
-
-  // load saved theme
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved) {
-      document.documentElement.setAttribute("data-theme", saved);
-      setTheme(saved);
-    }
-  }, []);
-
-  // apply theme
-  useEffect(() => {
-    if (!theme) return;
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  // read themes from themes.md
-  useEffect(() => {
-    (async () => {
-      const res = await fetch("/themes.md");
-      const text = await res.text();
-
-      const found = new Set<string>();
-      let match: RegExpExecArray | null;
-
-      while ((match = THEME_REGEX.exec(text))) {
-        found.add(match[1]);
+    const unsub = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        router.replace("/home");
+      } else {
+        setCheckingAuth(false);
       }
+    });
 
-      setThemes(Array.from(found).sort());
-    })();
-  }, []);
+    return () => unsub();
+  }, [router]);
 
-  // nutrition data
-  useEffect(() => {
-    getWeeklyProgress().then(setProgress);
-  }, []);
+  async function login() {
+    setLoading(true);
+    setError(null);
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (err: any) {
+      setError(err.message);
+      setLoading(false);
+    }
+  }
 
-  if (!progress) return <div className="p-4">Loading…</div>;
+  async function signup() {
+    setLoading(true);
+    setError(null);
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+    } catch (err: any) {
+      setError(err.message);
+      setLoading(false);
+    }
+  }
 
-  const calories = progress.all.find((n: any) => n.id === "calories");
-  const macros = progress.all.filter((n: any) =>
-    MACROS.includes(n.id)
-  );
-  const micros = progress.all.filter(
-    (n: any) => MICROS.includes(n.id)
-  );
+  async function loginWithGoogle() {
+    setLoading(true);
+    setError(null);
+    try {
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);
+    } catch (err: any) {
+      setError(err.message);
+      setLoading(false);
+    }
+  }
 
-  const microAvg =
-    micros.length === 0
-      ? 0
-      : Math.round(
-          (micros.reduce(
-            (sum: number, n: any) => sum + n.progress,
-            0
-          ) /
-            micros.length) *
-            100
-        ) / 100;
+  if (checkingAuth) return null;
 
   return (
-    <div className="p-4 space-y-6">
-      {/* Theme selector */}
-      <div className="flex items-center gap-2">
-        <select
-          value={theme}
-          onChange={(e) => setTheme(e.target.value)}
-          className="border rounded px-2 py-1 bg-transparent"
+    <div className="min-h-screen flex items-center justify-center bg-background px-4">
+      <div className="w-full max-w-sm rounded-2xl border bg-card p-6 shadow-sm">
+        <h1 className="text-2xl font-semibold text-center mb-6">
+          Welcome back
+        </h1>
+
+        <div className="space-y-3">
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+          />
+        </div>
+
+        {error && (
+          <p className="mt-3 text-sm text-destructive text-center">{error}</p>
+        )}
+
+        <div className="mt-6 space-y-3">
+          <button
+            onClick={login}
+            disabled={loading}
+            className="w-full rounded-lg bg-primary py-2 text-sm font-medium text-primary-foreground disabled:opacity-60"
+          >
+            Log in
+          </button>
+
+          <button
+            onClick={signup}
+            disabled={loading}
+            className="w-full rounded-lg border py-2 text-sm font-medium disabled:opacity-60"
+          >
+            Create account
+          </button>
+        </div>
+
+        <div className="my-5 flex items-center gap-3">
+          <div className="h-px flex-1 bg-border" />
+          <span className="text-xs text-muted-foreground">OR</span>
+          <div className="h-px flex-1 bg-border" />
+        </div>
+
+        <button
+          onClick={loginWithGoogle}
+          disabled={loading}
+          className="w-full flex items-center justify-center gap-2 rounded-lg border py-2 text-sm font-medium disabled:opacity-60"
         >
-          <option value="">System</option>
-          {themes.map((t) => (
-            <option key={t} value={t}>
-              {t}
-            </option>
-          ))}
-        </select>
+          <svg width="18" height="18" viewBox="0 0 48 48">
+            <path
+              fill="#EA4335"
+              d="M24 9.5c3.54 0 6.07 1.53 7.47 2.8l5.45-5.45C33.64 3.95 29.3 2 24 2 14.73 2 6.78 7.3 2.96 14.96l6.64 5.16C11.2 13.36 17.1 9.5 24 9.5z"
+            />
+            <path
+              fill="#34A853"
+              d="M46.5 24c0-1.57-.14-3.08-.4-4.5H24v9h12.7c-.55 2.96-2.18 5.47-4.64 7.18l7.18 5.58C43.73 37.36 46.5 31.2 46.5 24z"
+            />
+            <path
+              fill="#4A90E2"
+              d="M9.6 28.12a14.5 14.5 0 010-8.24l-6.64-5.16A23.94 23.94 0 000 24c0 3.9.94 7.6 2.96 10.88l6.64-5.16z"
+            />
+            <path
+              fill="#FBBC05"
+              d="M24 46c5.3 0 9.75-1.75 13-4.74l-7.18-5.58c-1.99 1.34-4.53 2.13-5.82 2.13-6.9 0-12.8-3.86-14.4-9.38l-6.64 5.16C6.78 40.7 14.73 46 24 46z"
+            />
+          </svg>
+          Continue with Google
+        </button>
       </div>
-
-      <h1 className="text-xl font-semibold">This Week</h1>
-
-      <section className="space-y-2">
-        <h2 className="text-sm uppercase text-neutral-400 ">Calorie</h2>
-        <div className="grid gap-3">
-          {calories && <NutrientCard {...calories} />}
-        </div>
-      </section>
-
-      <section className="space-y-2">
-        <h2 className="text-sm uppercase text-neutral-400">Macros</h2>
-        <div className="grid grid-cols-3 gap-3">
-          {macros.map((n: any) => (
-            <NutrientCard key={n.id} {...n} />
-          ))}
-        </div>
-      </section>
-
-      <h2 className="text-sm uppercase text-neutral-400">Micros</h2>
-      <div className="flex justify-center">
-        <ProgressRing value={microAvg} />
-      </div>
-
-      <section className="space-y-2">
-        <div className="grid grid-cols-3 gap-2">
-          {micros.map((n: any) => (
-            <NutrientCard key={n.id} {...n} compact />
-          ))}
-        </div>
-      </section>
     </div>
   );
 }

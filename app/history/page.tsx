@@ -7,6 +7,7 @@ import { getDB, initDB } from "@/lib/db";
 import { updateDB } from "@/lib/db";
 import FoodRow from "@/components/FoodRow";
 import WeekChart from "@/components/WeekChart";
+import BottomNav from "@/components/BottomNav";
 await initDB();
 const db = getDB();
 const profile = db.userProfile;
@@ -310,6 +311,7 @@ export default function HistoryPage() {
           </section>
         );
       })}
+    <BottomNav />
     </div>
   );
 }

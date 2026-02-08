@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { initDB, updateDB, getDB } from "@/lib/db";
 import { getResolvedRecommendations } from "@/lib/recommendationResolver";
+import BottomNav from "@/components/BottomNav";
 
 type StandardId = "fda_dv_2024" | "usda_dri";
 type Sex = "male" | "female";
@@ -215,6 +216,7 @@ export default function RecommendationsPage() {
           Saved!
         </div>
       )}
+    <BottomNav />
     </div>
   );
 

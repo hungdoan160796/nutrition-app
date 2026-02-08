@@ -1,4 +1,4 @@
-import foods from "@/data/foods_selected.json";
+import { useEffect, useState } from "react";
 
 export type FoodLite = {
   id: string;
@@ -17,6 +17,13 @@ function normalize(text: string) {
 }
 
 export function buildFoodIndex() {
+  const [foods, setFoods] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch("/api/foods")
+      .then((res) => res.json())
+      .then(setFoods);
+  }, []);
   if (index) return index;
 
   const foodsLite: FoodLite[] = foods.map(f => ({

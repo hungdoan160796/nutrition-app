@@ -1,5 +1,5 @@
-import rawData from "@/data/foods_selected.json";
 import { getNutrientByUsdaName } from "@/lib/nutrientRegistry";
+import { useEffect, useState } from "react";
 
 export type FoodSummary = {
   id: string;
@@ -21,7 +21,15 @@ export type FoodDetail = {
 };
 
 function normalizeFoods(): FoodDetail[] {
-  return rawData.map((food: any) => {
+
+  const [foods, setFoods] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch("/api/foods")
+      .then((res) => res.json())
+      .then(setFoods);
+  }, []);
+  return foods.map((food: any) => {
     const nutrients: FoodNutrientMap = {};
 
     for (const fn of food.foodNutrients ?? []) {

@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import foods from "@/data/foods_selected.json";
+import { useEffect, useState } from "react";
 import { logFood } from "@/lib/nutritionEngine";
 import { useRouter } from "next/navigation";
+import BottomNav from "@/components/BottomNav";
 
 type FoodGroup =
   | "starch"
@@ -40,6 +40,13 @@ export default function LogFoodPage() {
   const [activeGroup, setActiveGroup] = useState<FoodGroup | null>(null);
   const [foodTerm, setFoodTerm] = useState("");
   const [grams, setGrams] = useState("");
+  const [foods, setFoods] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch("/api/foods")
+      .then((res) => res.json())
+      .then(setFoods);
+  }, []);
 
   const allFoods = foods as unknown as Food[];
   const groupFoods = activeGroup
@@ -121,6 +128,7 @@ export default function LogFoodPage() {
       >
         Add
       </button>
+      <BottomNav />
     </div>
   );
 }

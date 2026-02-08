@@ -4,7 +4,7 @@ import { getNutrientById } from "@/lib/nutrientRegistry";
 import { getUserProfile } from "@/lib/userProfile";
 import { getDailyTargets } from "@/lib/recommendationEngine";
 import { getDB, initDB, updateDB } from "@/lib/db";
-import foods from "@/data/foods_selected.json";
+import { useEffect, useState } from "react";
 
 /**
  * CONFIG
@@ -72,6 +72,14 @@ function isWithinWeek(
 // ---------- Core Logic ----------
 
 export async function logFood(foodTerm: string, grams: number) {
+  const [foods, setFoods] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch("/api/foods")
+      .then((res) => res.json())
+      .then(setFoods);
+  }, []);
+
   const food = foods.find((f) => f.term === foodTerm);
   if (!food) return;
 

@@ -1,8 +1,7 @@
 // components/FoodRow.tsx
 "use client";
 
-import { useEffect, useMemo } from "react";
-import foodsSelectedRaw from "@/data/foods_selected.json";
+import { useEffect, useMemo, useState } from "react";
 
 type FoodCatalogItem = {
   term: string;
@@ -27,8 +26,6 @@ type FoodRowProps = {
   onChange?: (entry: SelectedFood) => void;
 };
 
-const foodsSelected = foodsSelectedRaw as FoodCatalogItem[];
-
 const normalize = (s: string) => s.trim().toLowerCase();
 
 export default function FoodRow({
@@ -37,6 +34,16 @@ export default function FoodRow({
   onChange,
 }: FoodRowProps) {
   const normalizedName = normalize(food.name);
+
+  const [foods, setFoods] = useState<any[]>([]);
+
+  const foodsSelected = foods as FoodCatalogItem[];
+
+  useEffect(() => {
+    fetch("/api/foods")
+      .then((res) => res.json())
+      .then(setFoods);
+  }, []);
 
   const catalogFood = useMemo(() => {
     return foodsSelected.find(
