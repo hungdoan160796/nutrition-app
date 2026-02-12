@@ -17,7 +17,7 @@ const app = initializeApp({
 
 export const auth = getAuth(app);
 
-setPersistence(auth, browserLocalPersistence);
-
+setPersistence(auth, browserLocalPersistence); 
+ 
 
 export const db = getFirestore(app);
