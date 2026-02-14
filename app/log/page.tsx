@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 import { logFood } from "@/lib/nutritionEngine";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/app/providers/AuthProviders";
 import BottomNav from "@/components/BottomNav";
+import FoodNutrients from "@/components/FoodNutrients";
 
 type FoodGroup =
   | "starch"
@@ -43,12 +45,52 @@ export default function LogFoodPage() {
   const [activeGroup, setActiveGroup] = useState<FoodGroup | null>(null);
   const [selectedFood, setSelectedFood] = useState<Food | null>(null);
   const [grams, setGrams] = useState("");
+  const [page, setPage] = useState(1);
+  const [limit] = useState(50);
+  const [loadingFoods, setLoadingFoods] = useState(false);
+  const [fetchError, setFetchError] = useState<string | null>(null);
+
+  const { user } = useAuth();
 
   useEffect(() => {
-    fetch("/api/foods")
-      .then((res) => res.json())
-      .then(setFoods);
-  }, []);
+    // Fetch foods filtered by group with pagination whenever activeGroup or page changes
+    if (!activeGroup) return;
+    if (!user) return;
+
+    let aborted = false;
+
+    (async () => {
+      setLoadingFoods(true);
+      setFetchError(null);
+      try {
+        const token = await user.getIdToken();
+        const res = await fetch(
+          `/api/foods?group=${encodeURIComponent(activeGroup)}&page=${page}&limit=${limit}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+
+        if (!res.ok) {
+          const body = await res.json().catch(() => ({}));
+          if (!aborted) setFetchError(body?.error ?? `HTTP ${res.status}`);
+          return;
+        }
+
+        const data = await res.json();
+        if (aborted) return;
+        setFoods(data?.foods ?? []);
+      } catch (e: any) {
+        if (!aborted) setFetchError(String(e?.message ?? e));
+      } finally {
+        if (!aborted) setLoadingFoods(false);
+      }
+    })();
+
+    return () => {
+      aborted = true;
+    };
+  }, [activeGroup, page, limit, user]);
 
   const groupFoods = activeGroup
     ? foods.filter((f) => f.group === activeGroup)
@@ -83,8 +125,9 @@ export default function LogFoodPage() {
               onClick={() => {
                 setActiveGroup(group);
                 setSelectedFood(null);
+                setPage(1);
               }}
-              className={`px-3 py-1 rounded-full text-sm border ${
+              className={`px-3 py-1 rounded-full text-sm border bg-[var(--background)] border-[var(--border)] ${
                 activeGroup === group ? "bg-primary text-white" : ""
               }`}
             >
@@ -93,44 +136,83 @@ export default function LogFoodPage() {
           ))}
         </div>
 
-        {/* Food List */}
-        {groupFoods.length > 0 && (
-          <div className="space-y-2">
-            {groupFoods.map((food) => (
-              <button
-                key={food.id}
-                onClick={() => setSelectedFood(food)}
-                className={`w-full text-left px-3 py-2 rounded-lg border ${
-                  selectedFood?.id === food.id
-                    ? "border-primary"
-                    : ""
-                }`}
-              >
-                {food.name}
-              </button>
-            ))}
-          </div>
-        )}
+        {/* Foods + Nutrients layout */}
+        {activeGroup && (
+          <div className="grid grid-cols-5 gap-4">
+            <div className="col-span-2 space-y-2">
+              {loadingFoods ? (
+                <div className="rounded-xl p-4 border bg-[var(--background)] text-sm text-neutral-400">Loading foods…</div>
+              ) : fetchError ? (
+                <div className="rounded-xl p-4 border bg-[var(--background)] text-sm text-red-500">{fetchError}</div>
+              ) : groupFoods.length > 0 ? (
+                groupFoods.map((food) => (
+                  <button
+                    key={food.id}
+                    onClick={() => setSelectedFood(food)}
+                    className={`w-full text-left px-3 py-2 rounded-lg border bg-[var(--background)] border-[var(--border)] ${
+                      selectedFood?.id === food.id ? "ring-2 ring-primary" : ""
+                    }`}
+                  >
+                    <div className="font-medium text-[var(--foreground)]">
+                      {food.name}
+                    </div>
+                  </button>
+                ))
+              ) : (
+                <div className="rounded-xl p-4 border bg-[var(--background)] text-sm text-neutral-400">No foods in this group.</div>
+              )}
 
-        {/* Grams Input */}
-        {selectedFood && (
-          <div className="space-y-3">
-            <div className="font-medium">{selectedFood.name}</div>
+              <div className="flex items-center gap-2 mt-2">
+                <button
+                  onClick={() => setPage((p) => Math.max(1, p - 1))}
+                  disabled={page <= 1 || loadingFoods}
+                  className="px-3 py-1 rounded border bg-[var(--background)]"
+                >
+                  Prev
+                </button>
+                <div className="text-sm text-neutral-500">{page}</div>
+                <button
+                  onClick={() => setPage((p) => p + 1)}
+                  disabled={loadingFoods}
+                  className="px-3 py-1 rounded border bg-[var(--background)]"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
 
-            <input
-              type="number"
-              placeholder="Grams eaten"
-              value={grams}
-              onChange={(e) => setGrams(e.target.value)}
-              className="w-full rounded-lg border px-3 py-2"
-            />
+            <div className="col-span-3">
+              {selectedFood ? (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between flex-row">
+                    <div>
+                      <input
+                        type="number"
+                        placeholder="Grams eaten"
+                        value={grams}
+                        onChange={(e) => setGrams(e.target.value)}
+                        className="w-[100%] rounded-lg border px-3 py-2 bg-transparent"
+                      />
+                    </div>
+                    <button
+                      onClick={handleAdd}
+                      className="w-[60%] rounded-lg bg-primary py-2 px-4 text-white font-medium"
+                    >
+                      Log food
+                    </button>
+                  </div>
 
-            <button
-              onClick={handleAdd}
-              className="w-full rounded-lg bg-primary py-2 text-white font-medium"
-            >
-              Log food
-            </button>
+                  <div>
+                    <h3 className="text-sm text-neutral-400 uppercase mb-2">Nutrients</h3>
+                    <FoodNutrients nutrients={selectedFood.nutrients} grams={Number(grams) || undefined} />
+                  </div>
+                </div>
+              ) : (
+                <div className="rounded-xl p-4 border bg-[var(--background)] text-sm text-neutral-400">
+                  Select a food to see its nutrients
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>

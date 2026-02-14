@@ -12,22 +12,22 @@ type Theme = string;
 
 const THEME_REGEX = /data[-–]theme\s*=\s*"([^"]+)"/g;
 
-const MACROS = ["protein", "fat", "carbohydrate"];
+const MACROS = ["Protein", "Fat", "Carbs"];
 const MICROS = [
-  "vitamin_a",
-  "vitamin_k",
-  "vitamin_e",
-  "calcium",
-  "potassium",
-  "zinc",
-  "vitamin_c",
-  "folate",
-  "vitamin_b12",
-  "fiber",
-  "iron",
-  "magnesium",
-  "sodium",
-  "vitamin_d",
+  "Vitamin A",
+  "Vitamin K",
+  "Vitamin E",
+  "Calcium",
+  "Potassium",
+  "Zinc",
+  "Vitamin C",
+  "Vitamin B6",
+  "Vitamin B12",
+  "Fiber",
+  "Iron",
+  "Magnesium",
+  "Sodium",
+  "Vitamin D",
 ];
 
 export default function HomePage() {
@@ -111,7 +111,7 @@ export default function HomePage() {
       progress: 0,
     };
 
-  const calories = getNutrient("calories");
+  const calories = getNutrient("Calories");
 
   const macros = MACROS.map(getNutrient);
   const micros = MICROS.map(getNutrient);
@@ -145,13 +145,6 @@ export default function HomePage() {
       <h1 className="text-xl font-semibold">This Week</h1>
 
       <section className="space-y-2">
-        <h2 className="text-sm uppercase text-neutral-400">Calories</h2>
-          <div className="grid gap-3">
-            <NutrientCard {...calories} />
-          </div>
-      </section>
-
-      <section className="space-y-2">
         <h2 className="text-sm uppercase text-neutral-400">Macros</h2>
         <div className="grid grid-cols-3 gap-3">
           {macros.map((n) => (
@@ -170,6 +163,13 @@ export default function HomePage() {
             <NutrientCard key={n.id} {...n} compact />
           ))}
         </div>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="text-sm uppercase text-neutral-400">Calories</h2>
+          <div className="grid gap-3">
+            <NutrientCard {...calories} />
+          </div>
       </section>
 
       <BottomNav />

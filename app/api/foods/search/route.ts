@@ -36,6 +36,8 @@ export async function GET(req: Request) {
     foods: (data.foods || []).map((f: any) => ({
       fdcId: f.fdcId,
       description: f.description,
+      brandName: f.brandOwner ?? f.brandName ?? null,
+      foodNutrients: f.foodNutrients ?? [],
     })),
   });
 }

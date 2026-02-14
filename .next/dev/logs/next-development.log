@@ -1,86 +1,140 @@
-[00:00:00.751] Server  LOG     ✓ Ready in 536ms
-[00:00:12.284] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:18.038] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:27.007] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:33.786] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:07.328] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:59.216] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:04.276] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:07.469] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:48.678] Server  ERROR   ⨯ Error: The default export is not a React Component in "/layout"
-[00:03:48.828] Server  ERROR   ⨯ Error: The default export is not a React Component in "/layout"
-[00:03:49.011] Server  ERROR   ⨯ Error: The default export is not a React Component in "/layout"
-[00:03:49.186] Server  ERROR   ⨯ Error: The default export is not a React Component in "/layout"
-[00:03:49.246] Server  LOG     ✓ Compiled in 383ms
-[00:03:49.673] Browser ERROR   uncaughtError: Error: The default export is not a React Component in "/layout"
-[00:03:52.921] Server  ERROR   ⨯ Error: The default export is not a React Component in "/layout"
-[00:03:53.047] Server  ERROR   ⨯ Error: The default export is not a React Component in "/layout"
-[00:03:53.218] Browser ERROR   uncaughtError: Error: The default export is not a React Component in "/layout"
-[00:03:59.295] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:02.527] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./app/providers/AuthProviders.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[00:04:02.586] Server  LOG     ✓ Compiled in 19ms
-[00:04:02.864] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:06.592] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:16.074] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:16.554] Browser ERROR   React has detected a change in the order of Hooks called by %s. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://react.dev/link/rules-of-hooks
+[00:00:00.827] Server  LOG     ✓ Ready in 575ms
+[00:00:01.453] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:53.526] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:54.964] Browser LOG     CLICKED
+[00:01:01.794] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771083502693","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDgzNTAyLCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzEwODM1MDIsImV4cCI6MTc3MTA4NzEwMiwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.ZBEpB5kre6T0-6AZiLlHPzi8xIwONShfxKeuod65HJggIY_uwNJtafhrbBOXJrYzN84fI5VzVBui1ztbIOM9exUfpm9jAzbFgtvluBKVGbKNxO4nyPSPDARPzHQ0NWewtLi76hu3uHmTCcRPwXeaHMOkoyWg3K8QDmprJkBa1cCVla366ayelnoSOiVZxBR1briHOSYF0smWRQfRdYV6OhJMO1KMcyFmuoTysoB4IhsQ-sITCiIm10WaleMfCWZgOJdhos9t9-YBs_LvIREK_bDv5PBc4XrheNKFPLsQMIbrRXKrFP_C_vUPxS16n2_8gYbuP0AmbpWeocJuw126HA","expirationTime":1771087102779,"refreshToken":"AMf-vBwrJJsDpXTQJDWhTVwi0W28isIOhPMyKJ_xdo2WjLv4M7Y_HuNHvmFuu10rHGHaVUbRw6Zoc1XwaqEdVkFG6v9xu9CPUPPeDYdZlWEvWOmtmotknNCFJqxBr1PuWu_jZqW9JQIHOGhYXQPlVZGav9X0CO3oalnhpO6v0blDYgRRHY3re_7UbKcQX4Pz1rEJvvWDnp9Bnbd4ge8wa0RUxhaIMpIhM8sof4hANASZW8lKZ3XWMF-33YYRG6TK_lbc4SFUPBuQz4EZY0TfJiJlqe0-G4r8-XU833_eTFgi2K5QH7gYzkTLMmSGQRlPcp5AJ9apI6H4OrGG1pFDBAygSows3S5pckepWVcznto4hu7ePlOiJsOBgLBq8jxmZBO86DOXy6MG2BZTrJ_qLERU5mcERUYDsWj3um0hjTl4-kxqhP_Y5BI"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
+[00:03:40.158] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:07.554] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:09.577] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:24.759] Server  LOG     ✓ Compiled in 17ms
+[00:06:26.324] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:40.155] Server  LOG     ✓ Compiled in 27ms
+[00:07:07.977] Server  LOG     ✓ Compiled in 27ms
+[00:07:20.601] Server  LOG     ✓ Compiled in 21ms
+[00:07:20.706] Browser ERROR   ./app/log/page.tsx:172:26
+Parsing ecmascript source code failed
+  170 |                 >
+  171 |                   <Prev>
+> 172 |                 </button>
+      |                          ^
+> 173 |                 <div className="text-sm text-neutral-500">{page}</div>
+      | ^^^^^^^^^^^^^^^^^
+  174 |                 <button
+  175 |                   onClick={() => setPage((p) => p + 1)}
+  176 |                   disabled={loadingFoods}
 
-   Previous render            Next render
-   ------------------------------------------------------
-%s   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- HomePage 1. useState                   useState
-2. useState                   useState
-3. useState                   useState
-4. useContext                 useContext
-5. useContext                 useContext
-6. useEffect                  useEffect
-7. undefined                  useEffect
+Expected '</', got 'jsx text (
+                )'
 
-[00:04:16.554] Browser ERROR   uncaughtError: Error: Rendered more hooks than during the previous render.
-[00:06:20.014] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:20.556] Browser ERROR   React has detected a change in the order of Hooks called by %s. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://react.dev/link/rules-of-hooks
+Import traces:
+  Client Component Browser:
+    ./app/log/page.tsx [Client Component Browser]
+    ./app/log/page.tsx [Server Component]
 
-   Previous render            Next render
-   ------------------------------------------------------
-%s   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- HomePage 1. useState                   useState
-2. useState                   useState
-3. useState                   useState
-4. useContext                 useContext
-5. useContext                 useContext
-6. useEffect                  useEffect
-7. undefined                  useEffect
+  Client Component SSR:
+    ./app/log/page.tsx [Client Component SSR]
+    ./app/log/page.tsx [Server Component]
+[00:07:27.142] Server  LOG     ✓ Compiled in 24ms
+[00:07:27.247] Browser ERROR   ./app/log/page.tsx:172:17
+Parsing ecmascript source code failed
+  170 |                 >
+  171 |                   <
+> 172 |                 </button>
+      |                 ^
+  173 |                 <div className="text-sm text-neutral-500">{page}</div>
+  174 |                 <button
+  175 |                   onClick={() => setPage((p) => p + 1)}
 
-[00:06:20.556] Browser ERROR   uncaughtError: Error: Rendered more hooks than during the previous render.
-[00:06:23.517] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:23.995] Browser ERROR   Cannot update a component (`%s`) while rendering a different component (`%s`). To locate the bad setState() call inside `%s`, follow the stack trace as described in https://react.dev/link/setstate-in-render Router LoginPage LoginPage
-[00:06:24.922] Browser ERROR   unhandledRejection: FirebaseError: Missing or insufficient permissions.
-[00:06:24.922] Browser ERROR   unhandledRejection: FirebaseError: Missing or insufficient permissions.
-[00:06:31.754] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:32.187] Browser ERROR   React has detected a change in the order of Hooks called by %s. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://react.dev/link/rules-of-hooks
+Expression expected
 
-   Previous render            Next render
-   ------------------------------------------------------
-%s   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- HomePage 1. useState                   useState
-2. useState                   useState
-3. useState                   useState
-4. useContext                 useContext
-5. useContext                 useContext
-6. useEffect                  useEffect
-7. undefined                  useEffect
+Import traces:
+  Client Component Browser:
+    ./app/log/page.tsx [Client Component Browser]
+    ./app/log/page.tsx [Server Component]
 
-[00:06:32.187] Browser ERROR   uncaughtError: Error: Rendered more hooks than during the previous render.
-[00:06:40.058] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:44.584] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:48.632] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:52.798] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:07:08.906] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:07:23.398] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:07:44.672] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:07:58.697] Server  LOG     ✓ Compiled in 128ms
-[00:08:02.491] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:08.123] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:15.051] Server  LOG     ✓ Compiled in 28ms
-[00:08:19.049] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:26.962] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:30.253] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+  Client Component SSR:
+    ./app/log/page.tsx [Client Component SSR]
+    ./app/log/page.tsx [Server Component]
+[00:07:27.247] Browser ERROR   ./app/log/page.tsx:172:18
+Parsing ecmascript source code failed
+  170 |                 >
+  171 |                   <
+> 172 |                 </button>
+      |                  ^^^^^^^^
+  173 |                 <div className="text-sm text-neutral-500">{page}</div>
+  174 |                 <button
+  175 |                   onClick={() => setPage((p) => p + 1)}
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./app/log/page.tsx [Client Component Browser]
+    ./app/log/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/log/page.tsx [Client Component SSR]
+    ./app/log/page.tsx [Server Component]
+[00:08:22.148] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771083502693","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDgzNTAyLCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzEwODM1MDIsImV4cCI6MTc3MTA4NzEwMiwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.ZBEpB5kre6T0-6AZiLlHPzi8xIwONShfxKeuod65HJggIY_uwNJtafhrbBOXJrYzN84fI5VzVBui1ztbIOM9exUfpm9jAzbFgtvluBKVGbKNxO4nyPSPDARPzHQ0NWewtLi76hu3uHmTCcRPwXeaHMOkoyWg3K8QDmprJkBa1cCVla366ayelnoSOiVZxBR1briHOSYF0smWRQfRdYV6OhJMO1KMcyFmuoTysoB4IhsQ-sITCiIm10WaleMfCWZgOJdhos9t9-YBs_LvIREK_bDv5PBc4XrheNKFPLsQMIbrRXKrFP_C_vUPxS16n2_8gYbuP0AmbpWeocJuw126HA","expirationTime":1771087102779,"refreshToken":"AMf-vBwrJJsDpXTQJDWhTVwi0W28isIOhPMyKJ_xdo2WjLv4M7Y_HuNHvmFuu10rHGHaVUbRw6Zoc1XwaqEdVkFG6v9xu9CPUPPeDYdZlWEvWOmtmotknNCFJqxBr1PuWu_jZqW9JQIHOGhYXQPlVZGav9X0CO3oalnhpO6v0blDYgRRHY3re_7UbKcQX4Pz1rEJvvWDnp9Bnbd4ge8wa0RUxhaIMpIhM8sof4hANASZW8lKZ3XWMF-33YYRG6TK_lbc4SFUPBuQz4EZY0TfJiJlqe0-G4r8-XU833_eTFgi2K5QH7gYzkTLMmSGQRlPcp5AJ9apI6H4OrGG1pFDBAygSows3S5pckepWVcznto4hu7ePlOiJsOBgLBq8jxmZBO86DOXy6MG2BZTrJ_qLERU5mcERUYDsWj3um0hjTl4-kxqhP_Y5BI"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
+[00:10:13.123] Server  LOG     ✓ Compiled in 26ms
+[00:10:15.449] Server  LOG     ✓ Compiled in 67ms
+[00:11:09.283] Server  LOG     ✓ Compiled in 22ms
+[00:11:14.892] Server  LOG     ✓ Compiled in 12ms
+[00:11:21.459] Server  LOG     ✓ Compiled in 19ms
+[00:11:35.516] Server  LOG     ✓ Compiled in 13ms
+[00:11:38.536] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:05.092] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:10.673] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:12.547] Browser LOG     CLICKED
+[00:12:18.246] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771084178784","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzEwODQxNzgsImV4cCI6MTc3MTA4Nzc3OCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.pjfGSUN9ReJpyc11AtMfbaME-BtXa_YnyL3mU9igEgXjJXWVIeyoWANEp3KbTbFM8lc53ZL1EverxvlAmL5bSoVgRu1t95ENdMTSPpO3FYK3N3m-LM29H1YiRTgX4JhXDJgkOOqOms1Ty_svps9lUFV43xsvnRZlA1g81R6xcFQD7gsih20PklYO-LJt4A1VtW2IQ261rraaEjSGqJSEE0dwawrJLl2b5GDLxHEVFHZLSkb4Myr4uo-YQLEwMYPxQOulclnVpt1p5SQhKs9kZZEcHvDW16w4XPlr8UsYY9CEr7Naatfg7ms39hivSQCo-EQnSQaGqNzaP__RTDrbTA","expirationTime":1771087778889,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
+[00:14:19.528] Server  LOG     ✓ Compiled in 23ms
+[00:14:32.714] Server  LOG     ✓ Compiled in 20ms
+[00:14:40.308] Server  LOG     ✓ Compiled in 13ms
+[00:15:01.171] Server  LOG     ✓ Compiled in 19ms
+[00:16:06.201] Server  LOG     ✓ Compiled in 18ms
+[00:16:24.755] Server  LOG     ✓ Compiled in 15ms
+[00:16:27.739] Server  LOG     ✓ Compiled in 18ms
+[00:16:36.343] Server  LOG     ✓ Compiled in 26ms
+[00:16:55.201] Server  LOG     ✓ Compiled in 30ms
+[00:16:55.312] Browser ERROR   ./app/log/page.tsx:207:36
+Parsing ecmascript source code failed
+  205 |                   <div>
+  206 |                     <h3 className="text-sm text-neutral-400 uppercase mb-2">Nutrients</h3>
+> 207 |                     <FoodNutrients nutrients={selectedFood.nutrients} grams={Number(grams) || undefined} />
+      |                                    ^^^^^^^^^
+  208 |                   </div>
+  209 |                 </div>
+  210 |               ) : (
+
+Expected '</', got 'nutrients'
+
+Import traces:
+  Client Component Browser:
+    ./app/log/page.tsx [Client Component Browser]
+    ./app/log/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/log/page.tsx [Client Component SSR]
+    ./app/log/page.tsx [Server Component]
+[00:17:05.980] Server  LOG     ✓ Compiled in 35ms
+[00:17:18.725] Server  LOG     ✓ Compiled in 24ms
+[00:17:32.774] Server  LOG     ✓ Compiled in 18ms
+[00:17:39.691] Server  LOG     ✓ Compiled in 14ms
+[00:17:40.792] Server  LOG     ✓ Compiled in 19ms
+[00:17:49.010] Server  LOG     ✓ Compiled in 20ms
+[00:17:50.750] Server  LOG     ✓ Compiled in 26ms
+[00:18:06.830] Server  LOG     ✓ Compiled in 30ms
+[00:18:11.036] Server  LOG     ✓ Compiled in 30ms
+[00:18:31.543] Server  LOG     ✓ Compiled in 31ms
+[00:18:43.104] Server  LOG     ✓ Compiled in 25ms
+[00:18:43.170] Browser ERROR   A component is changing a controlled input to be uncontrolled. This is likely caused by the value changing from a defined to undefined, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://react.dev/link/controlled-components
+[00:18:49.634] Server  LOG     ✓ Compiled in 56ms
+[00:18:49.688] Browser ERROR   A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://react.dev/link/controlled-components
+[00:18:56.823] Server  LOG     ✓ Compiled in 23ms
+[00:19:02.997] Server  LOG     ✓ Compiled in 25ms
+[00:19:11.263] Server  LOG     ✓ Compiled in 24ms
+[00:19:21.520] Server  LOG     ✓ Compiled in 15ms
+[00:19:24.094] Server  LOG     ✓ Compiled in 21ms
+[00:19:57.197] Server  LOG     ✓ Compiled in 24ms
+[00:21:40.110] Server  LOG     ✓ Compiled in 20ms
+[00:21:42.473] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771084178784","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzEwODQxNzgsImV4cCI6MTc3MTA4Nzc3OCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.pjfGSUN9ReJpyc11AtMfbaME-BtXa_YnyL3mU9igEgXjJXWVIeyoWANEp3KbTbFM8lc53ZL1EverxvlAmL5bSoVgRu1t95ENdMTSPpO3FYK3N3m-LM29H1YiRTgX4JhXDJgkOOqOms1Ty_svps9lUFV43xsvnRZlA1g81R6xcFQD7gsih20PklYO-LJt4A1VtW2IQ261rraaEjSGqJSEE0dwawrJLl2b5GDLxHEVFHZLSkb4Myr4uo-YQLEwMYPxQOulclnVpt1p5SQhKs9kZZEcHvDW16w4XPlr8UsYY9CEr7Naatfg7ms39hivSQCo-EQnSQaGqNzaP__RTDrbTA","expirationTime":1771087778889,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
