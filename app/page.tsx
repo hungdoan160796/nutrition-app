@@ -4,14 +4,16 @@ import { useState, useEffect } from "react";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  signInWithPopup,
   GoogleAuthProvider,
   onAuthStateChanged,
-  signInWithRedirect,
+  signInWithPopup,
 } from "firebase/auth";
+import { useRouter } from "next/navigation";
 import { auth } from "@/lib/firebase";
 
 export default function LoginPage() {
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -19,18 +21,25 @@ export default function LoginPage() {
   const [checkingAuth, setCheckingAuth] = useState(true);
 
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, () => {
-      setCheckingAuth(false);
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        console.log("USER:", user);
+        router.push("/home");
+      } else {
+        setCheckingAuth(false);
+      }
     });
 
-    return () => unsub();
-  }, []);
+    return () => unsubscribe();
+  }, [router]);
+
 
   async function login() {
     setLoading(true);
     setError(null);
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      router.push("/dashboard");
     } catch (err: any) {
       setError(err.message);
       setLoading(false);
@@ -42,19 +51,22 @@ export default function LoginPage() {
     setError(null);
     try {
       await createUserWithEmailAndPassword(auth, email, password);
+      router.push("/dashboard");
     } catch (err: any) {
       setError(err.message);
       setLoading(false);
     }
   }
 
-  async function loginWithGoogle() {
-    setLoading(true);
-    setError(null);
+async function loginWithGoogle() {
+  console.log("CLICKED");
+  setLoading(true);
+  setError(null);
 
-    const provider = new GoogleAuthProvider();
-    await signInWithRedirect(auth, provider);
-  }
+  const provider = new GoogleAuthProvider();
+  await signInWithPopup(auth, provider);
+}
+
 
   if (checkingAuth) return null;
 
