@@ -1,10 +1,17 @@
-const DB_NAME = "nutrition_app";
-const DB_VERSION = 1;
+// lib/db.ts — Firebase-backed DB (Firestore)
 
-const STORE_INTAKE = "intake_log";
-// db.ts (replace in-memory-only logic)
-
-import { loadLocalDB, saveLocalDB } from "./localStore.native";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+  collection,
+  addDoc,
+  getDocs,
+  serverTimestamp,
+} from "firebase/firestore";
+import { auth } from "@/lib/firebase";
 
 export type DBState = {
   foodLog: Record<string, any[]>;
@@ -12,77 +19,83 @@ export type DBState = {
   nutrientOverrides: Record<string, number>;
 };
 
-let db: DBState = {
-  foodLog: {},
-  userProfile: {},
-  nutrientOverrides: {},
-};
-export async function initDB() {
-  const stored = await loadLocalDB<Partial<DBState>>();
+const db = getFirestore();
 
-  if (stored) {
-    db = {
-      foodLog: stored.foodLog ?? {},
-      userProfile: stored.userProfile ?? null,
-      nutrientOverrides: stored.nutrientOverrides ?? {},
+/**
+ * Helpers
+ */
+function requireUser() {
+  const user = auth.currentUser;
+  if (!user) throw new Error("User not authenticated");
+  return user;
+}
+
+function userDocRef(uid: string) {
+  return doc(db, "users", uid);
+}
+
+function intakeColRef(uid: string) {
+  return collection(db, "users", uid, "intake");
+}
+
+/**
+ * User DB (profile + settings)
+ */
+export async function initDB(): Promise<DBState> {
+  const user = requireUser();
+  const ref = userDocRef(user.uid);
+  const snap = await getDoc(ref);
+
+  if (!snap.exists()) {
+    const initial: DBState = {
+      foodLog: {},
+      userProfile: {},
+      nutrientOverrides: {},
     };
+
+    await setDoc(ref, {
+      ...initial,
+      createdAt: serverTimestamp(),
+    });
+
+    return initial;
   }
+
+  return snap.data() as DBState;
 }
 
-
-export function getDB() {
-  return db;
+export async function getDB(): Promise<DBState> {
+  return initDB();
 }
+
 export async function updateDB(mutator: (db: DBState) => void) {
-  await initDB();          // 🔑 ensure DB is hydrated
-  mutator(db);
-  await saveLocalDB(db);
-}
+  const user = requireUser();
+  const ref = userDocRef(user.uid);
+  const current = await initDB();
 
+  mutator(current);
 
-let dbPromise: Promise<IDBDatabase> | null = null;
-
-function openDB(): Promise<IDBDatabase> {
-  if (dbPromise) return dbPromise;
-
-  dbPromise = new Promise((resolve, reject) => {
-    const request = indexedDB.open(DB_NAME, DB_VERSION);
-
-    request.onupgradeneeded = () => {
-      const db = request.result;
-
-      if (!db.objectStoreNames.contains(STORE_INTAKE)) {
-        db.createObjectStore(STORE_INTAKE, {
-          keyPath: "id",
-          autoIncrement: true,
-        });
-      }
-    };
-
-    request.onsuccess = () => resolve(request.result);
-    request.onerror = () => reject(request.error);
+  await updateDoc(ref, {
+    foodLog: current.foodLog,
+    userProfile: current.userProfile,
+    nutrientOverrides: current.nutrientOverrides,
+    updatedAt: serverTimestamp(),
   });
-
-  return dbPromise;
 }
 
-// ---------- Public API ----------
-
+/**
+ * Intake log (collection)
+ */
 export async function addIntake(entry: any) {
-  const db = await openDB();
-  const tx = db.transaction(STORE_INTAKE, "readwrite");
-  tx.objectStore(STORE_INTAKE).add(entry);
-
-  return tx.oncomplete;
+  const user = requireUser();
+  await addDoc(intakeColRef(user.uid), {
+    ...entry,
+    createdAt: serverTimestamp(),
+  });
 }
 
 export async function getAllIntake(): Promise<any[]> {
-  const db = await openDB();
-  const tx = db.transaction(STORE_INTAKE, "readonly");
-  const store = tx.objectStore(STORE_INTAKE);
-
-  return new Promise(resolve => {
-    const request = store.getAll();
-    request.onsuccess = () => resolve(request.result);
-  });
+  const user = requireUser();
+  const snap = await getDocs(intakeColRef(user.uid));
+  return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
 }

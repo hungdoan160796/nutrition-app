@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { initDB, updateDB, getDB } from "@/lib/db";
-import { getResolvedRecommendations } from "@/lib/recommendationResolver";
+import { useProfile } from "@/app/providers/ProfileProvider";
+import BottomNav from "@/components/BottomNav";
 
 type StandardId = "fda_dv_2024" | "usda_dri";
 type Sex = "male" | "female";
@@ -11,6 +11,7 @@ type UserProfile = {
   recommendationSet?: "fda_dv_2024" | "usda_dri";
   sex?: "male" | "female";
   age?: number;
+  openaiApiKey?: string;
 };
 
 type Row = {
@@ -23,90 +24,47 @@ type Row = {
 
 export default function RecommendationsPage() {
 
-  function getUserProfile(): UserProfile | undefined {
-    const db = getDB();
-    return db.userProfile;
-  }
+  const [openaiApiKey, setOpenaiApiKey] = useState<string>("");
 
-  useEffect(() => {
-    (async () => {
-      await initDB();
-      const profile = getUserProfile();
-      if (
-        profile?.recommendationSet &&
-        profile?.sex &&
-        typeof profile.age === "number"
-      ) {
-        setStandard(profile.recommendationSet);
-        setSex(profile.sex);
-        setAge(profile.age);
-        setRows(getResolvedRecommendations());
-        setProfileReady(true);
-      }
-    })();
-  }, []);
-  const [rows, setRows] = useState<Row[]>([]);
+  const { profile, rows, profileReady, saveProfile: ctxSaveProfile, saveOpenaiApiKey: ctxSaveOpenaiApiKey, updateValue: ctxUpdateValue, resetAll: ctxResetAll } = useProfile();
   const [standard, setStandard] = useState<StandardId | null>(null);
   const [sex, setSex] = useState<Sex | null>(null);
   const [age, setAge] = useState<number | null>(null);
-  const [profileReady, setProfileReady] = useState(false);
+  
   const [toast, setToast] = useState(false);
 
   function saved() {
     setToast(true);
     setTimeout(() => setToast(false), 1200);
   }
-
+  // sync profile -> local state
   useEffect(() => {
-    (async () => {
-      await initDB();
-      const profile = getUserProfile();
+    if (profile) {
+      setStandard(profile.recommendationSet ?? null);
+      setSex(profile.sex ?? null);
+      setAge(typeof profile.age === "number" ? profile.age : null);
+      setOpenaiApiKey(profile.openaiApiKey ?? "");
+    }
+  }, [profile]);
 
-      if (
-        profile?.recommendationSet &&
-        profile?.sex &&
-        typeof profile.age === "number"
-      ) {
-        setStandard(profile.recommendationSet);
-        setSex(profile.sex);
-        setAge(profile.age);
-        setRows(getResolvedRecommendations());
-        setProfileReady(true);
-      }
-    })();
-  }, []);
-  async function saveProfile(next: {
-    recommendationSet: StandardId;
-    sex: Sex;
-    age: number;
-  }) {
-    await updateDB(db => {
-      db.userProfile = next;
-    });
-
-    setStandard(next.recommendationSet);
-    setSex(next.sex);
-    setAge(next.age);
-    setRows(getResolvedRecommendations());
-    setProfileReady(true);
+  async function saveProfile(next: { recommendationSet: StandardId; sex: Sex; age: number; }) {
+    await ctxSaveProfile(next);
     saved();
   }
 
+  async function saveOpenaiApiKey(next: string) {
+    await ctxSaveOpenaiApiKey(next);
+    setOpenaiApiKey(next);
+    saved();
+  }
 
   async function updateValue(id: string, value: number) {
-    await updateDB(db => {
-      db.nutrientOverrides ??= {};
-      db.nutrientOverrides[id] = value;
-    });
-    setRows(getResolvedRecommendations());
+    await ctxUpdateValue(id, value);
     saved();
   }
 
   async function resetAll() {
-    await updateDB(db => {
-      db.nutrientOverrides = {};
-    });
-    setRows(getResolvedRecommendations());
+    await ctxResetAll();
     saved();
   }
   return (
@@ -164,6 +122,25 @@ export default function RecommendationsPage() {
           className="p-2 rounded bg-[var(--muted)] w-full"
         />
 
+        {/* OpenAI API key (stored on your profile) */}
+        <input
+          type="password"
+          placeholder="OpenAI API key (sk-...)"
+          value={openaiApiKey}
+          onChange={e => setOpenaiApiKey(e.target.value)}
+          onBlur={() => saveOpenaiApiKey(openaiApiKey)}
+          className="p-2 rounded bg-[var(--muted)] w-full"
+        />
+
+        <div className="flex gap-2">
+          <button
+            onClick={() => saveOpenaiApiKey(openaiApiKey)}
+            className="flex-1 p-2 rounded bg-[var(--muted)] text-sm"
+          >
+            Save OpenAI API Key
+          </button>
+        </div>
+
         {!profileReady && (
           <p className="text-sm text-muted-foreground">
             Complete your profile to see recommendations
@@ -215,6 +192,7 @@ export default function RecommendationsPage() {
           Saved!
         </div>
       )}
+    <BottomNav />
     </div>
   );
 

@@ -1,3 +1,4 @@
+// components/FoodRow.tsx
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -32,25 +33,23 @@ export default function FoodRow({
   selected,
   onChange,
 }: FoodRowProps) {
-  const [foodsSelected, setFoodsSelected] = useState<FoodCatalogItem[]>([]);
+  const normalizedName = normalize(food.name);
+
+  const [foods, setFoods] = useState<any[]>([]);
+
+  const foodsSelected = foods as FoodCatalogItem[];
 
   useEffect(() => {
-    fetch("/api/foods/list")
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to load foods");
-        return res.json();
-      })
-      .then(setFoodsSelected)
-      .catch(() => setFoodsSelected([]));
+    fetch("/api/foods")
+      .then((res) => res.json())
+      .then(setFoods);
   }, []);
-
-  const normalizedName = normalize(food.name);
 
   const catalogFood = useMemo(() => {
     return foodsSelected.find(
       (f) => normalize(f.name) === normalizedName
     );
-  }, [foodsSelected, normalizedName]);
+  }, [normalizedName]);
 
   const term = catalogFood?.term ?? normalizedName;
   const name = catalogFood?.name ?? food.name;
@@ -71,7 +70,9 @@ export default function FoodRow({
   return (
     <div className="w-[70%] flex justify-between text-sm text-[var(--accent)]">
       <div>{term}</div>
-      <div>{quantity ?? ""}</div>
+      <div className="text-[var(--accent)]">
+        {quantity ?? ""}
+      </div>
     </div>
   );
 }

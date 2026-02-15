@@ -1,4 +1,11 @@
 import Link from "next/link";
+import { signOut } from "firebase/auth";
+import { auth } from "@/lib/firebase";
+
+function logoutHandler () {
+  signOut(auth);
+  window.location.href = "/"; // Redirect to login page
+}
 
 export default function BottomNav() {
   return (
@@ -9,7 +16,7 @@ export default function BottomNav() {
         <Link href="/history">History</Link>
         <Link href="/recommendations">Recommendations</Link>
         <Link href="/add">Add</Link>
-        <Link href="/settings">Settings</Link>
+        <button onClick={logoutHandler}>Logout</button>
       </div>
     </nav>
   );

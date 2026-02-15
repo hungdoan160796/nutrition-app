@@ -1,8 +1,7 @@
-import { getClientKeys } from './getClientKeys';
-
-export async function addUsdaFood(payload: any) {
-  const keys = getClientKeys();
-  if (!keys?.openaiApiKey) {
+export async function addUsdaFood(payload: any, openAIKey?: string) {
+  // allow caller to provide a per-user OpenAI key (from profile).
+  const key = openAIKey ?? process.env.NEXT_PUBLIC_OPENAI_API_KEY;
+  if (!key) {
     throw new Error('OpenAI API key not set');
   }
 
@@ -10,7 +9,7 @@ export async function addUsdaFood(payload: any) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-openai-key': keys.openaiApiKey,
+      'x-openai-key': key,
     },
     body: JSON.stringify(payload),
   });

@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import { logFood } from "@/lib/nutritionEngine";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/app/providers/AuthProviders";
+import BottomNav from "@/components/BottomNav";
+import FoodNutrients from "@/components/FoodNutrients";
 
 type FoodGroup =
   | "starch"
@@ -18,8 +21,9 @@ type FoodGroup =
 type Food = {
   id: string;
   term: string;
+  name: string;
   group: FoodGroup;
-  measurement: string; // 👈 comes from Blob (e.g. "grams", "ml", "tbsp")
+  nutrients: Record<string, number>; // per 100g
 };
 
 const FOOD_GROUPS: FoodGroup[] = [
@@ -38,116 +42,182 @@ export default function LogFoodPage() {
   const router = useRouter();
 
   const [foods, setFoods] = useState<Food[]>([]);
-  const [loading, setLoading] = useState(true);
-
   const [activeGroup, setActiveGroup] = useState<FoodGroup | null>(null);
   const [selectedFood, setSelectedFood] = useState<Food | null>(null);
-  const [amount, setAmount] = useState("");
+  const [grams, setGrams] = useState("");
+  const [page, setPage] = useState(1);
+  const [limit] = useState(50);
+  const [loadingFoods, setLoadingFoods] = useState(false);
+  const [fetchError, setFetchError] = useState<string | null>(null);
+
+  const { user } = useAuth();
 
   useEffect(() => {
+    // Fetch foods filtered by group with pagination whenever activeGroup or page changes
+    if (!activeGroup) return;
+    if (!user) return;
+
+    let aborted = false;
+
     (async () => {
-      const res = await fetch("/api/foods/list");
-      const data = await res.json();
-      setFoods(data);
-      setLoading(false);
+      setLoadingFoods(true);
+      setFetchError(null);
+      try {
+        const token = await user.getIdToken();
+        const res = await fetch(
+          `/api/foods?group=${encodeURIComponent(activeGroup)}&page=${page}&limit=${limit}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+
+        if (!res.ok) {
+          const body = await res.json().catch(() => ({}));
+          if (!aborted) setFetchError(body?.error ?? `HTTP ${res.status}`);
+          return;
+        }
+
+        const data = await res.json();
+        if (aborted) return;
+        setFoods(data?.foods ?? []);
+      } catch (e: any) {
+        if (!aborted) setFetchError(String(e?.message ?? e));
+      } finally {
+        if (!aborted) setLoadingFoods(false);
+      }
     })();
-  }, []);
+
+    return () => {
+      aborted = true;
+    };
+  }, [activeGroup, page, limit, user]);
 
   const groupFoods = activeGroup
-    ? foods.filter(f => f.group === activeGroup)
+    ? foods.filter((f) => f.group === activeGroup)
     : [];
 
   async function handleAdd() {
-    if (!selectedFood || !amount) return;
+    if (!selectedFood || !grams) return;
 
-    await logFood(selectedFood.term, Number(amount));
-    router.push("/");
+    await logFood(
+      {
+        term: selectedFood.term,
+        name: selectedFood.name,
+        nutrients: selectedFood.nutrients, // per 100g
+      },
+      Number(grams)
+    );
+
+    router.push("/home");
     router.refresh();
   }
 
-  if (loading) {
-    return <div className="p-4">Loading foods…</div>;
-  }
+
 
   return (
-    <div className="p-4 space-y-4">
-      <h1 className="text-xl font-semibold">Log Food</h1>
-
-      {/* GROUP SELECT */}
-      {!activeGroup && (
-        <div className="grid grid-cols-3 gap-3">
-          {FOOD_GROUPS.map(g => (
+    <div className="pb-24">
+      <div className="p-4 space-y-4">
+        {/* Food Groups */}
+        <div className="flex gap-2 flex-wrap">
+          {FOOD_GROUPS.map((group) => (
             <button
-              key={g}
-              onClick={() => setActiveGroup(g)}
-              className="aspect-square rounded-xl bg-[var(--muted)] flex items-center justify-center font-semibold capitalize"
+              key={group}
+              onClick={() => {
+                setActiveGroup(group);
+                setSelectedFood(null);
+                setPage(1);
+              }}
+              className={`px-3 py-1 rounded-full text-sm border bg-[var(--background)] border-[var(--border)] ${
+                activeGroup === group ? "bg-primary text-white" : ""
+              }`}
             >
-              {g}
+              {group}
             </button>
           ))}
         </div>
-      )}
 
-      {/* FOOD SELECT */}
-      {activeGroup && (
-        <>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => {
-                setActiveGroup(null);
-                setSelectedFood(null);
-                setAmount("");
-              }}
-              className="text-sm text-[var(--accent)]"
-            >
-              ← Back
-            </button>
-            <h2 className="text-lg font-semibold capitalize">{activeGroup}</h2>
+        {/* Foods + Nutrients layout */}
+        {activeGroup && (
+          <div className="grid grid-cols-5 gap-4">
+            <div className="col-span-2 space-y-2">
+              {loadingFoods ? (
+                <div className="rounded-xl p-4 border bg-[var(--background)] text-sm text-neutral-400">Loading foods…</div>
+              ) : fetchError ? (
+                <div className="rounded-xl p-4 border bg-[var(--background)] text-sm text-red-500">{fetchError}</div>
+              ) : groupFoods.length > 0 ? (
+                groupFoods.map((food) => (
+                  <button
+                    key={food.id}
+                    onClick={() => setSelectedFood(food)}
+                    className={`w-full text-left px-3 py-2 rounded-lg border bg-[var(--background)] border-[var(--border)] ${
+                      selectedFood?.id === food.id ? "ring-2 ring-primary" : ""
+                    }`}
+                  >
+                    <div className="font-medium text-[var(--foreground)]">
+                      {food.name}
+                    </div>
+                  </button>
+                ))
+              ) : (
+                <div className="rounded-xl p-4 border bg-[var(--background)] text-sm text-neutral-400">No foods in this group.</div>
+              )}
+
+              <div className="flex items-center gap-2 mt-2">
+                <button
+                  onClick={() => setPage((p) => Math.max(1, p - 1))}
+                  disabled={page <= 1 || loadingFoods}
+                  className="px-3 py-1 rounded border bg-[var(--background)]"
+                >
+                  Prev
+                </button>
+                <div className="text-sm text-neutral-500">{page}</div>
+                <button
+                  onClick={() => setPage((p) => p + 1)}
+                  disabled={loadingFoods}
+                  className="px-3 py-1 rounded border bg-[var(--background)]"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+
+            <div className="col-span-3">
+              {selectedFood ? (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between flex-row">
+                    <div>
+                      <input
+                        type="number"
+                        placeholder="Grams eaten"
+                        value={grams}
+                        onChange={(e) => setGrams(e.target.value)}
+                        className="w-[100%] rounded-lg border px-3 py-2 bg-transparent"
+                      />
+                    </div>
+                    <button
+                      onClick={handleAdd}
+                      className="w-[60%] rounded-lg bg-primary py-2 px-4 text-white font-medium"
+                    >
+                      Log food
+                    </button>
+                  </div>
+
+                  <div>
+                    <h3 className="text-sm text-neutral-400 uppercase mb-2">Nutrients</h3>
+                    <FoodNutrients nutrients={selectedFood.nutrients} grams={Number(grams) || undefined} />
+                  </div>
+                </div>
+              ) : (
+                <div className="rounded-xl p-4 border bg-[var(--background)] text-sm text-neutral-400">
+                  Select a food to see its nutrients
+                </div>
+              )}
+            </div>
           </div>
+        )}
+      </div>
 
-          <div className="grid grid-cols-2 gap-3 max-h-64 overflow-y-auto">
-            {groupFoods.map(f => (
-              <button
-                key={f.id}
-                onClick={() => setSelectedFood(f)}
-                className={`p-3 rounded-lg text-left ${
-                  selectedFood?.id === f.id
-                    ? "bg-[var(--accent)] text-black"
-                    : "bg-[var(--muted)]"
-                }`}
-              >
-                {f.term}
-              </button>
-            ))}
-          </div>
-        </>
-      )}
-
-      {/* AMOUNT INPUT */}
-      {selectedFood && (
-        <div className="flex items-center gap-2">
-          <input
-            type="number"
-            min="0"
-            step="any"
-            placeholder="Amount"
-            className="flex-1 p-3 rounded bg-[var(--muted)] text-[var(--foreground)]"
-            value={amount}
-            onChange={e => setAmount(e.target.value)}
-          />
-          <span className="text-sm text-[var(--muted-foreground)]">
-            {selectedFood.measurement}
-          </span>
-        </div>
-      )}
-
-      <button
-        className="w-full p-3 rounded bg-[var(--accent)] text-black font-semibold disabled:opacity-50"
-        disabled={!selectedFood || !amount}
-        onClick={handleAdd}
-      >
-        Add
-      </button>
+      <BottomNav />
     </div>
   );
 }

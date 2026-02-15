@@ -1,3 +1,4 @@
+// this file handles nutrients data format for food
 import nutrientData from "@/data/nutrients.json";
 
 export type NutrientDef = {
@@ -24,8 +25,4 @@ export function getNutrientByUsdaName(name: string): NutrientDef | undefined {
 
 export function getNutrientById(id: string): NutrientDef | undefined {
   return nutrients.find(n => n.id === id);
-}
-
-export function getAllNutrients(): NutrientDef[] {
-  return nutrients;
 }

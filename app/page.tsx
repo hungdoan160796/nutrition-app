@@ -1,143 +1,136 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import NutrientCard from "@/components/NutrientCard";
-import ProgressRing from "@/components/ProgressRing";
-import { getWeeklyProgress } from "@/lib/nutritionEngine";
+import { useState, useEffect } from "react";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithPopup,
+} from "firebase/auth";
+import { useRouter } from "next/navigation";
+import { auth } from "@/lib/firebase";
 
-type Theme = string;
+export default function LoginPage() {
+  const router = useRouter();
 
-const THEME_REGEX = /data[-–]theme\s*=\s*"([^"]+)"/g;
-const MACROS = ["protein", "fat", "carbohydrate"];
-const MICROS = [
-      "vitamin_a",
-      "vitamin_k",
-      "vitamin_e",
-      "calcium",
-      "potassium",
-      "zinc",
-      "vitamin_c",
-      "folate",
-      "vitamin_b12",
-      "fiber",
-      "iron",
-      "magnesium",
-      "sodium",
-      "vitamin_d"]
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [checkingAuth, setCheckingAuth] = useState(true);
 
-export default function HomePage() {
-  const [progress, setProgress] = useState<any>(null);
-  const [theme, setTheme] = useState<Theme>("");
-  const [themes, setThemes] = useState<Theme[]>([]);
-
-  // load saved theme
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved) {
-      document.documentElement.setAttribute("data-theme", saved);
-      setTheme(saved);
-    }
-  }, []);
-
-  // apply theme
-  useEffect(() => {
-    if (!theme) return;
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  // read themes from themes.md
-  useEffect(() => {
-    (async () => {
-      const res = await fetch("/themes.md");
-      const text = await res.text();
-
-      const found = new Set<string>();
-      let match: RegExpExecArray | null;
-
-      while ((match = THEME_REGEX.exec(text))) {
-        found.add(match[1]);
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        console.log("USER:", user);
+        router.push("/home");
+      } else {
+        setCheckingAuth(false);
       }
+    });
 
-      setThemes(Array.from(found).sort());
-    })();
-  }, []);
+    return () => unsubscribe();
+  }, [router]);
 
-  // nutrition data
-  useEffect(() => {
-    getWeeklyProgress().then(setProgress);
-  }, []);
 
-  if (!progress) return <div className="p-4">Loading…</div>;
+  async function login() {
+    setLoading(true);
+    setError(null);
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      router.push("/dashboard");
+    } catch (err: any) {
+      setError(err.message);
+      setLoading(false);
+    }
+  }
 
-  const calories = progress.all.find((n: any) => n.id === "calories");
-  const macros = progress.all.filter((n: any) =>
-    MACROS.includes(n.id)
-  );
-  const micros = progress.all.filter(
-    (n: any) => MICROS.includes(n.id)
-  );
+  async function signup() {
+    setLoading(true);
+    setError(null);
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      router.push("/dashboard");
+    } catch (err: any) {
+      setError(err.message);
+      setLoading(false);
+    }
+  }
 
-  const microAvg =
-    micros.length === 0
-      ? 0
-      : Math.round(
-          (micros.reduce(
-            (sum: number, n: any) => sum + n.progress,
-            0
-          ) /
-            micros.length) *
-            100
-        ) / 100;
+async function loginWithGoogle() {
+  console.log("CLICKED");
+  setLoading(true);
+  setError(null);
+
+  const provider = new GoogleAuthProvider();
+  await signInWithPopup(auth, provider);
+}
+
+
+  if (checkingAuth) return null;
 
   return (
-    <div className="p-4 space-y-6">
-      {/* Theme selector */}
-      <div className="flex items-center gap-2">
-        <select
-          value={theme}
-          onChange={(e) => setTheme(e.target.value)}
-          className="border rounded px-2 py-1 bg-transparent"
+    <div className="min-h-screen flex items-center justify-center bg-background px-4">
+      <div className="w-full max-w-sm rounded-2xl border bg-card p-6 shadow-sm">
+        <h1 className="text-2xl font-semibold text-center mb-6">
+          Welcome back
+        </h1>
+
+        <div className="space-y-3">
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+          />
+        </div>
+
+        {error && (
+          <p className="mt-3 text-sm text-destructive text-center">{error}</p>
+        )}
+
+        <div className="mt-6 space-y-3">
+          <button
+            onClick={login}
+            disabled={loading}
+            className="w-full rounded-lg bg-primary py-2 text-sm font-medium text-primary-foreground disabled:opacity-60"
+          >
+            Log in
+          </button>
+
+          <button
+            onClick={signup}
+            disabled={loading}
+            className="w-full rounded-lg border py-2 text-sm font-medium disabled:opacity-60"
+          >
+            Create account
+          </button>
+        </div>
+
+        <div className="my-5 flex items-center gap-3">
+          <div className="h-px flex-1 bg-border" />
+          <span className="text-xs text-muted-foreground">OR</span>
+          <div className="h-px flex-1 bg-border" />
+        </div>
+
+        <button
+          onClick={loginWithGoogle}
+          disabled={loading}
+          className="w-full flex items-center justify-center gap-2 rounded-lg border py-2 text-sm font-medium disabled:opacity-60"
         >
-          <option value="">System</option>
-          {themes.map((t) => (
-            <option key={t} value={t}>
-              {t}
-            </option>
-          ))}
-        </select>
+          Continue with Google
+        </button>
       </div>
-
-      <h1 className="text-xl font-semibold">This Week</h1>
-
-      <section className="space-y-2">
-        <h2 className="text-sm uppercase text-neutral-400 ">Calorie</h2>
-        <div className="grid gap-3">
-          {calories && <NutrientCard {...calories} />}
-        </div>
-      </section>
-
-      <section className="space-y-2">
-        <h2 className="text-sm uppercase text-neutral-400">Macros</h2>
-        <div className="grid grid-cols-3 gap-3">
-          {macros.map((n: any) => (
-            <NutrientCard key={n.id} {...n} />
-          ))}
-        </div>
-      </section>
-
-      <h2 className="text-sm uppercase text-neutral-400">Micros</h2>
-      <div className="flex justify-center">
-        <ProgressRing value={microAvg} />
-      </div>
-
-      <section className="space-y-2">
-        <div className="grid grid-cols-3 gap-2">
-          {micros.map((n: any) => (
-            <NutrientCard key={n.id} {...n} compact />
-          ))}
-        </div>
-      </section>
     </div>
   );
 }

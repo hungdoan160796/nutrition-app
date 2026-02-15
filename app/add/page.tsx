@@ -2,8 +2,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { searchUsdaFoods } from '@/lib/usdaSearch';
-import { addUsdaFood } from '@/lib/addUsdaFood'
+import { searchUsdaFoods, UsdaFood } from '@/lib/usdaSearch';
+import { addUsdaFood } from '@/lib/addUsdaFood';
+import { useProfile } from '@/app/providers/ProfileProvider';
+import BottomNav from '@/components/BottomNav';
 
 type Nutrients = {
   calories: number;
@@ -12,12 +14,6 @@ type Nutrients = {
   fat: number;
 };
 
-type UsdaFood = {
-  fdcId: number;
-  description: string;
-  brandName?: string;
-  foodNutrients?: any[];
-};
 
 function ManualForm() {
   const [name, setName] = useState('');
@@ -141,10 +137,11 @@ export default function AddIngredientPage() {
 
 function UsdaSearch() {
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<any[]>([]);
+  const [results, setResults] = useState<UsdaFood[]>([]);
   const [searching, setSearching] = useState(false);
   const [addingId, setAddingId] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
+  const { profile } = useProfile();
 
   const runSearch = async () => {
     if (!query.trim()) return;
@@ -160,11 +157,16 @@ function UsdaSearch() {
     setMessage('Food is being added…');
 
     try {
-      await addUsdaFood({
-        food,
-        measurement: 'grams',
-        term: query,
-      });
+      await addUsdaFood(
+        {
+          food,
+          measurement: 'grams',
+          term: query,
+          
+        },
+        // pass per-user OpenAI key from profile if present
+        profile?.openaiApiKey
+      );
 
       setMessage('Food added successfully');
     } catch {
@@ -199,7 +201,7 @@ function UsdaSearch() {
       )}
 
       <ul className="space-y-2">
-        {results.map((food) => {
+  {results.map((food: UsdaFood) => {
           const isAdding = addingId === String(food.fdcId);
 
           return (
@@ -225,6 +227,7 @@ function UsdaSearch() {
           );
         })}
       </ul>
+    <BottomNav/>
     </div>
   );
 }
