@@ -27,7 +27,7 @@ function BottomNav() {
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                     href: "/",
-                    children: "Home"
+                    children: "Progress"
                 }, void 0, false, {
                     fileName: "[project]/components/BottomNav.tsx",
                     lineNumber: 14,
@@ -35,7 +35,7 @@ function BottomNav() {
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                     href: "/log",
-                    children: "Log"
+                    children: "Food"
                 }, void 0, false, {
                     fileName: "[project]/components/BottomNav.tsx",
                     lineNumber: 15,
@@ -50,8 +50,8 @@ function BottomNav() {
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                    href: "/recommendations",
-                    children: "Recommendations"
+                    href: "/settings",
+                    children: "Settings"
                 }, void 0, false, {
                     fileName: "[project]/components/BottomNav.tsx",
                     lineNumber: 17,
@@ -103,35 +103,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BottomNav$2e$t
 ;
 ;
 function RecommendationsPage() {
-    const [openaiApiKey, setOpenaiApiKey] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
-    const { profile, rows, profileReady, saveProfile: ctxSaveProfile, saveOpenaiApiKey: ctxSaveOpenaiApiKey, updateValue: ctxUpdateValue, resetAll: ctxResetAll } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$providers$2f$ProfileProvider$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useProfile"])();
-    const [standard, setStandard] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [sex, setSex] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [age, setAge] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const { rows, profileReady, updateValue: ctxUpdateValue, resetAll: ctxResetAll } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$providers$2f$ProfileProvider$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useProfile"])();
     const [toast, setToast] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     function saved() {
         setToast(true);
         setTimeout(()=>setToast(false), 1200);
-    }
-    // sync profile -> local state
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        if (profile) {
-            setStandard(profile.recommendationSet ?? null);
-            setSex(profile.sex ?? null);
-            setAge(typeof profile.age === "number" ? profile.age : null);
-            setOpenaiApiKey(profile.openaiApiKey ?? "");
-        }
-    }, [
-        profile
-    ]);
-    async function saveProfile(next) {
-        await ctxSaveProfile(next);
-        saved();
-    }
-    async function saveOpenaiApiKey(next) {
-        await ctxSaveOpenaiApiKey(next);
-        setOpenaiApiKey(next);
-        saved();
     }
     async function updateValue(id, value) {
         await ctxUpdateValue(id, value);
@@ -146,165 +122,19 @@ function RecommendationsPage() {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                 className: "text-xl font-semibold",
-                children: "Recommended Intake"
+                children: "Recommendations"
             }, void 0, false, {
                 fileName: "[project]/app/recommendations/page.tsx",
-                lineNumber: 72,
+                lineNumber: 36,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "space-y-3 rounded-lg border border-muted p-3",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                        value: standard ?? "",
-                        onChange: (e)=>{
-                            const next = e.target.value;
-                            setStandard(next);
-                            if (sex && age) saveProfile({
-                                recommendationSet: next,
-                                sex,
-                                age
-                            });
-                        },
-                        className: "p-2 rounded bg-[var(--muted)] w-full",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                value: "",
-                                disabled: true,
-                                children: "Select standard"
-                            }, void 0, false, {
-                                fileName: "[project]/app/recommendations/page.tsx",
-                                lineNumber: 86,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                value: "fda_dv_2024",
-                                children: "FDA Daily Values"
-                            }, void 0, false, {
-                                fileName: "[project]/app/recommendations/page.tsx",
-                                lineNumber: 89,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                value: "usda_dri",
-                                children: "USDA DRI"
-                            }, void 0, false, {
-                                fileName: "[project]/app/recommendations/page.tsx",
-                                lineNumber: 90,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/recommendations/page.tsx",
-                        lineNumber: 76,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                        value: sex ?? "",
-                        onChange: (e)=>{
-                            const next = e.target.value;
-                            setSex(next);
-                            if (standard && age) saveProfile({
-                                recommendationSet: standard,
-                                sex: next,
-                                age
-                            });
-                        },
-                        className: "p-2 rounded bg-[var(--muted)] w-full",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                value: "",
-                                disabled: true,
-                                children: "Select sex"
-                            }, void 0, false, {
-                                fileName: "[project]/app/recommendations/page.tsx",
-                                lineNumber: 103,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                value: "female",
-                                children: "Female"
-                            }, void 0, false, {
-                                fileName: "[project]/app/recommendations/page.tsx",
-                                lineNumber: 106,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                value: "male",
-                                children: "Male"
-                            }, void 0, false, {
-                                fileName: "[project]/app/recommendations/page.tsx",
-                                lineNumber: 107,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/recommendations/page.tsx",
-                        lineNumber: 93,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                        type: "number",
-                        min: 1,
-                        max: 120,
-                        placeholder: "Age",
-                        value: age ?? "",
-                        onChange: (e)=>{
-                            const next = Number(e.target.value);
-                            setAge(next);
-                            if (standard && sex) saveProfile({
-                                recommendationSet: standard,
-                                sex,
-                                age: next
-                            });
-                        },
-                        className: "p-2 rounded bg-[var(--muted)] w-full"
-                    }, void 0, false, {
-                        fileName: "[project]/app/recommendations/page.tsx",
-                        lineNumber: 110,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                        type: "password",
-                        placeholder: "OpenAI API key (sk-...)",
-                        value: openaiApiKey,
-                        onChange: (e)=>setOpenaiApiKey(e.target.value),
-                        onBlur: ()=>saveOpenaiApiKey(openaiApiKey),
-                        className: "p-2 rounded bg-[var(--muted)] w-full"
-                    }, void 0, false, {
-                        fileName: "[project]/app/recommendations/page.tsx",
-                        lineNumber: 126,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex gap-2",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                            onClick: ()=>saveOpenaiApiKey(openaiApiKey),
-                            className: "flex-1 p-2 rounded bg-[var(--muted)] text-sm",
-                            children: "Save OpenAI API Key"
-                        }, void 0, false, {
-                            fileName: "[project]/app/recommendations/page.tsx",
-                            lineNumber: 136,
-                            columnNumber: 11
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "[project]/app/recommendations/page.tsx",
-                        lineNumber: 135,
-                        columnNumber: 9
-                    }, this),
-                    !profileReady && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-sm text-muted-foreground",
-                        children: "Complete your profile to see recommendations"
-                    }, void 0, false, {
-                        fileName: "[project]/app/recommendations/page.tsx",
-                        lineNumber: 145,
-                        columnNumber: 11
-                    }, this)
-                ]
-            }, void 0, true, {
+            !profileReady && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                className: "text-sm text-muted-foreground",
+                children: "Complete your profile to edit recommendations"
+            }, void 0, false, {
                 fileName: "[project]/app/recommendations/page.tsx",
-                lineNumber: 75,
-                columnNumber: 7
+                lineNumber: 39,
+                columnNumber: 9
             }, this),
             profileReady && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                 children: [
@@ -320,7 +150,7 @@ function RecommendationsPage() {
                                                 children: r.id.replace("_", " ")
                                             }, void 0, false, {
                                                 fileName: "[project]/app/recommendations/page.tsx",
-                                                lineNumber: 161,
+                                                lineNumber: 51,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -333,13 +163,13 @@ function RecommendationsPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/recommendations/page.tsx",
-                                                lineNumber: 164,
+                                                lineNumber: 52,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/recommendations/page.tsx",
-                                        lineNumber: 160,
+                                        lineNumber: 50,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -349,18 +179,18 @@ function RecommendationsPage() {
                                         className: "w-24 p-2 rounded bg-[var(--muted)] text-right"
                                     }, void 0, false, {
                                         fileName: "[project]/app/recommendations/page.tsx",
-                                        lineNumber: 169,
+                                        lineNumber: 55,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, r.id, true, {
                                 fileName: "[project]/app/recommendations/page.tsx",
-                                lineNumber: 156,
+                                lineNumber: 46,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/app/recommendations/page.tsx",
-                        lineNumber: 154,
+                        lineNumber: 44,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -369,7 +199,7 @@ function RecommendationsPage() {
                         children: "Restore Defaults"
                     }, void 0, false, {
                         fileName: "[project]/app/recommendations/page.tsx",
-                        lineNumber: 181,
+                        lineNumber: 65,
                         columnNumber: 11
                     }, this)
                 ]
@@ -379,18 +209,18 @@ function RecommendationsPage() {
                 children: "Saved!"
             }, void 0, false, {
                 fileName: "[project]/app/recommendations/page.tsx",
-                lineNumber: 191,
+                lineNumber: 72,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BottomNav$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/recommendations/page.tsx",
-                lineNumber: 195,
-                columnNumber: 5
+                lineNumber: 75,
+                columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/recommendations/page.tsx",
-        lineNumber: 71,
+        lineNumber: 35,
         columnNumber: 5
     }, this);
 }

@@ -14,6 +14,7 @@ type UserProfile = {
   sex?: "male" | "female";
   age?: number;
   openaiApiKey?: string;
+  theme?: string;
 };
 
 type Row = {
@@ -96,10 +97,11 @@ export default function SettingsPage() {
       setSex(profile.sex ?? null);
       setAge(typeof profile.age === "number" ? profile.age : null);
       setOpenaiApiKey(profile.openaiApiKey ?? "");
+      setTheme(profile.theme ?? "");
     }
   }, [profile]);
 
-  async function saveProfile(next: { recommendationSet: StandardId; sex: Sex; age: number; }) {
+  async function saveProfile(next: { recommendationSet: StandardId; sex: Sex; age: number; theme: string }) {
     await ctxSaveProfile(next);
     saved();
   }
@@ -131,7 +133,7 @@ export default function SettingsPage() {
             const next = e.target.value as StandardId;
             setStandard(next);
             if (sex && age)
-              saveProfile({ recommendationSet: next, sex, age });
+              saveProfile({ recommendationSet: next, sex, age, theme });
           }}
           className="p-2 rounded bg-[var(--muted)] w-full"
         >
@@ -148,7 +150,7 @@ export default function SettingsPage() {
             const next = e.target.value as Sex;
             setSex(next);
             if (standard && age)
-              saveProfile({ recommendationSet: standard, sex: next, age });
+              saveProfile({ recommendationSet: standard, sex: next, age, theme });
           }}
           className="p-2 rounded bg-[var(--muted)] w-full"
         >
@@ -169,7 +171,7 @@ export default function SettingsPage() {
             const next = Number(e.target.value);
             setAge(next);
             if (standard && sex)
-              saveProfile({ recommendationSet: standard, sex, age: next });
+              saveProfile({ recommendationSet: standard, sex, age: next, theme });
           }}
           className="p-2 rounded bg-[var(--muted)] w-full"
         />
@@ -187,7 +189,19 @@ export default function SettingsPage() {
         {/* Theme selector (moved from Home) */}
         <select
           value={theme}
-          onChange={(e) => setTheme(e.target.value)}
+          onChange={async (e) => {
+            const nextTheme = e.target.value;
+            setTheme(nextTheme);
+
+            if (standard && sex && typeof age === "number") {
+              await saveProfile({
+                recommendationSet: standard,
+                sex,
+                age,
+                theme: nextTheme,
+              });
+            }
+          }}
           className="p-2 rounded bg-[var(--muted)] w-full"
         >
           <option value="">System</option>
@@ -197,6 +211,7 @@ export default function SettingsPage() {
             </option>
           ))}
         </select>
+
 
         <div className="flex gap-2">
           <button

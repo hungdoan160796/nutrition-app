@@ -474,10 +474,17 @@ function ProfileProvider({ children }) {
         setLoading(true);
         await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["initDB"])();
         const db = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getDB"])();
-        setProfile(db.userProfile ?? {});
+        const stored = db.userProfile;
+        const normalized = stored ? {
+            recommendationSet: stored.recommendationSet,
+            sex: stored.sex,
+            age: stored.age,
+            openaiApiKey: stored.openaiApiKey,
+            theme: stored.theme ?? ""
+        } : undefined;
+        setProfile(normalized);
         setRows(await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$recommendationResolver$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getResolvedRecommendations"])());
-        const p = db.userProfile ?? {};
-        setProfileReady(!!(p.recommendationSet && p.sex && typeof p.age === "number"));
+        setProfileReady(!!(normalized?.recommendationSet && normalized?.sex && typeof normalized?.age === "number"));
         setLoading(false);
     }
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
@@ -494,19 +501,30 @@ function ProfileProvider({ children }) {
     ]);
     async function saveProfile(next) {
         await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["updateDB"])((db)=>{
-            db.userProfile = next;
+            db.userProfile = {
+                ...db.userProfile ?? {},
+                ...next
+            };
         });
-        setProfile(next);
+        setProfile((prev)=>({
+                ...prev ?? {},
+                ...next
+            }));
         setRows(await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$recommendationResolver$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getResolvedRecommendations"])());
         setProfileReady(true);
     }
     async function saveOpenaiApiKey(key) {
         await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["updateDB"])((db)=>{
-            db.userProfile ??= {};
+            db.userProfile ??= {
+                theme: ""
+            };
             db.userProfile.openaiApiKey = key;
         });
-        setProfile((p)=>({
-                ...p ?? {},
+        setProfile((prev)=>({
+                recommendationSet: prev?.recommendationSet,
+                sex: prev?.sex,
+                age: prev?.age,
+                theme: prev?.theme ?? "",
                 openaiApiKey: key
             }));
     }
@@ -538,7 +556,7 @@ function ProfileProvider({ children }) {
         children: children
     }, void 0, false, {
         fileName: "[project]/app/providers/ProfileProvider.tsx",
-        lineNumber: 119,
+        lineNumber: 156,
         columnNumber: 5
     }, this);
 }

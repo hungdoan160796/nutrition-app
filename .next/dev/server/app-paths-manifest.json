@@ -1,9 +1,9 @@
 {
   "/add/page": "app/add/page.js",
+  "/api/foods/add/route": "app/api/foods/add/route.js",
   "/api/foods/route": "app/api/foods/route.js",
+  "/api/foods/search/route": "app/api/foods/search/route.js",
   "/history/page": "app/history/page.js",
-  "/home/page": "app/home/page.js",
-  "/log/page": "app/log/page.js",
-  "/page": "app/page.js",
+  "/recommendations/page": "app/recommendations/page.js",
   "/settings/page": "app/settings/page.js"
 }

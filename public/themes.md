@@ -7,56 +7,53 @@
   --border: #1f2933;
   --accent: #38bdf8;
 }
-
-[data-theme="soft-light"] 
-{
-  --background: #fafafa;
-  --foreground: #1f2937;
-  --muted: #f1f5f9;
-  --border: #e2e8f0;
-  --accent: #6366f1;
+[data-theme="soft-light"] {
+  --background: #ffffff;
+  --foreground: #111827;
+  --muted: #f8fafc;
+  --border: #e5e7eb;
+  --accent: #7c83ff;
 }
 
-[data-theme="forest"] 
-{
-  --background: #0f1f17;
-  --foreground: #e6f4ea;
-  --muted: #162c22;
-  --border: #1f3d2b;
-  --accent: #22c55e;
+[data-theme="forest"] {
+  --background: #163126;
+  --foreground: #f0fdf4;
+  --muted: #1f3d2f;
+  --border: #2f5d46;
+  --accent: #34d399;
 }
-[data-theme="ocean"] 
-{
-  --background: #0b1d26;
-  --foreground: #e0f2fe;
-  --muted: #102a36;
-  --border: #164e63;
-  --accent: #06b6d4;
+
+[data-theme="ocean"] {
+  --background: #123240;
+  --foreground: #ecfeff;
+  --muted: #184454;
+  --border: #1f6b85;
+  --accent: #22d3ee;
 }
-[data-theme="sunset"] 
-{
-  --background: #2b0f14;
-  --foreground: #fde8e8;
-  --muted: #3b141a;
-  --border: #7f1d1d;
-  --accent: #f97316;
+[data-theme="sunset"] {
+  --background: #3a161c;
+  --foreground: #fff1f2;
+  --muted: #4a1c23;
+  --border: #9f2a2a;
+  --accent: #fb923c;
 }
-[data-theme="sakura"] 
-{
-  --background: #fff1f2;
-  --foreground: #4a1d2e;
-  --muted: #ffe4e6;
-  --border: #fecdd3;
-  --accent: #ec4899;
+
+[data-theme="sakura"] {
+  --background: #fff7f8;
+  --foreground: #3f1d2e;
+  --muted: #fff1f2;
+  --border: #fbcfe8;
+  --accent: #f472b6;
 }
-[data-theme="solarized-light"] 
-{
-  --background: #fdf6e3;
-  --foreground: #657b83;
-  --muted: #eee8d5;
-  --border: #e0d7b5;
-  --accent: #b58900;
+
+[data-theme="solarized-light"] {
+  --background: #fefae8;
+  --foreground: #586e75;
+  --muted: #f5efd9;
+  --border: #e8dfc2;
+  --accent: #c59d1c;
 }
+
 [data-theme="solarized-dark"] 
 {
   --background: #002b36;
@@ -65,22 +62,22 @@
   --border: #0f4c5c;
   --accent: #cb4b16;
 }
-[data-theme="neon"] 
-{
-  --background: #050505;
-  --foreground: #e5e5e5;
-  --muted: #111111;
-  --border: #27272a;
-  --accent: #22d3ee;
+[data-theme="neon"] {
+  --background: #101010;
+  --foreground: #f3f4f6;
+  --muted: #1a1a1a;
+  --border: #3a3a3f;
+  --accent: #67e8f9;
 }
-[data-theme="gray-matter"] 
-{
-  --background: #111827;
-  --foreground: #d1d5db;
-  --muted: #1f2937;
-  --border: #374151;
-  --accent: #9ca3af;
+
+[data-theme="gray-matter"] {
+  --background: #1f2937;
+  --foreground: #e5e7eb;
+  --muted: #2d3748;
+  --border: #4b5563;
+  --accent: #cbd5e1;
 }
+
 [data-theme="midnight-blue"] 
 {
   --background: #0a1e3f;
@@ -89,30 +86,30 @@
   --border: #1e40af;
   --accent: #3b82f6;
 }
-[data-theme="candlelight"] 
-{
-  --background: #1c0f0a;
-  --foreground: #fbeedb;
-  --muted: #2a1610;
-  --border: #7c4a31;
-  --accent: #f59e0b;
+[data-theme="candlelight"] {
+  --background: #2a1711;
+  --foreground: #fff7ed;
+  --muted: #3a2118;
+  --border: #a16207;
+  --accent: #fbbf24;
 }
-[data-theme="lavender"] 
-{
-  --background: #f5f3ff;
-  --foreground: #4c1d95;
-  --muted: #ede9fe;
-  --border: #ddd6fe;
-  --accent: #a78bfa;
+
+[data-theme="lavender"] {
+  --background: #faf8ff;
+  --foreground: #3b1d8f;
+  --muted: #f3f0ff;
+  --border: #e9e5ff;
+  --accent: #c4b5fd;
 }
-[data-theme="mint"] 
-{
-  --background: #f0fdf4;
-  --foreground: #064e3b;
-  --muted: #dcfce7;
-  --border: #bbf7d0;
-  --accent: #34d399;
+
+[data-theme="mint"] {
+  --background: #f7fef9;
+  --foreground: #065f46;
+  --muted: #e6fcef;
+  --border: #c7f9dc;
+  --accent: #6ee7b7;
 }
+
 [data-theme="charcoal"] 
 {
   --background: #121212;

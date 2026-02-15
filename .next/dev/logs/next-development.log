@@ -1,102 +1,230 @@
-[00:00:00.833] Server  LOG     ✓ Ready in 574ms
-[00:00:01.707] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:05.670] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:08.255] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771140676358","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzExNDAwMzgsImV4cCI6MTc3MTE0MzYzOCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.ljTNEqJrIFN29ScFBzm1GYQ8w8J0j8xzZ7sEpFGsnHCJEqlS59qptS8ano5qolh5tjfQJufdw36fDKygFz5HRYXTO-dVeSo7tFdE-H1AU6Nu2rsAmiHHUmsSUmGx_Ko4iQBm3b3zWwUdyKAo6xt6DvzNqVrNdhBd5_Fs6jaicwiK08gUKW4VzGOPpBc9P0p_isKNUtvgHaQv64TvStD0jUeP63XqcDxVN3cMIDjoaPIQhKd7m6VoRh-drjU68J2GSutTwdSkYEqVN6ZI9v8xt7filcm6UiYda5xLUYWjKbPqg4OqjEaFSokhipNRBj7xY4WeNfi4PUSIyE7iMtyY5A","expirationTime":1771143638280,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
-[00:00:08.463] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-14","2026-02-15"]
-[00:00:08.463] Browser LOG     getWeeklyProgress: sample entry: {"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}
-[00:00:08.463] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-14","2026-02-15"]
-[00:00:08.463] Browser LOG     getWeeklyProgress: sample entry: {"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}
-[00:01:09.845] Server  LOG     ✓ Compiled in 458ms
-[00:02:25.215] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-14","2026-02-15"]
-[00:02:25.215] Browser LOG     getWeeklyProgress: sample entry: {"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}
-[00:02:25.215] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-14","2026-02-15"]
-[00:02:25.215] Browser LOG     getWeeklyProgress: sample entry: {"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}
-[00:02:28.517] Server  LOG     ✓ Compiled in 99ms
-[00:02:28.621] Browser ERROR   ./app/globals.css:1081:93
-Parsing CSS source code failed
-  1079 |   /* fallback if needed */
-  1080 | }
-> 1081 | [/* Mobile safe-area support; uses env() which falls back to 0 on non-supporting browsers */]
-       |                                                                                             ^
-  1082 | @supports (padding: env(safe-area-inset-top)) {
-  1083 |   html, body {
-  1084 |     padding-top: env(safe-area-inset-top);
+[00:00:00.810] Server  LOG     ✓ Ready in 559ms
+[00:00:12.041] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:20.772] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:24.057] Server  LOG     ✓ Compiled in 124ms
+[00:02:24.346] Browser ERROR   ./app/layout.tsx:5:1
+Export ProfileProvider doesn't exist in target module
+  3 | import { ThemeProvider } from "@/components/ThemeProvider";
+  4 | import { AuthProvider } from "@/app/providers/AuthProviders";
+> 5 | import { ProfileProvider } from "@/app/providers/ProfileProvider";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | export default function RootLayout({
+  8 |   children,
 
-Unexpected end of input
+The export ProfileProvider was not found in module [project]/app/providers/ProfileProvider.tsx [app-rsc] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+[00:02:24.346] Browser ERROR   ./app/settings/page.tsx:6:1
+Export useProfile doesn't exist in target module
+  4 | import { signOut } from "firebase/auth";
+  5 | import { auth } from "@/lib/firebase";
+> 6 | import { useProfile } from "@/app/providers/ProfileProvider";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 | import BottomNav from "@/components/BottomNav";
+  8 |
+  9 | type StandardId = "fda_dv_2024" | "usda_dri";
 
-Import trace:
+The export useProfile was not found in module [project]/app/providers/ProfileProvider.tsx [app-client] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
   Client Component Browser:
-    ./app/globals.css [Client Component Browser]
-    ./app/layout.tsx [Server Component]
-[00:03:30.912] Browser LOG     DB foodLog sample: [{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}},{"count":3,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}}]
-[00:03:30.912] Browser LOG     DB foodLog sample: [{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}},{"count":3,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}}]
-[00:03:33.464] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771140676358","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzExNDAwMzgsImV4cCI6MTc3MTE0MzYzOCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.ljTNEqJrIFN29ScFBzm1GYQ8w8J0j8xzZ7sEpFGsnHCJEqlS59qptS8ano5qolh5tjfQJufdw36fDKygFz5HRYXTO-dVeSo7tFdE-H1AU6Nu2rsAmiHHUmsSUmGx_Ko4iQBm3b3zWwUdyKAo6xt6DvzNqVrNdhBd5_Fs6jaicwiK08gUKW4VzGOPpBc9P0p_isKNUtvgHaQv64TvStD0jUeP63XqcDxVN3cMIDjoaPIQhKd7m6VoRh-drjU68J2GSutTwdSkYEqVN6ZI9v8xt7filcm6UiYda5xLUYWjKbPqg4OqjEaFSokhipNRBj7xY4WeNfi4PUSIyE7iMtyY5A","expirationTime":1771143638280,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
-[00:03:33.608] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-14","2026-02-15"]
-[00:03:33.608] Browser LOG     getWeeklyProgress: sample entry: {"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}
-[00:03:33.608] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-14","2026-02-15"]
-[00:03:33.608] Browser LOG     getWeeklyProgress: sample entry: {"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}
-[00:04:04.270] Server  LOG     ✓ Compiled in 99ms
-[00:04:09.911] Server  LOG     ✓ Compiled in 27ms
-[00:04:13.326] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:22.841] Server  LOG     ✓ Compiled in 28ms
-[00:04:27.552] Server  LOG     ✓ Compiled in 29ms
-[00:05:00.906] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771140676358","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzExNDAwMzgsImV4cCI6MTc3MTE0MzYzOCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.ljTNEqJrIFN29ScFBzm1GYQ8w8J0j8xzZ7sEpFGsnHCJEqlS59qptS8ano5qolh5tjfQJufdw36fDKygFz5HRYXTO-dVeSo7tFdE-H1AU6Nu2rsAmiHHUmsSUmGx_Ko4iQBm3b3zWwUdyKAo6xt6DvzNqVrNdhBd5_Fs6jaicwiK08gUKW4VzGOPpBc9P0p_isKNUtvgHaQv64TvStD0jUeP63XqcDxVN3cMIDjoaPIQhKd7m6VoRh-drjU68J2GSutTwdSkYEqVN6ZI9v8xt7filcm6UiYda5xLUYWjKbPqg4OqjEaFSokhipNRBj7xY4WeNfi4PUSIyE7iMtyY5A","expirationTime":1771143638280,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
-[00:05:01.175] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14"]
-[00:05:01.175] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
-[00:05:01.175] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14"]
-[00:05:01.175] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
-[00:06:12.949] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771140676358","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzExNDAwMzgsImV4cCI6MTc3MTE0MzYzOCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.ljTNEqJrIFN29ScFBzm1GYQ8w8J0j8xzZ7sEpFGsnHCJEqlS59qptS8ano5qolh5tjfQJufdw36fDKygFz5HRYXTO-dVeSo7tFdE-H1AU6Nu2rsAmiHHUmsSUmGx_Ko4iQBm3b3zWwUdyKAo6xt6DvzNqVrNdhBd5_Fs6jaicwiK08gUKW4VzGOPpBc9P0p_isKNUtvgHaQv64TvStD0jUeP63XqcDxVN3cMIDjoaPIQhKd7m6VoRh-drjU68J2GSutTwdSkYEqVN6ZI9v8xt7filcm6UiYda5xLUYWjKbPqg4OqjEaFSokhipNRBj7xY4WeNfi4PUSIyE7iMtyY5A","expirationTime":1771143638280,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
-[00:06:13.511] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14"]
-[00:06:13.511] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
-[00:06:13.511] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14"]
-[00:06:13.511] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
-[00:06:15.415] Browser LOG     DB foodLog sample: [{"count":3,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}},{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}}]
-[00:06:15.415] Browser LOG     DB foodLog sample: [{"count":3,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}},{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}}]
-[00:06:15.685] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+    ./app/settings/page.tsx [Client Component Browser]
+    ./app/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/settings/page.tsx [Client Component SSR]
+    ./app/settings/page.tsx [Server Component]
+[00:02:24.346] Browser ERROR   ./app/settings/page.tsx:6:1
+Export useProfile doesn't exist in target module
+  4 | import { signOut } from "firebase/auth";
+  5 | import { auth } from "@/lib/firebase";
+> 6 | import { useProfile } from "@/app/providers/ProfileProvider";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 | import BottomNav from "@/components/BottomNav";
+  8 |
+  9 | type StandardId = "fda_dv_2024" | "usda_dri";
+
+The export useProfile was not found in module [project]/app/providers/ProfileProvider.tsx [app-ssr] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./app/settings/page.tsx [Client Component Browser]
+    ./app/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/settings/page.tsx [Client Component SSR]
+    ./app/settings/page.tsx [Server Component]
+[00:02:24.346] Browser ERROR   ./app/add/page.tsx:7:1
+Export useProfile doesn't exist in target module
+   5 | import { searchUsdaFoods, UsdaFood } from '@/lib/usdaSearch';
+   6 | import { addUsdaFood } from '@/lib/addUsdaFood';
+>  7 | import { useProfile } from '@/app/providers/ProfileProvider';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import BottomNav from '@/components/BottomNav';
+   9 |
+  10 | type Nutrients = {
+
+The export useProfile was not found in module [project]/app/providers/ProfileProvider.tsx [app-client] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+[00:02:24.346] Browser ERROR   ./app/add/page.tsx:7:1
+Export useProfile doesn't exist in target module
+   5 | import { searchUsdaFoods, UsdaFood } from '@/lib/usdaSearch';
+   6 | import { addUsdaFood } from '@/lib/addUsdaFood';
+>  7 | import { useProfile } from '@/app/providers/ProfileProvider';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import BottomNav from '@/components/BottomNav';
+   9 |
+  10 | type Nutrients = {
+
+The export useProfile was not found in module [project]/app/providers/ProfileProvider.tsx [app-ssr] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+[00:02:24.346] Browser ERROR   ./app/layout.tsx:5:1
+Export ProfileProvider doesn't exist in target module
+  3 | import { ThemeProvider } from "@/components/ThemeProvider";
+  4 | import { AuthProvider } from "@/app/providers/AuthProviders";
+> 5 | import { ProfileProvider } from "@/app/providers/ProfileProvider";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | export default function RootLayout({
+  8 |   children,
+
+The export ProfileProvider was not found in module [project]/app/providers/ProfileProvider.tsx [app-rsc] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+[00:02:24.346] Browser ERROR   ./app/settings/page.tsx:6:1
+Export useProfile doesn't exist in target module
+  4 | import { signOut } from "firebase/auth";
+  5 | import { auth } from "@/lib/firebase";
+> 6 | import { useProfile } from "@/app/providers/ProfileProvider";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 | import BottomNav from "@/components/BottomNav";
+  8 |
+  9 | type StandardId = "fda_dv_2024" | "usda_dri";
+
+The export useProfile was not found in module [project]/app/providers/ProfileProvider.tsx [app-client] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./app/settings/page.tsx [Client Component Browser]
+    ./app/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/settings/page.tsx [Client Component SSR]
+    ./app/settings/page.tsx [Server Component]
+[00:02:24.346] Browser ERROR   ./app/settings/page.tsx:6:1
+Export useProfile doesn't exist in target module
+  4 | import { signOut } from "firebase/auth";
+  5 | import { auth } from "@/lib/firebase";
+> 6 | import { useProfile } from "@/app/providers/ProfileProvider";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 | import BottomNav from "@/components/BottomNav";
+  8 |
+  9 | type StandardId = "fda_dv_2024" | "usda_dri";
+
+The export useProfile was not found in module [project]/app/providers/ProfileProvider.tsx [app-ssr] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./app/settings/page.tsx [Client Component Browser]
+    ./app/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/settings/page.tsx [Client Component SSR]
+    ./app/settings/page.tsx [Server Component]
+[00:02:24.346] Browser ERROR   ./app/add/page.tsx:7:1
+Export useProfile doesn't exist in target module
+   5 | import { searchUsdaFoods, UsdaFood } from '@/lib/usdaSearch';
+   6 | import { addUsdaFood } from '@/lib/addUsdaFood';
+>  7 | import { useProfile } from '@/app/providers/ProfileProvider';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import BottomNav from '@/components/BottomNav';
+   9 |
+  10 | type Nutrients = {
+
+The export useProfile was not found in module [project]/app/providers/ProfileProvider.tsx [app-client] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+[00:02:24.346] Browser ERROR   ./app/add/page.tsx:7:1
+Export useProfile doesn't exist in target module
+   5 | import { searchUsdaFoods, UsdaFood } from '@/lib/usdaSearch';
+   6 | import { addUsdaFood } from '@/lib/addUsdaFood';
+>  7 | import { useProfile } from '@/app/providers/ProfileProvider';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import BottomNav from '@/components/BottomNav';
+   9 |
+  10 | type Nutrients = {
+
+The export useProfile was not found in module [project]/app/providers/ProfileProvider.tsx [app-ssr] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./app/add/page.tsx [Client Component Browser]
+    ./app/add/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/add/page.tsx [Client Component SSR]
+    ./app/add/page.tsx [Server Component]
+[00:02:56.063] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./app/providers/ProfileProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:02:56.117] Server  LOG     ✓ Compiled in 34ms
+[00:02:56.334] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:13.199] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./app/providers/ProfileProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:03:13.257] Server  LOG     ✓ Compiled in 28ms
+[00:03:13.494] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:17.950] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:12.192] Server  LOG     ✓ Compiled in 24ms
+[00:04:15.276] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:35.296] Server  LOG     ✓ Compiled in 30ms
+[00:04:47.076] Browser LOG     DB foodLog sample: [{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}},{"count":3,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}}]
+[00:04:47.076] Browser LOG     DB foodLog sample: [{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}},{"count":3,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}}]
+[00:04:48.891] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:06:15.685] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:04:48.891] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:06:25.614] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771140676358","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzExNDAwMzgsImV4cCI6MTc3MTE0MzYzOCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.ljTNEqJrIFN29ScFBzm1GYQ8w8J0j8xzZ7sEpFGsnHCJEqlS59qptS8ano5qolh5tjfQJufdw36fDKygFz5HRYXTO-dVeSo7tFdE-H1AU6Nu2rsAmiHHUmsSUmGx_Ko4iQBm3b3zWwUdyKAo6xt6DvzNqVrNdhBd5_Fs6jaicwiK08gUKW4VzGOPpBc9P0p_isKNUtvgHaQv64TvStD0jUeP63XqcDxVN3cMIDjoaPIQhKd7m6VoRh-drjU68J2GSutTwdSkYEqVN6ZI9v8xt7filcm6UiYda5xLUYWjKbPqg4OqjEaFSokhipNRBj7xY4WeNfi4PUSIyE7iMtyY5A","expirationTime":1771143638280,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
-[00:06:25.760] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14"]
-[00:06:25.760] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
-[00:06:25.760] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14"]
-[00:06:25.760] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
-[00:06:57.590] Server  LOG     ✓ Compiled in 45ms
-[00:07:53.831] Server  LOG     ✓ Compiled in 21ms
-[00:08:11.392] Server  LOG     ✓ Compiled in 24ms
-[00:08:39.747] Browser LOG     DB foodLog sample: [{"count":3,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}},{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}}]
-[00:08:39.747] Browser LOG     DB foodLog sample: [{"count":3,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}},{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}}]
-[00:08:40.013] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:08:40.013] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
-[00:09:00.615] Server  LOG     ✓ Compiled in 17ms
-[00:09:02.915] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771140676358","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzExNDAwMzgsImV4cCI6MTc3MTE0MzYzOCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.ljTNEqJrIFN29ScFBzm1GYQ8w8J0j8xzZ7sEpFGsnHCJEqlS59qptS8ano5qolh5tjfQJufdw36fDKygFz5HRYXTO-dVeSo7tFdE-H1AU6Nu2rsAmiHHUmsSUmGx_Ko4iQBm3b3zWwUdyKAo6xt6DvzNqVrNdhBd5_Fs6jaicwiK08gUKW4VzGOPpBc9P0p_isKNUtvgHaQv64TvStD0jUeP63XqcDxVN3cMIDjoaPIQhKd7m6VoRh-drjU68J2GSutTwdSkYEqVN6ZI9v8xt7filcm6UiYda5xLUYWjKbPqg4OqjEaFSokhipNRBj7xY4WeNfi4PUSIyE7iMtyY5A","expirationTime":1771143638280,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
-[00:09:03.116] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14"]
-[00:09:03.116] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
-[00:09:03.116] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14"]
-[00:09:03.116] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
-[00:09:36.271] Server  LOG     ✓ Compiled in 36ms
-[00:09:47.945] Server  LOG     ✓ Compiled in 14ms
-[00:10:05.781] Server  LOG     ✓ Compiled in 24ms
-[00:10:13.391] Server  LOG     ✓ Compiled in 17ms
-[00:10:54.449] Server  LOG     ✓ Compiled in 26ms
-[00:10:54.925] Server  LOG     ✓ Compiled in 20ms
-[00:12:12.553] Server  LOG     ✓ Compiled in 20ms
-[00:12:47.528] Server  LOG     ✓ Compiled in 24ms
-[00:13:17.806] Server  LOG     ✓ Compiled in 16ms
-[00:13:32.898] Server  LOG     ✓ Compiled in 14ms
-[00:13:44.389] Server  LOG     ✓ Compiled in 15ms
-[00:13:54.436] Server  LOG     ✓ Compiled in 15ms
-[00:14:12.668] Server  LOG     ✓ Compiled in 18ms
-[00:14:27.824] Server  LOG     ✓ Compiled in 16ms
-[00:14:36.330] Server  LOG     ✓ Compiled in 17ms
-[00:15:03.098] Server  LOG     ✓ Compiled in 21ms
+[00:08:04.781] Server  LOG     ✓ Compiled in 96ms
+[00:08:56.898] Server  LOG     ✓ Compiled in 88ms
+[00:09:25.595] Server  LOG     ✓ Compiled in 69ms
+[00:10:05.844] Server  LOG     ✓ Compiled in 89ms

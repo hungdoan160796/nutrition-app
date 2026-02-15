@@ -4,12 +4,14 @@ export type UserProfile = {
   recommendationSet: RecommendationSetId;
   sex: "male" | "female";
   age: number;
+  theme: string;
 };
 
 let userProfile: UserProfile = {
   recommendationSet: "fda_dv_2024",
   sex: "female",
   age: 30,
+  theme: "System",
 };
 
 export function getUserProfile(): UserProfile {
