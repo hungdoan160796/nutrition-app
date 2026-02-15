@@ -19,7 +19,7 @@ export default function FoodNutrients({ nutrients, grams }: Props) {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+    <div className="grid grid-cols-1 gap-3">
       {entries.map(([key, amount]) => {
         const def = getNutrientById(key);
         const label = def?.label ?? key;

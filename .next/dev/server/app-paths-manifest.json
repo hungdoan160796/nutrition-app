@@ -5,6 +5,7 @@
   "/history/page": "app/history/page.js",
   "/home/page": "app/home/page.js",
   "/log/page": "app/log/page.js",
+  "/nutrients/[id]/page": "app/nutrients/[id]/page.js",
   "/page": "app/page.js",
   "/recommendations/page": "app/recommendations/page.js"
 }

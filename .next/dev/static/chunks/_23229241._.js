@@ -421,9 +421,17 @@ async function buildWeeks(db) {
         const weekStart = iso(startOfWeek(date));
         const dailyTotals = {};
         for (const food of foods){
-            const nutrients = food.nutrients ?? {};
+            // foods may store either a per-entry `nutrients` map (already scaled)
+            // or `nutrientsPer100g` + `grams`. Support both shapes.
+            const perEntry = food.nutrients ?? {};
+            const per100g = food.nutrientsPer100g ?? {};
             for (const id of MICROS){
-                const amount = nutrients[id];
+                let amount = undefined;
+                if (typeof perEntry[id] === "number") {
+                    amount = perEntry[id];
+                } else if (typeof per100g[id] === "number" && typeof food.grams === "number") {
+                    amount = per100g[id] * food.grams / 100;
+                }
                 if (typeof amount !== "number") continue;
                 dailyTotals[id] = (dailyTotals[id] ?? 0) + amount;
             }
@@ -436,8 +444,7 @@ async function buildWeeks(db) {
             const progress = Math.min(intake / target * 100, 100);
             perNutrientProgress.push(progress);
         }
-        if (!perNutrientProgress.length) continue;
-        const dayAvg = Math.round(perNutrientProgress.reduce((s, v)=>s + v, 0) / perNutrientProgress.length * 100) / 100;
+        const dayAvg = perNutrientProgress.length ? Math.round(perNutrientProgress.reduce((s, v)=>s + v, 0) / perNutrientProgress.length * 100) / 100 : 0;
         if (!map.has(weekStart)) {
             map.set(weekStart, new Map());
         }
