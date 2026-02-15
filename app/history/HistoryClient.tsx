@@ -3,6 +3,7 @@
 
 import { getDailyTargets } from "@/lib/recommendationEngine";
 import { useEffect, useState } from "react";
+import { useAuth } from "@/app/providers/AuthProviders";
 import { getDB, initDB, updateDB } from "@/lib/db";
 import FoodRow from "@/components/FoodRow";
 import WeekChart from "@/components/WeekChart";
@@ -148,16 +149,59 @@ function formatWeekRange(start: string) {
 
 export default function HistoryClient() {
   const [weeks, setWeeks] = useState<WeekLog[]>([]);
+  const { user, loading: authLoading } = useAuth();
+  const [catalog, setCatalog] = useState<any[]>([]);
 
   const refresh = async () => {
     await initDB();
     const db = await getDB();
+    // debug: log a small sample of the stored foodLog to the browser console
+    try {
+      // show up to 3 date entries and one sample food per date
+      const sample = Object.entries(db.foodLog || {}).slice(0, 3).map(([d, foods]) => ({ date: d, count: (foods || []).length, sample: (foods || [])[0] }));
+      // eslint-disable-next-line no-console
+      console.log("DB foodLog sample:", sample);
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.log("Failed to inspect db.foodLog", e);
+    }
+
+    // fetch catalog once (requires auth token)
+    try {
+      if (user) {
+        const token = await user.getIdToken();
+        const res = await fetch(`/api/foods?page=1&limit=200`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (res.ok) {
+          const body = await res.json();
+          setCatalog(body?.foods ?? []);
+        }
+      }
+    } catch (e) {
+      // ignore catalog fetch errors; history still works from db.foodLog
+    }
+
     setWeeks(await buildWeeks(db));
   };
 
   useEffect(() => {
-    refresh();
-  }, []);
+    // wait until auth is resolved before attempting DB access to avoid
+    // transient "User not authenticated" errors when the page first mounts
+    if (!authLoading) {
+      refresh();
+    }
+  }, [authLoading, user?.uid]);
+
+  if (authLoading) {
+    return (
+      <div className="p-4">
+        <h1 className="text-xl font-semibold">History</h1>
+        <div className="mt-4 text-sm text-neutral-500">Loading history…</div>
+        <BottomNav />
+      </div>
+    );
+  }
 
   const deleteFood = async (date: string, index: number) => {
     if (!window.confirm("Delete this food entry?")) return;
@@ -229,22 +273,22 @@ export default function HistoryClient() {
                     </button>
                   </div>
 
-                  <div className="space-y-1">
-                    {day.foods.map((food, i) => (
-                      <div
-                        key={i}
-                        className="flex flex-row items-center justify-between gap-2"
-                      >
-                        <FoodRow food={food} />
-                        <button
-                          className="text-xs text-red-500"
-                          onClick={() => deleteFood(day.date, i)}
-                        >
-                          ✕
-                        </button>
-                      </div>
-                    ))}
-                  </div>
+                            <div className="space-y-1">
+                              {day.foods.map((food, i) => (
+                                <div
+                                  key={i}
+                                  className="flex flex-row items-center justify-between gap-2"
+                                >
+                                  <FoodRow food={food} catalog={catalog} />
+                                  <button
+                                    className="text-xs text-red-500"
+                                    onClick={() => deleteFood(day.date, i)}
+                                  >
+                                    ✕
+                                  </button>
+                                </div>
+                              ))}
+                            </div>
                 </div>
               ))}
             </div>

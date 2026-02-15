@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import NutrientCard from "@/components/NutrientCard";
+import { getNutrientById } from "@/lib/nutrientRegistry";
 import ProgressRing from "@/components/ProgressRing";
 import { getWeeklyProgress, type WeeklyProgress } from "@/lib/nutritionEngine";
 import BottomNav from "@/components/BottomNav";
@@ -12,22 +13,23 @@ type Theme = string;
 
 const THEME_REGEX = /data[-–]theme\s*=\s*"([^"]+)"/g;
 
-const MACROS = ["Protein", "Fat", "Carbs"];
+// use nutrient IDs (match `data/nutrients.json` and recommendation IDs)
+const MACROS = ["protein", "fat", "carbohydrate"];
 const MICROS = [
-  "Vitamin A",
-  "Vitamin K",
-  "Vitamin E",
-  "Calcium",
-  "Potassium",
-  "Zinc",
-  "Vitamin C",
-  "Vitamin B6",
-  "Vitamin B12",
-  "Fiber",
-  "Iron",
-  "Magnesium",
-  "Sodium",
-  "Vitamin D",
+  "vitamin_a",
+  "vitamin_k",
+  "vitamin_e",
+  "calcium",
+  "potassium",
+  "zinc",
+  "vitamin_c",
+  "vitamin_b6",
+  "vitamin_b12",
+  "fiber",
+  "iron",
+  "magnesium",
+  "sodium",
+  "vitamin_d",
 ];
 
 export default function HomePage() {
@@ -104,14 +106,14 @@ export default function HomePage() {
   const getNutrient = (id: string) =>
     nutrients.find((n) => n.id === id) ?? {
       id,
-      name: id,
+      name: getNutrientById(id)?.label ?? id,
       value: 0,
       goal: 0,
       unit: "",
       progress: 0,
     };
 
-  const calories = getNutrient("Calories");
+  const calories = getNutrient("calories");
 
   const macros = MACROS.map(getNutrient);
   const micros = MICROS.map(getNutrient);
