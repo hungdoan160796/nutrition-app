@@ -1,0 +1,15 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/add/page": "/add",
+  "/api/foods/add/route": "/api/foods/add",
+  "/api/foods/route": "/api/foods",
+  "/api/foods/search/route": "/api/foods/search",
+  "/favicon.ico/route": "/favicon.ico",
+  "/history/page": "/history",
+  "/home/page": "/home",
+  "/log/page": "/log",
+  "/nutrients/[id]/page": "/nutrients/[id]",
+  "/page": "/",
+  "/recommendations/page": "/recommendations"
+}
