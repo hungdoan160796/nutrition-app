@@ -207,3 +207,12 @@ body {
   --border: #b4deb4;
   --accent: #4ade80;
 }
+/* Mobile safe-area support; uses env() which falls back to 0 on non-supporting browsers */
+@supports (padding: env(safe-area-inset-top)) {
+  html, body {
+    padding-top: env(safe-area-inset-top);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+  }
+}

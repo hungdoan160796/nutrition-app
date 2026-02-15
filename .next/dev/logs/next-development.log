@@ -1,140 +1,102 @@
-[00:00:00.827] Server  LOG     ✓ Ready in 575ms
-[00:00:01.453] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:53.526] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:54.964] Browser LOG     CLICKED
-[00:01:01.794] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771083502693","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDgzNTAyLCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzEwODM1MDIsImV4cCI6MTc3MTA4NzEwMiwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.ZBEpB5kre6T0-6AZiLlHPzi8xIwONShfxKeuod65HJggIY_uwNJtafhrbBOXJrYzN84fI5VzVBui1ztbIOM9exUfpm9jAzbFgtvluBKVGbKNxO4nyPSPDARPzHQ0NWewtLi76hu3uHmTCcRPwXeaHMOkoyWg3K8QDmprJkBa1cCVla366ayelnoSOiVZxBR1briHOSYF0smWRQfRdYV6OhJMO1KMcyFmuoTysoB4IhsQ-sITCiIm10WaleMfCWZgOJdhos9t9-YBs_LvIREK_bDv5PBc4XrheNKFPLsQMIbrRXKrFP_C_vUPxS16n2_8gYbuP0AmbpWeocJuw126HA","expirationTime":1771087102779,"refreshToken":"AMf-vBwrJJsDpXTQJDWhTVwi0W28isIOhPMyKJ_xdo2WjLv4M7Y_HuNHvmFuu10rHGHaVUbRw6Zoc1XwaqEdVkFG6v9xu9CPUPPeDYdZlWEvWOmtmotknNCFJqxBr1PuWu_jZqW9JQIHOGhYXQPlVZGav9X0CO3oalnhpO6v0blDYgRRHY3re_7UbKcQX4Pz1rEJvvWDnp9Bnbd4ge8wa0RUxhaIMpIhM8sof4hANASZW8lKZ3XWMF-33YYRG6TK_lbc4SFUPBuQz4EZY0TfJiJlqe0-G4r8-XU833_eTFgi2K5QH7gYzkTLMmSGQRlPcp5AJ9apI6H4OrGG1pFDBAygSows3S5pckepWVcznto4hu7ePlOiJsOBgLBq8jxmZBO86DOXy6MG2BZTrJ_qLERU5mcERUYDsWj3um0hjTl4-kxqhP_Y5BI"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
-[00:03:40.158] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:07.554] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:09.577] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:24.759] Server  LOG     ✓ Compiled in 17ms
-[00:06:26.324] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:40.155] Server  LOG     ✓ Compiled in 27ms
-[00:07:07.977] Server  LOG     ✓ Compiled in 27ms
-[00:07:20.601] Server  LOG     ✓ Compiled in 21ms
-[00:07:20.706] Browser ERROR   ./app/log/page.tsx:172:26
-Parsing ecmascript source code failed
-  170 |                 >
-  171 |                   <Prev>
-> 172 |                 </button>
-      |                          ^
-> 173 |                 <div className="text-sm text-neutral-500">{page}</div>
-      | ^^^^^^^^^^^^^^^^^
-  174 |                 <button
-  175 |                   onClick={() => setPage((p) => p + 1)}
-  176 |                   disabled={loadingFoods}
+[00:00:00.833] Server  LOG     ✓ Ready in 574ms
+[00:00:01.707] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:05.670] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:08.255] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771140676358","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzExNDAwMzgsImV4cCI6MTc3MTE0MzYzOCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.ljTNEqJrIFN29ScFBzm1GYQ8w8J0j8xzZ7sEpFGsnHCJEqlS59qptS8ano5qolh5tjfQJufdw36fDKygFz5HRYXTO-dVeSo7tFdE-H1AU6Nu2rsAmiHHUmsSUmGx_Ko4iQBm3b3zWwUdyKAo6xt6DvzNqVrNdhBd5_Fs6jaicwiK08gUKW4VzGOPpBc9P0p_isKNUtvgHaQv64TvStD0jUeP63XqcDxVN3cMIDjoaPIQhKd7m6VoRh-drjU68J2GSutTwdSkYEqVN6ZI9v8xt7filcm6UiYda5xLUYWjKbPqg4OqjEaFSokhipNRBj7xY4WeNfi4PUSIyE7iMtyY5A","expirationTime":1771143638280,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
+[00:00:08.463] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-14","2026-02-15"]
+[00:00:08.463] Browser LOG     getWeeklyProgress: sample entry: {"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}
+[00:00:08.463] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-14","2026-02-15"]
+[00:00:08.463] Browser LOG     getWeeklyProgress: sample entry: {"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}
+[00:01:09.845] Server  LOG     ✓ Compiled in 458ms
+[00:02:25.215] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-14","2026-02-15"]
+[00:02:25.215] Browser LOG     getWeeklyProgress: sample entry: {"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}
+[00:02:25.215] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-14","2026-02-15"]
+[00:02:25.215] Browser LOG     getWeeklyProgress: sample entry: {"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}
+[00:02:28.517] Server  LOG     ✓ Compiled in 99ms
+[00:02:28.621] Browser ERROR   ./app/globals.css:1081:93
+Parsing CSS source code failed
+  1079 |   /* fallback if needed */
+  1080 | }
+> 1081 | [/* Mobile safe-area support; uses env() which falls back to 0 on non-supporting browsers */]
+       |                                                                                             ^
+  1082 | @supports (padding: env(safe-area-inset-top)) {
+  1083 |   html, body {
+  1084 |     padding-top: env(safe-area-inset-top);
 
-Expected '</', got 'jsx text (
-                )'
+Unexpected end of input
 
-Import traces:
+Import trace:
   Client Component Browser:
-    ./app/log/page.tsx [Client Component Browser]
-    ./app/log/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/log/page.tsx [Client Component SSR]
-    ./app/log/page.tsx [Server Component]
-[00:07:27.142] Server  LOG     ✓ Compiled in 24ms
-[00:07:27.247] Browser ERROR   ./app/log/page.tsx:172:17
-Parsing ecmascript source code failed
-  170 |                 >
-  171 |                   <
-> 172 |                 </button>
-      |                 ^
-  173 |                 <div className="text-sm text-neutral-500">{page}</div>
-  174 |                 <button
-  175 |                   onClick={() => setPage((p) => p + 1)}
-
-Expression expected
-
-Import traces:
-  Client Component Browser:
-    ./app/log/page.tsx [Client Component Browser]
-    ./app/log/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/log/page.tsx [Client Component SSR]
-    ./app/log/page.tsx [Server Component]
-[00:07:27.247] Browser ERROR   ./app/log/page.tsx:172:18
-Parsing ecmascript source code failed
-  170 |                 >
-  171 |                   <
-> 172 |                 </button>
-      |                  ^^^^^^^^
-  173 |                 <div className="text-sm text-neutral-500">{page}</div>
-  174 |                 <button
-  175 |                   onClick={() => setPage((p) => p + 1)}
-
-Unterminated regexp literal
-
-Import traces:
-  Client Component Browser:
-    ./app/log/page.tsx [Client Component Browser]
-    ./app/log/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/log/page.tsx [Client Component SSR]
-    ./app/log/page.tsx [Server Component]
-[00:08:22.148] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771083502693","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDgzNTAyLCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzEwODM1MDIsImV4cCI6MTc3MTA4NzEwMiwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.ZBEpB5kre6T0-6AZiLlHPzi8xIwONShfxKeuod65HJggIY_uwNJtafhrbBOXJrYzN84fI5VzVBui1ztbIOM9exUfpm9jAzbFgtvluBKVGbKNxO4nyPSPDARPzHQ0NWewtLi76hu3uHmTCcRPwXeaHMOkoyWg3K8QDmprJkBa1cCVla366ayelnoSOiVZxBR1briHOSYF0smWRQfRdYV6OhJMO1KMcyFmuoTysoB4IhsQ-sITCiIm10WaleMfCWZgOJdhos9t9-YBs_LvIREK_bDv5PBc4XrheNKFPLsQMIbrRXKrFP_C_vUPxS16n2_8gYbuP0AmbpWeocJuw126HA","expirationTime":1771087102779,"refreshToken":"AMf-vBwrJJsDpXTQJDWhTVwi0W28isIOhPMyKJ_xdo2WjLv4M7Y_HuNHvmFuu10rHGHaVUbRw6Zoc1XwaqEdVkFG6v9xu9CPUPPeDYdZlWEvWOmtmotknNCFJqxBr1PuWu_jZqW9JQIHOGhYXQPlVZGav9X0CO3oalnhpO6v0blDYgRRHY3re_7UbKcQX4Pz1rEJvvWDnp9Bnbd4ge8wa0RUxhaIMpIhM8sof4hANASZW8lKZ3XWMF-33YYRG6TK_lbc4SFUPBuQz4EZY0TfJiJlqe0-G4r8-XU833_eTFgi2K5QH7gYzkTLMmSGQRlPcp5AJ9apI6H4OrGG1pFDBAygSows3S5pckepWVcznto4hu7ePlOiJsOBgLBq8jxmZBO86DOXy6MG2BZTrJ_qLERU5mcERUYDsWj3um0hjTl4-kxqhP_Y5BI"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
-[00:10:13.123] Server  LOG     ✓ Compiled in 26ms
-[00:10:15.449] Server  LOG     ✓ Compiled in 67ms
-[00:11:09.283] Server  LOG     ✓ Compiled in 22ms
-[00:11:14.892] Server  LOG     ✓ Compiled in 12ms
-[00:11:21.459] Server  LOG     ✓ Compiled in 19ms
-[00:11:35.516] Server  LOG     ✓ Compiled in 13ms
-[00:11:38.536] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:12:05.092] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:12:10.673] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:12:12.547] Browser LOG     CLICKED
-[00:12:18.246] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771084178784","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzEwODQxNzgsImV4cCI6MTc3MTA4Nzc3OCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.pjfGSUN9ReJpyc11AtMfbaME-BtXa_YnyL3mU9igEgXjJXWVIeyoWANEp3KbTbFM8lc53ZL1EverxvlAmL5bSoVgRu1t95ENdMTSPpO3FYK3N3m-LM29H1YiRTgX4JhXDJgkOOqOms1Ty_svps9lUFV43xsvnRZlA1g81R6xcFQD7gsih20PklYO-LJt4A1VtW2IQ261rraaEjSGqJSEE0dwawrJLl2b5GDLxHEVFHZLSkb4Myr4uo-YQLEwMYPxQOulclnVpt1p5SQhKs9kZZEcHvDW16w4XPlr8UsYY9CEr7Naatfg7ms39hivSQCo-EQnSQaGqNzaP__RTDrbTA","expirationTime":1771087778889,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
-[00:14:19.528] Server  LOG     ✓ Compiled in 23ms
-[00:14:32.714] Server  LOG     ✓ Compiled in 20ms
-[00:14:40.308] Server  LOG     ✓ Compiled in 13ms
-[00:15:01.171] Server  LOG     ✓ Compiled in 19ms
-[00:16:06.201] Server  LOG     ✓ Compiled in 18ms
-[00:16:24.755] Server  LOG     ✓ Compiled in 15ms
-[00:16:27.739] Server  LOG     ✓ Compiled in 18ms
-[00:16:36.343] Server  LOG     ✓ Compiled in 26ms
-[00:16:55.201] Server  LOG     ✓ Compiled in 30ms
-[00:16:55.312] Browser ERROR   ./app/log/page.tsx:207:36
-Parsing ecmascript source code failed
-  205 |                   <div>
-  206 |                     <h3 className="text-sm text-neutral-400 uppercase mb-2">Nutrients</h3>
-> 207 |                     <FoodNutrients nutrients={selectedFood.nutrients} grams={Number(grams) || undefined} />
-      |                                    ^^^^^^^^^
-  208 |                   </div>
-  209 |                 </div>
-  210 |               ) : (
-
-Expected '</', got 'nutrients'
-
-Import traces:
-  Client Component Browser:
-    ./app/log/page.tsx [Client Component Browser]
-    ./app/log/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/log/page.tsx [Client Component SSR]
-    ./app/log/page.tsx [Server Component]
-[00:17:05.980] Server  LOG     ✓ Compiled in 35ms
-[00:17:18.725] Server  LOG     ✓ Compiled in 24ms
-[00:17:32.774] Server  LOG     ✓ Compiled in 18ms
-[00:17:39.691] Server  LOG     ✓ Compiled in 14ms
-[00:17:40.792] Server  LOG     ✓ Compiled in 19ms
-[00:17:49.010] Server  LOG     ✓ Compiled in 20ms
-[00:17:50.750] Server  LOG     ✓ Compiled in 26ms
-[00:18:06.830] Server  LOG     ✓ Compiled in 30ms
-[00:18:11.036] Server  LOG     ✓ Compiled in 30ms
-[00:18:31.543] Server  LOG     ✓ Compiled in 31ms
-[00:18:43.104] Server  LOG     ✓ Compiled in 25ms
-[00:18:43.170] Browser ERROR   A component is changing a controlled input to be uncontrolled. This is likely caused by the value changing from a defined to undefined, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://react.dev/link/controlled-components
-[00:18:49.634] Server  LOG     ✓ Compiled in 56ms
-[00:18:49.688] Browser ERROR   A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://react.dev/link/controlled-components
-[00:18:56.823] Server  LOG     ✓ Compiled in 23ms
-[00:19:02.997] Server  LOG     ✓ Compiled in 25ms
-[00:19:11.263] Server  LOG     ✓ Compiled in 24ms
-[00:19:21.520] Server  LOG     ✓ Compiled in 15ms
-[00:19:24.094] Server  LOG     ✓ Compiled in 21ms
-[00:19:57.197] Server  LOG     ✓ Compiled in 24ms
-[00:21:40.110] Server  LOG     ✓ Compiled in 20ms
-[00:21:42.473] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771084178784","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzEwODQxNzgsImV4cCI6MTc3MTA4Nzc3OCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.pjfGSUN9ReJpyc11AtMfbaME-BtXa_YnyL3mU9igEgXjJXWVIeyoWANEp3KbTbFM8lc53ZL1EverxvlAmL5bSoVgRu1t95ENdMTSPpO3FYK3N3m-LM29H1YiRTgX4JhXDJgkOOqOms1Ty_svps9lUFV43xsvnRZlA1g81R6xcFQD7gsih20PklYO-LJt4A1VtW2IQ261rraaEjSGqJSEE0dwawrJLl2b5GDLxHEVFHZLSkb4Myr4uo-YQLEwMYPxQOulclnVpt1p5SQhKs9kZZEcHvDW16w4XPlr8UsYY9CEr7Naatfg7ms39hivSQCo-EQnSQaGqNzaP__RTDrbTA","expirationTime":1771087778889,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+[00:03:30.912] Browser LOG     DB foodLog sample: [{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}},{"count":3,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}}]
+[00:03:30.912] Browser LOG     DB foodLog sample: [{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}},{"count":3,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}}]
+[00:03:33.464] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771140676358","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzExNDAwMzgsImV4cCI6MTc3MTE0MzYzOCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.ljTNEqJrIFN29ScFBzm1GYQ8w8J0j8xzZ7sEpFGsnHCJEqlS59qptS8ano5qolh5tjfQJufdw36fDKygFz5HRYXTO-dVeSo7tFdE-H1AU6Nu2rsAmiHHUmsSUmGx_Ko4iQBm3b3zWwUdyKAo6xt6DvzNqVrNdhBd5_Fs6jaicwiK08gUKW4VzGOPpBc9P0p_isKNUtvgHaQv64TvStD0jUeP63XqcDxVN3cMIDjoaPIQhKd7m6VoRh-drjU68J2GSutTwdSkYEqVN6ZI9v8xt7filcm6UiYda5xLUYWjKbPqg4OqjEaFSokhipNRBj7xY4WeNfi4PUSIyE7iMtyY5A","expirationTime":1771143638280,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
+[00:03:33.608] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-14","2026-02-15"]
+[00:03:33.608] Browser LOG     getWeeklyProgress: sample entry: {"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}
+[00:03:33.608] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-14","2026-02-15"]
+[00:03:33.608] Browser LOG     getWeeklyProgress: sample entry: {"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}
+[00:04:04.270] Server  LOG     ✓ Compiled in 99ms
+[00:04:09.911] Server  LOG     ✓ Compiled in 27ms
+[00:04:13.326] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:22.841] Server  LOG     ✓ Compiled in 28ms
+[00:04:27.552] Server  LOG     ✓ Compiled in 29ms
+[00:05:00.906] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771140676358","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzExNDAwMzgsImV4cCI6MTc3MTE0MzYzOCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.ljTNEqJrIFN29ScFBzm1GYQ8w8J0j8xzZ7sEpFGsnHCJEqlS59qptS8ano5qolh5tjfQJufdw36fDKygFz5HRYXTO-dVeSo7tFdE-H1AU6Nu2rsAmiHHUmsSUmGx_Ko4iQBm3b3zWwUdyKAo6xt6DvzNqVrNdhBd5_Fs6jaicwiK08gUKW4VzGOPpBc9P0p_isKNUtvgHaQv64TvStD0jUeP63XqcDxVN3cMIDjoaPIQhKd7m6VoRh-drjU68J2GSutTwdSkYEqVN6ZI9v8xt7filcm6UiYda5xLUYWjKbPqg4OqjEaFSokhipNRBj7xY4WeNfi4PUSIyE7iMtyY5A","expirationTime":1771143638280,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
+[00:05:01.175] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14"]
+[00:05:01.175] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
+[00:05:01.175] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14"]
+[00:05:01.175] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
+[00:06:12.949] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771140676358","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzExNDAwMzgsImV4cCI6MTc3MTE0MzYzOCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.ljTNEqJrIFN29ScFBzm1GYQ8w8J0j8xzZ7sEpFGsnHCJEqlS59qptS8ano5qolh5tjfQJufdw36fDKygFz5HRYXTO-dVeSo7tFdE-H1AU6Nu2rsAmiHHUmsSUmGx_Ko4iQBm3b3zWwUdyKAo6xt6DvzNqVrNdhBd5_Fs6jaicwiK08gUKW4VzGOPpBc9P0p_isKNUtvgHaQv64TvStD0jUeP63XqcDxVN3cMIDjoaPIQhKd7m6VoRh-drjU68J2GSutTwdSkYEqVN6ZI9v8xt7filcm6UiYda5xLUYWjKbPqg4OqjEaFSokhipNRBj7xY4WeNfi4PUSIyE7iMtyY5A","expirationTime":1771143638280,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
+[00:06:13.511] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14"]
+[00:06:13.511] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
+[00:06:13.511] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14"]
+[00:06:13.511] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
+[00:06:15.415] Browser LOG     DB foodLog sample: [{"count":3,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}},{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}}]
+[00:06:15.415] Browser LOG     DB foodLog sample: [{"count":3,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}},{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}}]
+[00:06:15.685] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:06:15.685] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:06:25.614] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771140676358","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzExNDAwMzgsImV4cCI6MTc3MTE0MzYzOCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.ljTNEqJrIFN29ScFBzm1GYQ8w8J0j8xzZ7sEpFGsnHCJEqlS59qptS8ano5qolh5tjfQJufdw36fDKygFz5HRYXTO-dVeSo7tFdE-H1AU6Nu2rsAmiHHUmsSUmGx_Ko4iQBm3b3zWwUdyKAo6xt6DvzNqVrNdhBd5_Fs6jaicwiK08gUKW4VzGOPpBc9P0p_isKNUtvgHaQv64TvStD0jUeP63XqcDxVN3cMIDjoaPIQhKd7m6VoRh-drjU68J2GSutTwdSkYEqVN6ZI9v8xt7filcm6UiYda5xLUYWjKbPqg4OqjEaFSokhipNRBj7xY4WeNfi4PUSIyE7iMtyY5A","expirationTime":1771143638280,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
+[00:06:25.760] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14"]
+[00:06:25.760] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
+[00:06:25.760] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14"]
+[00:06:25.760] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
+[00:06:57.590] Server  LOG     ✓ Compiled in 45ms
+[00:07:53.831] Server  LOG     ✓ Compiled in 21ms
+[00:08:11.392] Server  LOG     ✓ Compiled in 24ms
+[00:08:39.747] Browser LOG     DB foodLog sample: [{"count":3,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}},{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}}]
+[00:08:39.747] Browser LOG     DB foodLog sample: [{"count":3,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}},{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}}]
+[00:08:40.013] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:08:40.013] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:09:00.615] Server  LOG     ✓ Compiled in 17ms
+[00:09:02.915] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771140676358","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjRiMTFjYjdhYjVmY2JlNDFlOTQ4MDk0ZTlkZjRjNWI1ZWNhMDAwOWUiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzExNDAwMzgsImV4cCI6MTc3MTE0MzYzOCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.ljTNEqJrIFN29ScFBzm1GYQ8w8J0j8xzZ7sEpFGsnHCJEqlS59qptS8ano5qolh5tjfQJufdw36fDKygFz5HRYXTO-dVeSo7tFdE-H1AU6Nu2rsAmiHHUmsSUmGx_Ko4iQBm3b3zWwUdyKAo6xt6DvzNqVrNdhBd5_Fs6jaicwiK08gUKW4VzGOPpBc9P0p_isKNUtvgHaQv64TvStD0jUeP63XqcDxVN3cMIDjoaPIQhKd7m6VoRh-drjU68J2GSutTwdSkYEqVN6ZI9v8xt7filcm6UiYda5xLUYWjKbPqg4OqjEaFSokhipNRBj7xY4WeNfi4PUSIyE7iMtyY5A","expirationTime":1771143638280,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
+[00:09:03.116] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14"]
+[00:09:03.116] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
+[00:09:03.116] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14"]
+[00:09:03.116] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
+[00:09:36.271] Server  LOG     ✓ Compiled in 36ms
+[00:09:47.945] Server  LOG     ✓ Compiled in 14ms
+[00:10:05.781] Server  LOG     ✓ Compiled in 24ms
+[00:10:13.391] Server  LOG     ✓ Compiled in 17ms
+[00:10:54.449] Server  LOG     ✓ Compiled in 26ms
+[00:10:54.925] Server  LOG     ✓ Compiled in 20ms
+[00:12:12.553] Server  LOG     ✓ Compiled in 20ms
+[00:12:47.528] Server  LOG     ✓ Compiled in 24ms
+[00:13:17.806] Server  LOG     ✓ Compiled in 16ms
+[00:13:32.898] Server  LOG     ✓ Compiled in 14ms
+[00:13:44.389] Server  LOG     ✓ Compiled in 15ms
+[00:13:54.436] Server  LOG     ✓ Compiled in 15ms
+[00:14:12.668] Server  LOG     ✓ Compiled in 18ms
+[00:14:27.824] Server  LOG     ✓ Compiled in 16ms
+[00:14:36.330] Server  LOG     ✓ Compiled in 17ms
+[00:15:03.098] Server  LOG     ✓ Compiled in 21ms

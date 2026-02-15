@@ -128,13 +128,26 @@ async function GET(req) {
             const snapshot = await query.get();
             snapshot.forEach((doc)=>{
                 const data = doc.data();
+                // sanitize nutrients and numeric fields so only JSON-serializable
+                // values (numbers or null) are returned. This avoids RSC/flight
+                // serialization inserting "$undefined" for undefined values.
+                const rawNutrients = data.nutrients ?? {};
+                const nutrients = {};
+                if (rawNutrients && typeof rawNutrients === "object") {
+                    for (const [k, v] of Object.entries(rawNutrients)){
+                        const n = typeof v === "number" ? v : v == null ? null : Number(v);
+                        nutrients[k] = Number.isFinite(n) ? n : null;
+                    }
+                }
+                const defaultPortionGramsRaw = data.defaultPortionGrams ?? data.measurement ?? null;
+                const defaultPortionGrams = typeof defaultPortionGramsRaw === "number" ? defaultPortionGramsRaw : defaultPortionGramsRaw == null ? null : Number(defaultPortionGramsRaw);
                 foods.push({
                     id: doc.id,
                     term: data.term ?? null,
                     name: data.name ?? data.description ?? null,
                     group: data.group ?? null,
-                    nutrients: data.nutrients ?? {},
-                    defaultPortionGrams: data.defaultPortionGrams ?? data.measurement ?? null
+                    nutrients,
+                    defaultPortionGrams: Number.isFinite(defaultPortionGrams) ? defaultPortionGrams : null
                 });
             });
         } catch (err) {
@@ -147,13 +160,23 @@ async function GET(req) {
                 const all = [];
                 snapshotAll.forEach((doc)=>{
                     const data = doc.data();
+                    const rawNutrients = data.nutrients ?? {};
+                    const nutrients = {};
+                    if (rawNutrients && typeof rawNutrients === "object") {
+                        for (const [k, v] of Object.entries(rawNutrients)){
+                            const n = typeof v === "number" ? v : v == null ? null : Number(v);
+                            nutrients[k] = Number.isFinite(n) ? n : null;
+                        }
+                    }
+                    const defaultPortionGramsRaw = data.defaultPortionGrams ?? data.measurement ?? null;
+                    const defaultPortionGrams = typeof defaultPortionGramsRaw === "number" ? defaultPortionGramsRaw : defaultPortionGramsRaw == null ? null : Number(defaultPortionGramsRaw);
                     all.push({
                         id: doc.id,
                         term: data.term ?? null,
                         name: data.name ?? data.description ?? null,
                         group: data.group ?? null,
-                        nutrients: data.nutrients ?? {},
-                        defaultPortionGrams: data.defaultPortionGrams ?? data.measurement ?? null
+                        nutrients,
+                        defaultPortionGrams: Number.isFinite(defaultPortionGrams) ? defaultPortionGrams : null
                     });
                 });
                 // filter by group if requested

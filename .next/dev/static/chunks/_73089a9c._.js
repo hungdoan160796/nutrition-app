@@ -413,35 +413,27 @@ function BottomNav() {
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                    href: "/log",
-                    children: "Log"
+                    href: "/history",
+                    children: "History"
                 }, void 0, false, {
                     fileName: "[project]/components/BottomNav.tsx",
                     lineNumber: 15,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                    href: "/history",
-                    children: "History"
+                    href: "/settings",
+                    children: "Settings"
                 }, void 0, false, {
                     fileName: "[project]/components/BottomNav.tsx",
                     lineNumber: 16,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                    href: "/recommendations",
-                    children: "Recommendations"
-                }, void 0, false, {
-                    fileName: "[project]/components/BottomNav.tsx",
-                    lineNumber: 17,
-                    columnNumber: 9
+                    columnNumber: 3
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                     href: "/add",
                     children: "Add"
                 }, void 0, false, {
                     fileName: "[project]/components/BottomNav.tsx",
-                    lineNumber: 18,
+                    lineNumber: 17,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -449,7 +441,7 @@ function BottomNav() {
                     children: "Logout"
                 }, void 0, false, {
                     fileName: "[project]/components/BottomNav.tsx",
-                    lineNumber: 19,
+                    lineNumber: 18,
                     columnNumber: 9
                 }, this)
             ]
@@ -498,7 +490,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-const THEME_REGEX = /data[-–]theme\s*=\s*"([^"]+)"/g;
+;
 // use nutrient IDs (match `data/nutrients.json` and recommendation IDs)
 const MACROS = [
     "protein",
@@ -524,8 +516,25 @@ const MICROS = [
 function HomePage() {
     _s();
     const [progress, setProgress] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [theme, setTheme] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
-    const [themes, setThemes] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    const FOOD_GROUPS = [
+        "starch",
+        "meat",
+        "fish",
+        "seafood",
+        "vegetables",
+        "legumes",
+        "fruits",
+        "condiments",
+        "seasonings"
+    ];
+    const [foods, setFoods] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [activeGroup, setActiveGroup] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [selectedFood, setSelectedFood] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [grams, setGrams] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const [page, setPage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(1);
+    const [limit] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(50);
+    const [loadingFoods, setLoadingFoods] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [fetchError, setFetchError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const { user, loading } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$providers$2f$AuthProviders$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"])();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
@@ -541,48 +550,6 @@ function HomePage() {
     ]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "HomePage.useEffect": ()=>{
-            const saved = localStorage.getItem("theme");
-            if (saved) {
-                document.documentElement.setAttribute("data-theme", saved);
-                setTheme(saved);
-            }
-        }
-    }["HomePage.useEffect"], []);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "HomePage.useEffect": ()=>{
-            if (!theme) {
-                document.documentElement.removeAttribute("data-theme");
-                localStorage.removeItem("theme");
-                return;
-            }
-            document.documentElement.setAttribute("data-theme", theme);
-            localStorage.setItem("theme", theme);
-        }
-    }["HomePage.useEffect"], [
-        theme
-    ]);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "HomePage.useEffect": ()=>{
-            const loadThemes = {
-                "HomePage.useEffect.loadThemes": async ()=>{
-                    try {
-                        const res = await fetch("/themes.md");
-                        if (!res.ok) return;
-                        const text = await res.text();
-                        const found = new Set();
-                        let match;
-                        while(match = THEME_REGEX.exec(text)){
-                            found.add(match[1]);
-                        }
-                        setThemes(Array.from(found).sort());
-                    } catch  {}
-                }
-            }["HomePage.useEffect.loadThemes"];
-            loadThemes();
-        }
-    }["HomePage.useEffect"], []);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "HomePage.useEffect": ()=>{
             const loadProgress = {
                 "HomePage.useEffect.loadProgress": async ()=>{
                     try {
@@ -596,6 +563,73 @@ function HomePage() {
             loadProgress();
         }
     }["HomePage.useEffect"], []);
+    // Fetch foods when activeGroup or page changes
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "HomePage.useEffect": ()=>{
+            if (!activeGroup) return;
+            if (!user) return;
+            let aborted = false;
+            ({
+                "HomePage.useEffect": async ()=>{
+                    setLoadingFoods(true);
+                    setFetchError(null);
+                    try {
+                        const token = await user.getIdToken();
+                        const res = await fetch(`/api/foods?group=${encodeURIComponent(activeGroup)}&page=${page}&limit=${limit}`, {
+                            headers: {
+                                Authorization: `Bearer ${token}`
+                            }
+                        });
+                        if (!res.ok) {
+                            const body = await res.json().catch({
+                                "HomePage.useEffect": ()=>({})
+                            }["HomePage.useEffect"]);
+                            if (!aborted) setFetchError(body?.error ?? `HTTP ${res.status}`);
+                            return;
+                        }
+                        const data = await res.json();
+                        if (aborted) return;
+                        setFoods(data?.foods ?? []);
+                    } catch (e) {
+                        if (!aborted) setFetchError(String(e?.message ?? e));
+                    } finally{
+                        if (!aborted) setLoadingFoods(false);
+                    }
+                }
+            })["HomePage.useEffect"]();
+            return ({
+                "HomePage.useEffect": ()=>{
+                    aborted = true;
+                }
+            })["HomePage.useEffect"];
+        }
+    }["HomePage.useEffect"], [
+        activeGroup,
+        page,
+        limit,
+        user
+    ]);
+    const groupFoods = activeGroup ? foods.filter((f)=>f.group === activeGroup) : [];
+    async function handleAdd() {
+        if (!selectedFood || !grams) return;
+        await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$nutritionEngine$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["logFood"])({
+            term: selectedFood.term,
+            name: selectedFood.name,
+            nutrients: selectedFood.nutrients
+        }, Number(grams));
+        // refresh progress after logging
+        try {
+            const data = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$nutritionEngine$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getWeeklyProgress"])();
+            setProgress(data);
+        } catch  {
+        // ignore
+        }
+        // clear selection
+        setSelectedFood(null);
+        setGrams("");
+        setActiveGroup(null);
+        setFoods([]);
+    }
     if (loading) return null;
     const nutrients = progress?.all ?? [];
     const getNutrient = (id)=>nutrients.find((n)=>n.id === id) ?? {
@@ -614,37 +648,10 @@ function HomePage() {
         className: "p-4 pb-24 space-y-6",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex items-center gap-2",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                    value: theme,
-                    onChange: (e)=>setTheme(e.target.value),
-                    className: "border rounded px-2 py-1 bg-transparent",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                            value: "",
-                            children: "System"
-                        }, void 0, false, {
-                            fileName: "[project]/app/home/page.tsx",
-                            lineNumber: 138,
-                            columnNumber: 11
-                        }, this),
-                        themes.map((t)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                value: t,
-                                children: t
-                            }, t, false, {
-                                fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 140,
-                                columnNumber: 13
-                            }, this))
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/app/home/page.tsx",
-                    lineNumber: 133,
-                    columnNumber: 9
-                }, this)
+                className: "flex items-center gap-2"
             }, void 0, false, {
                 fileName: "[project]/app/home/page.tsx",
-                lineNumber: 132,
+                lineNumber: 203,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -652,7 +659,7 @@ function HomePage() {
                 children: "This Week"
             }, void 0, false, {
                 fileName: "[project]/app/home/page.tsx",
-                lineNumber: 147,
+                lineNumber: 206,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -663,7 +670,7 @@ function HomePage() {
                         children: "Macros"
                     }, void 0, false, {
                         fileName: "[project]/app/home/page.tsx",
-                        lineNumber: 150,
+                        lineNumber: 209,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -672,18 +679,18 @@ function HomePage() {
                                 ...n
                             }, n.id, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 153,
+                                lineNumber: 212,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/app/home/page.tsx",
-                        lineNumber: 151,
+                        lineNumber: 210,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/home/page.tsx",
-                lineNumber: 149,
+                lineNumber: 208,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -694,7 +701,7 @@ function HomePage() {
                         children: "Micros"
                     }, void 0, false, {
                         fileName: "[project]/app/home/page.tsx",
-                        lineNumber: 159,
+                        lineNumber: 218,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -703,12 +710,12 @@ function HomePage() {
                             value: microAvg
                         }, void 0, false, {
                             fileName: "[project]/app/home/page.tsx",
-                            lineNumber: 161,
+                            lineNumber: 220,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/home/page.tsx",
-                        lineNumber: 160,
+                        lineNumber: 219,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -718,18 +725,18 @@ function HomePage() {
                                 compact: true
                             }, n.id, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 165,
+                                lineNumber: 224,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/app/home/page.tsx",
-                        lineNumber: 163,
+                        lineNumber: 222,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/home/page.tsx",
-                lineNumber: 158,
+                lineNumber: 217,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -740,7 +747,7 @@ function HomePage() {
                         children: "Calories"
                     }, void 0, false, {
                         fileName: "[project]/app/home/page.tsx",
-                        lineNumber: 171,
+                        lineNumber: 230,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -749,33 +756,33 @@ function HomePage() {
                             ...calories
                         }, void 0, false, {
                             fileName: "[project]/app/home/page.tsx",
-                            lineNumber: 173,
+                            lineNumber: 232,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/home/page.tsx",
-                        lineNumber: 172,
+                        lineNumber: 231,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/home/page.tsx",
-                lineNumber: 170,
+                lineNumber: 229,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BottomNav$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/home/page.tsx",
-                lineNumber: 177,
+                lineNumber: 236,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/home/page.tsx",
-        lineNumber: 131,
+        lineNumber: 202,
         columnNumber: 5
     }, this);
 }
-_s(HomePage, "h9bAbiMKt0kGz0gNO9L9AbnEqP4=", false, function() {
+_s(HomePage, "lNMFUbQrRJTTPLAR4PrkbCEw4Zc=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$providers$2f$AuthProviders$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]

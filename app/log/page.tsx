@@ -118,7 +118,7 @@ export default function LogFoodPage() {
     <div className="pb-24">
       <div className="p-4 space-y-4">
         {/* Food Groups */}
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex gap-2 flex-wrap justify-center">
           {FOOD_GROUPS.map((group) => (
             <button
               key={group}
@@ -138,7 +138,7 @@ export default function LogFoodPage() {
 
         {/* Foods + Nutrients layout */}
         {activeGroup && (
-          <div className="grid grid-cols-5 gap-4">
+          <div className="grid grid-cols-4 gap-4">
             <div className="col-span-2 space-y-2">
               {loadingFoods ? (
                 <div className="rounded-xl p-4 border bg-[var(--background)] text-sm text-neutral-400">Loading foods…</div>
@@ -162,7 +162,7 @@ export default function LogFoodPage() {
                 <div className="rounded-xl p-4 border bg-[var(--background)] text-sm text-neutral-400">No foods in this group.</div>
               )}
 
-              <div className="flex items-center gap-2 mt-2">
+              <div className="flex items-center justify-center gap-2 mt-2">
                 <button
                   onClick={() => setPage((p) => Math.max(1, p - 1))}
                   disabled={page <= 1 || loadingFoods}
@@ -181,14 +181,14 @@ export default function LogFoodPage() {
               </div>
             </div>
 
-            <div className="col-span-3">
+            <div className="col-span-2">
               {selectedFood ? (
                 <div className="space-y-3">
                   <div className="flex items-center justify-between flex-row">
                     <div>
                       <input
                         type="number"
-                        placeholder="Grams eaten"
+                        placeholder="Grams"
                         value={grams}
                         onChange={(e) => setGrams(e.target.value)}
                         className="w-[100%] rounded-lg border px-3 py-2 bg-transparent"
@@ -196,16 +196,16 @@ export default function LogFoodPage() {
                     </div>
                     <button
                       onClick={handleAdd}
-                      className="w-[60%] rounded-lg bg-primary py-2 px-4 text-white font-medium"
+                      className="w-[60%] rounded-lg bg-primary py-2 px-4 font-medium"
                     >
-                      Log food
+                      Add
                     </button>
                   </div>
 
-                  <div>
-                    <h3 className="text-sm text-neutral-400 uppercase mb-2">Nutrients</h3>
-                    <FoodNutrients nutrients={selectedFood.nutrients} grams={Number(grams) || undefined} />
+                  <div className="flex justify-center">
+                    <h3 className="text-sm text-neutral-400 uppercase mb-2">Nutrients per 100g</h3>
                   </div>
+                    <FoodNutrients nutrients={selectedFood.nutrients} grams={Number(grams) || undefined} />
                 </div>
               ) : (
                 <div className="rounded-xl p-4 border bg-[var(--background)] text-sm text-neutral-400">
