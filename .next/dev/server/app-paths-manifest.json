@@ -1,7 +1,8 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/add/page": "app/add/page.js",
+  "/api/foods/add/route": "app/api/foods/add/route.js",
   "/api/foods/route": "app/api/foods/route.js",
+  "/api/foods/search/route": "app/api/foods/search/route.js",
   "/history/page": "app/history/page.js",
   "/home/page": "app/home/page.js",
   "/log/page": "app/log/page.js",

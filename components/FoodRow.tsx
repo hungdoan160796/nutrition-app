@@ -1,7 +1,7 @@
 // components/FoodRow.tsx
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 
 type FoodCatalogItem = {
   term: string;
@@ -24,6 +24,7 @@ type FoodRowProps = {
   food: FoodFromDB;
   selected?: SelectedFood;
   onChange?: (entry: SelectedFood) => void;
+  catalog?: FoodCatalogItem[];
 };
 
 const normalize = (s: string) => s.trim().toLowerCase();
@@ -32,24 +33,15 @@ export default function FoodRow({
   food,
   selected,
   onChange,
+  catalog,
 }: FoodRowProps) {
   const normalizedName = normalize(food.name);
 
-  const [foods, setFoods] = useState<any[]>([]);
-
-  const foodsSelected = foods as FoodCatalogItem[];
-
-  useEffect(() => {
-    fetch("/api/foods")
-      .then((res) => res.json())
-      .then(setFoods);
-  }, []);
+   const foodsSelected = (catalog ?? []) as FoodCatalogItem[];
 
   const catalogFood = useMemo(() => {
-    return foodsSelected.find(
-      (f) => normalize(f.name) === normalizedName
-    );
-  }, [normalizedName]);
+    return foodsSelected.find((f) => normalize(f.name) === normalizedName);
+  }, [normalizedName, foodsSelected]);
 
   const term = catalogFood?.term ?? normalizedName;
   const name = catalogFood?.name ?? food.name;

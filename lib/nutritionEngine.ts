@@ -1,7 +1,6 @@
 // lib/nutritionEngine.ts — Firebase-compatible, no React hooks
 
 import { getNutrientById } from "@/lib/nutrientRegistry";
-import { getUserProfile } from "@/lib/userProfile";
 import { getDailyTargets } from "@/lib/recommendationEngine";
 import { getDB, initDB, updateDB } from "@/lib/db";
 
@@ -48,6 +47,8 @@ export type LoggedFood = {
   grams: number;
   nutrientsPer100g: FoodNutrientsPer100g;
   loggedAt: number;
+  // optional precomputed per-entry nutrient amounts (amount contributed by this logged food)
+  nutrients?: Record<string, number>;
 };
 
 // ---------- Week Helpers ----------
@@ -84,11 +85,21 @@ export async function logFood(
 
   await updateDB((db) => {
     if (!db.foodLog[date]) db.foodLog[date] = [];
+    // store both the original per-100g values and a precomputed per-entry
+    // nutrients map (scaled by grams) so older entries and other UI
+    // components can read either shape.
+    const scaled: Record<string, number> = {};
+    for (const [k, v] of Object.entries(food.nutrients ?? {})) {
+      if (typeof v === "number") scaled[k] = (v * grams) / 100;
+    }
+
     db.foodLog[date].push({
       term: food.term,
       name: food.name,
       grams,
       nutrientsPer100g: food.nutrients,
+      // per-entry nutrient amounts (e.g., amount contributed by this logged food)
+      nutrients: scaled,
       loggedAt: Date.now(),
     });
   });
@@ -101,9 +112,31 @@ export async function getWeeklyProgress(
   await initDB();
   const db = await getDB();
 
+  // debug: log keys / a small sample to help diagnose why totals are zero
+  try {
+    // eslint-disable-next-line no-console
+    console.log("getWeeklyProgress: foodLog keys:", Object.keys(db.foodLog || {}).slice(0, 10));
+    const firstKey = Object.keys(db.foodLog || {})[0];
+    if (firstKey) {
+      // eslint-disable-next-line no-console
+      console.log("getWeeklyProgress: sample entry:", db.foodLog[firstKey] && db.foodLog[firstKey][0]);
+    }
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.log("getWeeklyProgress: failed to log sample", e);
+  }
+
   const { start, end } = getWeekRange(baseDate);
-  const profile = getUserProfile();
-  const dailyTargets = await getDailyTargets(profile);
+  // Prefer the profile stored in the app DB (keeps behaviour consistent with ProfileProvider)
+  // Fall back to the exported userProfile defaults if DB doesn't have values.
+  const dbProfile = db.userProfile ?? {};
+  const profile = {
+    recommendationSet: dbProfile.recommendationSet ?? "fda_dv_2024",
+    sex: (dbProfile.sex as "male" | "female") ?? "female",
+    age: typeof dbProfile.age === "number" ? dbProfile.age : 30,
+  };
+
+  const dailyTargets = await getDailyTargets(profile as any);
 
   const weeklyTargets: Record<string, number> = {};
   for (const [id, daily] of Object.entries(dailyTargets)) {
@@ -116,15 +149,25 @@ export async function getWeeklyProgress(
     if (!isWithinWeek(date, start, end)) continue;
 
     for (const entry of foods as LoggedFood[]) {
+      // Support both shapes:
+      // - legacy/other entries may have `nutrients` (already scaled for the
+      //   logged grams),
+      // - new entries have `nutrientsPer100g` + `grams`.
+      if (entry.nutrients && Object.keys(entry.nutrients).length) {
+        for (const [nutrientId, amount] of Object.entries(entry.nutrients)) {
+          if (typeof amount !== "number") continue;
+          totals[nutrientId] = (totals[nutrientId] ?? 0) + amount;
+        }
+        continue;
+      }
+
       if (!entry.nutrientsPer100g) continue;
 
       const factor = entry.grams / 100;
 
-      for (const [nutrientId, per100g] of Object.entries(
-        entry.nutrientsPer100g
-      )) {
-        totals[nutrientId] =
-          (totals[nutrientId] ?? 0) + per100g * factor;
+      for (const [nutrientId, per100g] of Object.entries(entry.nutrientsPer100g)) {
+        if (typeof per100g !== "number") continue;
+        totals[nutrientId] = (totals[nutrientId] ?? 0) + per100g * factor;
       }
     }
   }
@@ -172,8 +215,15 @@ export async function getNutrientDetail(
   const db = await getDB();
 
   const { start, end } = getWeekRange(baseDate);
-  const profile = getUserProfile();
-  const dailyTargets = await getDailyTargets(profile);
+  // Use DB-backed profile (same defaults as elsewhere)
+  const dbProfile = db.userProfile ?? {};
+  const profile = {
+    recommendationSet: dbProfile.recommendationSet ?? "fda_dv_2024",
+    sex: (dbProfile.sex as "male" | "female") ?? "female",
+    age: typeof dbProfile.age === "number" ? dbProfile.age : 30,
+  };
+
+  const dailyTargets = await getDailyTargets(profile as any);
 
   const target = dailyTargets[nutrientId]
     ? dailyTargets[nutrientId] * 7
@@ -190,6 +240,14 @@ export async function getNutrientDetail(
     if (!isWithinWeek(date, start, end)) continue;
 
     for (const entry of foods as LoggedFood[]) {
+      // Accept per-entry nutrients if present
+      if (entry.nutrients && typeof entry.nutrients[nutrientId] === "number") {
+        const amount = entry.nutrients[nutrientId] as number;
+        total += amount;
+        grouped[entry.name] = (grouped[entry.name] ?? 0) + amount;
+        continue;
+      }
+
       if (!entry.nutrientsPer100g) continue;
 
       const per100g = entry.nutrientsPer100g[nutrientId];
@@ -198,8 +256,7 @@ export async function getNutrientDetail(
       const amount = (entry.grams / 100) * per100g;
       total += amount;
 
-      grouped[entry.name] =
-        (grouped[entry.name] ?? 0) + amount;
+      grouped[entry.name] = (grouped[entry.name] ?? 0) + amount;
     }
   }
 
