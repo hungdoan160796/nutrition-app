@@ -154,7 +154,7 @@ export default function LogFoodPage() {
                     }`}
                   >
                     <div className="font-medium text-[var(--foreground)]">
-                      {food.name}
+                      {food.term}
                     </div>
                   </button>
                 ))

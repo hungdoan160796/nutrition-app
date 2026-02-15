@@ -385,9 +385,17 @@ async function buildWeeks(db) {
         const weekStart = iso(startOfWeek(date));
         const dailyTotals = {};
         for (const food of foods){
-            const nutrients = food.nutrients ?? {};
+            // foods may store either a per-entry `nutrients` map (already scaled)
+            // or `nutrientsPer100g` + `grams`. Support both shapes.
+            const perEntry = food.nutrients ?? {};
+            const per100g = food.nutrientsPer100g ?? {};
             for (const id of MICROS){
-                const amount = nutrients[id];
+                let amount = undefined;
+                if (typeof perEntry[id] === "number") {
+                    amount = perEntry[id];
+                } else if (typeof per100g[id] === "number" && typeof food.grams === "number") {
+                    amount = per100g[id] * food.grams / 100;
+                }
                 if (typeof amount !== "number") continue;
                 dailyTotals[id] = (dailyTotals[id] ?? 0) + amount;
             }
@@ -400,8 +408,7 @@ async function buildWeeks(db) {
             const progress = Math.min(intake / target * 100, 100);
             perNutrientProgress.push(progress);
         }
-        if (!perNutrientProgress.length) continue;
-        const dayAvg = Math.round(perNutrientProgress.reduce((s, v)=>s + v, 0) / perNutrientProgress.length * 100) / 100;
+        const dayAvg = perNutrientProgress.length ? Math.round(perNutrientProgress.reduce((s, v)=>s + v, 0) / perNutrientProgress.length * 100) / 100 : 0;
         if (!map.has(weekStart)) {
             map.set(weekStart, new Map());
         }
@@ -495,7 +502,7 @@ function HistoryClient() {
                     children: "History"
                 }, void 0, false, {
                     fileName: "[project]/app/history/HistoryClient.tsx",
-                    lineNumber: 187,
+                    lineNumber: 199,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -503,18 +510,18 @@ function HistoryClient() {
                     children: "Loading history…"
                 }, void 0, false, {
                     fileName: "[project]/app/history/HistoryClient.tsx",
-                    lineNumber: 188,
+                    lineNumber: 200,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BottomNav$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/app/history/HistoryClient.tsx",
-                    lineNumber: 189,
+                    lineNumber: 201,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/history/HistoryClient.tsx",
-            lineNumber: 186,
+            lineNumber: 198,
             columnNumber: 7
         }, this);
     }
@@ -543,7 +550,7 @@ function HistoryClient() {
                 children: "History"
             }, void 0, false, {
                 fileName: "[project]/app/history/HistoryClient.tsx",
-                lineNumber: 219,
+                lineNumber: 231,
                 columnNumber: 7
             }, this),
             weeks.map((week)=>{
@@ -563,7 +570,7 @@ function HistoryClient() {
                                             children: formatWeekRange(week.start)
                                         }, void 0, false, {
                                             fileName: "[project]/app/history/HistoryClient.tsx",
-                                            lineNumber: 232,
+                                            lineNumber: 244,
                                             columnNumber: 17
                                         }, this),
                                         missingCount > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -576,26 +583,26 @@ function HistoryClient() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/history/HistoryClient.tsx",
-                                            lineNumber: 236,
+                                            lineNumber: 248,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/history/HistoryClient.tsx",
-                                    lineNumber: 231,
+                                    lineNumber: 243,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$WeekChart$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                     days: week.days
                                 }, void 0, false, {
                                     fileName: "[project]/app/history/HistoryClient.tsx",
-                                    lineNumber: 241,
+                                    lineNumber: 253,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/history/HistoryClient.tsx",
-                            lineNumber: 230,
+                            lineNumber: 242,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -616,7 +623,7 @@ function HistoryClient() {
                                                             children: day.date
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/history/HistoryClient.tsx",
-                                                            lineNumber: 249,
+                                                            lineNumber: 261,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -624,13 +631,13 @@ function HistoryClient() {
                                                             children: "Quantity"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/history/HistoryClient.tsx",
-                                                            lineNumber: 252,
+                                                            lineNumber: 264,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/history/HistoryClient.tsx",
-                                                    lineNumber: 248,
+                                                    lineNumber: 260,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -639,13 +646,13 @@ function HistoryClient() {
                                                     children: "Delete day"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/history/HistoryClient.tsx",
-                                                    lineNumber: 256,
+                                                    lineNumber: 268,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/history/HistoryClient.tsx",
-                                            lineNumber: 247,
+                                            lineNumber: 259,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -658,7 +665,7 @@ function HistoryClient() {
                                                             catalog: catalog
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/history/HistoryClient.tsx",
-                                                            lineNumber: 270,
+                                                            lineNumber: 282,
                                                             columnNumber: 35
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -667,47 +674,47 @@ function HistoryClient() {
                                                             children: "✕"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/history/HistoryClient.tsx",
-                                                            lineNumber: 271,
+                                                            lineNumber: 283,
                                                             columnNumber: 35
                                                         }, this)
                                                     ]
                                                 }, i, true, {
                                                     fileName: "[project]/app/history/HistoryClient.tsx",
-                                                    lineNumber: 266,
+                                                    lineNumber: 278,
                                                     columnNumber: 33
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/app/history/HistoryClient.tsx",
-                                            lineNumber: 264,
+                                            lineNumber: 276,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, day.date, true, {
                                     fileName: "[project]/app/history/HistoryClient.tsx",
-                                    lineNumber: 246,
+                                    lineNumber: 258,
                                     columnNumber: 17
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/app/history/HistoryClient.tsx",
-                            lineNumber: 244,
+                            lineNumber: 256,
                             columnNumber: 13
                         }, this)
                     ]
                 }, week.start, true, {
                     fileName: "[project]/app/history/HistoryClient.tsx",
-                    lineNumber: 226,
+                    lineNumber: 238,
                     columnNumber: 11
                 }, this);
             }),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BottomNav$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/history/HistoryClient.tsx",
-                lineNumber: 287,
+                lineNumber: 299,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/history/HistoryClient.tsx",
-        lineNumber: 218,
+        lineNumber: 230,
         columnNumber: 5
     }, this);
 }

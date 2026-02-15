@@ -225,7 +225,58 @@ async function initDB() {
         });
         return initial;
     }
-    return snap.data();
+    // Normalize data read from Firestore so the app always sees a stable
+    // shape: nutrient maps have numeric values or null (no `undefined`), and
+    // numeric fields are coerced where possible. This prevents serialization
+    // issues (RSC inserting "$undefined") and protects UI logic.
+    const raw = snap.data();
+    const normalizeMap = (obj)=>{
+        const out = {};
+        if (!obj || typeof obj !== "object") return out;
+        for (const [k, v] of Object.entries(obj)){
+            if (typeof v === "number") {
+                out[k] = Number.isFinite(v) ? v : null;
+            } else if (v == null) {
+                out[k] = null;
+            } else {
+                const n = Number(v);
+                out[k] = Number.isFinite(n) ? n : null;
+            }
+        }
+        return out;
+    };
+    const sanitizeFood = (f)=>{
+        if (!f || typeof f !== "object") return f;
+        const copy = {
+            ...f
+        };
+        if (copy.nutrientsPer100g) copy.nutrientsPer100g = normalizeMap(copy.nutrientsPer100g);
+        if (copy.nutrients) copy.nutrients = normalizeMap(copy.nutrients);
+        if (copy.grams !== undefined) {
+            const g = typeof copy.grams === "number" ? copy.grams : Number(copy.grams);
+            copy.grams = Number.isFinite(g) ? g : copy.grams == null ? null : null;
+        }
+        return copy;
+    };
+    const data = {
+        foodLog: {},
+        userProfile: raw.userProfile ?? {},
+        nutrientOverrides: raw.nutrientOverrides ?? {}
+    };
+    try {
+        const rawFoodLog = raw.foodLog ?? {};
+        for (const [date, foods] of Object.entries(rawFoodLog)){
+            if (!Array.isArray(foods)) continue;
+            data.foodLog[date] = foods.map((f)=>sanitizeFood(f));
+        }
+    } catch (e) {
+        // If normalization fails for any reason, fall back to returning the
+        // raw snapshot to avoid blocking the app. This should be rare.
+        // eslint-disable-next-line no-console
+        console.warn("initDB: failed to normalize foodLog", e);
+        return raw;
+    }
+    return data;
 }
 async function getDB() {
     return initDB();
