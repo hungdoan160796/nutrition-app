@@ -39,13 +39,13 @@ export type WeeklyProgress = {
   focus: NutrientProgress[];
 };
 
-export type FoodNutrientsPer100g = Record<string, number>;
+export type nutrientsPer100g = Record<string, number>;
 
 export type LoggedFood = {
   term: string;
   name: string;
   grams: number;
-  nutrientsPer100g: FoodNutrientsPer100g;
+  nutrientsPer100g: nutrientsPer100g;
   loggedAt: number;
   // optional precomputed per-entry nutrient amounts (amount contributed by this logged food)
   nutrients?: Record<string, number>;
@@ -78,8 +78,10 @@ export async function logFood(
     term: string;
     name: string;
     nutrients: Record<string, number>;
-  },
-  grams: number
+    measurement: string;
+    amount: number
+    standardAmount: number;
+  }
 ) {
   const date = new Date().toISOString().slice(0, 10);
 
@@ -90,14 +92,15 @@ export async function logFood(
     // components can read either shape.
     const scaled: Record<string, number> = {};
     for (const [k, v] of Object.entries(food.nutrients ?? {})) {
-      if (typeof v === "number") scaled[k] = (v * grams) / 100;
+      if (typeof v === "number") scaled[k] = (v * food.amount) / food.standardAmount;
     }
 
     db.foodLog[date].push({
       term: food.term,
       name: food.name,
-      grams,
-      nutrientsPer100g: food.nutrients,
+      amount: food.amount,
+      standardNutrients: food.nutrients,
+      standardAmount: food.standardAmount,
       // per-entry nutrient amounts (e.g., amount contributed by this logged food)
       nutrients: scaled,
       loggedAt: Date.now(),

@@ -5,103 +5,89 @@ export const runtime = "nodejs";
 
 export async function GET(req: Request) {
   try {
-    // require authenticated user
     const user = await verifyAuth(req);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+
     const url = new URL(req.url);
-    const group = url.searchParams.get("group");
     const page = Math.max(1, Number(url.searchParams.get("page") ?? "1"));
     const limit = Math.max(1, Math.min(200, Number(url.searchParams.get("limit") ?? "50")));
+    const start = (page - 1) * limit;
 
-    // Build Firestore query. Prefer server-side filtered query, but fall back
-    // to an in-memory filter if Firestore requires a composite index (helps
-    // development when indexes aren't yet deployed).
     let foods: any[] = [];
 
     try {
-      let query: FirebaseFirestore.Query = adminDb.collection("foods");
-      if (group) query = query.where("group", "==", group);
-
-      // order by name for stable pagination
-      query = query.orderBy("name").limit(limit).offset((page - 1) * limit);
-
-      const snapshot = await query.get();
+      const snapshot = await adminDb
+        .collection("foods")
+        .limit(limit)
+        .offset(start)
+        .get();
 
       snapshot.forEach((doc) => {
-        const data = doc.data();
-        // sanitize nutrients and numeric fields so only JSON-serializable
-        // values (numbers or null) are returned. This avoids RSC/flight
-        // serialization inserting "$undefined" for undefined values.
-        const rawNutrients = data.nutrients ?? {};
-        const nutrients: Record<string, number | null> = {};
-        if (rawNutrients && typeof rawNutrients === "object") {
-          for (const [k, v] of Object.entries(rawNutrients)) {
-            const n = typeof v === "number" ? v : v == null ? null : Number(v);
-            nutrients[k] = Number.isFinite(n as number) ? (n as number) : null;
-          }
-        }
-
-        const defaultPortionGramsRaw = data.defaultPortionGrams ?? data.measurement ?? null;
-        const defaultPortionGrams = typeof defaultPortionGramsRaw === "number" ? defaultPortionGramsRaw : defaultPortionGramsRaw == null ? null : Number(defaultPortionGramsRaw);
+        const f = doc.data();
 
         foods.push({
           id: doc.id,
-          term: data.term ?? null,
-          name: data.name ?? data.description ?? null,
-          group: data.group ?? null,
-          nutrients,
-          defaultPortionGrams: Number.isFinite(defaultPortionGrams as number) ? (defaultPortionGrams as number) : null,
+          fdcId: f.fdcId ?? null,
+          description: f.description ?? f.term ?? null,
+          brandName: f.brandOwner ?? f.brandName ?? null,
+          group: f.group,
+          nutrients: f.nutrients,
+          servingSize:
+            typeof f.servingSize === "number"
+              ? f.servingSize
+              : Number(f.servingSize) || 100,
+          servingSizeUnit: f.servingSizeUnit ?? "grams",
         });
       });
     } catch (err: any) {
-      // If Firestore complains about a missing index, fall back to a full
-      // collection scan and do filtering + pagination in-memory. This is
-      // less efficient but avoids a hard failure while developing.
       const msg = String(err?.message ?? err);
+
       if (msg.includes("requires an index") || msg.includes("FAILED_PRECONDITION")) {
         const snapshotAll = await adminDb.collection("foods").get();
         const all: any[] = [];
-        snapshotAll.forEach((doc) => {
-          const data = doc.data();
-          const rawNutrients = data.nutrients ?? {};
-          const nutrients: Record<string, number | null> = {};
-          if (rawNutrients && typeof rawNutrients === "object") {
-            for (const [k, v] of Object.entries(rawNutrients)) {
-              const n = typeof v === "number" ? v : v == null ? null : Number(v);
-              nutrients[k] = Number.isFinite(n as number) ? (n as number) : null;
-            }
-          }
 
-          const defaultPortionGramsRaw = data.defaultPortionGrams ?? data.measurement ?? null;
-          const defaultPortionGrams = typeof defaultPortionGramsRaw === "number" ? defaultPortionGramsRaw : defaultPortionGramsRaw == null ? null : Number(defaultPortionGramsRaw);
+        snapshotAll.forEach((doc) => {
+          const f = doc.data();
 
           all.push({
             id: doc.id,
-            term: data.term ?? null,
-            name: data.name ?? data.description ?? null,
-            group: data.group ?? null,
-            nutrients,
-            defaultPortionGrams: Number.isFinite(defaultPortionGrams as number) ? (defaultPortionGrams as number) : null,
+            fdcId: f.fdcId ?? null,
+            description: f.description ?? null,
+            brandName: f.brandOwner ?? f.brandName ?? null,
+            term: f.description ?? null,
+            name: f.brandOwner ?? f.brandName ?? null,
+            group: f.group,
+            nutrients: f.nutrients,
+            servingSize:
+              typeof f.servingSize === "number"
+                ? f.servingSize
+                : Number(f.servingSize) || 100,
+            servingSizeUnit: f.servingSizeUnit ?? "grams",
           });
         });
 
-        // filter by group if requested
-        const filtered = group ? all.filter((f) => f.group === group) : all;
+        all.sort((a, b) =>
+          (a.description ?? "").localeCompare(b.description ?? "")
+        );
 
-        // sort by name for stable pagination
-        filtered.sort((a, b) => (a.name ?? "").localeCompare(b.name ?? ""));
-
-        const start = (page - 1) * limit;
-        foods = filtered.slice(start, start + limit);
+        foods = all.slice(start, start + limit);
       } else {
         throw err;
       }
     }
 
-    return NextResponse.json({ page, limit, count: foods.length, foods });
+    return NextResponse.json({
+      page,
+      limit,
+      count: foods.length,
+      foods,
+    });
   } catch (err: any) {
-    return NextResponse.json({ error: "Failed to fetch foods", detail: err?.message ?? String(err) }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to fetch foods", detail: err?.message ?? String(err) },
+      { status: 500 }
+    );
   }
 }

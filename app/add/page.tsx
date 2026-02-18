@@ -18,7 +18,7 @@ type Nutrients = {
 function ManualForm() {
   const [name, setName] = useState('');
   const [measurement, setMeasurement] = useState('');
-  const [nutrients, setNutrients] = useState<Nutrients>({
+  const [nutrients, setNutrients] = useState<FoodNutrients>({
     calories: 0,
     protein: 0,
     carbs: 0,

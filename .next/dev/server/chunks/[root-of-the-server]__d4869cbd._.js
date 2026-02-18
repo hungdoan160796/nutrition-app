@@ -69,6 +69,7 @@ const FOOD_GROUPS = [
     'vegetables',
     'legumes',
     'fruits',
+    'drinks',
     'condiments',
     'seasonings'
 ];
@@ -101,7 +102,6 @@ const EMPTY_NUTRIENTS = {
 const db = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2d$admin$2f$firestore__$5b$external$5d$__$28$firebase$2d$admin$2f$firestore$2c$__esm_import$2c$__$5b$project$5d2f$node_modules$2f$firebase$2d$admin$29$__["getFirestore"])();
 async function POST(req) {
     try {
-        // prefer an incoming per-user key (sent by client from user profile) via header
         const openaiKey = req.headers.get('x-openai-key') ?? process.env.NEXT_PUBLIC_OPENAI_API_KEY;
         if (!openaiKey) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
@@ -110,7 +110,6 @@ async function POST(req) {
                 status: 401
             });
         }
-        // Quick Content-Type check to help catch non-JSON requests early
         const contentType = req.headers.get('content-type') ?? '';
         if (!contentType.toLowerCase().includes('application/json')) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
@@ -119,7 +118,6 @@ async function POST(req) {
                 status: 400
             });
         }
-        // Safe JSON parsing with useful error message on failure
         let body;
         try {
             body = await req.json();
@@ -131,9 +129,7 @@ async function POST(req) {
                 status: 400
             });
         }
-        let { food, measurement, term, fdcId } = body ?? {};
-        // If client only sent an fdcId (older client code), fetch full food details
-        // from the USDA API server-side so we have `food.foodNutrients` available.
+        let { food, term, fdcId } = body ?? {};
         if (!food && fdcId) {
             const usdaKey = process.env.USDA_API_KEY;
             if (!usdaKey) {
@@ -153,7 +149,7 @@ async function POST(req) {
             }
             try {
                 food = await res.json();
-            } catch (e) {
+            } catch  {
                 return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
                     error: 'Invalid USDA response'
                 }, {
@@ -161,17 +157,11 @@ async function POST(req) {
                 });
             }
         }
-        // More detailed validation feedback so the client knows what's missing
         const missing = [];
         if (!food) missing.push('food');
         else {
             if (!food.fdcId) missing.push('food.fdcId');
             if (!food.description) missing.push('food.description');
-        // NOTE: we do NOT require `food.foodNutrients` here because search results
-        // (and some USDA responses) may not include that array. We'll coerce or
-        // fetch nutrients below before calling the normalizer. The OpenAI
-        // normalization step will still run and return EMPTY_NUTRIENTS if no
-        // usable nutrients are available.
         }
         if (missing.length) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
@@ -184,12 +174,10 @@ async function POST(req) {
         const openai = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$openai$2f$client$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__OpenAI__as__default$3e$__["default"]({
             apiKey: openaiKey
         });
-        // Coerce various USDA shapes into an array the normalizer expects.
         let nutrientsSource = [];
         if (Array.isArray(food.foodNutrients)) {
             nutrientsSource = food.foodNutrients;
         } else if (food.labelNutrients && typeof food.labelNutrients === 'object') {
-            // Convert labelNutrients object -> [{ nutrient: { name }, amount }]
             nutrientsSource = Object.entries(food.labelNutrients).map(([k, v])=>({
                     nutrient: {
                         name: k
@@ -200,28 +188,28 @@ async function POST(req) {
             nutrientsSource = [
                 food.foodNutrient
             ];
-        } else {
-            nutrientsSource = [];
         }
         const [group, nutrients] = await Promise.all([
             classifyFoodGroup(openai, food.description),
             normalizeNutrients(openai, nutrientsSource)
         ]);
         const entry = {
-            id: String(food.fdcId),
+            fdcId: food.fdcId,
+            description: food.description,
+            brandName: food.brandOwner ?? food.brandName ?? null,
+            foodNutrients: nutrients,
+            servingSize: Number(food.servingSize),
+            servingSizeUnit: food.servingSizeUnit,
             group,
             term: term ?? null,
-            measurement: measurement ?? null,
-            name: food.description,
-            nutrients,
             createdAt: new Date()
         };
-        await db.collection('foods').doc(entry.id).set(entry, {
+        await db.collection('foods').doc(String(food.fdcId)).set(entry, {
             merge: true
         });
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             success: true,
-            id: entry.id
+            id: String(food.fdcId)
         });
     } catch (err) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
@@ -267,7 +255,7 @@ async function normalizeNutrients(openai, foodNutrients) {
 You are a nutrition data normalizer.
 
 Map USDA nutrient entries into the EXACT JSON schema below.
-Return ONLY valid JSON. No markdown. No explanations.
+Return ONLY valid JSON.
 
 Schema:
 {
@@ -289,10 +277,10 @@ Schema:
 }
 
 Rules:
-- Use the closest matching USDA nutrient names
+- Use closest USDA nutrient names
 - Convert units if needed
-- If a nutrient is missing or null, set it to 0
-- Do not include extra keys
+- Missing values must be 0
+- No extra keys
           `.trim()
                 },
                 {

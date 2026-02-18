@@ -103,7 +103,6 @@ var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
 const runtime = "nodejs";
 async function GET(req) {
     try {
-        // require authenticated user
         const user = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebaseAdmin$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["verifyAuth"])(req);
         if (!user) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
@@ -113,78 +112,47 @@ async function GET(req) {
             });
         }
         const url = new URL(req.url);
-        const group = url.searchParams.get("group");
         const page = Math.max(1, Number(url.searchParams.get("page") ?? "1"));
         const limit = Math.max(1, Math.min(200, Number(url.searchParams.get("limit") ?? "50")));
-        // Build Firestore query. Prefer server-side filtered query, but fall back
-        // to an in-memory filter if Firestore requires a composite index (helps
-        // development when indexes aren't yet deployed).
+        const start = (page - 1) * limit;
         let foods = [];
         try {
-            let query = __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebaseAdmin$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["adminDb"].collection("foods");
-            if (group) query = query.where("group", "==", group);
-            // order by name for stable pagination
-            query = query.orderBy("name").limit(limit).offset((page - 1) * limit);
-            const snapshot = await query.get();
+            const snapshot = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebaseAdmin$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["adminDb"].collection("foods").limit(limit).offset(start).get();
             snapshot.forEach((doc)=>{
-                const data = doc.data();
-                // sanitize nutrients and numeric fields so only JSON-serializable
-                // values (numbers or null) are returned. This avoids RSC/flight
-                // serialization inserting "$undefined" for undefined values.
-                const rawNutrients = data.nutrients ?? {};
-                const nutrients = {};
-                if (rawNutrients && typeof rawNutrients === "object") {
-                    for (const [k, v] of Object.entries(rawNutrients)){
-                        const n = typeof v === "number" ? v : v == null ? null : Number(v);
-                        nutrients[k] = Number.isFinite(n) ? n : null;
-                    }
-                }
-                const defaultPortionGramsRaw = data.defaultPortionGrams ?? data.measurement ?? null;
-                const defaultPortionGrams = typeof defaultPortionGramsRaw === "number" ? defaultPortionGramsRaw : defaultPortionGramsRaw == null ? null : Number(defaultPortionGramsRaw);
+                const f = doc.data();
                 foods.push({
                     id: doc.id,
-                    term: data.term ?? null,
-                    name: data.name ?? data.description ?? null,
-                    group: data.group ?? null,
-                    nutrients,
-                    defaultPortionGrams: Number.isFinite(defaultPortionGrams) ? defaultPortionGrams : null
+                    fdcId: f.fdcId ?? null,
+                    description: f.description ?? f.term ?? null,
+                    brandName: f.brandOwner ?? f.brandName ?? null,
+                    group: f.group,
+                    nutrients: f.nutrients,
+                    servingSize: typeof f.servingSize === "number" ? f.servingSize : Number(f.servingSize) || 100,
+                    servingSizeUnit: f.servingSizeUnit ?? "grams"
                 });
             });
         } catch (err) {
-            // If Firestore complains about a missing index, fall back to a full
-            // collection scan and do filtering + pagination in-memory. This is
-            // less efficient but avoids a hard failure while developing.
             const msg = String(err?.message ?? err);
             if (msg.includes("requires an index") || msg.includes("FAILED_PRECONDITION")) {
                 const snapshotAll = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebaseAdmin$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["adminDb"].collection("foods").get();
                 const all = [];
                 snapshotAll.forEach((doc)=>{
-                    const data = doc.data();
-                    const rawNutrients = data.nutrients ?? {};
-                    const nutrients = {};
-                    if (rawNutrients && typeof rawNutrients === "object") {
-                        for (const [k, v] of Object.entries(rawNutrients)){
-                            const n = typeof v === "number" ? v : v == null ? null : Number(v);
-                            nutrients[k] = Number.isFinite(n) ? n : null;
-                        }
-                    }
-                    const defaultPortionGramsRaw = data.defaultPortionGrams ?? data.measurement ?? null;
-                    const defaultPortionGrams = typeof defaultPortionGramsRaw === "number" ? defaultPortionGramsRaw : defaultPortionGramsRaw == null ? null : Number(defaultPortionGramsRaw);
+                    const f = doc.data();
                     all.push({
                         id: doc.id,
-                        term: data.term ?? null,
-                        name: data.name ?? data.description ?? null,
-                        group: data.group ?? null,
-                        nutrients,
-                        defaultPortionGrams: Number.isFinite(defaultPortionGrams) ? defaultPortionGrams : null
+                        fdcId: f.fdcId ?? null,
+                        description: f.description ?? null,
+                        brandName: f.brandOwner ?? f.brandName ?? null,
+                        term: f.description ?? null,
+                        name: f.brandOwner ?? f.brandName ?? null,
+                        group: f.group,
+                        nutrients: f.nutrients,
+                        servingSize: typeof f.servingSize === "number" ? f.servingSize : Number(f.servingSize) || 100,
+                        servingSizeUnit: f.servingSizeUnit ?? "grams"
                     });
                 });
-                // filter by group if requested
-                const filtered = group ? all.filter((f)=>f.group === group) : all;
-                // sort by name for stable pagination
-                filtered.sort((a, b)=>(a.name ?? "").localeCompare(b.name ?? ""));
-                const start = (page - 1) * limit;
-                foods = filtered.slice(start, start + limit);
+                all.sort((a, b)=>(a.description ?? "").localeCompare(b.description ?? ""));
+                foods = all.slice(start, start + limit);
             } else {
                 throw err;
             }

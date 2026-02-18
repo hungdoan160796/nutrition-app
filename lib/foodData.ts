@@ -32,7 +32,7 @@ function normalizeFoods(): FoodDetail[] {
   return foods.map((food: any) => {
     const nutrients: FoodNutrientMap = {};
 
-    for (const fn of food.foodNutrients ?? []) {
+    for (const fn of food.nutrients ?? []) {
       if (!fn.nutrient || fn.amount == null) continue;
 
       const key = fn.nutrient.name;

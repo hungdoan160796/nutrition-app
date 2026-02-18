@@ -1,230 +1,117 @@
-[00:00:00.810] Server  LOG     ✓ Ready in 559ms
-[00:00:12.041] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:20.772] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:24.057] Server  LOG     ✓ Compiled in 124ms
-[00:02:24.346] Browser ERROR   ./app/layout.tsx:5:1
-Export ProfileProvider doesn't exist in target module
-  3 | import { ThemeProvider } from "@/components/ThemeProvider";
-  4 | import { AuthProvider } from "@/app/providers/AuthProviders";
-> 5 | import { ProfileProvider } from "@/app/providers/ProfileProvider";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  6 |
-  7 | export default function RootLayout({
-  8 |   children,
+[00:00:01.216] Server  LOG     ✓ Ready in 931ms
+[00:00:04.407] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:05.799] Browser LOG     USER: {"apiKey":"AIzaSyCaU7fY19TXmHzxaIaldjcjlc1ZItvr8hQ","appName":"[DEFAULT]","createdAt":"1771038068380","displayName":"Hung Doan","email":"hungdoan160796@gmail.com","emailVerified":true,"isAnonymous":false,"lastLoginAt":"1771140676358","photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerData":[{"displayName":"Hung Doan","email":"hungdoan160796@gmail.com","phoneNumber":null,"photoURL":"https://lh3.googleusercontent.com/a/ACg8ocKq4abXeW6mAtsLeS_usDUF8XldSbOWoxrdJGqKtLcHI9Qa=s96-c","providerId":"google.com","uid":"104248227289194000499"}],"stsTokenManager":{"accessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6ImY1MzMwMzNhMTMzYWQyM2EyYzlhZGNmYzE4YzRlM2E3MWFmYWY2MjkiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiSHVuZyBEb2FuIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0txNGFiWGVXNm1BdHNMZVNfdXNEVUY4WGxkU2JPV294cmRKR3FLdExjSEk5UWE9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbnV0cml0aW9uLWYzYzVkIiwiYXVkIjoibnV0cml0aW9uLWYzYzVkIiwiYXV0aF90aW1lIjoxNzcxMDg0MTc4LCJ1c2VyX2lkIjoiVGhieHdTdktaT2NCTlV5TFF0SldIZFFkdjh3MSIsInN1YiI6IlRoYnh3U3ZLWk9jQk5VeUxRdEpXSGRRZHY4dzEiLCJpYXQiOjE3NzEzOTgzNTgsImV4cCI6MTc3MTQwMTk1OCwiZW1haWwiOiJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwNDI0ODIyNzI4OTE5NDAwMDQ5OSJdLCJlbWFpbCI6WyJodW5nZG9hbjE2MDc5NkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.YT7PWUdTU45Y5hV3lvNIbAtYXvBBPUJbxqpZ6oXwTp_5K31p3nL4yvjT1uGVVO7MaPO163fbZbGs0hBCtll7oce_kpm6M0pEHs__I109mOdnDb7uTMaFty1DXv9Sb7rmnI6toabNB-ERzyiOh9NuoA3CIkrKbywwVibeZ5dH-1X1W5AAQIJ0IrcSkm_AenStf4811SuMwlO-U7BNgwyghbZZBKCPlsdYn9jj-8HoicP2uNhohvRFbwpb2UKUdit9jXmx2Qru6-YdgHhdhv07_2XXGTVS4bpRahstHhdvdwfAzYps8Se0NAYDl4D8TUgzx0ZQM2ph1RHZJgG_Bpmk2A","expirationTime":1771401958920,"refreshToken":"AMf-vBwZPNK2FKD4RzfNDXdU0aBtoOfOdPYK8AGGyZlqsi53cUX--EoWaRTIjHbEOWhg_qRXmVnV-xdFwXj4hZbGBR4NlYG_2254sfNgI2tDqXXYVTICQ8yNDlN194yAvkn3hs4zHx4ZneRHPLDG8SQiJghzHrCNNpe30GS0GTIS776_9hKJTv5tEVQlTfv3Rb9-uu5AYdbGe7topRsJ6yHzACLZ6K7EqQzt_sphRkB_cdQ6blzIGa-tEZ53mFU-I2l80htjyAYGJeCD1dYIJWrM5BEgmxp-hTSNSN_aapd3kzmWFtdwBdGj3qgCt9yIC5KzspDki2pBBhMfIH5oKK46Crt6Q5QqSNhBQDy58ispMnQJ36vraajVJpty-eEy_N3OOoqReZf2PdIPQs6RQbG9_ZdeqifyzT-e5BI_o1AcebY3IfwsCdg"},"uid":"ThbxwSvKZOcBNUyLQtJWHdQdv8w1"}
+[00:00:06.292] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14","2026-02-16"]
+[00:00:06.292] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126456904,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
+[00:00:06.292] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-15","2026-02-14","2026-02-16"]
+[00:00:06.292] Browser LOG     getWeeklyProgress: sample entry: {"grams":200,"loggedAt":1771126456904,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}
+[00:00:13.779] Browser LOG     {"brandName":null,"description":"durian","fdcId":null,"foodNutrients":[],"group":"fruits","id":"168192","servingSize":100,"servingSizeUnit":"grams"}
+[00:00:53.374] Server  LOG     ✓ Compiled in 1007ms
+[00:00:54.301] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:56.980] Browser LOG     {"brandName":null,"description":"durian","fdcId":null,"foodNutrients":[],"group":"fruits","id":"168192","servingSize":100,"servingSizeUnit":"grams"}
+[00:01:24.080] Server  LOG     ✓ Compiled in 31ms
+[00:01:26.269] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:28.097] Browser LOG     {"brandName":null,"description":"durian","fdcId":null,"foodNutrients":[],"group":"fruits","id":"168192","servingSize":100,"servingSizeUnit":"grams"}
+[00:01:36.791] Server  LOG     ✓ Compiled in 35ms
+[00:02:01.082] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:02.413] Browser LOG     {"brandName":null,"description":"durian","fdcId":null,"foodNutrients":[],"group":"fruits","id":"168192","servingSize":100,"servingSizeUnit":"grams"}
+[00:02:54.789] Server  LOG     ✓ Compiled in 209ms
+[00:02:54.866] Browser ERROR   The tag <%s> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter. nutrients
+[00:02:54.866] Browser ERROR   React does not recognize the `%s` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `%s` instead. If you accidentally passed it from a parent component, remove it from the DOM element. servingSize servingsize
+[00:03:30.100] Server  LOG     ✓ Compiled in 47ms
+[00:03:30.179] Browser ERROR   uncaughtError: ReferenceError: FoodNutrients is not defined
+[00:03:50.976] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:03:50.996] Server  LOG     ✓ Compiled in 33ms
+[00:03:51.386] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:55.584] Browser LOG     {"brandName":null,"description":"durian","fdcId":null,"group":"fruits","id":"168192","nutrients":[],"servingSize":100,"servingSizeUnit":"grams"}
+[00:05:44.509] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:45.985] Browser LOG     {"brandName":null,"description":"Apple","fdcId":null,"group":"fruits","id":"2709215","nutrients":[],"servingSize":100,"servingSizeUnit":"grams"}
+[00:05:46.785] Browser LOG     {"brandName":null,"description":"durian","fdcId":null,"group":"fruits","id":"168192","nutrients":[],"servingSize":100,"servingSizeUnit":"grams"}
+[00:06:52.190] Server  LOG     ✓ Compiled in 94ms
+[00:06:52.294] Browser ERROR   ./app/log/page.tsx:45:25
+Parsing ecmascript source code failed
+  43 |   brandName: string;
+  44 |   group: FoodGroup;
+> 45 |   nutrients: <Nutrients>; // normalized, per 100g
+     |                         ^
+  46 |   servingSize: number; // grams per serving
+  47 |   servingSizeUnit: string; // usually "g"
+  48 | };
 
-The export ProfileProvider was not found in module [project]/app/providers/ProfileProvider.tsx [app-rsc] (ecmascript).
-The module has no exports at all.
-All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
-[00:02:24.346] Browser ERROR   ./app/settings/page.tsx:6:1
-Export useProfile doesn't exist in target module
-  4 | import { signOut } from "firebase/auth";
-  5 | import { auth } from "@/lib/firebase";
-> 6 | import { useProfile } from "@/app/providers/ProfileProvider";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  7 | import BottomNav from "@/components/BottomNav";
-  8 |
-  9 | type StandardId = "fda_dv_2024" | "usda_dri";
-
-The export useProfile was not found in module [project]/app/providers/ProfileProvider.tsx [app-client] (ecmascript).
-The module has no exports at all.
-All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
-
-Import traces:
-  Client Component Browser:
-    ./app/settings/page.tsx [Client Component Browser]
-    ./app/settings/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/settings/page.tsx [Client Component SSR]
-    ./app/settings/page.tsx [Server Component]
-[00:02:24.346] Browser ERROR   ./app/settings/page.tsx:6:1
-Export useProfile doesn't exist in target module
-  4 | import { signOut } from "firebase/auth";
-  5 | import { auth } from "@/lib/firebase";
-> 6 | import { useProfile } from "@/app/providers/ProfileProvider";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  7 | import BottomNav from "@/components/BottomNav";
-  8 |
-  9 | type StandardId = "fda_dv_2024" | "usda_dri";
-
-The export useProfile was not found in module [project]/app/providers/ProfileProvider.tsx [app-ssr] (ecmascript).
-The module has no exports at all.
-All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+Expected '(', got ';'
 
 Import traces:
   Client Component Browser:
-    ./app/settings/page.tsx [Client Component Browser]
-    ./app/settings/page.tsx [Server Component]
+    ./app/log/page.tsx [Client Component Browser]
+    ./app/log/page.tsx [Server Component]
 
   Client Component SSR:
-    ./app/settings/page.tsx [Client Component SSR]
-    ./app/settings/page.tsx [Server Component]
-[00:02:24.346] Browser ERROR   ./app/add/page.tsx:7:1
-Export useProfile doesn't exist in target module
-   5 | import { searchUsdaFoods, UsdaFood } from '@/lib/usdaSearch';
-   6 | import { addUsdaFood } from '@/lib/addUsdaFood';
->  7 | import { useProfile } from '@/app/providers/ProfileProvider';
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   8 | import BottomNav from '@/components/BottomNav';
-   9 |
-  10 | type Nutrients = {
+    ./app/log/page.tsx [Client Component SSR]
+    ./app/log/page.tsx [Server Component]
+[00:07:26.351] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:28.437] Browser LOG     {"brandName":null,"description":"Apple","fdcId":null,"group":"fruits","id":"2709215","nutrients":[],"servingSize":100,"servingSizeUnit":"grams"}
+[00:08:20.051] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:21.506] Browser LOG     {"brandName":null,"description":"thịt heo 70% đạm","fdcId":null,"group":"meat","id":"167902","nutrients":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"servingSize":100,"servingSizeUnit":"grams"}
+[00:16:41.314] Server  LOG     ✓ Compiled in 36ms
+[00:16:57.582] Server  LOG     ✓ Compiled in 20ms
+[00:17:26.534] Server  LOG     ✓ Compiled in 27ms
+[00:17:36.734] Server  LOG     ✓ Compiled in 21ms
+[00:17:55.297] Server  LOG     ✓ Compiled in 18ms
+[00:18:02.568] Server  LOG     ✓ Compiled in 25ms
+[00:32:36.833] Server  LOG     ✓ Compiled in 36ms
+[00:34:17.565] Server  LOG     ✓ Compiled in 18ms
+[00:34:40.513] Server  LOG     ✓ Compiled in 30ms
+[00:34:59.902] Server  LOG     ✓ Compiled in 16ms
+[00:35:25.664] Server  LOG     ✓ Compiled in 28ms
+[00:36:21.925] Server  LOG     ✓ Compiled in 19ms
+[00:36:34.532] Browser LOG     {"brandName":null,"description":"Ham","fdcId":null,"group":"meat","id":"2705878","nutrients":{"calcium":8,"calories":117,"carbohydrate":1.58,"fat":3.87,"folate":1,"iron":0.84,"magnesium":20,"potassium":371,"protein":19.04,"sodium":1149,"vitamin_a":13,"vitamin_b12":0.4,"vitamin_c":0,"vitamin_d":0.7,"zinc":1.84},"servingSize":100,"servingSizeUnit":"grams"}
+[00:36:35.897] Browser LOG     {"brandName":null,"description":"thịt heo 70% đạm","fdcId":null,"group":"meat","id":"167902","nutrients":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"servingSize":100,"servingSizeUnit":"grams"}
+[00:36:36.282] Browser LOG     {"brandName":null,"description":"Beef, ground, 70% lean meat / 30% fat, raw","fdcId":168652,"group":"meat","id":"168652","nutrients":{"calcium":24,"calories":332,"carbohydrate":0,"fat":30,"folate":9,"iron":1.64,"magnesium":14,"potassium":218,"protein":14.4,"sodium":66,"vitamin_a":14,"vitamin_b12":2.07,"vitamin_c":0,"vitamin_d":0.1,"zinc":3.57},"servingSize":100,"servingSizeUnit":"grams"}
+[00:36:37.780] Browser LOG     {"brandName":null,"description":"thịt heo 70% đạm","fdcId":null,"group":"meat","id":"167902","nutrients":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"servingSize":100,"servingSizeUnit":"grams"}
+[00:36:42.522] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-16","2026-02-14","2026-02-15","2026-02-18"]
+[00:36:42.522] Browser LOG     getWeeklyProgress: sample entry: {"grams":20,"loggedAt":1771226304688,"name":"Ham","nutrients":{"calcium":1.6,"calories":23.4,"carbohydrate":0.316,"fat":0.774,"folate":0.2,"iron":0.168,"magnesium":4,"potassium":74.2,"protein":3.8079999999999994,"sodium":229.8,"vitamin_a":2.6,"vitamin_b12":0.08,"vitamin_c":0,"vitamin_d":0.14,"zinc":0.36800000000000005},"nutrientsPer100g":{"calcium":8,"calories":117,"carbohydrate":1.58,"fat":3.87,"folate":1,"iron":0.84,"magnesium":20,"potassium":371,"protein":19.04,"sodium":1149,"vitamin_a":13,"vitamin_b12":0.4,"vitamin_c":0,"vitamin_d":0.7,"zinc":1.84},"term":"Ham"}
+[00:36:42.522] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-16","2026-02-14","2026-02-15","2026-02-18"]
+[00:36:42.522] Browser LOG     getWeeklyProgress: sample entry: {"grams":20,"loggedAt":1771226304688,"name":"Ham","nutrients":{"calcium":1.6,"calories":23.4,"carbohydrate":0.316,"fat":0.774,"folate":0.2,"iron":0.168,"magnesium":4,"potassium":74.2,"protein":3.8079999999999994,"sodium":229.8,"vitamin_a":2.6,"vitamin_b12":0.08,"vitamin_c":0,"vitamin_d":0.14,"zinc":0.36800000000000005},"nutrientsPer100g":{"calcium":8,"calories":117,"carbohydrate":1.58,"fat":3.87,"folate":1,"iron":0.84,"magnesium":20,"potassium":371,"protein":19.04,"sodium":1149,"vitamin_a":13,"vitamin_b12":0.4,"vitamin_c":0,"vitamin_d":0.7,"zinc":1.84},"term":"Ham"}
+[00:36:46.070] Browser ERROR   Each child in a list should have a unique "key" prop.%s%s See https://react.dev/link/warning-keys for more information. 
 
-The export useProfile was not found in module [project]/app/providers/ProfileProvider.tsx [app-client] (ecmascript).
-The module has no exports at all.
-All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
-
-Import traces:
-  Client Component Browser:
-    ./app/add/page.tsx [Client Component Browser]
-    ./app/add/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/add/page.tsx [Client Component SSR]
-    ./app/add/page.tsx [Server Component]
-[00:02:24.346] Browser ERROR   ./app/add/page.tsx:7:1
-Export useProfile doesn't exist in target module
-   5 | import { searchUsdaFoods, UsdaFood } from '@/lib/usdaSearch';
-   6 | import { addUsdaFood } from '@/lib/addUsdaFood';
->  7 | import { useProfile } from '@/app/providers/ProfileProvider';
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   8 | import BottomNav from '@/components/BottomNav';
-   9 |
-  10 | type Nutrients = {
-
-The export useProfile was not found in module [project]/app/providers/ProfileProvider.tsx [app-ssr] (ecmascript).
-The module has no exports at all.
-All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
-
-Import traces:
-  Client Component Browser:
-    ./app/add/page.tsx [Client Component Browser]
-    ./app/add/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/add/page.tsx [Client Component SSR]
-    ./app/add/page.tsx [Server Component]
-[00:02:24.346] Browser ERROR   ./app/layout.tsx:5:1
-Export ProfileProvider doesn't exist in target module
-  3 | import { ThemeProvider } from "@/components/ThemeProvider";
-  4 | import { AuthProvider } from "@/app/providers/AuthProviders";
-> 5 | import { ProfileProvider } from "@/app/providers/ProfileProvider";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  6 |
-  7 | export default function RootLayout({
-  8 |   children,
-
-The export ProfileProvider was not found in module [project]/app/providers/ProfileProvider.tsx [app-rsc] (ecmascript).
-The module has no exports at all.
-All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
-[00:02:24.346] Browser ERROR   ./app/settings/page.tsx:6:1
-Export useProfile doesn't exist in target module
-  4 | import { signOut } from "firebase/auth";
-  5 | import { auth } from "@/lib/firebase";
-> 6 | import { useProfile } from "@/app/providers/ProfileProvider";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  7 | import BottomNav from "@/components/BottomNav";
-  8 |
-  9 | type StandardId = "fda_dv_2024" | "usda_dri";
-
-The export useProfile was not found in module [project]/app/providers/ProfileProvider.tsx [app-client] (ecmascript).
-The module has no exports at all.
-All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
-
-Import traces:
-  Client Component Browser:
-    ./app/settings/page.tsx [Client Component Browser]
-    ./app/settings/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/settings/page.tsx [Client Component SSR]
-    ./app/settings/page.tsx [Server Component]
-[00:02:24.346] Browser ERROR   ./app/settings/page.tsx:6:1
-Export useProfile doesn't exist in target module
-  4 | import { signOut } from "firebase/auth";
-  5 | import { auth } from "@/lib/firebase";
-> 6 | import { useProfile } from "@/app/providers/ProfileProvider";
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  7 | import BottomNav from "@/components/BottomNav";
-  8 |
-  9 | type StandardId = "fda_dv_2024" | "usda_dri";
-
-The export useProfile was not found in module [project]/app/providers/ProfileProvider.tsx [app-ssr] (ecmascript).
-The module has no exports at all.
-All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
-
-Import traces:
-  Client Component Browser:
-    ./app/settings/page.tsx [Client Component Browser]
-    ./app/settings/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/settings/page.tsx [Client Component SSR]
-    ./app/settings/page.tsx [Server Component]
-[00:02:24.346] Browser ERROR   ./app/add/page.tsx:7:1
-Export useProfile doesn't exist in target module
-   5 | import { searchUsdaFoods, UsdaFood } from '@/lib/usdaSearch';
-   6 | import { addUsdaFood } from '@/lib/addUsdaFood';
->  7 | import { useProfile } from '@/app/providers/ProfileProvider';
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   8 | import BottomNav from '@/components/BottomNav';
-   9 |
-  10 | type Nutrients = {
-
-The export useProfile was not found in module [project]/app/providers/ProfileProvider.tsx [app-client] (ecmascript).
-The module has no exports at all.
-All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
-
-Import traces:
-  Client Component Browser:
-    ./app/add/page.tsx [Client Component Browser]
-    ./app/add/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/add/page.tsx [Client Component SSR]
-    ./app/add/page.tsx [Server Component]
-[00:02:24.346] Browser ERROR   ./app/add/page.tsx:7:1
-Export useProfile doesn't exist in target module
-   5 | import { searchUsdaFoods, UsdaFood } from '@/lib/usdaSearch';
-   6 | import { addUsdaFood } from '@/lib/addUsdaFood';
->  7 | import { useProfile } from '@/app/providers/ProfileProvider';
-     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   8 | import BottomNav from '@/components/BottomNav';
-   9 |
-  10 | type Nutrients = {
-
-The export useProfile was not found in module [project]/app/providers/ProfileProvider.tsx [app-ssr] (ecmascript).
-The module has no exports at all.
-All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
-
-Import traces:
-  Client Component Browser:
-    ./app/add/page.tsx [Client Component Browser]
-    ./app/add/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/add/page.tsx [Client Component SSR]
-    ./app/add/page.tsx [Server Component]
-[00:02:56.063] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./app/providers/ProfileProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[00:02:56.117] Server  LOG     ✓ Compiled in 34ms
-[00:02:56.334] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:13.199] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./app/providers/ProfileProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[00:03:13.257] Server  LOG     ✓ Compiled in 28ms
-[00:03:13.494] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:17.950] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:12.192] Server  LOG     ✓ Compiled in 24ms
-[00:04:15.276] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:35.296] Server  LOG     ✓ Compiled in 30ms
-[00:04:47.076] Browser LOG     DB foodLog sample: [{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}},{"count":3,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}}]
-[00:04:47.076] Browser LOG     DB foodLog sample: [{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}},{"count":3,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126433414,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}}]
-[00:04:48.891] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+Check the render method of `section`.  It was passed a child from NutrientDetailPage.
+[00:36:54.593] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-14","2026-02-18","2026-02-15","2026-02-16"]
+[00:36:54.593] Browser LOG     getWeeklyProgress: sample entry: {"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}
+[00:36:54.593] Browser LOG     getWeeklyProgress: foodLog keys: ["2026-02-14","2026-02-18","2026-02-15","2026-02-16"]
+[00:36:54.593] Browser LOG     getWeeklyProgress: sample entry: {"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}
+[00:36:55.646] Browser LOG     DB foodLog sample: [{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}},{"count":1,"date":"2026-02-18","sample":{"amount":200,"loggedAt":1771400555445,"name":null,"nutrients":{"calcium":28,"calories":526,"carbohydrate":0,"fat":42.4,"folate":10,"iron":1.76,"magnesium":38,"potassium":574,"protein":33.8,"sodium":112,"vitamin_a":4,"vitamin_b12":1.4,"vitamin_c":1.4,"vitamin_d":0,"zinc":4.4},"standardAmount":100,"standardNutrients":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}},{"count":6,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126456904,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}}]
+[00:36:55.646] Browser LOG     DB foodLog sample: [{"count":1,"date":"2026-02-14","sample":{"grams":100,"loggedAt":1771084774468,"name":"CHICKEN","nutrientsPer100g":{"calcium":0,"calories":107,"carbohydrate":0,"fat":1.79,"folate":0,"iron":0,"magnesium":0,"potassium":0,"protein":21.4,"sodium":179,"vitamin_a":0,"vitamin_b12":0,"vitamin_c":0,"vitamin_d":0,"zinc":0},"term":"chicken"}},{"count":1,"date":"2026-02-18","sample":{"amount":200,"loggedAt":1771400555445,"name":null,"nutrients":{"calcium":28,"calories":526,"carbohydrate":0,"fat":42.4,"folate":10,"iron":1.76,"magnesium":38,"potassium":574,"protein":33.8,"sodium":112,"vitamin_a":4,"vitamin_b12":1.4,"vitamin_c":1.4,"vitamin_d":0,"zinc":4.4},"standardAmount":100,"standardNutrients":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}},{"count":6,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126456904,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}}]
+[00:36:56.439] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:04:48.891] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:36:56.439] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:08:04.781] Server  LOG     ✓ Compiled in 96ms
-[00:08:56.898] Server  LOG     ✓ Compiled in 88ms
-[00:09:25.595] Server  LOG     ✓ Compiled in 69ms
-[00:10:05.844] Server  LOG     ✓ Compiled in 89ms
+[00:36:56.439] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:36:56.439] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:37:03.625] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:37:04.665] Browser LOG     DB foodLog sample: [{"count":1,"date":"2026-02-18","sample":{"amount":200,"loggedAt":1771400555445,"name":null,"nutrients":{"calcium":28,"calories":526,"carbohydrate":0,"fat":42.4,"folate":10,"iron":1.76,"magnesium":38,"potassium":574,"protein":33.8,"sodium":112,"vitamin_a":4,"vitamin_b12":1.4,"vitamin_c":1.4,"vitamin_d":0,"zinc":4.4},"standardAmount":100,"standardNutrients":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}},{"count":6,"date":"2026-02-15","sample":{"grams":200,"loggedAt":1771126456904,"name":"Pork, fresh, ground, raw","nutrientsPer100g":{"calcium":14,"calories":263,"carbohydrate":0,"fat":21.2,"folate":5,"iron":0.88,"magnesium":19,"potassium":287,"protein":16.9,"sodium":56,"vitamin_a":2,"vitamin_b12":0.7,"vitamin_c":0.7,"vitamin_d":0,"zinc":2.2},"term":"thịt heo 70% đạm"}},{"count":6,"date":"2026-02-16","sample":{"grams":20,"loggedAt":1771226304688,"name":"Ham","nutrients":{"calcium":1.6,"calories":23.4,"carbohydrate":0.316,"fat":0.774,"folate":0.2,"iron":0.168,"magnesium":4,"potassium":74.2,"protein":3.8079999999999994,"sodium":229.8,"vitamin_a":2.6,"vitamin_b12":0.08,"vitamin_c":0,"vitamin_d":0.14,"zinc":0.36800000000000005},"nutrientsPer100g":{"calcium":8,"calories":117,"carbohydrate":1.58,"fat":3.87,"folate":1,"iron":0.84,"magnesium":20,"potassium":371,"protein":19.04,"sodium":1149,"vitamin_a":13,"vitamin_b12":0.4,"vitamin_c":0,"vitamin_d":0.7,"zinc":1.84},"term":"Ham"}}]
+[00:37:04.915] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:37:04.915] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:37:04.915] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:37:04.915] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.

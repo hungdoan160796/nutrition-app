@@ -3,7 +3,7 @@ export type UsdaFood = {
   fdcId: number;
   description: string;
   brandName?: string | null;
-  foodNutrients?: any[];
+  nutrients?: any[];
 };
 
 export async function searchUsdaFoods(term: string): Promise<UsdaFood[]> {

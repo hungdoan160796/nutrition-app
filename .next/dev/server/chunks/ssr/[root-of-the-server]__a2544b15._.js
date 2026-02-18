@@ -1,7 +1,7 @@
 module.exports = [
 "[project]/data/nutrients.json (json)", ((__turbopack_context__) => {
 
-__turbopack_context__.v({"nutrients":[{"id":"protein","label":"Protein","unit":"g","category":"macronutrient","usda_names":["Protein"]},{"id":"carbohydrate","label":"Carbo","unit":"g","category":"macronutrient","usda_names":["Carbohydrate, by difference"]},{"id":"fat","label":"Fat","unit":"g","category":"macronutrient","usda_names":["Total lipid (fat)"]},{"id":"fiber","label":"Fiber","unit":"g","category":"macronutrient","usda_names":["Fiber, total dietary"]},{"id":"calories","label":"Calories","unit":"kcal","category":"macronutrient","usda_names":["Energy"]},{"id":"iron","label":"Iron","unit":"mg","category":"mineral","usda_names":["Iron, Fe"]},{"id":"calcium","label":"Calcium","unit":"mg","category":"mineral","usda_names":["Calcium, Ca"]},{"id":"magnesium","label":"Magnesium","unit":"mg","category":"mineral","usda_names":["Magnesium, Mg"]},{"id":"potassium","label":"Potassium","unit":"mg","category":"mineral","usda_names":["Potassium, K"]},{"id":"sodium","label":"Sodium","unit":"mg","category":"mineral","usda_names":["Sodium, Na"]},{"id":"zinc","label":"Zinc","unit":"mg","category":"mineral","usda_names":["Zinc, Zn"]},{"id":"vitamin_a","label":"Vitamin A","unit":"µg","category":"vitamin","usda_names":["Vitamin A, RAE"]},{"id":"vitamin_c","label":"Vitamin C","unit":"mg","category":"vitamin","usda_names":["Vitamin C, total ascorbic acid"]},{"id":"vitamin_d","label":"Vitamin D","unit":"IU","category":"vitamin","usda_names":["Vitamin D (D2 + D3)"]},{"id":"vitamin_e","label":"Vitamin E","unit":"mg","category":"vitamin","usda_names":["Vitamin E (alpha-tocopherol)"]},{"id":"vitamin_k","label":"Vitamin K","unit":"µg","category":"vitamin","usda_names":["Vitamin K (phylloquinone)"]},{"id":"vitamin_b12","label":"Vitamin B12","unit":"µg","category":"vitamin","usda_names":["Vitamin B-12"]},{"id":"folate","label":"Folate","unit":"µg","category":"vitamin","usda_names":["Folate, total"]}]});}),
+__turbopack_context__.v({"nutrients":[{"id":"protein","label":"Protein","unit":"g","category":"macronutrient","usda_names":["Protein"]},{"id":"carbohydrate","label":"Carbo","unit":"g","category":"macronutrient","usda_names":["Carbohydrate, by difference"]},{"id":"fat","label":"Fat","unit":"g","category":"macronutrient","usda_names":["Total lipid (fat)"]},{"id":"fiber","label":"Fiber","unit":"g","category":"macronutrient","usda_names":["Fiber, total dietary"]},{"id":"calories","label":"Calories","unit":"kcal","category":"macronutrient","usda_names":["Energy"]},{"id":"iron","label":"Iron","unit":"mg","category":"mineral","usda_names":["Iron, Fe"]},{"id":"calcium","label":"Calcium","unit":"mg","category":"mineral","usda_names":["Calcium, Ca"]},{"id":"magnesium","label":"Magnesium","unit":"mg","category":"mineral","usda_names":["Magnesium, Mg"]},{"id":"potassium","label":"Potassium","unit":"mg","category":"mineral","usda_names":["Potassium, K"]},{"id":"sodium","label":"Sodium","unit":"mg","category":"mineral","usda_names":["Sodium, Na"]},{"id":"zinc","label":"Zinc","unit":"mg","category":"mineral","usda_names":["Zinc, Zn"]},{"id":"vitamin_a","label":"Vitamin A","unit":"µg","category":"vitamin","usda_names":["Vitamin A, RAE"]},{"id":"vitamin_c","label":"Vitamin C","unit":"mg","category":"vitamin","usda_names":["Vitamin C, total ascorbic acid"]},{"id":"vitamin_d","label":"Vitamin D","unit":"IU","category":"vitamin","usda_names":["Vitamin D (D2 + D3)"]},{"id":"vitamin_e","label":"Vitamin E","unit":"mg","category":"vitamin","usda_names":["Vitamin E (alpha-tocopherol)"]},{"id":"vitamin_k","label":"Vitamin K","unit":"µg","category":"vitamin","usda_names":["Vitamin K (phylloquinone)"]},{"id":"vitamin_b12","label":"Vitamin B12","unit":"µg","category":"vitamin","usda_names":["Vitamin B-12"]},{"id":"vitamin_b6","label":"Folate","unit":"µg","category":"vitamin","usda_names":["Folate, total"]}]});}),
 "[project]/lib/nutrientRegistry.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -95,7 +95,7 @@ function getWeekRange(baseDate = new Date()) {
 function isWithinWeek(dateIso, startIso, endIso) {
     return dateIso >= startIso && dateIso < endIso;
 }
-async function logFood(food, grams) {
+async function logFood(food) {
     const date = new Date().toISOString().slice(0, 10);
     await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["updateDB"])((db)=>{
         if (!db.foodLog[date]) db.foodLog[date] = [];
@@ -104,13 +104,14 @@ async function logFood(food, grams) {
         // components can read either shape.
         const scaled = {};
         for (const [k, v] of Object.entries(food.nutrients ?? {})){
-            if (typeof v === "number") scaled[k] = v * grams / 100;
+            if (typeof v === "number") scaled[k] = v * food.amount / food.standardAmount;
         }
         db.foodLog[date].push({
             term: food.term,
             name: food.name,
-            grams,
-            nutrientsPer100g: food.nutrients,
+            amount: food.amount,
+            standardNutrients: food.nutrients,
+            standardAmount: food.standardAmount,
             // per-entry nutrient amounts (e.g., amount contributed by this logged food)
             nutrients: scaled,
             loggedAt: Date.now()
@@ -349,33 +350,34 @@ function BottomNav() {
 
 __turbopack_context__.s([
     "default",
-    ()=>FoodNutrients
+    ()=>nutrients
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$nutrientRegistry$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/nutrientRegistry.ts [app-ssr] (ecmascript)");
 "use client";
 ;
 ;
-function FoodNutrients({ nutrients, grams }) {
-    const entries = Object.entries(nutrients ?? {});
-    if (!entries.length) {
+function nutrients({ nutrients, servingSize, amount }) {
+    const safe = nutrients ?? {};
+    const entries = Object.entries(safe).filter(([, v])=>Number.isFinite(v));
+    if (!entries.length || !Number.isFinite(servingSize) || servingSize <= 0) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "rounded-xl p-4 border bg-[var(--background)] text-sm text-neutral-400",
             children: "No nutrient information available"
         }, void 0, false, {
             fileName: "[project]/components/FoodNutrients.tsx",
-            lineNumber: 15,
+            lineNumber: 25,
             columnNumber: 7
         }, this);
     }
+    const ratio = Number.isFinite(amount) && amount > 0 ? amount / servingSize : 1;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "grid grid-cols-1 gap-3",
-        children: entries.map(([key, amount])=>{
-            const def = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$nutrientRegistry$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getNutrientById"])(key);
-            const label = def?.label ?? key;
+        children: entries.map(([key, baseAmount])=>{
+            const def = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$nutrientRegistry$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getNutrientById"])(String(key));
+            const label = def?.label ?? String(key);
             const unit = def?.unit ?? "";
-            // amount is per 100g in many data shapes; treat as per-100g unless grams omitted
-            const displayAmount = grams ? amount * grams / 100 : amount;
+            const displayAmount = baseAmount * ratio;
             return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "rounded-xl bg-[var(--background)] border border-[var(--border)] p-3 text-sm",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -386,38 +388,32 @@ function FoodNutrients({ nutrients, grams }) {
                             children: label
                         }, void 0, false, {
                             fileName: "[project]/components/FoodNutrients.tsx",
-                            lineNumber: 37,
+                            lineNumber: 51,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "text-[var(--foreground)] text-xs",
-                            children: Number.isFinite(displayAmount) ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
-                                children: [
-                                    Math.round(displayAmount * 100) / 100,
-                                    " ",
-                                    unit
-                                ]
-                            }, void 0, true) : "-"
+                            children: Number.isFinite(displayAmount) ? `${Math.round(displayAmount * 100) / 100} ${unit}` : "-"
                         }, void 0, false, {
                             fileName: "[project]/components/FoodNutrients.tsx",
-                            lineNumber: 40,
+                            lineNumber: 54,
                             columnNumber: 15
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/FoodNutrients.tsx",
-                    lineNumber: 36,
+                    lineNumber: 50,
                     columnNumber: 13
                 }, this)
-            }, key, false, {
+            }, String(key), false, {
                 fileName: "[project]/components/FoodNutrients.tsx",
-                lineNumber: 32,
+                lineNumber: 46,
                 columnNumber: 11
             }, this);
         })
     }, void 0, false, {
         fileName: "[project]/components/FoodNutrients.tsx",
-        lineNumber: 22,
+        lineNumber: 37,
         columnNumber: 5
     }, this);
 }
@@ -460,16 +456,15 @@ function LogFoodPage() {
     const [foods, setFoods] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [activeGroup, setActiveGroup] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [selectedFood, setSelectedFood] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [grams, setGrams] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    const [amount, setAmount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    const [unit, setUnit] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("g");
     const [page, setPage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(1);
     const [limit] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(50);
     const [loadingFoods, setLoadingFoods] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [fetchError, setFetchError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const { user } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$providers$2f$AuthProviders$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useAuth"])();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        // Fetch foods filtered by group with pagination whenever activeGroup or page changes
-        if (!activeGroup) return;
-        if (!user) return;
+        if (!activeGroup || !user) return;
         let aborted = false;
         (async ()=>{
             setLoadingFoods(true);
@@ -487,8 +482,7 @@ function LogFoodPage() {
                     return;
                 }
                 const data = await res.json();
-                if (aborted) return;
-                setFoods(data?.foods ?? []);
+                if (!aborted) setFoods(data?.foods ?? []);
             } catch (e) {
                 if (!aborted) setFetchError(String(e?.message ?? e));
             } finally{
@@ -505,13 +499,24 @@ function LogFoodPage() {
         user
     ]);
     const groupFoods = activeGroup ? foods.filter((f)=>f.group === activeGroup) : [];
+    const computedAmount = (()=>{
+        if (!selectedFood) return 0;
+        const value = Number(amount);
+        if (!value || value <= 0) return 0;
+        if (unit === "g") return value;
+        const servingSize = Number(selectedFood.servingSize) || 0;
+        return servingSize > 0 ? value * servingSize / 100 : 0;
+    })();
     async function handleAdd() {
-        if (!selectedFood || !grams) return;
+        if (!selectedFood || !computedAmount) return;
         await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$nutritionEngine$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["logFood"])({
-            term: selectedFood.term,
-            name: selectedFood.name,
-            nutrients: selectedFood.nutrients
-        }, Number(grams));
+            term: selectedFood.description,
+            name: selectedFood.brandName,
+            nutrients: selectedFood.nutrients,
+            measurement: selectedFood.servingSizeUnit,
+            amount: computedAmount,
+            standardAmount: selectedFood.servingSize
+        });
         router.push("/home");
         router.refresh();
     }
@@ -533,12 +538,12 @@ function LogFoodPage() {
                                 children: group
                             }, group, false, {
                                 fileName: "[project]/app/log/page.tsx",
-                                lineNumber: 123,
+                                lineNumber: 157,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/app/log/page.tsx",
-                        lineNumber: 121,
+                        lineNumber: 155,
                         columnNumber: 9
                     }, this),
                     activeGroup && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -552,36 +557,41 @@ function LogFoodPage() {
                                         children: "Loading foods…"
                                     }, void 0, false, {
                                         fileName: "[project]/app/log/page.tsx",
-                                        lineNumber: 144,
+                                        lineNumber: 177,
                                         columnNumber: 17
                                     }, this) : fetchError ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "rounded-xl p-4 border bg-[var(--background)] text-sm text-red-500",
                                         children: fetchError
                                     }, void 0, false, {
                                         fileName: "[project]/app/log/page.tsx",
-                                        lineNumber: 146,
+                                        lineNumber: 181,
                                         columnNumber: 17
                                     }, this) : groupFoods.length > 0 ? groupFoods.map((food)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            onClick: ()=>setSelectedFood(food),
+                                            onClick: ()=>{
+                                                setSelectedFood(food);
+                                                setAmount("");
+                                                setUnit("g");
+                                                console.log(food);
+                                            },
                                             className: `w-full text-left px-3 py-2 rounded-lg border bg-[var(--background)] border-[var(--border)] ${selectedFood?.id === food.id ? "ring-2 ring-primary" : ""}`,
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "font-medium text-[var(--foreground)]",
-                                                children: food.term
+                                                children: food.description ?? food.brandName
                                             }, void 0, false, {
                                                 fileName: "[project]/app/log/page.tsx",
-                                                lineNumber: 156,
+                                                lineNumber: 200,
                                                 columnNumber: 21
                                             }, this)
                                         }, food.id, false, {
                                             fileName: "[project]/app/log/page.tsx",
-                                            lineNumber: 149,
+                                            lineNumber: 186,
                                             columnNumber: 19
                                         }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "rounded-xl p-4 border bg-[var(--background)] text-sm text-neutral-400",
                                         children: "No foods in this group."
                                     }, void 0, false, {
                                         fileName: "[project]/app/log/page.tsx",
-                                        lineNumber: 162,
+                                        lineNumber: 206,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -594,7 +604,7 @@ function LogFoodPage() {
                                                 children: "Prev"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/log/page.tsx",
-                                                lineNumber: 166,
+                                                lineNumber: 212,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -602,7 +612,7 @@ function LogFoodPage() {
                                                 children: page
                                             }, void 0, false, {
                                                 fileName: "[project]/app/log/page.tsx",
-                                                lineNumber: 173,
+                                                lineNumber: 221,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -612,123 +622,139 @@ function LogFoodPage() {
                                                 children: "Next"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/log/page.tsx",
-                                                lineNumber: 174,
+                                                lineNumber: 224,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/log/page.tsx",
-                                        lineNumber: 165,
+                                        lineNumber: 211,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/log/page.tsx",
-                                lineNumber: 142,
+                                lineNumber: 175,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "col-span-2",
                                 children: selectedFood ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "space-y-3",
+                                    className: "w-[100%] space-y-3",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex items-center justify-between flex-row",
+                                            className: "w-[100%] flex items-center gap-2",
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                        type: "number",
-                                                        placeholder: "Grams",
-                                                        value: grams,
-                                                        onChange: (e)=>setGrams(e.target.value),
-                                                        className: "w-[100%] rounded-lg border px-3 py-2 bg-transparent"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                    placeholder: unit === "g" ? "Grams" : "Servings",
+                                                    value: amount,
+                                                    onChange: (e)=>setAmount(e.target.value),
+                                                    className: "w-[50%] rounded-lg border px-3 py-2 bg-transparent"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/log/page.tsx",
+                                                    lineNumber: 238,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                                    value: unit,
+                                                    onChange: (e)=>setUnit(e.target.value),
+                                                    className: "w-[50%] rounded-lg border px-3 py-2 bg-transparent",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "g",
+                                                        children: "g"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/log/page.tsx",
-                                                        lineNumber: 189,
+                                                        lineNumber: 260,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/log/page.tsx",
-                                                    lineNumber: 188,
+                                                    lineNumber: 251,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: handleAdd,
-                                                    className: "w-[60%] rounded-lg bg-primary py-2 px-4 font-medium",
+                                                    disabled: !computedAmount,
+                                                    className: "rounded-lg bg-primary py-2 px-4 font-medium",
                                                     children: "Add"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/log/page.tsx",
-                                                    lineNumber: 197,
+                                                    lineNumber: 263,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/log/page.tsx",
-                                            lineNumber: 187,
+                                            lineNumber: 237,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "flex justify-center",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                                 className: "text-sm text-neutral-400 uppercase mb-2",
-                                                children: "Nutrients per 100g"
-                                            }, void 0, false, {
+                                                children: [
+                                                    "Nutrients",
+                                                    " ",
+                                                    computedAmount ? `for ${computedAmount} ${selectedFood.servingSizeUnit}` : "per 100g"
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/app/log/page.tsx",
-                                                lineNumber: 206,
+                                                lineNumber: 273,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/log/page.tsx",
-                                            lineNumber: 205,
+                                            lineNumber: 272,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$FoodNutrients$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                             nutrients: selectedFood.nutrients,
-                                            grams: Number(grams) || undefined
+                                            servingSize: selectedFood.servingSize,
+                                            amount: computedAmount ?? selectedFood.servingSize
                                         }, void 0, false, {
                                             fileName: "[project]/app/log/page.tsx",
-                                            lineNumber: 208,
-                                            columnNumber: 21
+                                            lineNumber: 281,
+                                            columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/log/page.tsx",
-                                    lineNumber: 186,
+                                    lineNumber: 236,
                                     columnNumber: 17
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "rounded-xl p-4 border bg-[var(--background)] text-sm text-neutral-400",
                                     children: "Select a food to see its nutrients"
                                 }, void 0, false, {
                                     fileName: "[project]/app/log/page.tsx",
-                                    lineNumber: 211,
+                                    lineNumber: 288,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/log/page.tsx",
-                                lineNumber: 184,
+                                lineNumber: 234,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/log/page.tsx",
-                        lineNumber: 141,
+                        lineNumber: 174,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/log/page.tsx",
-                lineNumber: 119,
+                lineNumber: 154,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BottomNav$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/app/log/page.tsx",
-                lineNumber: 220,
+                lineNumber: 297,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/log/page.tsx",
-        lineNumber: 118,
+        lineNumber: 153,
         columnNumber: 5
     }, this);
 }

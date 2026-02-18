@@ -19,7 +19,7 @@ Categories: ${FOOD_GROUPS.join(", ")}`,
     : "seasonings";
 }
 
-async function normalizeNutrients(openai: OpenAI, foodNutrients: any[]) {
+async function normalizeNutrients(openai: OpenAI, nutrients: any[]) {
   const res = await openai.chat.completions.create({
     model: "gpt-4o-mini",
     temperature: 0,
@@ -58,7 +58,7 @@ Rules:
 - Do not include extra keys
 `.trim(),
       },
-      { role: "user", content: JSON.stringify(foodNutrients) },
+      { role: "user", content: JSON.stringify(nutrients) },
     ],
   });
 

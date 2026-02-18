@@ -370,20 +370,20 @@ img, video {
   width: 10rem;
 }
 
-.w-\[100\%\] {
-  width: 100%;
-}
-
-.w-\[60\%\] {
-  width: 60%;
-}
-
 .w-\[70\%\] {
   width: 70%;
 }
 
-.w-full {
+.w-\[80\%\] {
+  width: 80%;
+}
+
+.w-full, .w-\[100\%\] {
   width: 100%;
+}
+
+.w-\[50\%\] {
+  width: 50%;
 }
 
 .max-w-3xl {
@@ -591,6 +591,11 @@ img, video {
 
 .p-6 {
   padding: 1.5rem;
+}
+
+.px-2 {
+  padding-left: .5rem;
+  padding-right: .5rem;
 }
 
 .px-3 {

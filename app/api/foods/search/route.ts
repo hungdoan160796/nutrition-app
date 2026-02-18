@@ -37,7 +37,9 @@ export async function GET(req: Request) {
       fdcId: f.fdcId,
       description: f.description,
       brandName: f.brandOwner ?? f.brandName ?? null,
-      foodNutrients: f.foodNutrients ?? [],
+      nutrients: f.nutrients ?? [],
+      servingSize: f.servingSize ?? 100,
+      servingSizeUnit: f.servingSizeUnit ?? "grams"
     })),
   });
 }

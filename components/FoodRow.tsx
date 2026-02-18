@@ -12,12 +12,16 @@ type FoodFromDB = {
   term: string;
   name: string;
   grams?: number;
+  measurement?: number;
+  servingSize?: number;
+  servingSizeUnit?: string;
 };
 
 type SelectedFood = {
   name: string;
   term: string;
   quantity?: number;
+  unit?: string;
 };
 
 type FoodRowProps = {
@@ -27,7 +31,7 @@ type FoodRowProps = {
   catalog?: FoodCatalogItem[];
 };
 
-const normalize = (s: string) => s.trim().toLowerCase();
+const normalize = (s?: string) => (s ?? "").trim().toLowerCase();
 
 export default function FoodRow({
   food,
@@ -37,7 +41,7 @@ export default function FoodRow({
 }: FoodRowProps) {
   const normalizedName = normalize(food.name);
 
-   const foodsSelected = (catalog ?? []) as FoodCatalogItem[];
+  const foodsSelected = (catalog ?? []) as FoodCatalogItem[];
 
   const catalogFood = useMemo(() => {
     return foodsSelected.find((f) => normalize(f.name) === normalizedName);
@@ -45,7 +49,19 @@ export default function FoodRow({
 
   const term = catalogFood?.term ?? normalizedName;
   const name = catalogFood?.name ?? food.name;
-  const quantity = food.grams;
+
+  const quantity =
+    typeof food.grams === "number"
+      ? food.grams
+      : typeof food.measurement === "number"
+      ? food.measurement
+      : typeof food.servingSize === "number"
+      ? food.servingSize
+      : undefined;
+
+  const unit =
+    food.servingSizeUnit ??
+    (typeof food.grams === "number" ? "g" : undefined);
 
   useEffect(() => {
     if (!onChange) return;
@@ -53,17 +69,18 @@ export default function FoodRow({
     if (
       selected?.term !== term ||
       selected?.name !== name ||
-      selected?.quantity !== quantity
+      selected?.quantity !== quantity ||
+      selected?.unit !== unit
     ) {
-      onChange({ term, name, quantity });
+      onChange({ term, name, quantity, unit });
     }
-  }, [term, name, quantity, selected, onChange]);
+  }, [term, name, quantity, unit, selected, onChange]);
 
   return (
     <div className="w-[70%] flex justify-between text-sm text-[var(--accent)]">
-      <div>{term}</div>
+      <div className="w-[80%]">{term}</div>
       <div className="text-[var(--accent)]">
-        {quantity ?? ""}
+        {quantity != null ? `${quantity}${unit ? ` ${unit}` : ""}` : ""}
       </div>
     </div>
   );

@@ -75,7 +75,9 @@ async function GET(req) {
                 fdcId: f.fdcId,
                 description: f.description,
                 brandName: f.brandOwner ?? f.brandName ?? null,
-                foodNutrients: f.foodNutrients ?? []
+                foodNutrients: f.foodNutrients ?? [],
+                servingSize: f.servingSize ?? 100,
+                servingSizeUnit: f.servingSizeUnit ?? "grams"
             }))
     });
 }

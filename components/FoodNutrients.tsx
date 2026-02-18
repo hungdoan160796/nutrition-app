@@ -2,15 +2,25 @@
 
 import { getNutrientById } from "@/lib/nutrientRegistry";
 
+type NutrientMap = Record<string, number>;
+
 type Props = {
-  nutrients: Record<string, number>;
-  grams?: number;
+  nutrients?: NutrientMap | null;
+  servingSize: number;
+  amount: number;
 };
 
-export default function FoodNutrients({ nutrients, grams }: Props) {
-  const entries = Object.entries(nutrients ?? {});
+export default function nutrients({
+  nutrients,
+  servingSize,
+  amount,
+}: Props) {
+  const safe: NutrientMap = nutrients ?? {};
 
-  if (!entries.length) {
+  const entries = (Object.entries(safe) as [keyof NutrientMap, number][])
+    .filter(([, v]) => Number.isFinite(v));
+
+  if (!entries.length || !Number.isFinite(servingSize) || servingSize <= 0) {
     return (
       <div className="rounded-xl p-4 border bg-[var(--background)] text-sm text-neutral-400">
         No nutrient information available
@@ -18,19 +28,23 @@ export default function FoodNutrients({ nutrients, grams }: Props) {
     );
   }
 
+  const ratio =
+    Number.isFinite(amount) && amount > 0
+      ? amount / servingSize
+      : 1;
+
   return (
     <div className="grid grid-cols-1 gap-3">
-      {entries.map(([key, amount]) => {
-        const def = getNutrientById(key);
-        const label = def?.label ?? key;
+      {entries.map(([key, baseAmount]: [keyof NutrientMap, number]) => {
+        const def = getNutrientById(String(key));
+        const label = def?.label ?? String(key);
         const unit = def?.unit ?? "";
 
-        // amount is per 100g in many data shapes; treat as per-100g unless grams omitted
-        const displayAmount = grams ? (amount * grams) / 100 : amount;
+        const displayAmount = baseAmount * ratio;
 
         return (
           <div
-            key={key}
+            key={String(key)}
             className="rounded-xl bg-[var(--background)] border border-[var(--border)] p-3 text-sm"
           >
             <div className="flex justify-between items-baseline">
@@ -38,11 +52,9 @@ export default function FoodNutrients({ nutrients, grams }: Props) {
                 {label}
               </div>
               <div className="text-[var(--foreground)] text-xs">
-                {Number.isFinite(displayAmount) ? (
-                  <>{Math.round(displayAmount * 100) / 100} {unit}</>
-                ) : (
-                  "-"
-                )}
+                {Number.isFinite(displayAmount)
+                  ? `${Math.round(displayAmount * 100) / 100} ${unit}`
+                  : "-"}
               </div>
             </div>
           </div>

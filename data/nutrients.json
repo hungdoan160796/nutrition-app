@@ -120,7 +120,7 @@
       "usda_names": ["Vitamin B-12"]
     },
     {
-      "id": "folate",
+      "id": "vitamin_b6",
       "label": "Folate",
       "unit": "µg",
       "category": "vitamin",
